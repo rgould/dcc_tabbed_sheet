@@ -1,0 +1,25 @@
+require 'erb'
+require 'action_view'
+
+module DccTabbedSheet
+  class Compiler
+
+    def self.perform
+      options = {
+        inline: File.read("views/DCC_Tabbed_Sheet.html.erb"),
+        type: :erb,
+        locals: {}
+      }
+      klass = Class.new(ActionView::Base)
+      view_paths = ["views"]
+      details = {}
+      prefixes = []
+      lookup_context = ActionView::LookupContext.new(view_paths, details, prefixes)
+      assigns = {}
+      controller = nil
+      output = klass.new(lookup_context, assigns, controller).render(options)
+      File.write("build/DCC_Tabbed_Sheet.html", output)
+    end
+
+  end
+end
