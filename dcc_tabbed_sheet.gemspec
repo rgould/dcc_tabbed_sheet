@@ -3,10 +3,12 @@ require_relative 'lib/dcc_tabbed_sheet/version'
 Gem::Specification.new do |spec|
   spec.name          = "dcc_tabbed_sheet"
   spec.version       = DccTabbedSheet::VERSION
-  spec.authors       = ["rgould"]
-  spec.email         = ["rwgould@gmail.com"]
+  spec.authors       = ["Richard Gould"]
+  spec.email         = ["rgould@u2622.ca"]
 
-  spec.summary       = %q{DCC_Tabbed_Sheet}
+  spec.summary       = %q{Source code for Roll20's DCC RPG tabbed character sheet}
+  spec.description   = "Organised source code and tools for generating the tabbed character sheet for DCC RPG for Roll20"
+  spec.homepage      = "https://github.com/rgould/dcc_tabbed_sheet"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
