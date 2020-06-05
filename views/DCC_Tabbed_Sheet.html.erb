@@ -8,7 +8,7 @@
 		</div>
 
 	<div class="sheet-core-header sheet-padb">
-		
+
 
 		<div class="sheet-row">
 			<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" placeholder="Player Name" name="attr_playerName"><br />Player Name</div>
@@ -33,11 +33,11 @@
 		<div class="sheet-maintab-content sheet-player">
 
 			<h5 class="sheet-center">1+-level Character Sheet</h5>
-		
+
 			<p class="sheet-small-note">The main player character sheet.</p>
-			
+
 			<input type="radio" name="attr_tab" class="sheet-tab sheet-tab1" value="1" title="Core Stats" checked="checked" />
-			<span class="sheet-tab sheet-tab1">Core Stats</span>	
+			<span class="sheet-tab sheet-tab1">Core Stats</span>
 			<input type="radio" name="attr_tab" class="sheet-tab sheet-tab2" value="2" />
 			<span class="sheet-tab sheet-tab2">Background</span>
 			<input type="radio" name="attr_tab" class="sheet-tab sheet-tab3" value="3" />
@@ -52,11 +52,11 @@
 			<span class="sheet-tab sheet-tab7">Inventory</span>
 			<input type="radio" name="attr_tab" class="sheet-tab sheet-tab99" value="99" />
 			<span class="sheet-tab sheet-tab99">Show All</span>
-			
+
 			<span class="sheet-spacer"></span>
 
-			<!-- CORE STATS -->	
-			
+			<!-- CORE STATS -->
+
 				<div class="sheet-section-core">
 
 					<div class="sheet-row">
@@ -83,9 +83,9 @@
 								<div class="sheet-row">
 
 		  							<div class="sheet-col-3-19 sheet-center">&nbsp;</div>
-								
+
 									<div class="sheet-col-5-19">
-		  								
+
 		  								<div class="sheet-ACBG">
 		  									<div class="sheet-col-1-4 sheet-center">&nbsp;</div>
 											<div class="sheet-col-1-3 sheet-center"><input class="sheet-AC" type="number" name="attr_AC" value="@{acCalc}" disabled="disabled" /><br />.</div>
@@ -95,14 +95,14 @@
 									<div class="sheet-col-1-19 sheet-center">&nbsp;</div>
 
 									<div class="sheet-col-5-19">
-		  								
+
 		  								<div class="sheet-HPBG">
 											<div class="sheet-col-1-4 sheet-center">&nbsp;</div>
 											<div class="sheet-col-1-3 sheet-center "><input class="sheet-HP" type="text" name="attr_HP" value="0" /><br />.</div>
 										</div>
 									</div>
 
-									<div class="sheet-col-5-19 sheet-padl">		
+									<div class="sheet-col-5-19 sheet-padl">
 										<div class="sheet-col-1-2 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_HP_max" value="0"><br />Max HP</div>
 									</div>
 
@@ -149,7 +149,7 @@
 
 						</div>
 
-					<!--Combat Basics -->	
+					<!--Combat Basics -->
 						<div class="sheet-col-1-2 sheet-padr">
 
 							<h4 class="sheet-center">Combat Basics </h4>
@@ -282,21 +282,21 @@
 											<option value="d16">d16</option>
 										</select>
 									</div>
-									
+
 									<input type="hidden" name="attr_fumbleCheck" value="[[[[@{luckMod}]] * (-1)]]" disabled="true" />
 								</div>
 
-						</div>				
+						</div>
 
-					</div>		
+					</div>
 
 					<div class="sheet-row">
 
 					<!-- Core Stats -->
 						<div class="sheet-col-1-2 sheet-padr">
-							
-							<h4 class="sheet-center">Core Stats</h4>			
-							
+
+							<h4 class="sheet-center">Core Stats</h4>
+
 							<div class="sheet-row sheet-sub-header">
 								<div class="sheet-col-3-8 sheet-center">&nbsp;</div>
 								<div class="sheet-col-1-8 sheet-center sheet-small-label">Current Score</div>
@@ -318,7 +318,7 @@
 									<button type='roll' class="sheet-core-check" value="&{template:DccTabbed} {{background=[[5]]}} {{stat=1}} {{name=@{character_name}}} {{title=STR Skill Check - 1d10}} {{flavortext=UNTRAINED:  If your character’s background does not support a skill use, your character is not familiar with the activity.}} {{rolltype=Untrained : }} {{ability=[[1d10 + [[@{strMod}]] [Stat Mod] ]]}}" name='STR' title="Untrained STR Skill">U</button>
 								</div>
 							</div>
-							
+
 							<div class="sheet-row">
 								<div class="sheet-col-3-8 sheet-core-stat-label">Agility</div>
 								<div class="sheet-col-1-8"><input type="number" name="attr_agi" min="1" step="1" /></div>
@@ -331,7 +331,7 @@
 									<button type='roll' class="sheet-core-check" value="&{template:DccTabbed} {{background=[[5]]}} {{stat=1}} {{name=@{character_name}}} {{title=AGI Skill Check - 1d10}} {{flavortext=UNTRAINED:  If your character’s background does not support a skill use, your character is not familiar with the activity.}} {{rolltype=Untrained : }} {{ability=[[1d10 + [[@{agiMod}]] [Stat Mod] ]]}}" name='AGI' title="Untrained AGI Skill">U</button>
 								</div>
 							</div>
-							
+
 							<div class="sheet-row">
 								<div class="sheet-col-3-8 sheet-core-stat-label">Stamina</div>
 								<div class="sheet-col-1-8"><input type="number" name="attr_sta" min="1" step="1" /></div>
@@ -344,7 +344,7 @@
 									<button type='roll' class="sheet-core-check" value="&{template:DccTabbed} {{background=[[5]]}} {{stat=1}} {{name=@{character_name}}} {{title=STA Skill Check - 1d10}} {{flavortext=UNTRAINED:  If your character’s background does not support a skill use, your character is not familiar with the activity.}} {{rolltype=Untrained : }} {{ability=[[1d10 + [[@{staMod}]] [Stat Mod] ]]}}" name='STA' title="Untrained STA Skill">U</button>
 								</div>
 							</div>
-							
+
 							<div class="sheet-row">
 								<div class="sheet-col-3-8 sheet-core-stat-label">Personality</div>
 								<div class="sheet-col-1-8"><input type="number" name="attr_per" min="1" step="1" /></div>
@@ -357,7 +357,7 @@
 									<button type='roll' class="sheet-core-check" value="&{template:DccTabbed} {{background=[[5]]}} {{stat=1}} {{name=@{character_name}}} {{title=PER Skill Check - 1d10}} {{flavortext=UNTRAINED:  If your character’s background does not support a skill use, your character is not familiar with the activity.}} {{rolltype=Untrained : }} {{ability=[[1d10 + [[@{perMod}]] [Stat Mod] ]]}}" name='PER' title="Untrained PER Skill">U</button>
 								</div>
 							</div>
-												
+
 							<div class="sheet-row">
 								<div class="sheet-col-3-8 sheet-core-stat-label">Intelligence</div>
 								<div class="sheet-col-1-8"><input type="number" name="attr_int" min="1" step="1" /></div>
@@ -368,7 +368,7 @@
 								</div>
 								<div class="sheet-col-1-8 sheet-center">
 									<button type='roll' class="sheet-core-check" value="&{template:DccTabbed} {{background=[[5]]}} {{stat=1}} {{name=@{character_name}}} {{title=INT Skill Check - 1d10}} {{flavortext=UNTRAINED:  If your character’s background does not support a skill use, your character is not familiar with the activity.}} {{rolltype=Untrained : }} {{ability=[[1d10 + [[@{intMod}]] [Stat Mod] ]]}}" name='INT' title="Untrained INT Skill">U</button>
-								</div>	
+								</div>
 							</div>
 
 							<div class="sheet-row">
@@ -384,7 +384,7 @@
 								</div>
 							</div>
 
-							
+
 
 							<div class="sheet-row">
 								<div class="sheet-col-1-10 sheet-center">&nbsp;</div>
@@ -407,12 +407,12 @@
 							</div>
 
 							<div class="sheet-col-2-7 sheet-center">&nbsp;</div>
-						
+
 						</div>
 
-					<!-- Saving Throws, Movement -->	
+					<!-- Saving Throws, Movement -->
 						<div class="sheet-col-1-2 sheet-padr">
-							
+
 							<h4 class="sheet-center">Saving Throws </h4>
 
 							<div class="sheet-row sheet-sub-header">
@@ -424,7 +424,7 @@
 								<div class="sheet-col-2-19 sheet-center sheet-vert-bottom sheet-small-label">Total Bonus</div>
 								<div class="sheet-col-3-19 sheet-center sheet-small-label"></div>
 							</div>
-							
+
 							<div class="sheet-row">
 								<div class="sheet-col-6-19 sheet-core-stat-label">Reflex</div>
 								<div class="sheet-col-2-19" title="Enter the base value listed in Class Advancement Table"><input type="number" name="attr_REF" value="0" min="0" step="1"></div>
@@ -436,7 +436,7 @@
 									<button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=REFLEX Save}} {{flavortext=Saves against reaction-based threats, such as ducking a swinging axe trap, leaping aside as a doorway collapses, and twisting away from a dragon’s flaming breath.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{refCheck} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Reflex' title="Reflex Save">REF</button>
 								</div>
 							</div>
-							
+
 							<div class="sheet-row">
 								<div class="sheet-col-6-19 sheet-core-stat-label">Fortitude</div>
 								<div class="sheet-col-2-19" title="Enter the base value listed in Class Advancement Table"><input type="number" name="attr_FORT" value="0" min="0" step="1"></div>
@@ -448,7 +448,7 @@
 									<button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=FORTITUDE Save}} {{flavortext=Saves against physical threats, such as poisons, gasses, acids, and stunning damage.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{fortCheck} + (?{Burn die - Any additional Bonus/Minus|0})]]}}" name='ST_Fortitude' title="Fortitude Save">FORT</button>
 								</div>
 							</div>
-							
+
 							<div class="sheet-row">
 								<div class="sheet-col-6-19 sheet-core-stat-label">Will</div>
 								<div class="sheet-col-2-19" title="Enter the base value listed in Class Advancement Table"><input type="number" name="attr_WILL" value="0" min="0" step="1"></div>
@@ -459,12 +459,12 @@
 								<div class="sheet-col-3-19 sheet-center">
 									<button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=WILL Save}} {{flavortext=Saves against mind-influencing threats, such as spells that charm or control, psychic effects that cause sleep or hypnosis, and mental domination.}} {{rolltype=Saving Throw : }}{{savingthrow=[[1d20 + @{willCheck} + (?{Burn die - Any additional Bonus/Minus|0})]]}}" name='ST_Will' title="Will Save">WILL</button>
 								</div>
-							</div>		
+							</div>
 
 							<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
 
 							<h4 class="sheet-center">Movement </h4>
-							
+
 							<div class="sheet-row sheet-padb">
 
 								<div class="sheet-row">
@@ -490,15 +490,15 @@
 
 					</div>
 
-				<!-- languages, Birth Augurs -->	
+				<!-- languages, Birth Augurs -->
 					<div class="sheet-col-1-1">
-							
+
 							<h4 class="sheet-center">Languages - Starting Luck - Birth Augur </h4>
-											
+
 							<div class="sheet-row">
-							
+
 								<div class="sheet-col-5-5 sheet-padl">
-								
+
 									<div class="sheet-row">
 										<div class="sheet-col-1-5 sheet-hd-row sheet-right sheet-padr">Known Languages<br /></div>
 										<div class="sheet-col-3-5"><textarea name="attr_Languages"></textarea></div>
@@ -521,7 +521,7 @@
 									</div>
 
 									<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
-									
+
 									<div class="sheet-row">
 										<div class="sheet-col-1-5 sheet-hd-row sheet-right sheet-padr">Lucky Roll<br /></div>
 										<div class="sheet-col-3-5 sheet-center"><input class="sheet-center sheet-underline" type="text" name="attr_luckyRoll"></div>
@@ -598,11 +598,11 @@
 
 									<div class="sheet-col-9-22 sheet-left sheet-vert-middle">Lucky Roll for <b>Wild Child (Speed)</b>?</div>
 									<div class="sheet-col-1-20 sheet-left sheet-padr sheet-checkbox-row sheet-vert-middle" title="Check the box if you have the Lucky Roll for Speed"><input type="checkbox" value="[[@{luckStartingMod} * (5)]]" name="attr_speedLuckyRoll"></div>
-			
+
 								</div>
-							
-							</div>			
-							
+
+							</div>
+
 					</div>
 
 				</div>
@@ -610,29 +610,29 @@
 			<!-- BACKGROUND INFORMATION -->
 
 				<div class="sheet-section-background">
-					
-					<h4 class="sheet-center">Appearance and Vision </h4>	
+
+					<h4 class="sheet-center">Appearance and Vision </h4>
 					<div class="sheet-row">
 						<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_gender"><br />Gender</div>
 						<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_age"><br />Age</div>
 						<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_height"><br />Height</div>
 						<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_weight"><br />Weight</div>
 					</div>
-					
+
 					<div class="sheet-row sheet-padb">
 						<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_eyes"><br />Eyes</div>
 						<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_hair"><br />Hair</div>
 						<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_size"><br />Size</div>
 						<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_vision"><br />Vision</div>
 					</div>
-					
+
 					<h4 class="sheet-center">Equipment Proficiencies </h4>
 					<div class="sheet-row sheet-sub-header">
 						<div class="sheet-col-1-3 sheet-center sheet-small-label">Armor Proficiencies</div>
 						<div class="sheet-col-1-3 sheet-center sheet-small-label">Weapon Proficiencies</div>
 						<div class="sheet-col-1-3 sheet-center sheet-small-label">Tool Proficiencies</div>
 					</div>
-					
+
 					<div class="sheet-row">
 						<div class="sheet-col-1-3"><textarea name="attr_proArmor"></textarea></div>
 						<div class="sheet-col-1-3"><textarea name="attr_proWeapons"></textarea></div>
@@ -649,7 +649,7 @@
 			<!-- CLASSES -->
 
 				<div class="sheet-section-class">
-						
+
 					<div class="sheet-col-1-1 sheet-left sheet-class-label">Core Classes</div>
 					<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
 					<input type="radio" class="isCleric" value="3" name="attr_Class"><label class="sheet-subtab">Cleric</label>
@@ -665,7 +665,7 @@
 					<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
 					<input type="radio" class="isKith" value="19" name="attr_Class"><label class="sheet-subtab">Kith</label>
 					<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
-					
+
 					<div class="sheet-col-1-1 sheet-left sheet-class-label">Crawl! Classes</div>
 					<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
 					<input type="radio" class="isBard" value="8" name="attr_Class"><label class="sheet-subtab">Bard</label>
@@ -677,7 +677,7 @@
 					<input type="radio" class="isHalflingBurglar" value="19" name="attr_Class"><label class="sheet-subtab">Halfling Burglar</label>
 					<input type="radio" class="isHalflingChamp" value="14" name="attr_Class"><label class="sheet-subtab">Halfling Champion</label>
 					<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
-					
+
 					<div class="sheet-col-1-1 sheet-left sheet-class-label">Crawling Under a Broken Moon Classes</div>
 					<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
 					<input type="radio" class="isCyborg" value="15" name="attr_Class"><label class="sheet-subtab">Cyborg</label>
@@ -686,7 +686,7 @@
 					<input type="radio" class="isTechnologist" value="18" name="attr_Class"><label class="sheet-subtab">Technologist</label>
 
 					<hr />
-					
+
 						<!-- Bard -->
 						<div class="sheet-bard">
 							<h3>Bard Abilities</h3>
@@ -708,7 +708,7 @@
 								<div class="sheet-col-2-11 sheet-checkbox-row sheet-vert-middle" title="Check the box if you want the Bonus to Bardic Talent Checks"><input type="checkbox" value="[[@{luckStartingMod}]]" name="attr_bardLuckTalent"><b> Bardic Talent Checks</b></div>
 								<div class="sheet-col-1-24 sheet-center sheet-vert-middle">OR</div>
 								<div class="sheet-col-2-15 sheet-checkbox-row sheet-vert-middle" title="Check the box if you want the Bonus to Lore Rolls"><input type="checkbox" value="[[@{luckStartingMod}]]" name="attr_bardLuckLore"><b> Lore Checks</b></div>
-								
+
 
 								<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
 
@@ -829,14 +829,14 @@
 								</div>
 
 									<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
-					
+
 									<ul>
 			  							<li><b>Hit Points: </b> 1d6 per level<br /> </li>
 			  							<li><b>Weapons: </b> Club, dagger, hand axe, quarterstaff, spear, crossbow, shortbow, and sling.  Bards can add one new specific weapon proficiency per level.<br /></li>
 			  							<li><b>Armor: </b> Bards can use any armor or shields, but it affects the use of their spells and skills.<br /></li>
 			  							<li><b>Languages: </b> Knows Common.  Also knows one additional language for every point of Int modifier<br /></li>
 			  							<li><b>Alignment: </b> Law (common), Neutral (common), Chaos (uncommon)<br /></li>
-									</ul>	
+									</ul>
 						</div>
 
 						<!-- Cyborg -->
@@ -852,7 +852,7 @@
 										<button type="roll" class="sheet-roll" name="roll_FindSecretDoor"
 										value="&{template:DccTabbed} {{class=1}} {{name=@{character_name}}} {{title=Find Secret Doors}} {{flavortext=Looks around for secret or hidden doors.}} {{rolltype=Search Check : }} {{classability=[[ @{ActionDie} [Action Die] + @{secretDoorCheck} [Bonus] ]]  }}">Find Secret Doors</button>
 									</div>
-								</div>	
+								</div>
 
 								<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
 								<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
@@ -1271,7 +1271,7 @@
 								</div>
 
 								<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
-				
+
 								<ul>
 		  							<li><b>Hit Points:</b>1d10 per level<br /> </li>
 		  							<li><b>Weapons: </b> Battleaxe, club, dagger, handaxe, longsword, mace, short sword, spear, two-handed sword, warhammer, crossbow, javelin, shortbow, and sling<br /></li>
@@ -1514,7 +1514,7 @@
 								</div>
 
 								<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
-				
+
 								<ul>
 		  							<li><b>Hit Points:</b>1d8 per level<br /> </li>
 		  							<li><b>Weapons: </b> Battleaxe, club, handaxe, mace, spear, warhammer, crossbow, and sling<br /></li>
@@ -1561,11 +1561,11 @@
 						</div>
 
 						<!-- Elf -->
-						<div class="sheet-elf">	
+						<div class="sheet-elf">
 							<h3>Elf Abilities</h3>
 
 								<input type="hidden" name="attr_elfSensesBonus" value="4" />
-							
+
 								<div class="sheet-row">
 									<div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Heightened Senses<br /></div>
 									<div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_secretDoorsCheckMisc" value="0"><br />Misc Bonus</div>
@@ -1739,11 +1739,11 @@
 						</div>
 
 						<!-- Elf Rogue -->
-						<div class="sheet-elfrogue">	
+						<div class="sheet-elfrogue">
 							<h3>Elf Rogue Abilities</h3>
 
 								<input type="hidden" name="attr_elfRogueSensesBonus" value="4" />
-							
+
 								<div class="sheet-row">
 									<div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Heightened Senses<br /></div>
 									<div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_secretDoorsCheckMisc" value="0"><br />Misc Bonus</div>
@@ -2314,7 +2314,7 @@
 						</div>
 
 						<!-- Gnome -->
-						<div class="sheet-gnome">	
+						<div class="sheet-gnome">
 							<h3>Gnome Abilities</h3>
 
 								<div class="sheet-row">
@@ -2345,7 +2345,7 @@
 								</div>
 
 								<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
-							
+
 								<div class="sheet-row">
 									<div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Magic Resistance<br /></div>
 									<div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Magic Resistance bonus"><input class="sheet-underlined sheet-center" type="number" name="attr_magicResistance" value="[[(10*@{Level})]]" disabled="disabled"><br />% Bonus</div>
@@ -2447,7 +2447,7 @@
 						</div>
 
 						<!-- Halfling -->
-						<div class="sheet-halfling">	
+						<div class="sheet-halfling">
 							<h3>Halfling Abilities</h3>
 
 								<div class="sheet-row">
@@ -2530,7 +2530,7 @@
 		  							<li><b>Languages: </b> Knows Common, Halfling, & one other language.  Also knows one additional language for every point of Int modifier<br /></li>
 		  							<li><b>Infravision: </b> 30 feet<br /></li>
 		  							<li><b>Movement: </b> 20 feet<br /></li>
-								</ul>	
+								</ul>
 						</div>
 
 						<!-- Halfling Burglar -->
@@ -3025,7 +3025,7 @@
 											<li><b>Languages: </b> Knows Common, Halfling, & one other language.  Also knows one additional language for every point of Int modifier<br /></li>
 											<li><b>Infravision: </b> 30 feet<br /></li>
 											<li><b>Movement: </b> 20 feet<br /></li>
-										</ul>	
+										</ul>
 									</div>
 
 								<!-- Beta Thief Skills -->
@@ -3408,12 +3408,12 @@
 											<li><b>Languages: </b> Knows Common, Halfling, & one other language.  Also knows one additional language for every point of Int modifier<br /></li>
 											<li><b>Infravision: </b> 30 feet<br /></li>
 											<li><b>Movement: </b> 20 feet<br /></li>
-										</ul>	
+										</ul>
 								</div>
 						</div>
 
 						<!-- Halfling Champion -->
-						<div class="sheet-halflingchamp">	
+						<div class="sheet-halflingchamp">
 							<h3>Halfling Champion Abilities</h3>
 
 								<div class="sheet-row">
@@ -3507,13 +3507,13 @@
 		  							<li><b>Languages: </b> Knows Common, and Halfling.  Also knows one additional language for every point of Int modifier<br /></li>
 		  							<li><b>Infravision: </b> 30 feet<br /></li>
 		  							<li><b>Movement: </b> 20 feet<br /></li>
-								</ul>	
+								</ul>
 						</div>
 
 						<!-- Kith -->
 						<div class="sheet-kith">
 
-							<h3>Kith Abilities</h3>	
+							<h3>Kith Abilities</h3>
 
 								<div class="sheet-row">
 									<div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Secret Doors<br /></div>
@@ -3689,13 +3689,13 @@
 		  							<li><b>Alignment: </b> Law (uncommon), Neutral (common), Chaos (common)<br /></li>
 								</ul>
 
-								<div class="sheet-col-1-1 sheet-center">&nbsp;</div>	
+								<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
 
 								<!-- BEGIN Mutation page -->
 								<div class="sheet-col-1 sheet-vert-bottom sheet-center sheet-large-label">Character Mutations</div>
 								<!--<p class="sheet-small-note">All mutant characters have one or more mutations. Roll on table MU-2 (on Mutant Handout) to determine what type of mutation you have. Then roll to determine the sub-table under the type of mutation. Finally, roll on the sub-table to determine the mutation. Once you have determined what mutation you have, roll the percentage chance for each item listed. Yes, it is possible to receive no benefits or penalties for the mutation.</p>-->
-					
-					
+
+
 									<fieldset class="repeating_mutations">
 									<!-- BEGIN mutation row -->
 										<div class="sheet-margin-bottom sheet-padr sheet-padl">
@@ -3705,7 +3705,7 @@
 												<div class="sheet-col-1-3 sheet-vert-bottom sheet-center sheet-small-label">Sub-Mutation</div>
 												<div class="sheet-col-1-3 sheet-vert-bottom sheet-center sheet-small-label">Sub-Mutation's Features</div>
 											</div>
-						
+
 											<div class="sheet-row">
 												<div class="sheet-col-1-6 sheet-vert-middle" title="Select your Base Mutation">
 													<select name="attr_baseMutation">
@@ -3713,32 +3713,32 @@
 														<option value="Physiology">Physiology</option>
 														<option value="None" selected="selected">--</option>
 													</select>
-												</div>	
+												</div>
 												<div class="sheet-col-1-6 sheet-vert-middle"><input type="text" class="sheet-center" name="attr_typeMutation"></div>
 												<div class="sheet-col-1-3 sheet-vert-middle"><input type="text" class="sheet-center" name="attr_subMutation"></div>
 												<div class="sheet-col-1-3 sheet-vert-middle"><input type="text" class="sheet-center" name="attr_subMutationFeature"></div>
 											</div>
-						
-						
+
+
 											<span class="sheet-spacer"></span>
 											<span class="sheet-small-label">Show :</span>
-											<input type="checkbox" name="attr_subMutationAbility1" class="sheet-spelltypetab sheet-SubMutationAbility1" value="1" /><span class="sheet-spelltypetab sheet-subMutationAbility1">Ability 1</span> 
+											<input type="checkbox" name="attr_subMutationAbility1" class="sheet-spelltypetab sheet-SubMutationAbility1" value="1" /><span class="sheet-spelltypetab sheet-subMutationAbility1">Ability 1</span>
 											<input type="checkbox" name="attr_subMutationAbility2" class="sheet-spelltypetab sheet-SubMutationAbility2" value="1" /><span class="sheet-spelltypetab sheet-subMutationAbility2">Ability 2</span> |
 											<input type="checkbox" name="attr_subMutationAbility3" class="sheet-spelltypetab sheet-SubMutationAbility3" value="1" /><span class="sheet-spelltypetab sheet-subMutationAbility3">Ability 3</span> |
 											<input type="checkbox" name="attr_subMutationAbility4" class="sheet-spelltypetab sheet-SubMutationAbility4" value="1" /><span class="sheet-spelltypetab sheet-subMutationAbility4">Ability 4</span>
 											<span class="sheet-spacer"></span>
-						
+
 											<div class="sheet-spell-type-subMutationAbility1">
 												<div class="sheet-row">
 													<div class="sheet-col-1-3 sheet-vert-bottom sheet-center sheet-small-label">Ability/Disablity Name</div>
 													<div class="sheet-col-1-2 sheet-vert-bottom sheet-center sheet-small-label">Ability/Disability Description</div>
 													<div class="sheet-col-1-6 sheet-vert-bottom sheet-center">&nbsp;</div>
 												</div>
-							
+
 												<div class="sheet-row">
 													<div class="sheet-col-4-13 sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_subMutationName"></div>
 													<div class="sheet-col-1-2 sheet-small-label sheet-center"><textarea name="attr_subMutationDescription" class="sheet-medium"></textarea></div>
-													
+
 
 													<div class="sheet-col-4-23 sheet-vert-middle sheet-left">
 														<button type="roll" class="sheet-roll sheet-vert-middle" name="roll_mutationInfo"
@@ -3746,14 +3746,14 @@
 													</div>
 												</div>
 											</div>
-				
+
 											<div class="sheet-spell-type-subMutationAbility2">
 												<div class="sheet-row">
 													<div class="sheet-col-1-3 sheet-vert-bottom sheet-center sheet-small-label">Ability/Disablity Name</div>
 													<div class="sheet-col-1-2 sheet-vert-bottom sheet-center sheet-small-label">Ability/Disability Description</div>
 													<div class="sheet-col-1-6 sheet-vert-bottom sheet-center">&nbsp;</div>
 												</div>
-							
+
 												<div class="sheet-row">
 													<div class="sheet-col-4-13 sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_subMutation2Name"></textarea></div>
 													<div class="sheet-col-1-2 sheet-small-label sheet-center"><textarea name="attr_subMutation2Description" class="sheet-medium"></textarea></div>
@@ -3771,7 +3771,7 @@
 													<div class="sheet-col-1-3 sheet-vert-bottom sheet-center sheet-small-label">Ability/Disability Description</div>
 													<div class="sheet-col-1-6 sheet-vert-bottom sheet-center">&nbsp;</div>
 												</div>
-							
+
 												<div class="sheet-row">
 													<div class="sheet-col-4-13 sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_subMutation3Name"></textarea></div>
 													<div class="sheet-col-1-2 sheet-small-label sheet-center"><textarea name="attr_subMutation3Description" class="sheet-medium"></textarea></div>
@@ -3789,7 +3789,7 @@
 													<div class="sheet-col-1-2 sheet-vert-bottom sheet-center sheet-small-label">Ability/Disability Description</div>
 													<div class="sheet-col-1-6 sheet-vert-bottom sheet-center">&nbsp;</div>
 												</div>
-							
+
 												<div class="sheet-row">
 													<div class="sheet-col-4-13 sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_subMutation4Name"></textarea></div>
 													<div class="sheet-col-1-2 sheet-small-label sheet-center"><textarea name="attr_subMutation4Description" class="sheet-medium"></textarea></div>
@@ -3802,8 +3802,8 @@
 											</div>
 
 										</div>
-				
-									<!-- END mutation row -->	
+
+									<!-- END mutation row -->
 									</fieldset>
 						</div>
 
@@ -4107,7 +4107,7 @@
 						<!-- Petrol Head -->
 						<div class="sheet-petrolhead">
 
-							<h3>Petrol Head Abilities</h3>	
+							<h3>Petrol Head Abilities</h3>
 
 								<div class="sheet-row">
 									<div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Secret Doors<br /></div>
@@ -4208,7 +4208,7 @@
 						<!-- Ranger -->
 						<div class="sheet-ranger">
 
-							<h3>Ranger Abilities</h3>	
+							<h3>Ranger Abilities</h3>
 
 								<div class="sheet-row">
 									<div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Secret Doors<br /></div>
@@ -4623,7 +4623,7 @@
 								</div>
 
 								<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
-				
+
 								<ul>
 		  							<li><b>Hit Points:</b>1d6 per level<br /> </li>
 		  							<li><b>Weapons: </b> Daggers, Clubs, Staves, Hand Axes, Crossbows, Pistols and Rifles of any Era, Grenades and Explosives of any Era<br /></li>
@@ -5123,7 +5123,7 @@
 											</div>
 
 									<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
-						
+
 										<ul>
 				  							<li><b>Hit Points:</b>1d6 per level<br /> </li>
 				  							<li><b>Weapons: </b> Blackjack, blowgun, crossbow, dagger, dart, garrote, longsword, short sword, sling, and staff<br /></li>
@@ -5532,7 +5532,7 @@
 										</div>
 
 										<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
-						
+
 										<ul>
 				  							<li><b>Hit Points:</b>1d6 per level<br /> </li>
 				  							<li><b>Weapons: </b> Blackjack, blowgun, crossbow, dagger, dart, garrote, longsword, short sword, sling, and staff<br /></li>
@@ -5614,8 +5614,8 @@
 								<div class="sheet-col-1-4 sheet-right" title="The weapon must be specific ie Longsword or Shortsword instead of just swords"><input class="sheet-underline sheet-center" type="text" placeholder="Choose one Warrior Weapon" name="attr_LuckyWeapon" /></div>
 							</div>
 
-							<div class="sheet-col-1-1 sheet-center">&nbsp;</div>			
-							
+							<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+
 							<div class="sheet-row">
 								<div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Class level to Initiative<br /></div>
 								<div class="sheet-col-1-10 sheet-right">
@@ -5819,7 +5819,7 @@
 		  							<li><b>Movement: </b> 30'<br /></li>
 								</ul>
 						</div>
-				
+
 					<hr />
 				</div>
 
@@ -5842,14 +5842,14 @@
 					</div>
 
 					<div class="sheet-col-1-14 sheet-center">&nbsp;</div>
-					
+
 					<div class="sheet-col-1-6 sheet-center">
 						<button type="roll" class="sheet-roll" name="roll_smiteDie"
 						value="&{template:DccTabbed} {{background=[[0]]}} {{combat=1}} {{name=@{character_name}}} {{title=Smite}} {{flavortext=Add this bonus to Attack and Damage rolls against those Unholy to }} {{rolltype=Smite : }} {{deity=@{ClericDeity} }} {{smite=[[ @{smiteDie} [Die Roll] ]]  }}">Smite</button>
 					</div>
 
 					<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
-					
+
 					<!-- BEGIN AUTO GENERATED WEAPON SECTION -->
 					<h4 class="sheet-center">Melee Weapons </h4>
 
@@ -5866,12 +5866,12 @@
 							<div class="sheet-col-1-20 sheet-center sheet-small-label sheet-vert-bottom">Dmg Bonus</div>
 						</div>
 
-						<!-- BEGIN MELEE weapon repeating row -->	
+						<!-- BEGIN MELEE weapon repeating row -->
 							<fieldset class="repeating_meleeweapon">
 								<div class="sheet-row">
 								<div class="sheet-col-1-20 sheet-checkbox-row" title="Check the box if this is your Lucky Weapon (Class ability)"><input type="checkbox" value="@{luckStartingMod}" name="attr_meleeAtkLuckyWeapon"></div>
 								<div class="sheet-col-1-20 sheet-checkbox-row" title="Check the box if you have the Lucky Roll for 0-level Starting weapon"><input type="checkbox" value="@{luckStartingMod}" name="attr_zeroWeaponLuckyRoll"></div>
-								
+
 								<div class="sheet-col-3-14"><input type="text" name="attr_meleeWeaponName"></div>
 								<div class="sheet-col-3-23" title="How is the weapon being wielded">
 									<select name="attr_meleeAttackWielded">
@@ -5895,7 +5895,7 @@
 										<option value="d6">d6</option>
 										<option value="d5">d5</option>
 										<option value="d4">d4</option>
-										<option value="d3">d3</option>				
+										<option value="d3">d3</option>
 									</select>
 								</div>
 
@@ -5913,13 +5913,13 @@
 										<option value="19">19-20</option>
 										<option value="18">18-20</option>
 										<option value="17">17-20</option>
-										<option value="16">16</option>				
+										<option value="16">16</option>
 									</select>
 								</div>
-								
+
 								<div class="sheet-col-1-20" title="The magic bonus will be added as a bonus to BOTH the attack and damage rolls"><input class="sheet-center" type="number" name="attr_meleeMagic" value="0"></div>
 								<div class="sheet-col-1-20"><input class=" sheet-center" type="number" name="attr_meleeToHit" value="[[[[@{strMod}]] + @{meleeMagic} + @{allAtkLuckyRoll} + @{meleeAtkLuckyRoll} + @{ATK} + @{meleeAtkLuckyWeapon} + @{zeroWeaponLuckyRoll}]]" disabled="disabled"></div>
-								
+
 								<div class="sheet-col-1-11" title="Only enter the base damage roll here without any bonuses from stats or other sources"><input class="sheet-center" value="0" type="text" name="attr_meleeDmg"></div>
 								<div class="sheet-col-1-20"><input class="sheet-center" type="number" name="attr_meleeDmgBonus" value="[[[[@{strMod}]] + @{meleeMagic} + @{meleedmgLuckyRoll} + @{dmgLuckyRoll} + @{zeroWeaponLuckyRoll}]]" disabled="disabled"></div>
 								<div class="sheet-col-1-14">
@@ -5968,7 +5968,7 @@
 									<div class="sheet-col-2-23" title="Select Thrown or Missile weapon">
 										<select name="attr_rangedWeaponType">
 											<option value="Thrown">Thrown</option>
-											<option value="Missile" selected="selected">Missile</option>			
+											<option value="Missile" selected="selected">Missile</option>
 										</select>
 									</div>
 									<div class="sheet-col-1-16" title="If you are not trained in your weapon use, you take -1 die for your attack roll.  You will also take a minus to your dice chain if using two-weapon fighting or shooting from long range.">
@@ -5985,7 +5985,7 @@
 											<option value="d6">d6</option>
 											<option value="d5">d5</option>
 											<option value="d4">d4</option>
-											<option value="d3">d3</option>				
+											<option value="d3">d3</option>
 										</select>
 									</div>
 									<div class="sheet-col-1-13" title="Your critical threat range goes up, if your dice on the dice chain goes up.">
@@ -6001,12 +6001,12 @@
 											<option value="20" selected="selected">20</option>
 											<option value="19">19-20</option>
 											<option value="18">18-20</option>
-											<option value="17">17-20</option>				
+											<option value="17">17-20</option>
 										</select>
 									</div>
 									<div class="sheet-col-1-24" title="The magic bonus will be added as a bonus to BOTH the attack and damage rolls"><input class="sheet-center" type="number" name="attr_rangedMagic" value="0"></div>
 									<div class="sheet-col-1-24"><input class="sheet-center" type="number" name="attr_rangedToHit" value="[[ [[@{agiMod}]] + @{allAtkLuckyRoll} + @{rangedAtkLuckyRoll} + @{rangedMagic} + @{rangedAtkLuckyWeapon} + @{ATK} + @{zeroRangedWeaponLuckyRoll}]]" disabled="disabled"></div>
-									<div class="sheet-col-1-20" title="Only enter the base damage roll here without any bonuses from stats or other sources"><input class="sheet-center" type="text" name="attr_rangedDmg" value="0"></div>		
+									<div class="sheet-col-1-20" title="Only enter the base damage roll here without any bonuses from stats or other sources"><input class="sheet-center" type="text" name="attr_rangedDmg" value="0"></div>
 									<div class="sheet-col-1-24"><input class="sheet-center" type="number" name="attr_rangedDmgBonus" value="[[@{rangedMagic} + @{rangedDmgLuckyRoll} + @{dmgLuckyRoll} + @{zeroRangedWeaponLuckyRoll}]]" disabled="disabled"></div>
 									<div class="sheet-col-1-14" title="Choose the range you are attacking from:">
 										<select name="attr_attackRange">
@@ -6025,7 +6025,7 @@
 				                    </div>
 								</div>
 							</fieldset>
-					
+
 					<!-- END AUTO GENERATED WEAPON SECTION -->
 				</div>
 
@@ -6046,19 +6046,19 @@
 					<!-- End  hidden spell casting stats -->
 
 					<div class="sheet-row sheet-margin-bottom">
-					
+
 						<div class="sheet-col-1"><h4 class="sheet-center">Arcane Spell Knowledge</h4></div>
-						
+
 						<div class="sheet-col-1">
-							
-						
+
+
 							<div class="sheet-row sheet-sub-header">
 								<div class="sheet-col-1-6 sheet-vert-bottom sheet-center">&nbsp;</div>
 								<div class="sheet-col-1-7 sheet-vert-bottom sheet-center sheet-small-label">Number of Known Spells</div>
 								<div class="sheet-col-1-14 sheet-vert-bottom sheet-center">&nbsp;</div>
 								<div class="sheet-col-1-7 sheet-vert-bottom sheet-center sheet-small-label">Max Spell Level Known</div>
 							</div>
-							
+
 							<div class="sheet-row">
 								<div class="sheet-col-1-6 sheet-margin-top sheet-center sheet-hd-row">Elf Fighter/Mage</div>
 								<div class="sheet-col-1-7"><input type="number" name="attr_elfKnownSpells" value="0" /></div>
@@ -6070,16 +6070,16 @@
 								<div class="sheet-col-1-6 sheet-margin-top sheet-center sheet-hd-row">Wizard</div>
 								<div class="sheet-col-1-7"><input type="number" name="attr_wizardKnownSpells" value="0" /></div>
 								<div class="sheet-col-1-14 sheet-center">&nbsp;</div>
-								<div class="sheet-col-1-7"><input type="number" name="attr_wizardMaxSpellLevel" value="0" /></div>	
+								<div class="sheet-col-1-7"><input type="number" name="attr_wizardMaxSpellLevel" value="0" /></div>
 							</div>
-							
+
 							<div class="sheet-row">
 								<div class="sheet-col-1-6 sheet-margin-top sheet-center sheet-hd-row">Bard</div>
 								<div class="sheet-col-1-7"><input type="number" name="attr_bardKnownSpells" value="0" /></div>
 								<div class="sheet-col-1-14 sheet-center">&nbsp;</div>
 								<div class="sheet-col-1-7"><input type="number" name="attr_bardMaxSpellLevel" value="0" /></div>
 							</div>
-							
+
 							<div class="sheet-row">
 								<div class="sheet-col-1-6 sheet-margin-top sheet-center sheet-hd-row">Gnome</div>
 								<div class="sheet-col-1-7"><input type="number" name="attr_gnomeKnownSpells" value="0" /></div>
@@ -6092,21 +6092,21 @@
 								<div class="sheet-col-1-7"><input type="number" name="attr_elfRogueKnownSpells" value="0" /></div>
 								<div class="sheet-col-1-14 sheet-center">&nbsp;</div>
 								<div class="sheet-col-1-7"><input type="number" name="attr_elfRogueMaxSpellLevel" value="0" /></div>
-							</div>		
-				
+							</div>
+
 						</div>
-						
+
 					</div>
 
 					<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
-					
+
 					<div class="sheet-row sheet-margin-bottom">
-					
+
 						<div class="sheet-col-1"><h4 class="sheet-center">Divine Spell Slots</h4></div>
-						
+
 						<div class="sheet-col-1">
-							
-						
+
+
 							<div class="sheet-row sheet-sub-header">
 								<div class="sheet-col-1-6 sheet-vert-bottom sheet-center">&nbsp;</div>
 								<div class="sheet-col-1-10 sheet-vert-bottom sheet-center sheet-small-label">1st Level</div>
@@ -6119,7 +6119,7 @@
 								<div class="sheet-col-1-14 sheet-vert-bottom sheet-center">&nbsp;</div>
 								<div class="sheet-col-1-10 sheet-vert-bottom sheet-center sheet-small-label">5th Level</div>
 							</div>
-							
+
 							<div class="sheet-row">
 								<div class="sheet-col-1-6 sheet-margin-top sheet-center sheet-hd-row">Cleric</div>
 								<div class="sheet-col-1-10"><input type="number" name="attr_clericSpellLevelOne" value="0" /></div>
@@ -6130,7 +6130,7 @@
 								<div class="sheet-col-1-14 sheet-center">&nbsp;</div>
 								<div class="sheet-col-1-10"><input type="number" name="attr_clericSpellLevelFour" value="0" /></div>
 								<div class="sheet-col-1-14 sheet-center">&nbsp;</div>
-								<div class="sheet-col-1-10"><input type="number" name="attr_clericSpellLevelFive" value="0" /></div>	
+								<div class="sheet-col-1-10"><input type="number" name="attr_clericSpellLevelFive" value="0" /></div>
 							</div>
 
 							<div class="sheet-row">
@@ -6143,7 +6143,7 @@
 								<div class="sheet-col-1-14 sheet-center">&nbsp;</div>
 								<div class="sheet-col-1-10"><input type="number" name="attr_dwarfPriestSpellLevelFour" value="0" /></div>
 								<div class="sheet-col-1-14 sheet-center">&nbsp;</div>
-								<div class="sheet-col-1-10"><input type="number" name="attr_dwarfPriestSpellLevelFive" value="0" /></div>	
+								<div class="sheet-col-1-10"><input type="number" name="attr_dwarfPriestSpellLevelFive" value="0" /></div>
 							</div>
 
 							<div class="sheet-row">
@@ -6154,20 +6154,20 @@
 								<div class="sheet-col-1-14 sheet-center">&nbsp;</div>
 								<div class="sheet-col-1-10"><input type="number" name="attr_paladinSpellLevelThree" value="0" /></div>
 								<div class="sheet-col-1-14 sheet-center">&nbsp;</div>
-								<div class="sheet-col-1-10"><input type="number" name="attr_paladinSpellLevelFour" value="0" /></div>	
+								<div class="sheet-col-1-10"><input type="number" name="attr_paladinSpellLevelFour" value="0" /></div>
 							</div>
 
 						</div>
-						
+
 					</div>
 
 					<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
 
 					<div class="sheet-row">
-					
+
 						<div class="sheet-col-1-2 sheet-padr">
 							<h4 class="sheet-center">Caster Type</h4>
-								
+
 									<div class="sheet-col-1-2 sheet-centerselect" title="Pick the class that is using the spell for correct bonus">
 										<select name="attr_spellUserBonus">
 											<option value="0">Choose Spellcasting Class...</option>
@@ -6181,11 +6181,11 @@
 											<option value="(@{dwarfPriestSpellBonus} + @{Level})">Dwarf Priest</option>
 										</select>
 									</div>
-								
+
 						</div>
 
 						<div class="sheet-col-1-2 sheet-padr">
-							<h4 class="sheet-center">Manifestation</h4>		
+							<h4 class="sheet-center">Manifestation</h4>
 								<div class="sheet-row">
 									<div class="sheet-col-1-16 sheet-offset-1-10 sheet-center">&nbsp;</div>
 									<div class="sheet-col-1-6 sheet-large-label sheet-center" title="Pick the Manifestation Die listed in the Spell Information">
@@ -6204,7 +6204,7 @@
 									</div>
 								</div>
 						</div>
-							
+
 						</div>
 
 						<h4 class="sheet-center">Spell Type</h4>
@@ -6214,15 +6214,15 @@
 							<input type="radio" class="DivineCaster" value="2" name="attr_spellcaster"><label class="sheet-subtabSpell">Cleric Spells</label>
 							<div class="sheet-col-1-5 sheet-center">&nbsp;</div>
 
-					
+
 					<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
 
 					<!-- Arcane Caster Spellbook -->
 						<div class="sheet-ArcaneCaster">
-						
+
 							<h4 class="sheet-center">Grimoire</h4>
 							<p class="sheet-small-note">The first time you attempt to cast a spell, you need to roll your Mercurial Magic check along with your Manifestation check.  There are text boxes to enter these effects for each spell.</p>
-									
+
 							<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab1" value="1" title="Level 1" checked="checked" />
 							<span class="sheet-spellpagetab sheet-spelltab1">Level 1</span>
 							<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab2" value="2" title="Level 2" />
@@ -6235,17 +6235,17 @@
 							<span class="sheet-spellpagetab sheet-spelltab5">Level 5</span>
 							<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab99" value="99" title="Show All" />
 							<span class="sheet-spellpagetab sheet-spelltab99">Show All</span>
-							
-							<span class="sheet-spacer"></span>	
-							
+
+							<span class="sheet-spacer"></span>
+
 							<!-- BEGIN AUTO GENERATED SPELL PAGES -->
 									<!-- BEGIN new spell page -->
-							<div class="sheet-spell-page1">			
+							<div class="sheet-spell-page1">
 								<div class="sheet-row sheet-spell-header">
 									<div class="sheet-col-1 sheet-vert-bottom sheet-center sheet-small-label">Level 1</div>
 								</div>
-								
-							<!-- BEGIN WIZARD spellbook 1 row -->	
+
+							<!-- BEGIN WIZARD spellbook 1 row -->
 									<fieldset class="repeating_spellbooklevel1">
 										<div class="sheet-margin-bottom sheet-padr sheet-padl">
 											<div class="sheet-row">
@@ -6257,7 +6257,7 @@
 												<div class="sheet-col-1-16 sheet-vert-bottom sheet-center sheet-small-label">Conc.</div>
 												<div class="sheet-col-1-16 sheet-vert-bottom sheet-center sheet-small-label">Lost?</div>
 											</div>
-										
+
 											<div class="sheet-row">
 												<input type="hidden" name="attr_spellBaseLevel" value="1">
 												<input type="hidden" name="attr_spellFriendlyLevel" value="Level 1">
@@ -6285,28 +6285,28 @@
 												<div class="sheet-row">
 													<div class="sheet-col-1-23 sheet-checkbox-row sheet-vert-middle" title="Elves, Check this box if you choose this spell as your lucky 1st level spell."><input type="checkbox" name="attr_elfLuckySpellCheck" value="[[@{luckStartingMod}]]"></div>
 													<div class="sheet-col-22-23 sheet-left sheet-vert-middle sheet-small-labelblue">Elves, Check this box if you choose this spell as your lucky 1st level spell.</div>
-													
+
 												</div>
 
 												<div class="sheet-row">
 													<div class="sheet-col-1-23 sheet-checkbox-row sheet-vert-middle" title="Check this box if you need to use multiple dice to roll your spell check (for example: if you have the Joe Average mercurial effect).  Uncheck to go back to single die rolls."><input class="sheet-is-spellCheckMulti" type="checkbox" name="attr_isSpellCheckMulti" value="1"></div>
 													<div class="sheet-col-22-23 sheet-left sheet-vert-middle sheet-small-labelblue">Check this box if you need to use multiple dice to roll your spell check (e.g.: You have the Joe Average mercurial effect).  Uncheck to go back to single die rolls.</div>
-													
+
 												</div>
 
 												<input class="sheet-is-spellcheckMULTI sheet-hidden" type="checkbox" name="attr_isSpellCheckMulti" value="1">
-													
-												
+
+
 
 												<div class="sheet-spellcheckSINGLE">
-											
+
 													<div class="sheet-row">
 														<div class="sheet-col-4-23 sheet-center">&nbsp;</div>
 														<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Bonus / Minus</div>
 														<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Check (Single Die)</div>
 														<div class="sheet-col-11-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 													</div>
-															
+
 													<div class="sheet-row">
 														<div class="sheet-col-5-23 sheet-center">&nbsp;</div>
 
@@ -6349,7 +6349,7 @@
 														<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Check (Multi Die)</div>
 														<div class="sheet-col-11-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 													</div>
-															
+
 													<div class="sheet-row">
 														<div class="sheet-col-5-23 sheet-center">&nbsp;</div>
 
@@ -6381,15 +6381,15 @@
 												</div>
 
 											</div>
-										
-										
+
+
 											<span class="sheet-spacer"></span>
 											<span class="sheet-small-label">Show :</span>
 											<input type="checkbox" name="attr_spellTypeMercurialMagic" class="sheet-spelltypetab sheet-spelltypeMercurialMagic" value="1" checked="checked" /><span class="sheet-spelltypetab sheet-spelltypeMercurialMagic">Mercurial Magic</span> |
 											<input type="checkbox" name="attr_spellTypeManifestation" class="sheet-spelltypetab sheet-spelltypeManifestation" value="1" /><span class="sheet-spelltypetab sheet-spelltypeManifestation">Manifestation</span> |
 											<input type="checkbox" name="attr_spellTypeDescription" class="sheet-spelltypetab sheet-spelltypeDescription" value="1" /><span class="sheet-spelltypetab sheet-spelltypeDescription">Description</span>
 											<span class="sheet-spacer"></span>
-									
+
 											<div class="sheet-spell-type-MercurialMagic">
 												<div class="sheet-row">
 													<div class="sheet-col-11-23 sheet-vert-bottom sheet-center sheet-small-label">Mercurial Magic Effect</div>
@@ -6410,13 +6410,13 @@
 												</div>
 											</div>
 										</hr>
-											
+
 											<div class="sheet-spell-type-Manifestation">
 												<div class="sheet-row">
 													<div class="sheet-col-11-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Manifestation</div>
 													<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 												</div>
-												
+
 												<div class="sheet-row">
 													<div class="sheet-col-11-23 sheet-small-label sheet-center"><textarea class="sheet-medium" name="attr_spellManifestation"></textarea></div>
 													<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
@@ -6428,14 +6428,14 @@
 													<div class="sheet-col-11-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Description/Flavour</div>
 													<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 												</div>
-												
+
 												<div class="sheet-row">
 													<div class="sheet-col-11-23 sheet-small-label sheet-center"><textarea class="sheet-medium" name="attr_spellDescription"></textarea></div>
 													<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 												</div>
 											</div>
 
-											
+
 											<div class="sheet-row">
 												<div class="sheet-row">
 													<div class="sheet-col-8-23 sheet-center">&nbsp;</div>
@@ -6443,7 +6443,7 @@
 													<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 													<div class="sheet-col-11-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 												</div>
-															
+
 												<div class="sheet-row">
 													<div class="sheet-col-8-23 sheet-center">&nbsp;</div>
 													<div class="sheet-col-3-23 sheet-center">
@@ -6453,7 +6453,7 @@
 															<option value="1d4">1d4</option>
 															<option value="1d5">1d5</option>
 															<option value="1d6">1d6</option>
-														</select>			
+														</select>
 													</div>
 
 													<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
@@ -6464,14 +6464,14 @@
 													</div>
 												</div>
 											</div>
-											
+
 											<div class="sheet-row">
 							                    <div class="sheet-col-8-23 sheet-center">&nbsp;</div>
 												<div class="sheet-col-3-23 sheet-center sheet-small-label">Corruption Die</div>
 												<div class="sheet-col-1-23 sheet-center">&nbsp;</div>
 												<div class="sheet-col-11-23 sheet-center">&nbsp;</div>
 											</div>
-												
+
 											<div class="sheet-row">
 						                    	<div class="sheet-col-8-23 sheet-center">&nbsp;</div>
 												<div class="sheet-col-3-23" title="Pick the Corruption Die listed in the Spell Information">
@@ -6498,22 +6498,22 @@
 													<button type="roll" class="sheet-roll sheet-vert-middle" name="roll_CorruptionTable" title="Roll this if you are required to roll on a Corruption Table"
 													value="&{template:DccTabbed} {{background=[[1d3]]}} {{spell=1}} {{name=@{character_name}}} {{title=?{Corruption Table?|Minor,Minor|Major,Major|Greater,Greater} Corruption: @{spellName}}} {{flavortext=Compare result to ?{Corruption Table?|Minor,Minor|Major,Major|Greater,Greater} Corruption table.}} {{rolltype=Corruption Result:}} {{spellcorruption= [[@{corruptionTableDie} - @{spellBaseLevel} [Spell Level] + [[@{luckMod}]] [Luck Bonus] + [[@{corruptionLuckyRoll}]] [Corruption Lucky Roll] ]] }}">Corruption Tables Roll </button>
 												</div>
-													
+
 											</div>
 										</div>
-												
+
 									<!--</div>-->
-								
-									<!-- END spellbook 1 row -->	
+
+									<!-- END spellbook 1 row -->
 									</fieldset>
 
 							</div>
-							<!-- END spell page -->		
+							<!-- END spell page -->
 							<!-- BEGIN new spell page -->
 							<div class="sheet-spell-page2">			<div class="sheet-row sheet-spell-header">
 								<div class="sheet-col-1 sheet-vert-bottom sheet-center sheet-small-label">Level 2</div>
 							</div>
-							
+
 							<!-- BEGIN WIZARD spellbook 2 row -->
 								<fieldset class="repeating_spellbooklevel2">
 									<div class="sheet-margin-bottom sheet-padr sheet-padl">
@@ -6526,7 +6526,7 @@
 												<div class="sheet-col-1-16 sheet-vert-bottom sheet-center sheet-small-label">Conc.</div>
 												<div class="sheet-col-1-16 sheet-vert-bottom sheet-center sheet-small-label">Lost?</div>
 											</div>
-										
+
 											<div class="sheet-row">
 												<input type="hidden" name="attr_spellBaseLevel" value="2">
 												<input type="hidden" name="attr_spellFriendlyLevel" value="Level 2">
@@ -6554,22 +6554,22 @@
 											<div class="sheet-row">
 												<div class="sheet-col-1-23 sheet-checkbox-row sheet-vert-middle" title="Check this box if you need to use multiple dice to roll your spell check (for example: if you have the Joe Average mercurial effect).  Uncheck to go back to single die rolls."><input class="sheet-is-spellcheckMULTI" type="checkbox" name="attr_is_spellcheckMULTI" value="1"></div>
 												<div class="sheet-col-22-23 sheet-left sheet-vert-middle sheet-small-labelblue">Check this box if you need to use multiple dice to roll your spell check (e.g.: You have the Joe Average mercurial effect).  Uncheck to go back to single die rolls.</div>
-												
+
 											</div>
 
 											<input class="sheet-is-spellcheckMULTI sheet-hidden" type="checkbox" name="attr_is_spellcheckMULTI" value="1">
-												
-											
+
+
 
 											<div class="sheet-spellcheckSINGLE">
-										
+
 												<div class="sheet-row">
 													<div class="sheet-col-4-23 sheet-center">&nbsp;</div>
 													<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Bonus / Minus</div>
 													<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Check (Single Die)</div>
 													<div class="sheet-col-11-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 												</div>
-														
+
 												<div class="sheet-row">
 													<div class="sheet-col-5-23 sheet-center">&nbsp;</div>
 
@@ -6612,7 +6612,7 @@
 													<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Check (Multi Die)</div>
 													<div class="sheet-col-11-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 												</div>
-														
+
 												<div class="sheet-row">
 													<div class="sheet-col-5-23 sheet-center">&nbsp;</div>
 
@@ -6644,15 +6644,15 @@
 											</div>
 
 										</div>
-										
-										
+
+
 										<span class="sheet-spacer"></span>
 										<span class="sheet-small-label">Show :</span>
 										<input type="checkbox" name="attr_spellTypeMercurialMagic" class="sheet-spelltypetab sheet-spelltypeMercurialMagic" value="1" checked="checked" /><span class="sheet-spelltypetab sheet-spelltypeMercurialMagic">Mercurial Magic</span> |
 										<input type="checkbox" name="attr_spellTypeManifestation" class="sheet-spelltypetab sheet-spelltypeManifestation" value="1" /><span class="sheet-spelltypetab sheet-spelltypeManifestation">Manifestation</span> |
 										<input type="checkbox" name="attr_spellTypeDescription" class="sheet-spelltypetab sheet-spelltypeDescription" value="1" /><span class="sheet-spelltypetab sheet-spelltypeDescription">Description</span>
 										<span class="sheet-spacer"></span>
-								
+
 										<div class="sheet-spell-type-MercurialMagic">
 											<div class="sheet-row">
 												<div class="sheet-col-11-23 sheet-vert-bottom sheet-center sheet-small-label">Mercurial Magic Effect</div>
@@ -6673,13 +6673,13 @@
 											</div>
 										</div>
 									</hr>
-										
+
 										<div class="sheet-spell-type-Manifestation">
 											<div class="sheet-row">
 												<div class="sheet-col-11-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Manifestation</div>
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 											</div>
-											
+
 											<div class="sheet-row">
 												<div class="sheet-col-11-23 sheet-small-label sheet-center"><textarea class="sheet-medium" name="attr_spellManifestation"></textarea></div>
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
@@ -6691,14 +6691,14 @@
 												<div class="sheet-col-11-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Description/Flavour</div>
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 											</div>
-											
+
 											<div class="sheet-row">
 												<div class="sheet-col-11-23 sheet-small-label sheet-center"><textarea class="sheet-medium" name="attr_spellDescription"></textarea></div>
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 											</div>
 										</div>
 
-										
+
 										<div class="sheet-row">
 											<div class="sheet-row">
 												<div class="sheet-col-8-23 sheet-center">&nbsp;</div>
@@ -6706,7 +6706,7 @@
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 												<div class="sheet-col-11-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 											</div>
-														
+
 											<div class="sheet-row">
 												<div class="sheet-col-8-23 sheet-center">&nbsp;</div>
 												<div class="sheet-col-3-23 sheet-center">
@@ -6716,7 +6716,7 @@
 														<option value="1d4">1d4</option>
 														<option value="1d5">1d5</option>
 														<option value="1d6">1d6</option>
-													</select>			
+													</select>
 												</div>
 
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
@@ -6727,14 +6727,14 @@
 												</div>
 											</div>
 										</div>
-										
+
 										<div class="sheet-row">
 						                    <div class="sheet-col-8-23 sheet-center">&nbsp;</div>
 											<div class="sheet-col-3-23 sheet-center sheet-small-label">Corruption Die</div>
 											<div class="sheet-col-1-23 sheet-center">&nbsp;</div>
 											<div class="sheet-col-11-23 sheet-center">&nbsp;</div>
 										</div>
-											
+
 										<div class="sheet-row">
 					                    	<div class="sheet-col-8-23 sheet-center">&nbsp;</div>
 											<div class="sheet-col-3-23" title="Pick the Corruption Die listed in the Spell Information">
@@ -6761,26 +6761,26 @@
 												<button type="roll" class="sheet-roll sheet-vert-middle" name="roll_CorruptionTable" title="Roll this if you are required to roll on a Corruption Table"
 												value="&{template:DccTabbed} {{background=[[1d3]]}} {{spell=1}} {{name=@{character_name}}} {{title=?{Corruption Table?|Minor,Minor|Major,Major|Greater,Greater} Corruption: @{spellName}}} {{flavortext=Compare result to ?{Corruption Table?|Minor,Minor|Major,Major|Greater,Greater} Corruption table.}} {{rolltype=Corruption Result:}} {{spellcorruption= [[@{corruptionTableDie} - @{spellBaseLevel} [Spell Level] + [[@{luckMod}]] [Luck Bonus] + [[@{corruptionLuckyRoll}]] [Corruption Lucky Roll] ]] }}">Corruption Tables Roll </button>
 											</div>
-												
+
 										</div>
-										
-												
+
+
 									</div>
-							
-								<!-- END spellbook 2 row -->	
+
+								<!-- END spellbook 2 row -->
 								</fieldset>
 
 
 							</div>
-							<!-- END spell page -->		
+							<!-- END spell page -->
 							<!-- BEGIN new spell page -->
 							<div class="sheet-spell-page3">			<div class="sheet-row sheet-spell-header">
 								<div class="sheet-col-1 sheet-vert-bottom sheet-center sheet-small-label">Level 3</div>
 							</div>
-							
+
 							<!-- BEGIN WIZARD spellbook 3 row -->
 								<fieldset class="repeating_spellbooklevel3">
-								
+
 									<div class="sheet-margin-bottom sheet-padr sheet-padl">
 										<div class="sheet-row">
 												<div class="sheet-col-1-3 sheet-vert-bottom sheet-center sheet-small-label">Spell name</div>
@@ -6791,7 +6791,7 @@
 												<div class="sheet-col-1-16 sheet-vert-bottom sheet-center sheet-small-label">Conc.</div>
 												<div class="sheet-col-1-16 sheet-vert-bottom sheet-center sheet-small-label">Lost?</div>
 											</div>
-										
+
 											<div class="sheet-row">
 												<input type="hidden" name="attr_spellBaseLevel" value="3">
 												<input type="hidden" name="attr_spellFriendlyLevel" value="Level 3">
@@ -6819,22 +6819,22 @@
 											<div class="sheet-row">
 												<div class="sheet-col-1-23 sheet-checkbox-row sheet-vert-middle" title="Check this box if you need to use multiple dice to roll your spell check (for example: if you have the Joe Average mercurial effect).  Uncheck to go back to single die rolls."><input class="sheet-is-spellcheckMULTI" type="checkbox" name="attr_is_spellcheckMULTI" value="1"></div>
 												<div class="sheet-col-22-23 sheet-left sheet-vert-middle sheet-small-labelblue">Check this box if you need to use multiple dice to roll your spell check (e.g.: You have the Joe Average mercurial effect).  Uncheck to go back to single die rolls.</div>
-												
+
 											</div>
 
 											<input class="sheet-is-spellcheckMULTI sheet-hidden" type="checkbox" name="attr_is_spellcheckMULTI" value="1">
-												
-											
+
+
 
 											<div class="sheet-spellcheckSINGLE">
-										
+
 												<div class="sheet-row">
 													<div class="sheet-col-4-23 sheet-center">&nbsp;</div>
 													<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Bonus / Minus</div>
 													<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Check (Single Die)</div>
 													<div class="sheet-col-11-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 												</div>
-														
+
 												<div class="sheet-row">
 													<div class="sheet-col-5-23 sheet-center">&nbsp;</div>
 
@@ -6877,7 +6877,7 @@
 													<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Check (Multi Die)</div>
 													<div class="sheet-col-11-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 												</div>
-														
+
 												<div class="sheet-row">
 													<div class="sheet-col-5-23 sheet-center">&nbsp;</div>
 
@@ -6910,15 +6910,15 @@
 											</div>
 
 										</div>
-										
-										
+
+
 										<span class="sheet-spacer"></span>
 										<span class="sheet-small-label">Show :</span>
 										<input type="checkbox" name="attr_spellTypeMercurialMagic" class="sheet-spelltypetab sheet-spelltypeMercurialMagic" value="1" checked="checked" /><span class="sheet-spelltypetab sheet-spelltypeMercurialMagic">Mercurial Magic</span> |
 										<input type="checkbox" name="attr_spellTypeManifestation" class="sheet-spelltypetab sheet-spelltypeManifestation" value="1" /><span class="sheet-spelltypetab sheet-spelltypeManifestation">Manifestation</span> |
 										<input type="checkbox" name="attr_spellTypeDescription" class="sheet-spelltypetab sheet-spelltypeDescription" value="1" /><span class="sheet-spelltypetab sheet-spelltypeDescription">Description</span>
 										<span class="sheet-spacer"></span>
-								
+
 										<div class="sheet-spell-type-MercurialMagic">
 											<div class="sheet-row">
 												<div class="sheet-col-11-23 sheet-vert-bottom sheet-center sheet-small-label">Mercurial Magic Effect</div>
@@ -6939,13 +6939,13 @@
 											</div>
 										</div>
 									</hr>
-										
+
 										<div class="sheet-spell-type-Manifestation">
 											<div class="sheet-row">
 												<div class="sheet-col-11-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Manifestation</div>
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 											</div>
-											
+
 											<div class="sheet-row">
 												<div class="sheet-col-11-23 sheet-small-label sheet-center"><textarea class="sheet-medium" name="attr_spellManifestation"></textarea></div>
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
@@ -6957,14 +6957,14 @@
 												<div class="sheet-col-11-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Description/Flavour</div>
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 											</div>
-											
+
 											<div class="sheet-row">
 												<div class="sheet-col-11-23 sheet-small-label sheet-center"><textarea class="sheet-medium" name="attr_spellDescription"></textarea></div>
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 											</div>
 										</div>
 
-										
+
 										<div class="sheet-row">
 											<div class="sheet-row">
 												<div class="sheet-col-8-23 sheet-center">&nbsp;</div>
@@ -6972,7 +6972,7 @@
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 												<div class="sheet-col-11-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 											</div>
-														
+
 											<div class="sheet-row">
 												<div class="sheet-col-8-23 sheet-center">&nbsp;</div>
 												<div class="sheet-col-3-23 sheet-center">
@@ -6982,7 +6982,7 @@
 														<option value="1d4">1d4</option>
 														<option value="1d5">1d5</option>
 														<option value="1d6">1d6</option>
-													</select>			
+													</select>
 												</div>
 
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
@@ -6993,14 +6993,14 @@
 												</div>
 											</div>
 										</div>
-										
+
 										<div class="sheet-row">
 						                    <div class="sheet-col-8-23 sheet-center">&nbsp;</div>
 											<div class="sheet-col-3-23 sheet-center sheet-small-label">Corruption Die</div>
 											<div class="sheet-col-1-23 sheet-center">&nbsp;</div>
 											<div class="sheet-col-11-23 sheet-center">&nbsp;</div>
 										</div>
-											
+
 										<div class="sheet-row">
 					                    	<div class="sheet-col-8-23 sheet-center">&nbsp;</div>
 											<div class="sheet-col-3-23" title="Pick the Corruption Die listed in the Spell Information">
@@ -7027,23 +7027,23 @@
 												<button type="roll" class="sheet-roll sheet-vert-middle" name="roll_CorruptionTable" title="Roll this if you are required to roll on a Corruption Table"
 												value="&{template:DccTabbed} {{background=[[1d3]]}} {{spell=1}} {{name=@{character_name}}} {{title=?{Corruption Table?|Minor,Minor|Major,Major|Greater,Greater} Corruption: @{spellName}}} {{flavortext=Compare result to ?{Corruption Table?|Minor,Minor|Major,Major|Greater,Greater} Corruption table.}} {{rolltype=Corruption Result:}} {{spellcorruption= [[@{corruptionTableDie} - @{spellBaseLevel} [Spell Level] + [[@{luckMod}]] [Luck Bonus] + [[@{corruptionLuckyRoll}]] [Corruption Lucky Roll] ]] }}">Corruption Tables Roll </button>
 											</div>
-												
+
 										</div>
-										
-												
+
+
 									</div>
-							
-								<!-- END spell row -->	
+
+								<!-- END spell row -->
 								</fieldset>
 
 
 							</div>
-							<!-- END spell page -->		
+							<!-- END spell page -->
 							<!-- BEGIN new spell page -->
 							<div class="sheet-spell-page4">			<div class="sheet-row sheet-spell-header">
 								<div class="sheet-col-1 sheet-vert-bottom sheet-center sheet-small-label">Level 4</div>
 							</div>
-							
+
 							<!-- BEGIN WIZARD spellbook 4 row -->
 								<fieldset class="repeating_spellbooklevel4">
 									<div class="sheet-margin-bottom sheet-padr sheet-padl">
@@ -7056,7 +7056,7 @@
 												<div class="sheet-col-1-16 sheet-vert-bottom sheet-center sheet-small-label">Conc.</div>
 												<div class="sheet-col-1-16 sheet-vert-bottom sheet-center sheet-small-label">Lost?</div>
 											</div>
-										
+
 											<div class="sheet-row">
 												<input type="hidden" name="attr_spellBaseLevel" value="4">
 												<input type="hidden" name="attr_spellFriendlyLevel" value="Level 4">
@@ -7084,22 +7084,22 @@
 											<div class="sheet-row">
 												<div class="sheet-col-1-23 sheet-checkbox-row sheet-vert-middle" title="Check this box if you need to use multiple dice to roll your spell check (for example: if you have the Joe Average mercurial effect).  Uncheck to go back to single die rolls."><input class="sheet-is-spellcheckMULTI" type="checkbox" name="attr_is_spellcheckMULTI" value="1"></div>
 												<div class="sheet-col-22-23 sheet-left sheet-vert-middle sheet-small-labelblue">Check this box if you need to use multiple dice to roll your spell check (e.g.: You have the Joe Average mercurial effect).  Uncheck to go back to single die rolls.</div>
-												
+
 											</div>
 
 											<input class="sheet-is-spellcheckMULTI sheet-hidden" type="checkbox" name="attr_is_spellcheckMULTI" value="1">
-												
-											
+
+
 
 											<div class="sheet-spellcheckSINGLE">
-										
+
 												<div class="sheet-row">
 													<div class="sheet-col-4-23 sheet-center">&nbsp;</div>
 													<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Bonus / Minus</div>
 													<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Check (Single Die)</div>
 													<div class="sheet-col-11-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 												</div>
-														
+
 												<div class="sheet-row">
 													<div class="sheet-col-5-23 sheet-center">&nbsp;</div>
 
@@ -7142,7 +7142,7 @@
 													<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Check (Multi Die)</div>
 													<div class="sheet-col-11-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 												</div>
-														
+
 												<div class="sheet-row">
 													<div class="sheet-col-5-23 sheet-center">&nbsp;</div>
 
@@ -7175,15 +7175,15 @@
 											</div>
 
 										</div>
-										
-										
+
+
 										<span class="sheet-spacer"></span>
 										<span class="sheet-small-label">Show :</span>
 										<input type="checkbox" name="attr_spellTypeMercurialMagic" class="sheet-spelltypetab sheet-spelltypeMercurialMagic" value="1" checked="checked" /><span class="sheet-spelltypetab sheet-spelltypeMercurialMagic">Mercurial Magic</span> |
 										<input type="checkbox" name="attr_spellTypeManifestation" class="sheet-spelltypetab sheet-spelltypeManifestation" value="1" /><span class="sheet-spelltypetab sheet-spelltypeManifestation">Manifestation</span> |
 										<input type="checkbox" name="attr_spellTypeDescription" class="sheet-spelltypetab sheet-spelltypeDescription" value="1" /><span class="sheet-spelltypetab sheet-spelltypeDescription">Description</span>
 										<span class="sheet-spacer"></span>
-								
+
 										<div class="sheet-spell-type-MercurialMagic">
 											<div class="sheet-row">
 												<div class="sheet-col-11-23 sheet-vert-bottom sheet-center sheet-small-label">Mercurial Magic Effect</div>
@@ -7204,13 +7204,13 @@
 											</div>
 										</div>
 									</hr>
-										
+
 										<div class="sheet-spell-type-Manifestation">
 											<div class="sheet-row">
 												<div class="sheet-col-11-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Manifestation</div>
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 											</div>
-											
+
 											<div class="sheet-row">
 												<div class="sheet-col-11-23 sheet-small-label sheet-center"><textarea class="sheet-medium" name="attr_spellManifestation"></textarea></div>
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
@@ -7222,14 +7222,14 @@
 												<div class="sheet-col-11-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Description/Flavour</div>
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 											</div>
-											
+
 											<div class="sheet-row">
 												<div class="sheet-col-11-23 sheet-small-label sheet-center"><textarea class="sheet-medium" name="attr_spellDescription"></textarea></div>
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 											</div>
 										</div>
 
-										
+
 										<div class="sheet-row">
 											<div class="sheet-row">
 												<div class="sheet-col-8-23 sheet-center">&nbsp;</div>
@@ -7237,7 +7237,7 @@
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 												<div class="sheet-col-11-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 											</div>
-														
+
 											<div class="sheet-row">
 												<div class="sheet-col-8-23 sheet-center">&nbsp;</div>
 												<div class="sheet-col-3-23 sheet-center">
@@ -7247,7 +7247,7 @@
 														<option value="1d4">1d4</option>
 														<option value="1d5">1d5</option>
 														<option value="1d6">1d6</option>
-													</select>			
+													</select>
 												</div>
 
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
@@ -7258,14 +7258,14 @@
 												</div>
 											</div>
 										</div>
-										
+
 										<div class="sheet-row">
 						                    <div class="sheet-col-8-23 sheet-center">&nbsp;</div>
 											<div class="sheet-col-3-23 sheet-center sheet-small-label">Corruption Die</div>
 											<div class="sheet-col-1-23 sheet-center">&nbsp;</div>
 											<div class="sheet-col-11-23 sheet-center">&nbsp;</div>
 										</div>
-											
+
 										<div class="sheet-row">
 					                    	<div class="sheet-col-8-23 sheet-center">&nbsp;</div>
 											<div class="sheet-col-3-23" title="Pick the Corruption Die listed in the Spell Information">
@@ -7292,25 +7292,25 @@
 												<button type="roll" class="sheet-roll sheet-vert-middle" name="roll_CorruptionTable" title="Roll this if you are required to roll on a Corruption Table"
 												value="&{template:DccTabbed} {{background=[[1d3]]}} {{spell=1}} {{name=@{character_name}}} {{title=?{Corruption Table?|Minor,Minor|Major,Major|Greater,Greater} Corruption: @{spellName}}} {{flavortext=Compare result to ?{Corruption Table?|Minor,Minor|Major,Major|Greater,Greater} Corruption table.}} {{rolltype=Corruption Result:}} {{spellcorruption= [[@{corruptionTableDie} - @{spellBaseLevel} [Spell Level] + [[@{luckMod}]] [Luck Bonus] + [[@{corruptionLuckyRoll}]] [Corruption Lucky Roll] ]] }}">Corruption Tables Roll </button>
 											</div>
-												
+
 										</div>
-										
-												
+
+
 									</div>
-							
-								<!-- END spell row -->	
+
+								<!-- END spell row -->
 								</fieldset>
 
 
 							</div>
-							<!-- END spell page -->		
+							<!-- END spell page -->
 							<!-- BEGIN new spell page -->
 							<div class="sheet-spell-page5">			<div class="sheet-row sheet-spell-header">
 								<div class="sheet-col-1 sheet-vert-bottom sheet-center sheet-small-label">Level 5</div>
 							</div>
 
 							<!-- BEGIN WIZARD spellbook row 5-->
-							
+
 								<fieldset class="repeating_spellbooklevel5">
 									<div class="sheet-margin-bottom sheet-padr sheet-padl">
 										<div class="sheet-row">
@@ -7322,7 +7322,7 @@
 												<div class="sheet-col-1-16 sheet-vert-bottom sheet-center sheet-small-label">Conc.</div>
 												<div class="sheet-col-1-16 sheet-vert-bottom sheet-center sheet-small-label">Lost?</div>
 											</div>
-										
+
 											<div class="sheet-row">
 												<input type="hidden" name="attr_spellBaseLevel" value="5">
 												<input type="hidden" name="attr_spellFriendlyLevel" value="Level 5">
@@ -7350,22 +7350,22 @@
 											<div class="sheet-row">
 												<div class="sheet-col-1-23 sheet-checkbox-row sheet-vert-middle" title="Check this box if you need to use multiple dice to roll your spell check (for example: if you have the Joe Average mercurial effect).  Uncheck to go back to single die rolls."><input class="sheet-is-spellcheckMULTI" type="checkbox" name="attr_is_spellcheckMULTI" value="1"></div>
 												<div class="sheet-col-22-23 sheet-left sheet-vert-middle sheet-small-labelblue">Check this box if you need to use multiple dice to roll your spell check (e.g.: You have the Joe Average mercurial effect).  Uncheck to go back to single die rolls.</div>
-												
+
 											</div>
 
 											<input class="sheet-is-spellcheckMULTI sheet-hidden" type="checkbox" name="attr_is_spellcheckMULTI" value="1">
-												
-											
+
+
 
 											<div class="sheet-spellcheckSINGLE">
-										
+
 												<div class="sheet-row">
 													<div class="sheet-col-4-23 sheet-center">&nbsp;</div>
 													<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Bonus / Minus</div>
 													<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Check (Single Die)</div>
 													<div class="sheet-col-11-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 												</div>
-														
+
 												<div class="sheet-row">
 													<div class="sheet-col-5-23 sheet-center">&nbsp;</div>
 
@@ -7408,7 +7408,7 @@
 													<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Check (Multi Die)</div>
 													<div class="sheet-col-11-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 												</div>
-														
+
 												<div class="sheet-row">
 													<div class="sheet-col-5-23 sheet-center">&nbsp;</div>
 
@@ -7440,15 +7440,15 @@
 											</div>
 
 										</div>
-										
-										
+
+
 										<span class="sheet-spacer"></span>
 										<span class="sheet-small-label">Show :</span>
 										<input type="checkbox" name="attr_spellTypeMercurialMagic" class="sheet-spelltypetab sheet-spelltypeMercurialMagic" value="1" checked="checked" /><span class="sheet-spelltypetab sheet-spelltypeMercurialMagic">Mercurial Magic</span> |
 										<input type="checkbox" name="attr_spellTypeManifestation" class="sheet-spelltypetab sheet-spelltypeManifestation" value="1" /><span class="sheet-spelltypetab sheet-spelltypeManifestation">Manifestation</span> |
 										<input type="checkbox" name="attr_spellTypeDescription" class="sheet-spelltypetab sheet-spelltypeDescription" value="1" /><span class="sheet-spelltypetab sheet-spelltypeDescription">Description</span>
 										<span class="sheet-spacer"></span>
-								
+
 										<div class="sheet-spell-type-MercurialMagic">
 											<div class="sheet-row">
 												<div class="sheet-col-11-23 sheet-vert-bottom sheet-center sheet-small-label">Mercurial Magic Effect</div>
@@ -7469,13 +7469,13 @@
 											</div>
 										</div>
 									</hr>
-										
+
 										<div class="sheet-spell-type-Manifestation">
 											<div class="sheet-row">
 												<div class="sheet-col-11-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Manifestation</div>
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 											</div>
-											
+
 											<div class="sheet-row">
 												<div class="sheet-col-11-23 sheet-small-label sheet-center"><textarea class="sheet-medium" name="attr_spellManifestation"></textarea></div>
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
@@ -7487,14 +7487,14 @@
 												<div class="sheet-col-11-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Description/Flavour</div>
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 											</div>
-											
+
 											<div class="sheet-row">
 												<div class="sheet-col-11-23 sheet-small-label sheet-center"><textarea class="sheet-medium" name="attr_spellDescription"></textarea></div>
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 											</div>
 										</div>
 
-										
+
 										<div class="sheet-row">
 											<div class="sheet-row">
 												<div class="sheet-col-8-23 sheet-center">&nbsp;</div>
@@ -7502,7 +7502,7 @@
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 												<div class="sheet-col-11-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 											</div>
-														
+
 											<div class="sheet-row">
 												<div class="sheet-col-8-23 sheet-center">&nbsp;</div>
 												<div class="sheet-col-3-23 sheet-center">
@@ -7512,7 +7512,7 @@
 														<option value="1d4">1d4</option>
 														<option value="1d5">1d5</option>
 														<option value="1d6">1d6</option>
-													</select>			
+													</select>
 												</div>
 
 												<div class="sheet-col-1-23 sheet-vert-bottom sheet-center">&nbsp;</div>
@@ -7523,14 +7523,14 @@
 												</div>
 											</div>
 										</div>
-										
+
 										<div class="sheet-row">
 						                    <div class="sheet-col-8-23 sheet-center">&nbsp;</div>
 											<div class="sheet-col-3-23 sheet-center sheet-small-label">Corruption Die</div>
 											<div class="sheet-col-1-23 sheet-center">&nbsp;</div>
 											<div class="sheet-col-11-23 sheet-center">&nbsp;</div>
 										</div>
-											
+
 										<div class="sheet-row">
 					                    	<div class="sheet-col-8-23 sheet-center">&nbsp;</div>
 											<div class="sheet-col-3-23" title="Pick the Corruption Die listed in the Spell Information">
@@ -7557,28 +7557,28 @@
 												<button type="roll" class="sheet-roll sheet-vert-middle" name="roll_CorruptionTable" title="Roll this if you are required to roll on a Corruption Table"
 												value="&{template:DccTabbed} {{background=[[1d3]]}} {{spell=1}} {{name=@{character_name}}} {{title=?{Corruption Table?|Minor,Minor|Major,Major|Greater,Greater} Corruption: @{spellName}}} {{flavortext=Compare result to ?{Corruption Table?|Minor,Minor|Major,Major|Greater,Greater} Corruption table.}} {{rolltype=Corruption Result:}} {{spellcorruption= [[@{corruptionTableDie} - @{spellBaseLevel} [Spell Level] + [[@{luckMod}]] [Luck Bonus] + [[@{corruptionLuckyRoll}]] [Corruption Lucky Roll] ]] }}">Corruption Tables Roll </button>
 											</div>
-												
+
 										</div>
-										
-												
+
+
 									</div>
-							
-								<!-- END spell row -->	
+
+								<!-- END spell row -->
 								</fieldset>
 
 
 							</div>
-							<!-- END spell page -->	
+							<!-- END spell page -->
 
 							<!-- END AUTO GENERATED SPELL PAGES -->
 						</div>
 
 					<!-- Divine Caster Spellbook -->
 						<div class="sheet-DivineCaster">
-						
+
 							<h4 class="sheet-center">Holy Book </h4>
 							<p class="sheet-small-note">For players attempting to cast divine spells for the first time, you need to roll a Manifestation check and enter the information into the spell.</p>
-									
+
 							<input type="radio" name="attr_Divinespellpagetab" class="sheet-spellpagetab sheet-spelltab1" value="1" title="Level 1" checked="checked" />
 							<span class="sheet-spellpagetab sheet-spelltab1">Level 1</span>
 							<input type="radio" name="attr_Divinespellpagetab" class="sheet-spellpagetab sheet-spelltab2" value="2" title="Level 2" />
@@ -7591,17 +7591,17 @@
 							<span class="sheet-spellpagetab sheet-spelltab5">Level 5</span>
 							<input type="radio" name="attr_Divinespellpagetab" class="sheet-spellpagetab sheet-spelltab99" value="99" title="Show All" />
 							<span class="sheet-spellpagetab sheet-spelltab99">Show All</span>
-							
-							<span class="sheet-spacer"></span>	
-							
+
+							<span class="sheet-spacer"></span>
+
 							<!-- BEGIN AUTO GENERATED SPELL PAGES -->
 									<!-- BEGIN new spell page -->
-							<div class="sheet-spell-page1">			
+							<div class="sheet-spell-page1">
 								<div class="sheet-row sheet-spell-header">
 									<div class="sheet-col-1 sheet-vert-bottom sheet-center sheet-small-label">Level 1</div>
 								</div>
-								
-								<!-- BEGIN CLERIC spellbook 1 row -->	
+
+								<!-- BEGIN CLERIC spellbook 1 row -->
 									<fieldset class="repeating_divinespellbooklevel1">
 										<div class="sheet-margin-bottom sheet-padr sheet-padl">
 											<div class="sheet-row">
@@ -7614,9 +7614,9 @@
 												<div class="sheet-col-1-15 sheet-vert-bottom sheet-center sheet-small-label">Conc.</div>
 												<div class="sheet-col-1-15 sheet-vert-bottom sheet-center sheet-small-label">Lost?</div>
 											</div>
-											
+
 											<div class="sheet-row">
-												<div class="sheet-col-1-15 sheet-vert-middle sheet-center">Level 1<input type="hidden" name="attr_spellBaseLevelCleric" value="1"><input type="hidden" name="attr_spellFriendlyLevelCleric" value="Level 1"></div>	
+												<div class="sheet-col-1-15 sheet-vert-middle sheet-center">Level 1<input type="hidden" name="attr_spellBaseLevelCleric" value="1"><input type="hidden" name="attr_spellFriendlyLevelCleric" value="Level 1"></div>
 												<div class="sheet-col-1-3 sheet-vert-middle"><input type="text" class=" sheet-center" name="attr_spellNameCleric"></div>
 												<div class="sheet-col-1-8 sheet-vert-middle"><input type="text" class="sheet-center" name="attr_spellRangeCleric"></div>
 												<div class="sheet-col-1-8 sheet-vert-middle"><input type="text" class="sheet-center" name="attr_spellDurationCleric"></div>
@@ -7637,14 +7637,14 @@
 											</div>
 
 											<div class="sheet-row">
-											
+
 												<div class="sheet-row">
 													<div class="sheet-col-4-23 sheet-center">&nbsp;</div>
 													<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Bonus / Minus</div>
 													<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Check Die</div>
 													<div class="sheet-col-11-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 												</div>
-														
+
 												<div class="sheet-row">
 													<div class="sheet-col-5-23 sheet-center">&nbsp;</div>
 
@@ -7678,52 +7678,52 @@
 												</div>
 
 											</div>
-											
-											
+
+
 											<span class="sheet-spacer"></span>
 											<span class="sheet-small-label">Show :</span>
 											<input type="checkbox" name="attr_DivinespelltypeManifest" class="sheet-spelltypetab sheet-spelltypeManifestCleric" value="1" checked="checked" /><span class="sheet-spelltypetab sheet-spelltypeManifestCleric">Manifestation</span> |
-											<input type="checkbox" name="attr_DivinespelltypeGeneral" class="sheet-spelltypetab sheet-spelltypeGeneralCleric" value="1" /><span class="sheet-spelltypetab sheet-spelltypeGeneralCleric">General</span> 
-											
+											<input type="checkbox" name="attr_DivinespelltypeGeneral" class="sheet-spelltypetab sheet-spelltypeGeneralCleric" value="1" /><span class="sheet-spelltypetab sheet-spelltypeGeneralCleric">General</span>
+
 											<span class="sheet-spacer"></span>
 
 											<div class="sheet-spell-type-ManifestCleric">
-											
+
 												<div class="sheet-row">
 														<div class="sheet-col-11-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Manifestation</div>
 													</div>
-													
+
 													<div class="sheet-row">
 														<div class="sheet-col-11-23 sheet-small-label sheet-center"><textarea class="sheet-medium" name="attr_manifestionCleric"></textarea></div>
 													</div>
 											</div>
-											
+
 											<div class="sheet-spell-type-GeneralCleric">
-												
+
 													<div class="sheet-row">
 														<div class="sheet-col-22-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Description/Flavour</div>
 													</div>
-													
+
 													<div class="sheet-row">
 														<div class="sheet-col-22-23 sheet-small-label sheet-center"><textarea class="sheet-medium" name="attr_spellDescriptionCleric"></textarea></div>
 													</div>
-												
+
 											</div>
-													
+
 										</div>
-								
-									<!-- END spellbook 1 row -->	
+
+									<!-- END spellbook 1 row -->
 									</fieldset>
 
 
 							</div>
-							<!-- END spell page -->		
+							<!-- END spell page -->
 
 							<!-- BEGIN new spell page -->
 							<div class="sheet-spell-page2">			<div class="sheet-row sheet-spell-header">
 								<div class="sheet-col-1 sheet-vert-bottom sheet-center sheet-small-label">Level 2</div>
 							</div>
-							
+
 							<!-- BEGIN CLERIC spellbook 2 row -->
 								<fieldset class="repeating_divinespellbooklevel2">
 									<div class="sheet-margin-bottom sheet-padr sheet-padl">
@@ -7737,9 +7737,9 @@
 													<div class="sheet-col-1-15 sheet-vert-bottom sheet-center sheet-small-label">Conc.</div>
 													<div class="sheet-col-1-15 sheet-vert-bottom sheet-center sheet-small-label">Lost?</div>
 												</div>
-												
+
 												<div class="sheet-row">
-													<div class="sheet-col-1-15 sheet-vert-middle sheet-center">Level 2<input type="hidden" name="attr_spellBaseLevelCleric" value="2"><input type="hidden" name="attr_spellFriendlyLevelCleric" value="Level 2"></div>	
+													<div class="sheet-col-1-15 sheet-vert-middle sheet-center">Level 2<input type="hidden" name="attr_spellBaseLevelCleric" value="2"><input type="hidden" name="attr_spellFriendlyLevelCleric" value="Level 2"></div>
 													<div class="sheet-col-1-3 sheet-vert-middle"><input type="text" class=" sheet-center" name="attr_spellNameCleric"></div>
 													<div class="sheet-col-1-8 sheet-vert-middle"><input type="text" class="sheet-center" name="attr_spellRangeCleric"></div>
 													<div class="sheet-col-1-8 sheet-vert-middle"><input type="text" class="sheet-center" name="attr_spellDurationCleric"></div>
@@ -7760,14 +7760,14 @@
 												</div>
 
 												<div class="sheet-row">
-												
+
 													<div class="sheet-row">
 														<div class="sheet-col-4-23 sheet-center">&nbsp;</div>
 														<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Bonus / Minus</div>
 														<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Check Die</div>
 														<div class="sheet-col-11-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 													</div>
-															
+
 													<div class="sheet-row">
 														<div class="sheet-col-5-23 sheet-center">&nbsp;</div>
 
@@ -7802,54 +7802,54 @@
 													</div>
 
 												</div>
-												
-												
+
+
 												<span class="sheet-spacer"></span>
 												<span class="sheet-small-label">Show :</span>
 												<input type="checkbox" name="attr_DivinespelltypeManifest" class="sheet-spelltypetab sheet-spelltypeManifestCleric" value="1" checked="checked" /><span class="sheet-spelltypetab sheet-spelltypeManifestCleric">Manifestation</span> |
-												<input type="checkbox" name="attr_DivinespelltypeGeneral" class="sheet-spelltypetab sheet-spelltypeGeneralCleric" value="1" /><span class="sheet-spelltypetab sheet-spelltypeGeneralCleric">General</span> 
-												
+												<input type="checkbox" name="attr_DivinespelltypeGeneral" class="sheet-spelltypetab sheet-spelltypeGeneralCleric" value="1" /><span class="sheet-spelltypetab sheet-spelltypeGeneralCleric">General</span>
+
 												<span class="sheet-spacer"></span>
 
 												<div class="sheet-spell-type-ManifestCleric">
-												
+
 													<div class="sheet-row">
 															<div class="sheet-col-11-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Manifestation</div>
 														</div>
-														
+
 														<div class="sheet-row">
 															<div class="sheet-col-11-23 sheet-small-label sheet-center"><textarea class="sheet-medium" name="attr_manifestionCleric"></textarea></div>
 														</div>
 												</div>
-												
+
 												<div class="sheet-spell-type-GeneralCleric">
-													
+
 														<div class="sheet-row">
 															<div class="sheet-col-22-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Description/Flavour</div>
 														</div>
-														
+
 														<div class="sheet-row">
 															<div class="sheet-col-22-23 sheet-small-label sheet-center"><textarea class="sheet-medium" name="attr_spellDescriptionCleric"></textarea></div>
 														</div>
-													
+
 												</div>
-														
+
 											</div>
-							
-								<!-- END spellbook 2 row -->	
+
+								<!-- END spellbook 2 row -->
 								</fieldset>
 
 
 							</div>
-							<!-- END spell page -->		
+							<!-- END spell page -->
 							<!-- BEGIN new spell page -->
 							<div class="sheet-spell-page3">			<div class="sheet-row sheet-spell-header">
 								<div class="sheet-col-1 sheet-vert-bottom sheet-center sheet-small-label">Level 3</div>
 							</div>
-							
+
 							<!-- BEGIN CLERIC spellbook 3 row -->
 								<fieldset class="repeating_divinespellbooklevel3">
-								
+
 									<div class="sheet-margin-bottom sheet-padr sheet-padl">
 												<div class="sheet-row">
 													<div class="sheet-col-1-15 sheet-vert-bottom sheet-center sheet-small-label">Spell Level</div>
@@ -7861,9 +7861,9 @@
 													<div class="sheet-col-1-15 sheet-vert-bottom sheet-center sheet-small-label">Conc.</div>
 													<div class="sheet-col-1-15 sheet-vert-bottom sheet-center sheet-small-label">Lost?</div>
 												</div>
-												
+
 												<div class="sheet-row">
-													<div class="sheet-col-1-15 sheet-vert-middle sheet-center">Level 3<input type="hidden" name="attr_spellBaseLevelCleric" value="3"><input type="hidden" name="attr_spellFriendlyLevelCleric" value="Level 3"></div>	
+													<div class="sheet-col-1-15 sheet-vert-middle sheet-center">Level 3<input type="hidden" name="attr_spellBaseLevelCleric" value="3"><input type="hidden" name="attr_spellFriendlyLevelCleric" value="Level 3"></div>
 													<div class="sheet-col-1-3 sheet-vert-middle"><input type="text" class=" sheet-center" name="attr_spellNameCleric"></div>
 													<div class="sheet-col-1-8 sheet-vert-middle"><input type="text" class="sheet-center" name="attr_spellRangeCleric"></div>
 													<div class="sheet-col-1-8 sheet-vert-middle"><input type="text" class="sheet-center" name="attr_spellDurationCleric"></div>
@@ -7884,7 +7884,7 @@
 												</div>
 
 												<div class="sheet-row">
-												
+
 													<div class="sheet-row">
 														<div class="sheet-col-4-23 sheet-center">&nbsp;</div>
 														<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Bonus / Minus</div>
@@ -7892,7 +7892,7 @@
 														<div class="sheet-col-11-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 
 													</div>
-															
+
 													<div class="sheet-row">
 														<div class="sheet-col-5-23 sheet-center">&nbsp;</div>
 
@@ -7926,51 +7926,51 @@
 													</div>
 
 												</div>
-												
-												
+
+
 												<span class="sheet-spacer"></span>
 												<span class="sheet-small-label">Show :</span>
 												<input type="checkbox" name="attr_DivinespelltypeManifest" class="sheet-spelltypetab sheet-spelltypeManifestCleric" value="1" checked="checked" /><span class="sheet-spelltypetab sheet-spelltypeManifestCleric">Manifestation</span> |
-												<input type="checkbox" name="attr_DivinespelltypeGeneral" class="sheet-spelltypetab sheet-spelltypeGeneralCleric" value="1" /><span class="sheet-spelltypetab sheet-spelltypeGeneralCleric">General</span> 
-												
+												<input type="checkbox" name="attr_DivinespelltypeGeneral" class="sheet-spelltypetab sheet-spelltypeGeneralCleric" value="1" /><span class="sheet-spelltypetab sheet-spelltypeGeneralCleric">General</span>
+
 												<span class="sheet-spacer"></span>
 
 												<div class="sheet-spell-type-ManifestCleric">
-												
+
 													<div class="sheet-row">
 															<div class="sheet-col-11-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Manifestation</div>
 														</div>
-														
+
 														<div class="sheet-row">
 															<div class="sheet-col-11-23 sheet-small-label sheet-center"><textarea class="sheet-medium" name="attr_manifestionCleric"></textarea></div>
 														</div>
 												</div>
-												
+
 												<div class="sheet-spell-type-GeneralCleric">
-													
+
 														<div class="sheet-row">
 															<div class="sheet-col-22-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Description/Flavour</div>
 														</div>
-														
+
 														<div class="sheet-row">
 															<div class="sheet-col-22-23 sheet-small-label sheet-center"><textarea class="sheet-medium" name="attr_spellDescriptionCleric"></textarea></div>
 														</div>
-													
+
 												</div>
-														
+
 											</div>
-							
-								<!-- END spell row -->	
+
+								<!-- END spell row -->
 								</fieldset>
 
 
 							</div>
-							<!-- END spell page -->		
+							<!-- END spell page -->
 							<!-- BEGIN new spell page -->
 							<div class="sheet-spell-page4">			<div class="sheet-row sheet-spell-header">
 								<div class="sheet-col-1 sheet-vert-bottom sheet-center sheet-small-label">Level 4</div>
 							</div>
-							
+
 							<!-- BEGIN CLERIC spellbook 4 row -->
 								<fieldset class="repeating_divinespellbooklevel4">
 									<div class="sheet-margin-bottom sheet-padr sheet-padl">
@@ -7984,9 +7984,9 @@
 													<div class="sheet-col-1-15 sheet-vert-bottom sheet-center sheet-small-label">Conc.</div>
 													<div class="sheet-col-1-15 sheet-vert-bottom sheet-center sheet-small-label">Lost?</div>
 												</div>
-												
+
 												<div class="sheet-row">
-													<div class="sheet-col-1-15 sheet-vert-middle sheet-center">Level 4<input type="hidden" name="attr_spellBaseLevelCleric" value="4"><input type="hidden" name="attr_spellFriendlyLevelCleric" value="Level 4"></div>	
+													<div class="sheet-col-1-15 sheet-vert-middle sheet-center">Level 4<input type="hidden" name="attr_spellBaseLevelCleric" value="4"><input type="hidden" name="attr_spellFriendlyLevelCleric" value="Level 4"></div>
 													<div class="sheet-col-1-3 sheet-vert-middle"><input type="text" class=" sheet-center" name="attr_spellNameCleric"></div>
 													<div class="sheet-col-1-8 sheet-vert-middle"><input type="text" class="sheet-center" name="attr_spellRangeCleric"></div>
 													<div class="sheet-col-1-8 sheet-vert-middle"><input type="text" class="sheet-center" name="attr_spellDurationCleric"></div>
@@ -8007,14 +8007,14 @@
 												</div>
 
 												<div class="sheet-row">
-												
+
 													<div class="sheet-row">
 														<div class="sheet-col-4-23 sheet-center">&nbsp;</div>
 														<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Bonus / Minus</div>
 														<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Check Die</div>
 														<div class="sheet-col-11-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 													</div>
-															
+
 													<div class="sheet-row">
 														<div class="sheet-col-5-23 sheet-center">&nbsp;</div>
 
@@ -8048,41 +8048,41 @@
 													</div>
 
 												</div>
-												
-												
+
+
 												<span class="sheet-spacer"></span>
 												<span class="sheet-small-label">Show :</span>
 												<input type="checkbox" name="attr_DivinespelltypeManifest" class="sheet-spelltypetab sheet-spelltypeManifestCleric" value="1" checked="checked" /><span class="sheet-spelltypetab sheet-spelltypeManifestCleric">Manifestation</span> |
-												<input type="checkbox" name="attr_DivinespelltypeGeneral" class="sheet-spelltypetab sheet-spelltypeGeneralCleric" value="1" /><span class="sheet-spelltypetab sheet-spelltypeGeneralCleric">General</span> 
-												
+												<input type="checkbox" name="attr_DivinespelltypeGeneral" class="sheet-spelltypetab sheet-spelltypeGeneralCleric" value="1" /><span class="sheet-spelltypetab sheet-spelltypeGeneralCleric">General</span>
+
 												<span class="sheet-spacer"></span>
 
 												<div class="sheet-spell-type-ManifestCleric">
-												
+
 													<div class="sheet-row">
 															<div class="sheet-col-11-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Manifestation</div>
 														</div>
-														
+
 														<div class="sheet-row">
 															<div class="sheet-col-11-23 sheet-small-label sheet-center"><textarea class="sheet-medium" name="attr_manifestionCleric"></textarea></div>
 														</div>
 												</div>
-												
+
 												<div class="sheet-spell-type-GeneralCleric">
-													
+
 														<div class="sheet-row">
 															<div class="sheet-col-22-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Description/Flavour</div>
 														</div>
-														
+
 														<div class="sheet-row">
 															<div class="sheet-col-22-23 sheet-small-label sheet-center"><textarea class="sheet-medium" name="attr_spellDescriptionCleric"></textarea></div>
 														</div>
-													
+
 												</div>
-														
+
 											</div>
-							
-								<!-- END spell row -->	
+
+								<!-- END spell row -->
 								</fieldset>
 
 
@@ -8093,7 +8093,7 @@
 							</div>
 
 							<!-- BEGIN CLERIC spellbook 5 row -->
-							
+
 								<fieldset class="repeating_divinespellbooklevel5">
 									<div class="sheet-margin-bottom sheet-padr sheet-padl">
 										<div class="sheet-row">
@@ -8106,9 +8106,9 @@
 											<div class="sheet-col-1-15 sheet-vert-bottom sheet-center sheet-small-label">Conc.</div>
 											<div class="sheet-col-1-15 sheet-vert-bottom sheet-center sheet-small-label">Lost?</div>
 										</div>
-													
+
 										<div class="sheet-row">
-											<div class="sheet-col-1-15 sheet-vert-middle sheet-center">Level 5<input type="hidden" name="attr_spellBaseLevelCleric" value="5"><input type="hidden" name="attr_spellFriendlyLevelCleric" value="Level 5"></div>	
+											<div class="sheet-col-1-15 sheet-vert-middle sheet-center">Level 5<input type="hidden" name="attr_spellBaseLevelCleric" value="5"><input type="hidden" name="attr_spellFriendlyLevelCleric" value="Level 5"></div>
 											<div class="sheet-col-1-3 sheet-vert-middle"><input type="text" class=" sheet-center" name="attr_spellNameCleric"></div>
 											<div class="sheet-col-1-8 sheet-vert-middle"><input type="text" class="sheet-center" name="attr_spellRangeCleric"></div>
 											<div class="sheet-col-1-8 sheet-vert-middle"><input type="text" class="sheet-center" name="attr_spellDurationCleric"></div>
@@ -8129,14 +8129,14 @@
 										</div>
 
 										<div class="sheet-row">
-													
+
 											<div class="sheet-row">
 												<div class="sheet-col-4-23 sheet-center">&nbsp;</div>
 												<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Bonus / Minus</div>
 												<div class="sheet-col-4-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Check Die</div>
 												<div class="sheet-col-11-23 sheet-vert-bottom sheet-center">&nbsp;</div>
 											</div>
-																
+
 											<div class="sheet-row">
 												<div class="sheet-col-5-23 sheet-center">&nbsp;</div>
 
@@ -8170,61 +8170,61 @@
 											</div>
 
 										</div>
-													
-													
+
+
 										<span class="sheet-spacer"></span>
 										<span class="sheet-small-label">Show :</span>
 										<input type="checkbox" name="attr_DivinespelltypeManifest" class="sheet-spelltypetab sheet-spelltypeManifestCleric" value="1" checked="checked" /><span class="sheet-spelltypetab sheet-spelltypeManifestCleric">Manifestation</span> |
-										<input type="checkbox" name="attr_DivinespelltypeGeneral" class="sheet-spelltypetab sheet-spelltypeGeneralCleric" value="1" /><span class="sheet-spelltypetab sheet-spelltypeGeneralCleric">General</span> 
-													
+										<input type="checkbox" name="attr_DivinespelltypeGeneral" class="sheet-spelltypetab sheet-spelltypeGeneralCleric" value="1" /><span class="sheet-spelltypetab sheet-spelltypeGeneralCleric">General</span>
+
 										<span class="sheet-spacer"></span>
 
 										<div class="sheet-spell-type-ManifestCleric">
-													
+
 											<div class="sheet-row">
 												<div class="sheet-col-11-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Manifestation</div>
 											</div>
-															
+
 											<div class="sheet-row">
 												<div class="sheet-col-11-23 sheet-small-label sheet-center"><textarea class="sheet-medium" name="attr_manifestionCleric"></textarea></div>
 											</div>
 										</div>
-													
+
 										<div class="sheet-spell-type-GeneralCleric">
-														
+
 											<div class="sheet-row">
 												<div class="sheet-col-22-23 sheet-vert-bottom sheet-center sheet-small-label">Spell Description/Flavour</div>
 											</div>
-															
+
 											<div class="sheet-row">
 												<div class="sheet-col-22-23 sheet-small-label sheet-center"><textarea class="sheet-medium" name="attr_spellDescriptionCleric"></textarea></div>
 											</div>
-														
+
 										</div>
-															
+
 									</div>
-						
-							<!-- END spell row -->	
+
+							<!-- END spell row -->
 								</fieldset>
 
 
 							</div>
-							<!-- END spell page -->	
+							<!-- END spell page -->
 
 							<!-- END AUTO GENERATED SPELL PAGES -->
 						</div>
 
-	
+
 				</div>
 
 			<!-- ARMOR -->
 
 				<div class="sheet-section-armor">
-					
+
 					<div class="sheet-row">
-					
+
 						<div class="sheet-col-1">
-							<h4 class="sheet-center">Armor Class </h4> 
+							<h4 class="sheet-center">Armor Class </h4>
 							<p class="sheet-small-note">Add any equipment, effects or items here that give a benefit to your Armor Class (AC).  This includes Armor, shields and any magical items or spells.  Use the checkboxes to indicate whether each row is is worn/equipped.  If you have a class feature that also boosts your AC then add that here too.</p>
 						</div>
 					</div>
@@ -8233,7 +8233,7 @@
 
 						<div class="sheet-col-1-7 sheet-right sheet-small-label">&nbsp;</div>
 
-						<div class="sheet-col-1-7 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_acCalc" readonly="readonly"><br />AC (worn armor)</div>	
+						<div class="sheet-col-1-7 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_acCalc" readonly="readonly"><br />AC (worn armor)</div>
 
 						<div class="sheet-col-1-7 sheet-right sheet-small-label">&nbsp;</div>
 
@@ -8245,12 +8245,12 @@
 
 						<div class="sheet-col-1-7 sheet-right sheet-small-label">&nbsp;</div>
 					</div>
-										
+
 					<div class="sheet-row">
-					
+
 						<div class="sheet-col-1">
-				
-							<div class="sheet-row sheet-sub-header">	
+
+							<div class="sheet-row sheet-sub-header">
 								<div class="sheet-col-2-23 sheet-center sheet-small-label sheet-vert-bottom">Worn?</div>
 								<div class="sheet-col-5-23 sheet-center sheet-small-label sheet-vert-bottom">Name</div>
 								<div class="sheet-col-2-23 sheet-center sheet-small-label sheet-vert-bottom">Base AC</div>
@@ -8303,11 +8303,11 @@
 										</div>
 									</div>
 								</fieldset>
-				
+
 						</div>
-						
+
 					</div>
-					
+
 					<hr />
 				</div>
 
@@ -8317,16 +8317,16 @@
 
 							<div class="sheet-row">
 								<div class="sheet-col-1">
-									<h4 class="sheet-center">Coin Carried </h4> 
+									<h4 class="sheet-center">Coin Carried </h4>
 									<p class="sheet-small-note">Total = value of all coins converted to GP</p>
 								</div>
 							</div>
 
 							<div class="sheet-row">
-						
+
 								<div class="sheet-col-1-1 sheet-padr">
-						
-									<div class="sheet-row sheet-sub-header">	
+
+									<div class="sheet-row sheet-sub-header">
 										<div class="sheet-col-1-6 sheet-center sheet-small-label">CP</div>
 										<div class="sheet-col-1-6 sheet-center sheet-small-label">SP</div>
 										<div class="sheet-col-1-6 sheet-center sheet-small-label">GP</div>
@@ -8334,8 +8334,8 @@
 										<div class="sheet-col-1-6 sheet-center sheet-small-label">PP</div>
 										<div class="sheet-col-1-6 sheet-center sheet-small-label">Total</div>
 									</div>
-							
-									<div class="sheet-row">	
+
+									<div class="sheet-row">
 										<div class="sheet-col-1-6" title="Copper Pieces"><input type="number" name="attr_CP" value="0" min="0" step="1"></div>
 										<div class="sheet-col-1-6" title="Silver Pieces"><input type="number" name="attr_SP" value="0" min="0" step="1"></div>
 										<div class="sheet-col-1-6" title="Gold Pieces"><input type="number" name="attr_GP" value="0" min="0" step="1"></div>
@@ -8343,11 +8343,11 @@
 										<div class="sheet-col-1-6" title="Platinum Pieces"><input type="number" name="attr_PP" value="0" min="0" step="1"></div>
 										<div class="sheet-col-1-6" title="Total (in Gold Pieces)"><input class="sheet-center" type="number" name="attr_moneyTotalGp" value="(@{CP} / 100) + (@{SP} / 10) + @{GP} + (@{EP} * 10) + (@{PP} * 100) " disabled="disabled"></div>
 									</div>
-						
+
 								</div>
 
-							</div>			
-				
+							</div>
+
 							<h4 class="sheet-center">Inventory </h4>
 
 								<div class="sheet-col-1-1">
@@ -8363,24 +8363,24 @@
 									</div>
 
 								</div>
-			
+
 						<hr />
-			
+
 				</div>
 
 		</div>
-	
+
 	<!-- 0-LEVEL CHARACTER SHEET -->
 		<div class="sheet-maintab-content sheet-zero">
-		
+
 			<h5 class="sheet-center">0-level Character Sheet</h5>
-		
+
 			<p class="sheet-small-note">This character sheet is for 0-level characters only.  It is a much pared down version of the main player character sheet which gets filled out once a character survives the funnel and makes it to level 1. </p>
 
 				<div class="sheet-row">
 
 					<!-- O-LEVEL CHARACTER INFORMATION -->
-			
+
 						<div class="sheet-col-1-2 sheet-padr">
 
 		     				<h4 class="sheet-center">Character Information </h4>
@@ -8398,9 +8398,9 @@
 		  						<div class="sheet-row">
 
 		  							<div class="sheet-col-3-19 sheet-center">&nbsp;</div>
-								
+
 									<div class="sheet-col-5-19">
-		  								
+
 		  								<div class="sheet-ACBG">
 		  									<div class="sheet-col-1-4 sheet-center">&nbsp;</div>
 											<div class="sheet-col-1-3 sheet-center"><input class="sheet-AC" type="number" name="attr_acZero" value="@{acCalc}" disabled="disabled" /><br />.</div>
@@ -8410,14 +8410,14 @@
 									<div class="sheet-col-1-19 sheet-center">&nbsp;</div>
 
 									<div class="sheet-col-5-19">
-		  								
+
 		  								<div class="sheet-HPBG">
 											<div class="sheet-col-1-4 sheet-center">&nbsp;</div>
 											<div class="sheet-col-1-3 sheet-center "><input class="sheet-HP" type="text" name="attr_HP" value="0" /><br />.</div>
 										</div>
 									</div>
 
-									<div class="sheet-col-5-19 sheet-padl">		
+									<div class="sheet-col-5-19 sheet-padl">
 										<div class="sheet-col-1-2 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_HP_max" value="0"><br />Max HP</div>
 									</div>
 
@@ -8539,26 +8539,26 @@
 
 								</div>
 
-						</div>				
+						</div>
 
-				</div>	
+				</div>
 
 					<div class="sheet-row">
 
-					<!-- O-LEVEL CORE STATS -->	
+					<!-- O-LEVEL CORE STATS -->
 						<div class="sheet-col-1-2 sheet-padr">
-							
-							<h4 class="sheet-center">Core Stats</h4>			
-							
+
+							<h4 class="sheet-center">Core Stats</h4>
+
 							<div class="sheet-row sheet-sub-header">
 								<div class="sheet-col-3-8 sheet-center">&nbsp;</div>
 								<div class="sheet-col-1-8 sheet-center sheet-small-label">Current Score</div>
 		                        <div class="sheet-col-1-8 sheet-center sheet-small-label">Max Score</div>
 								<div class="sheet-col-1-8 sheet-center sheet-small-label">Mod</div>
 								<div class="sheet-col-1-9 sheet-center sheet-small-label">Trained (T)</div>
-								<div class="sheet-col-1-8 sheet-center sheet-small-label">Untrained (U)</div>			
+								<div class="sheet-col-1-8 sheet-center sheet-small-label">Untrained (U)</div>
 							</div>
-							
+
 							<div class="sheet-row">
 								<div class="sheet-col-3-8 sheet-core-stat-label">Strength</div>
 								<div class="sheet-col-1-8"><input type="number" name="attr_str" min="1" step="1" value="10" /></div>
@@ -8571,7 +8571,7 @@
 									<button type='roll' class="sheet-core-check" value="&{template:DccTabbed} {{background=[[5]]}} {{stat=1}} {{name=@{character_name}}} {{title=STR Skill Check - 1d10}} {{flavortext=UNTRAINED:  If your character’s background does not support a skill use, your character is not familiar with the activity.}} {{rolltype=Untrained : }} {{ability=[[1d10 + [[@{strMod}]] [Stat Mod] ]]}}" name='STR' title="Untrained STR Skill">U</button>
 								</div>
 							</div>
-							
+
 							<div class="sheet-row">
 								<div class="sheet-col-3-8 sheet-core-stat-label">Agility</div>
 								<div class="sheet-col-1-8"><input type="number" name="attr_agi" min="1" step="1" value="10" /></div>
@@ -8584,7 +8584,7 @@
 									<button type='roll' class="sheet-core-check" value="&{template:DccTabbed} {{background=[[5]]}} {{stat=1}} {{name=@{character_name}}} {{title=AGI Skill Check - 1d10}} {{flavortext=UNTRAINED:  If your character’s background does not support a skill use, your character is not familiar with the activity.}} {{rolltype=Untrained : }} {{ability=[[1d10 + [[@{agiMod}]] [Stat Mod] ]]}}" name='AGI' title="Untrained AGI Skill">U</button>
 								</div>
 							</div>
-							
+
 							<div class="sheet-row">
 								<div class="sheet-col-3-8 sheet-core-stat-label">Stamina</div>
 								<div class="sheet-col-1-8"><input type="number" name="attr_sta" min="1" step="1" value="10" /></div>
@@ -8597,7 +8597,7 @@
 									<button type='roll' class="sheet-core-check" value="&{template:DccTabbed} {{background=[[5]]}} {{stat=1}} {{name=@{character_name}}} {{title=STA Skill Check - 1d10}} {{flavortext=UNTRAINED:  If your character’s background does not support a skill use, your character is not familiar with the activity.}} {{rolltype=Untrained : }} {{ability=[[1d10 + [[@{staMod}]] [Stat Mod] ]]}}" name='STA' title="Untrained STA Skill">U</button>
 								</div>
 							</div>
-							
+
 							<div class="sheet-row">
 								<div class="sheet-col-3-8 sheet-core-stat-label">Personality</div>
 								<div class="sheet-col-1-8"><input type="number" name="attr_per" min="1" step="1" value="10" /></div>
@@ -8610,7 +8610,7 @@
 									<button type='roll' class="sheet-core-check" value="&{template:DccTabbed} {{background=[[5]]}} {{stat=1}} {{name=@{character_name}}} {{title=PER Skill Check - 1d10}} {{flavortext=UNTRAINED:  If your character’s background does not support a skill use, your character is not familiar with the activity.}} {{rolltype=Untrained : }} {{ability=[[1d10 + [[@{perMod}]] [Stat Mod] ]]}}" name='PER' title="Untrained PER Skill">U</button>
 								</div>
 							</div>
-												
+
 							<div class="sheet-row">
 								<div class="sheet-col-3-8 sheet-core-stat-label">Intelligence</div>
 								<div class="sheet-col-1-8"><input type="number" name="attr_int" min="1" step="1" value="10" /></div>
@@ -8621,7 +8621,7 @@
 								</div>
 								<div class="sheet-col-1-8 sheet-center">
 									<button type='roll' class="sheet-core-check" value="&{template:DccTabbed} {{background=[[5]]}} {{stat=1}} {{name=@{character_name}}} {{title=INT Skill Check - 1d10}} {{flavortext=UNTRAINED:  If your character’s background does not support a skill use, your character is not familiar with the activity.}} {{rolltype=Untrained : }} {{ability=[[1d10 + [[@{intMod}]] [Stat Mod] ]]}}" name='INT' title="Untrained INT Skill">U</button>
-								</div>	
+								</div>
 							</div>
 
 							<div class="sheet-row">
@@ -8660,15 +8660,15 @@
 							</div>
 
 							<div class="sheet-col-2-7 sheet-center">&nbsp;</div>
-						
+
 						</div>
 
 					<!-- 0-LEVEL SAVING THROWS/MOVEMENT -->
 
 							<div class="sheet-col-1-2 sheet-padr">
-								
-								<h4 class="sheet-center">Saving Throws </h4>				
-					
+
+								<h4 class="sheet-center">Saving Throws </h4>
+
 								<div class="sheet-row sheet-sub-header">
 									<div class="sheet-col-6-19 sheet-center">&nbsp;</div>
 									<div class="sheet-col-2-19 sheet-center sheet-vert-bottom sheet-small-label">Base</div>
@@ -8678,7 +8678,7 @@
 									<div class="sheet-col-2-19 sheet-center sheet-vert-bottom sheet-small-label">Total Bonus</div>
 									<div class="sheet-col-3-19 sheet-center sheet-small-label"></div>
 								</div>
-								
+
 								<div class="sheet-row">
 									<div class="sheet-col-6-19 sheet-core-stat-label">Reflex</div>
 									<div class="sheet-col-2-19"><input type="number" name="attr_refZero" value="0" disabled="true"></div>
@@ -8690,7 +8690,7 @@
 										<button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=REFLEX Save}} {{flavortext=Saves against reaction-based threats, such as ducking a swinging axe trap, leaping aside as a doorway collapses, and twisting away from a dragon’s flaming breath.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{refCheckZero} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Reflex' title="Reflex Save">REF</button>
 									</div>
 								</div>
-								
+
 								<div class="sheet-row">
 									<div class="sheet-col-6-19 sheet-core-stat-label">Fortitude</div>
 									<div class="sheet-col-2-19"><input type="number" name="attr_fortZero" value="0" disabled="true"></div>
@@ -8702,7 +8702,7 @@
 										<button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=FORTITUDE Save}} {{flavortext=Saves against physical threats, such as poisons, gasses, acids, and stunning damage.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{fortCheckZero} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Fortitude' title="Fortitude Save">FORT</button>
 									</div>
 								</div>
-								
+
 								<div class="sheet-row">
 									<div class="sheet-col-6-19 sheet-core-stat-label">Will</div>
 									<div class="sheet-col-2-19"><input type="number" name="attr_willZero" value="0" disabled="true"></div>
@@ -8718,7 +8718,7 @@
 								<div class="sheet-col-1-1 sheet-center sheet-small-label">&nbsp;</div>
 
 								<h4 class="sheet-center">Movement </h4>
-								
+
 								<div class="sheet-row sheet-padb">
 
 									<div class="sheet-row">
@@ -8749,13 +8749,13 @@
 				<!-- 0-LEVEL Languages - Starting Luck - Birth Augur  -->
 
 					<div class="sheet-col-1-1">
-							
+
 							<h4 class="sheet-center">Languages - Starting Luck - Birth Augur </h4>
-											
+
 							<div class="sheet-row">
-							
+
 								<div class="sheet-col-5-5 sheet-padl">
-								
+
 									<div class="sheet-row">
 										<div class="sheet-col-1-5 sheet-hd-row sheet-right">Known Languages: <br /></div>
 										<div class="sheet-col-3-5"><textarea name="attr_Languages"></textarea></div>
@@ -8778,7 +8778,7 @@
 									</div>
 
 									<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
-									
+
 									<div class="sheet-row">
 										<div class="sheet-col-1-5 sheet-hd-row sheet-right sheet-padr">Lucky Roll<br /></div>
 										<div class="sheet-col-3-5 sheet-center"><input class="sheet-center sheet-underline" type="text" name="attr_luckyRoll"></div>
@@ -8855,17 +8855,17 @@
 
 									<div class="sheet-col-9-22 sheet-left sheet-vert-middle">Lucky Roll for <b>Wild Child (Speed)</b>?</div>
 									<div class="sheet-col-1-20 sheet-left sheet-padr sheet-checkbox-row sheet-vert-middle" title="Check the box if you have the Lucky Roll for Speed"><input type="checkbox" value="[[@{luckStartingMod} * (5)]]" name="attr_speedLuckyRoll"></div>
-			
+
 								</div>
-							
-							</div>			
-							
+
+							</div>
+
 					</div>
-					
+
 					<hr />
-				
+
 				<!-- 0-LEVEL WEAPONS -->
-				
+
 					<!-- BEGIN AUTO GENERATED WEAPON SECTION -->
 					<h4 class="sheet-center">Melee Weapons </h4>
 
@@ -8881,11 +8881,11 @@
 							<div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Dmg Bonus</div>
 						</div>
 
-						<!-- BEGIN MELEE weapon repeating row -->	
+						<!-- BEGIN MELEE weapon repeating row -->
 							<fieldset class="repeating_meleeweaponzero">
 								<div class="sheet-row">
 								<div class="sheet-col-1-12 sheet-checkbox-row" title="Check the box if you have the Lucky Roll for 0-level Starting weapon"><input type="checkbox" value="@{luckStartingMod}" name="attr_zeroWeaponLuckyRoll"></div>
-								
+
 								<div class="sheet-col-2-11"><input type="text" name="attr_meleeWeaponNameZero"></div>
 								<div class="sheet-col-3-23" title="How is the weapon being wielded">
 									<select name="attr_meleeAttackWieldedZero">
@@ -8908,7 +8908,7 @@
 										<option value="d6">d6</option>
 										<option value="d5">d5</option>
 										<option value="d4">d4</option>
-										<option value="d3">d3</option>				
+										<option value="d3">d3</option>
 									</select>
 								</div>
 
@@ -8917,13 +8917,13 @@
 										<option value="30">d30</option>
 										<option value="24">d24</option>
 										<option value="20" selected="selected">d20</option>
-										<option value="16">d16</option>				
+										<option value="16">d16</option>
 									</select>
 								</div>
-								
+
 								<div class="sheet-col-1-12" title="The magic bonus will be added as a bonus to BOTH the attack and damage rolls"><input class="sheet-center" type="number" name="attr_meleeMagicZero" value="0" step="1"></div>
 								<div class="sheet-col-1-11"><input class=" sheet-center" type="number" name="attr_meleeToHitZero" value="[[[[@{strMod}]] + @{meleeMagicZero} + @{allAtkLuckyRoll} + @{meleeAtkLuckyRoll} + @{zeroWeaponLuckyRoll}]]" disabled="disabled"></div>
-								
+
 								<div class="sheet-col-1-11" title="Only enter the base damage roll here without any bonuses from stats or other sources"><input class="sheet-center" value="0" type="text" name="attr_meleeDmgZero"></div>
 								<div class="sheet-col-1-12"><input class="sheet-center" type="number" name="attr_meleeDmgBonusZero" value="[[[[@{strMod}]] + @{meleeMagicZero} + @{meleedmgLuckyRoll} + @{dmgLuckyRoll} + @{zeroWeaponLuckyRoll}]]" disabled="disabled"></div>
 								<div class="sheet-col-1-14 sheet-padl">
@@ -8966,7 +8966,7 @@
 									<div class="sheet-col-2-23" title="Select Thrown or Missile weapon">
 										<select name="attr_rangedWeaponTypeZero">
 											<option value="Thrown">Thrown</option>
-											<option value="Missile" selected="selected">Missile</option>			
+											<option value="Missile" selected="selected">Missile</option>
 										</select>
 									</div>
 									<div class="sheet-col-1-16" title="If you are not trained in your weapon use, you take -1 die for your attack roll.  You will also take a minus to your dice chain if using two-weapon fighting or shooting from long range.">
@@ -8983,19 +8983,19 @@
 											<option value="d6">d6</option>
 											<option value="d5">d5</option>
 											<option value="d4">d4</option>
-											<option value="d3">d3</option>				
+											<option value="d3">d3</option>
 										</select>
 									</div>
 									<div class="sheet-col-1-13" title="Your critical threat range goes up, if your dice on the dice chain goes up.">
 										<select name="attr_rangedCritThreatZero">
 											<option value="30">30</option>
 											<option value="24">24</option>
-											<option value="20" selected="selected">20</option>			
+											<option value="20" selected="selected">20</option>
 										</select>
 									</div>
 									<div class="sheet-col-1-21" title="The magic bonus will be added as a bonus to BOTH the attack and damage rolls"><input class="sheet-center" type="number" name="attr_rangedMagicZero" value="0" step="1"></div>
 									<div class="sheet-col-1-24"><input class="sheet-center" type="number" name="attr_rangedToHitZero" value="[[[[@{agiMod}]] + @{allAtkLuckyRoll} + @{rangedAtkLuckyRoll} + @{rangedMagicZero} + @{zeroRangedWeaponLuckyRollZero}]]" disabled="disabled"></div>
-									<div class="sheet-col-1-16" title="Only enter the base damage roll here without any bonuses from stats or other sources"><input class="sheet-center" type="text" name="attr_rangedDmgZero" value="0"></div>		
+									<div class="sheet-col-1-16" title="Only enter the base damage roll here without any bonuses from stats or other sources"><input class="sheet-center" type="text" name="attr_rangedDmgZero" value="0"></div>
 									<div class="sheet-col-1-24"><input class="sheet-center" type="number" name="attr_rangedDmgBonusZero" value="[[@{rangedMagicZero} + @{rangedDmgLuckyRoll} + @{dmgLuckyRoll} + @{zeroRangedWeaponLuckyRollZero}]]" disabled="disabled"></div>
 									<div class="sheet-col-1-13" title="Choose the range you are attacking from:">
 										<select name="attr_attackRangeZero">
@@ -9012,24 +9012,24 @@
 							</fieldset>
 
 					<hr />
-					
+
 					<!-- END AUTO GENERATED WEAPON SECTION -->
 
 				<!-- 0-LEVEL ARMOR -->
 
 					<div class="sheet-row">
-					
+
 						<div class="sheet-col-1">
-							<h4 class="sheet-center">Armor Class </h4> 
+							<h4 class="sheet-center">Armor Class </h4>
 							<p class="sheet-small-note">Add any equipment, effects or items here that give a benefit to your Armor Class (AC).  This includes Armor, shields and any magical items or spells.  Use the checkbox to indicate whether each row is is worn/equipped.</p>
 						</div>
 					</div>
-								
+
 					<div class="sheet-row sheet-padb">
 
 						<div class="sheet-col-1-7 sheet-right sheet-small-label">&nbsp;</div>
 
-						<div class="sheet-col-1-7 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_acCalc" readonly="readonly"><br />AC (worn armor)</div>	
+						<div class="sheet-col-1-7 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_acCalc" readonly="readonly"><br />AC (worn armor)</div>
 
 						<div class="sheet-col-1-7 sheet-right sheet-small-label">&nbsp;</div>
 
@@ -9041,12 +9041,12 @@
 
 						<div class="sheet-col-1-7 sheet-right sheet-small-label">&nbsp;</div>
 					</div>
-										
+
 					<div class="sheet-row">
-					
+
 						<div class="sheet-col-1">
-				
-							<div class="sheet-row sheet-sub-header">	
+
+							<div class="sheet-row sheet-sub-header">
 								<div class="sheet-col-2-23 sheet-center sheet-small-label sheet-vert-bottom">Worn?</div>
 								<div class="sheet-col-5-23 sheet-center sheet-small-label sheet-vert-bottom">Name</div>
 								<div class="sheet-col-2-23 sheet-center sheet-small-label sheet-vert-bottom">Base AC</div>
@@ -9100,28 +9100,28 @@
 										<div class="sheet-col-1-23 sheet-center">&nbsp;</div>
 									</div>
 								</fieldset>
-				
+
 						</div>
-						
+
 					</div>
-					
+
 					<hr />
-				
+
 				<!-- 0-LEVEL INVENTORY -->
 
 					<div class="sheet-row">
-					
+
 						<div class="sheet-col-1">
-							<h4 class="sheet-center">Coin Carried </h4> 
+							<h4 class="sheet-center">Coin Carried </h4>
 							<p class="sheet-small-note">Total = value of all coins converted to GP</p>
 						</div>
 					</div>
 
 					<div class="sheet-row">
-						
+
 						<div class="sheet-col-1-1 sheet-padr">
-						
-							<div class="sheet-row sheet-sub-header">	
+
+							<div class="sheet-row sheet-sub-header">
 								<div class="sheet-col-1-6 sheet-center sheet-small-label">CP</div>
 								<div class="sheet-col-1-6 sheet-center sheet-small-label">SP</div>
 								<div class="sheet-col-1-6 sheet-center sheet-small-label">GP</div>
@@ -9129,8 +9129,8 @@
 								<div class="sheet-col-1-6 sheet-center sheet-small-label">PP</div>
 								<div class="sheet-col-1-6 sheet-center sheet-small-label">Total</div>
 							</div>
-							
-							<div class="sheet-row">	
+
+							<div class="sheet-row">
 								<div class="sheet-col-1-6" title="Copper Pieces"><input type="number" name="attr_CP" value="0" min="0" step="1"></div>
 								<div class="sheet-col-1-6" title="Silver Pieces"><input type="number" name="attr_SP" value="0" min="0" step="1"></div>
 								<div class="sheet-col-1-6" title="Gold Pieces"><input type="number" name="attr_GP" value="0" min="0" step="1"></div>
@@ -9138,11 +9138,11 @@
 								<div class="sheet-col-1-6" title="Platinum Pieces"><input type="number" name="attr_PP" value="0" min="0" step="1"></div>
 								<div class="sheet-col-1-6" title="Total (in Gold Pieces)"><input class="sheet-center" type="number" name="attr_money_total_gp" value="(@{CP} / 100) + (@{SP} / 10) + @{GP} + (@{EP} * 10) + (@{PP} * 100) " disabled="disabled"></div>
 							</div>
-						
+
 						</div>
 
-					</div>			
-				
+					</div>
+
 					<h4 class="sheet-center">Inventory </h4>
 
 						<div class="sheet-col-1-1">
@@ -9158,15 +9158,15 @@
 							</div>
 
 						</div>
-			
-					<hr />		
+
+					<hr />
 		</div>
 
 	<!-- NPC/MONSTER CHARACTER SHEET -->
 		<div class="sheet-maintab-content sheet-monster">
-		
+
 			<h5 class="sheet-center">Monster/NPC Sheet (GM ONLY) </h5>
-		
+
 			<p class="sheet-small-note">This character sheet is for NPCs and Monsters.  It is for the GMs to use. </p>
 
 				<!-- MONSTER INFORMATION -->
@@ -9179,7 +9179,7 @@
 
 						<div class="sheet-col-1-1 sheet-padr">
 
-		     				
+
 
 								<div class="sheet-row">
 									<div class="sheet-col-5-23 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" placeholder="Type of Monster" name="attr_monsterType"><br />Type</div>
@@ -9192,7 +9192,7 @@
 								<div class="sheet-col-1-23 sheet-center">&nbsp;</div>
 
 								<div class="sheet-row">
-							
+
 									<div class="sheet-col-5-5 sheet-padl">
 
 										<div class="sheet-col-1-1">
@@ -9211,9 +9211,9 @@
 										</div>
 
 										<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
-			
+
 									</div>
-							
+
 								</div>
 
 								<div class="sheet-row">
@@ -9222,9 +9222,9 @@
 										<div class="sheet-row">
 
 				  							<div class="sheet-col-2-19 sheet-center">&nbsp;</div>
-										
+
 											<div class="sheet-MonsterColumn">
-				  								
+
 				  								<div class="sheet-ACBGMonster">
 				  									<div class="sheet-col-1-5 sheet-center">&nbsp;</div>
 													<div class="sheet-col-1-2 sheet-center"><input class="sheet-ACMonster" type="number" name="attr_acMonster" value="10" step="1"><br />.</div>
@@ -9234,14 +9234,14 @@
 											<div class="sheet-col-1-19 sheet-center">&nbsp;</div>
 
 											<div class="sheet-MonsterColumn">
-				  								
+
 				  								<div class="sheet-HPBGMonster">
 													<div class="sheet-col-2-11 sheet-center">&nbsp;</div>
 													<div class="sheet-col-1-2 sheet-center "><input class="sheet-HPMonster" type="text" name="attr_hpMonster" value="0"><br />.</div>
 												</div>
 											</div>
 
-											<div class="sheet-col-5-19 sheet-padl">		
+											<div class="sheet-col-5-19 sheet-padl">
 												<div class="sheet-col-1-2 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_hpMaxMonster" value="0"><br />Max HP</div>
 											</div>
 
@@ -9262,7 +9262,7 @@
 											<div class="sheet-col-1 sheet-center">&nbsp;</div>
 											<div class="sheet-col-1 sheet-center">&nbsp;</div>
 
-											<div class="sheet-col-1 sheet-padl">		
+											<div class="sheet-col-1 sheet-padl">
 
 												<div class="sheet-col-3-19 sheet-center sheet-heading-row">Hit Die : </br></div>
 												<div class="sheet-col-3-19 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" min="1" value="1" step="1" title="Enter the amount of Hit Dice for the monster" name="attr_hdMonsterDiceAmount"><br />Amount</div>
@@ -9299,19 +9299,19 @@
 
 								<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
 
-								
-							</div>		
 
-					</div>		
+							</div>
+
+					</div>
 
 				<!-- MONSTER SAVING THROWS, MOVEMENT -->
 					<div class="sheet-row">
 
 						<!-- MONSTER SAVING THROWS -->
-					
+
 							<div class="sheet-col-1-2 sheet-padr">
-								
-								<h4 class="sheet-center">Monster Saving Throws </h4>	
+
+								<h4 class="sheet-center">Monster Saving Throws </h4>
 
 								<div class="sheet-row">
 									<div class="sheet-col-3-7 sheet-core-stat-label">Fortitude</div>
@@ -9319,8 +9319,8 @@
 									<div class="sheet-col-2-7 sheet-center sheet-padl">
 										<button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=FORTITUDE Save}} {{flavortext=Saves against physical threats, such as poisons, gasses, acids, and stunning damage.}} {{rolltype=Saving Throw:}} {{savingthrow=[[1d20 + @{fortMonster} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Fortitude' title="Fortitude Save">FORTITUDE</button>
 									</div>
-								</div>			
-								
+								</div>
+
 								<div class="sheet-row">
 									<div class="sheet-col-3-7 sheet-core-stat-label">Reflex</div>
 									<div class="sheet-col-2-7 sheet-padl"><input type="number" name="attr_refMonster" value="0" step="1"></div>
@@ -9328,7 +9328,7 @@
 										<button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=REFLEX Save}} {{flavortext=Saves against reaction-based threats, such as ducking a swinging axe trap, leaping aside as a doorway collapses, and twisting away from a player's scorching ray.}} {{rolltype=Saving Throw:}} {{savingthrow=[[1d20 + @{refMonster} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Reflex' title="Reflex Save">REFLEX</button>
 									</div>
 								</div>
-								
+
 								<div class="sheet-row">
 									<div class="sheet-col-3-7 sheet-core-stat-label">Will</div>
 									<div class="sheet-col-2-7 sheet-padl"><input type="number" name="attr_willMonster" value="0" step="1"></div>
@@ -9343,7 +9343,7 @@
 							<div class="sheet-col-1-2 sheet-padr">
 
 								<h4 class="sheet-center">Monster Movement </h4>
-								
+
 								<div class="sheet-row sheet-padb">
 
 									<div class="sheet-row">
@@ -9467,14 +9467,14 @@
 										</select>
 									</div>
 									<div class="sheet-col-5-17 sheet-center">&nbsp;</div>
-									
+
 
 							</div>
 
-							
-				
+
+
 				<!-- MONSTER WEAPONS -->
-				
+
 					<!-- BEGIN AUTO GENERATED WEAPON SECTION -->
 					<h4 class="sheet-center">Monster Melee Attacks </h4>
 
@@ -9507,7 +9507,7 @@
 										<option value="d6">d6</option>
 										<option value="d5">d5</option>
 										<option value="d4">d4</option>
-										<option value="d3">d3</option>				
+										<option value="d3">d3</option>
 									</select>
 								</div>
 								<div class="sheet-col-1-12" title="Your critical threat range goes up, if your dice on the dice chain goes up.">
@@ -9526,7 +9526,7 @@
 										<option value="19">19-20</option>
 										<option value="18">18-20</option>
 										<option value="17">17-20</option>
-										<option value="16">16-20</option>				
+										<option value="16">16-20</option>
 									</select>
 								</div>
 								<div class="sheet-col-1-15"><input type="number" name="attr_monsterMeleeToHit" value="0" step="1"></div>
@@ -9582,7 +9582,7 @@
 											<option value="d6">d6</option>
 											<option value="d5">d5</option>
 											<option value="d4">d4</option>
-											<option value="d3">d3</option>				
+											<option value="d3">d3</option>
 										</select>
 									</div>
 									<div class="sheet-col-1-13" title="Your critical threat range goes up, if your dice on the dice chain goes up.">
@@ -9601,11 +9601,11 @@
 											<option value="19">19-20</option>
 											<option value="18">18-20</option>
 											<option value="17">17-20</option>
-											<option value="16">16-20</option>		
+											<option value="16">16-20</option>
 										</select>
 									</div>
 									<div class="sheet-col-1-23"><input type="number" name="attr_monsterRangedToHit" value="0" step="1"></div>
-									<div class="sheet-col-1-16" title="Only enter the base damage roll here without any bonuses from stats or other sources"><input class="sheet-center" type="text" name="attr_monsterRangedDmg" value="0"></div>		
+									<div class="sheet-col-1-16" title="Only enter the base damage roll here without any bonuses from stats or other sources"><input class="sheet-center" type="text" name="attr_monsterRangedDmg" value="0"></div>
 									<div class="sheet-col-1-23" title="Enter damage bonus here."><input type="number" name="attr_monsterRangedDmgBonus" value="0" step="1"></div>
 									<div class="sheet-col-1-13" title="Choose the range you are attacking from:">
 										<select name="attr_monsterAttackRange">
@@ -9623,25 +9623,25 @@
 				                    </div>
 				                    <div class="sheet-col-1-6 sheet-center">&nbsp;</div>
 								</div>
-							</fieldset>	
+							</fieldset>
 				<hr />
-					
+
 					<!-- END AUTO GENERATED WEAPON SECTION -->
 
 				<!-- MONSTER SPECIAL ABILITIES -->
-				
+
 					<div class="sheet-row">
-					
+
 						<div class="sheet-col-1">
-							<h4 class="sheet-center">Monster Special Abilities </h4> 
+							<h4 class="sheet-center">Monster Special Abilities </h4>
 							<p class="sheet-small-note">Note a monsters special abilities here.</p>
 						</div>
 					</div>
-										
+
 					<div class="sheet-row">
-					
+
 						<div class="sheet-col-1">
-							
+
 							<!-- BEGIN repeating fieldset Special Abilities -->
 							<fieldset class="repeating_specialabilities">
 								<div class="sheet-row">
@@ -9652,27 +9652,27 @@
 								</div>
 							</fieldset>
 							<!-- END Fieldsets -->
-				
+
 						</div>
-						
+
 					</div>
-					
+
 					<hr />
-				
+
 				<!-- MONSTER TREASURE/INVENTORY -->
 
 					<div class="sheet-row">
-					
+
 						<div class="sheet-col-1">
-							<h4 class="sheet-center">Monster Coin Treasure </h4> 
+							<h4 class="sheet-center">Monster Coin Treasure </h4>
 						</div>
 					</div>
 
 					<div class="sheet-row">
-						
+
 						<div class="sheet-col-1-1 sheet-padr">
-						
-							<div class="sheet-row sheet-sub-header">	
+
+							<div class="sheet-row sheet-sub-header">
 								<div class="sheet-col-1-9 sheet-center sheet-small-label">CP</div>
 								<div class="sheet-col-1-9 sheet-center">&nbsp;</div>
 								<div class="sheet-col-1-9 sheet-center sheet-small-label">SP</div>
@@ -9683,8 +9683,8 @@
 								<div class="sheet-col-1-9 sheet-center">&nbsp;</div>
 								<div class="sheet-col-1-9 sheet-center sheet-small-label">PP</div>
 							</div>
-							
-							<div class="sheet-row">	
+
+							<div class="sheet-row">
 								<div class="sheet-col-1-9" title="Copper Pieces"><input type="number" name="attr_cpMonster" value="0" min="0" step="1"></div>
 								<div class="sheet-col-1-9 sheet-center">&nbsp;</div>
 								<div class="sheet-col-1-9" title="Silver Pieces"><input type="number" name="attr_spMonster" value="0" min="0" step="1"></div>
@@ -9695,11 +9695,11 @@
 								<div class="sheet-col-1-9 sheet-center">&nbsp;</div>
 								<div class="sheet-col-1-9" title="Platinum Pieces"><input type="number" name="attr_ppMonster" value="0" min="0" step="1"></div>
 							</div>
-						
+
 						</div>
 
-					</div>			
-				
+					</div>
+
 					<h4 class="sheet-center">Monster Inventory </h4>
 
 						<div class="sheet-col-1-1">
@@ -9715,12 +9715,12 @@
 							</div>
 
 						</div>
-			
-					<hr />		
+
+					<hr />
 
 		</div>
 
-	
+
 </div>
 
 <!--- templates -->
@@ -9732,32 +9732,32 @@
 					<div class="sheet-RollTemp-BgHugh">
 				{{/rollTotal() background 0}}
 				{{#rollTotal() background 1}}
-					<div class="sheet-RollTemp-BgShana"> 
+					<div class="sheet-RollTemp-BgShana">
 				{{/rollTotal() background 1}}
 				{{#rollTotal() background 2}}
-					<div class="sheet-RollTemp-BgAlamanter"> 
+					<div class="sheet-RollTemp-BgAlamanter">
 				{{/rollTotal() background 2}}
 				{{#rollTotal() background 3}}
-					<div class="sheet-RollTemp-BgSezrakan"> 
+					<div class="sheet-RollTemp-BgSezrakan">
 				{{/rollTotal() background 3}}
 				{{#rollTotal() background 4}}
-					<div class="sheet-RollTemp-BgFarrah"> 
+					<div class="sheet-RollTemp-BgFarrah">
 				{{/rollTotal() background 4}}
 				{{#rollTotal() background 5}}
-					<div class="sheet-RollTemp-BgChuck"> 
+					<div class="sheet-RollTemp-BgChuck">
 				{{/rollTotal() background 5}}
 
 
             <div class="sheet-RollTemp-header{{#combat}} sheet-combat{{/combat}}{{#spell}}  sheet-spell{{/spell}}{{#stat}} sheet-stat{{/stat}}{{#save}} sheet-save{{/save}}{{#class}} sheet-class{{/class}}">
                 <div class="sheet-RollTemp-title">{{title}}</div>
                 <div class="sheet-RollTemp-name">{{name}} {{stuff}} {{stuff2}}</div>
-                <div class="sheet-RollTemp-line"></div> 
+                <div class="sheet-RollTemp-line"></div>
             </div>
 
             <div class="sheet-main-content">
 
-            	
-                
+
+
                 <!--Weapon based attacks-->
                     {{#attack}}
                         <div class="sheet-row">
@@ -9783,8 +9783,8 @@
 	                            <div class="sheet-col-4-13 sheet-padl sheet-padr sheet-RollTemp-rollname">Crit :</div>
 	                            <div class="sheet-col-9-13 sheet-padl sheet-padr sheet-RollTemp-critsuccess">{{crit}} on Crit Table {{crittable}}</div>
 	                        </div>
-	                    {{/rollWasCrit() attack}}   
-	                            
+	                    {{/rollWasCrit() attack}}
+
 	                    {{#rollWasFumble() attack}}
 	                        <div class="sheet-row">
 	                            <div class="sheet-col-1-1">&nbsp;</div>
@@ -9821,8 +9821,8 @@
 	                            <div class="sheet-col-4-13 sheet-padl sheet-padr sheet-RollTemp-rollname">Crit :</div>
 	                            <div class="sheet-col-9-13 sheet-padl sheet-padr sheet-RollTemp-critsuccess">{{crit}} on Crit Table {{crittable}}</div>
 	                        </div>
-	                    {{/rollWasCrit() rangedattack}}   
-	                            
+	                    {{/rollWasCrit() rangedattack}}
+
 	                    {{#rollWasFumble() rangedattack}}
 	                        <div class="sheet-row">
 	                            <div class="sheet-col-1-1">&nbsp;</div>
@@ -9853,8 +9853,8 @@
 		                            <div class="sheet-col-9-13 sheet-padl sheet-padr sheet-RollTemp-critsuccess">{{crit}} on Crit Table {{crittable}}</div>
 		                        </div>
 		                    {{/damage}}
-	                	{{/^rollWasFumble() backstab}}  
-	                            
+	                	{{/^rollWasFumble() backstab}}
+
 	                    {{#rollWasFumble() backstab}}
 	                        <div class="sheet-row">
 	                            <div class="sheet-col-1-1">&nbsp;</div>
@@ -9889,8 +9889,8 @@
 		                            <div class="sheet-col-9-13 sheet-padl sheet-padr sheet-RollTemp-critsuccess">{{crit}} on Crit Table {{crittable}}</div>
 		                        </div>
 		                    {{/damage}}
-	                	{{/^rollWasFumble() rangedbackstab}}  
-	                            
+	                	{{/^rollWasFumble() rangedbackstab}}
+
 	                    {{#rollWasFumble() rangedbackstab}}
 	                        <div class="sheet-row">
 	                            <div class="sheet-col-1-1">&nbsp;</div>
@@ -9922,8 +9922,8 @@
 	                            <div class="sheet-col-4-13 sheet-padl sheet-padr sheet-RollTemp-rollname">Crit :</div>
 	                            <div class="sheet-col-9-13 sheet-padl sheet-padr sheet-RollTemp-critsuccess">{{crit}} on Crit Table {{crittable}}</div>
 	                        </div>
-	                    {{/rollWasCrit() monsterattack}}   
-	                            
+	                    {{/rollWasCrit() monsterattack}}
+
 	                    {{#rollWasFumble() monsterattack}}
 	                        <div class="sheet-row">
 	                            <div class="sheet-col-1-1">&nbsp;</div>
@@ -10608,7 +10608,7 @@
 	                        <div class="sheet-col-2-13 sheet-padr sheet-RollTemp-fail">{{juryrigfailure}}</div>
 	                    </div>
 	                {{/juryrig}}
-	                
+
                 <!-- Percentile Abilities -->
 	                {{#percentability}}
 	                    <div class="sheet-row">
@@ -10651,45 +10651,45 @@
 	                        <div class="sheet-col-4-13 sheet-padr sheet-RollTemp-rollresult">{{spellmercurial}}</div>
 	                    </div>
 	                {{/spellmercurial}}
-					
+
 					{{#spellcheckwizard}}
 						<div class="sheet-row">
 							{{#spellshowmanifest}}
-								
+
 								<div class="sheet-col-23-24 sheet-padl sheet-padr sheet-RollTemp-emote">{{spellshowmanifest}}</div>
-		                    	
+
 	                    	{{/spellshowmanifest}}
 	                    	{{#spellshowinfoblock}}
 								<div class="sheet-row sheet-padb">
-									
+
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-right-dotted"><span class="sheet-RollTemp-key">Level</span><br /><span class="sheet-RollTemp-value">{{spelllevel}}</span></div>
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-left-dotted"><span class="sheet-RollTemp-key">Range</span><br /><span class="sheet-RollTemp-value">{{spellrange}}</span></div>
-									
+
 									<div class="sheet-col-1 sheet-border-top-dotted"></div>
-									
+
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-right-dotted"><span class="sheet-RollTemp-key">Duration</span><br /><span class="sheet-RollTemp-value">{{spellduration}}</span></div>
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-left-dotted"><span class="sheet-RollTemp-key">Cast Time</span><br /><span class="sheet-RollTemp-value">{{spellcasttime}}</span></div>
 
 									<div class="sheet-col-1 sheet-border-top-dotted"></div>
-									
+
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-right-dotted"><span class="sheet-RollTemp-key">Save</span><br /><span class="sheet-RollTemp-value">{{spellsave}}</span></div>
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-left-dotted"><span class="sheet-RollTemp-key">Concentration</span><br /><span class="sheet-RollTemp-value">{{spellconcentrate}}</span></div>
-									
+
 								</div>
 							{{/spellshowinfoblock}}
-							{{#spellshowmercurial}}	
+							{{#spellshowmercurial}}
 								<div class="sheet-row">
 									<div class="sheet-col-1 sheet-padl sheet-padr sheet-RollTemp-key">Mercurial Effect</div>
 									<div class="sheet-col-1 sheet-padl sheet-padr sheet-RollTemp-textbox">{{spellshowmercurial}}</div>
 								</div>
 							{{/spellshowmercurial}}
-							{{#spellshowdesc}}	
+							{{#spellshowdesc}}
 								<div class="sheet-row">
 									<div class="sheet-col-1 sheet-padl sheet-padr sheet-RollTemp-key">Spell Description</div>
 									<div class="sheet-col-1 sheet-padl sheet-padr sheet-RollTemp-textbox">{{spellshowdesc}}</div>
 								</div>
 							{{/spellshowdesc}}
-								<div class="sheet-col-1-1">&nbsp;</div>	
+								<div class="sheet-col-1-1">&nbsp;</div>
 								<div class="sheet-col-7-13 sheet-padl sheet-padr sheet-RollTemp-rollname">{{rolltype}}</div>
 								<div class="sheet-col-6-13 sheet-padr sheet-RollTemp-rollresult">{{spellcheckwizard}}</div>
 							</div>
@@ -10699,7 +10699,7 @@
 	                            <div class="sheet-col-1-1">&nbsp;</div>
 	                            <div class="sheet-col-12-13 sheet-padl sheet-padr sheet-center sheet-RollTemp-critsuccess">{{crit}}</div>
 	                        </div>
-	                    {{/rollWasCrit() spellcheckwizard}}   
+	                    {{/rollWasCrit() spellcheckwizard}}
 
 						{{#rollWasFumble() spellcheckwizard}}
 	                        <div class="sheet-row">
@@ -10723,41 +10723,41 @@
 					{{#spellcheckwizardmulti}}
 						<div class="sheet-row">
 							{{#spellshowmanifest}}
-								
+
 								<div class="sheet-col-23-24 sheet-padl sheet-padr sheet-RollTemp-emote">{{spellshowmanifest}}</div>
-		                    	
+
 	                    	{{/spellshowmanifest}}
 	                    	{{#spellshowinfoblock}}
 								<div class="sheet-row sheet-padb">
-									
+
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-right-dotted"><span class="sheet-RollTemp-key">Level</span><br /><span class="sheet-RollTemp-value">{{spelllevel}}</span></div>
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-left-dotted"><span class="sheet-RollTemp-key">Range</span><br /><span class="sheet-RollTemp-value">{{spellrange}}</span></div>
-									
+
 									<div class="sheet-col-1 sheet-border-top-dotted"></div>
-									
+
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-right-dotted"><span class="sheet-RollTemp-key">Duration</span><br /><span class="sheet-RollTemp-value">{{spellduration}}</span></div>
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-left-dotted"><span class="sheet-RollTemp-key">Cast Time</span><br /><span class="sheet-RollTemp-value">{{spellcasttime}}</span></div>
 
 									<div class="sheet-col-1 sheet-border-top-dotted"></div>
-									
+
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-right-dotted"><span class="sheet-RollTemp-key">Save</span><br /><span class="sheet-RollTemp-value">{{spellsave}}</span></div>
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-left-dotted"><span class="sheet-RollTemp-key">Concentration</span><br /><span class="sheet-RollTemp-value">{{spellconcentrate}}</span></div>
-									
+
 								</div>
 							{{/spellshowinfoblock}}
-							{{#spellshowmercurial}}	
+							{{#spellshowmercurial}}
 								<div class="sheet-row">
 									<div class="sheet-col-1 sheet-padl sheet-padr sheet-RollTemp-key">Mercurial Effect</div>
 									<div class="sheet-col-1 sheet-padl sheet-padr sheet-RollTemp-textbox">{{spellshowmercurial}}</div>
 								</div>
 							{{/spellshowmercurial}}
-							{{#spellshowdesc}}	
+							{{#spellshowdesc}}
 								<div class="sheet-row">
 									<div class="sheet-col-1 sheet-padl sheet-padr sheet-RollTemp-key">Spell Description</div>
 									<div class="sheet-col-1 sheet-padl sheet-padr sheet-RollTemp-textbox">{{spellshowdesc}}</div>
 								</div>
 							{{/spellshowdesc}}
-								<div class="sheet-col-1-1">&nbsp;</div>	
+								<div class="sheet-col-1-1">&nbsp;</div>
 								<div class="sheet-col-7-13 sheet-padl sheet-padr sheet-RollTemp-rollname">{{rolltype}}</div>
 								<div class="sheet-col-6-13 sheet-padr sheet-RollTemp-rollresult">{{spelldie1}}+{{spelldie2}}+{{spellbonus}}</div>
 							</div>
@@ -10769,7 +10769,7 @@
 		                            <div class="sheet-col-12-13 sheet-padl sheet-padr sheet-center sheet-RollTemp-critsuccess">{{crit}}</div>
 		                        </div>
 	                        {{/rollWasCrit() spelldie2}}
-	                    {{/rollWasCrit() spelldie1}}   
+	                    {{/rollWasCrit() spelldie1}}
 
 						{{#rollWasFumble() spelldie1}}
 							{{#rollWasFumble() spelldie2}}
@@ -10782,7 +10782,7 @@
 		                    {{/rollWasFumble() spelldie2}}
                     	{{/rollWasFumble() spelldie1}}
 					{{/spellcheckwizardmulti}}
-					
+
 					{{#spellmisfire}}
 						<div class="sheet-row">
 							<div class="sheet-col-23-24 sheet-padl sheet-padr sheet-RollTemp-info">{{flavortext}}</div>
@@ -10804,36 +10804,36 @@
 					{{#spellcheckcleric}}
 						<div class="sheet-row">
 							{{#spellshowmanifest}}
-								
+
 								<div class="sheet-col-23-24 sheet-padl sheet-padr sheet-RollTemp-emote">{{spellshowmanifest}}</div>
-		                    	
+
 	                    	{{/spellshowmanifest}}
 	                    	{{#spellshowinfoblock}}
 								<div class="sheet-row sheet-padb">
-									
+
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-right-dotted"><span class="sheet-RollTemp-key">Level</span><br /><span class="sheet-RollTemp-value">{{spelllevel}}</span></div>
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-left-dotted"><span class="sheet-RollTemp-key">Range</span><br /><span class="sheet-RollTemp-value">{{spellrange}}</span></div>
-									
+
 									<div class="sheet-col-1 sheet-border-top-dotted"></div>
-									
+
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-right-dotted"><span class="sheet-RollTemp-key">Duration</span><br /><span class="sheet-RollTemp-value">{{spellduration}}</span></div>
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-left-dotted"><span class="sheet-RollTemp-key">Cast Time</span><br /><span class="sheet-RollTemp-value">{{spellcasttime}}</span></div>
 
 									<div class="sheet-col-1 sheet-border-top-dotted"></div>
-									
+
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-right-dotted"><span class="sheet-RollTemp-key">Save</span><br /><span class="sheet-RollTemp-value">{{spellsave}}</span></div>
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-left-dotted"><span class="sheet-RollTemp-key">Concentration</span><br /><span class="sheet-RollTemp-value">{{spellconcentrate}}</span></div>
-									
+
 								</div>
 							{{/spellshowinfoblock}}
-							
-							{{#spellshowdesc}}	
+
+							{{#spellshowdesc}}
 								<div class="sheet-row">
 									<div class="sheet-col-1 sheet-padl sheet-padr sheet-RollTemp-key">Spell Description</div>
 									<div class="sheet-col-1 sheet-padl sheet-padr sheet-RollTemp-textbox">{{spellshowdesc}}</div>
 								</div>
 							{{/spellshowdesc}}
-								<div class="sheet-col-1-1">&nbsp;</div>	
+								<div class="sheet-col-1-1">&nbsp;</div>
 								<div class="sheet-col-7-13 sheet-padl sheet-padr sheet-RollTemp-rollname">{{rolltype}}</div>
 								<div class="sheet-col-6-13 sheet-padr sheet-RollTemp-rollresult">{{spellcheckcleric}}</div>
 							</div>
@@ -10843,7 +10843,7 @@
 	                            <div class="sheet-col-1-1">&nbsp;</div>
 	                            <div class="sheet-col-12-13 sheet-padl sheet-padr sheet-center sheet-RollTemp-critsuccess">{{crit}}</div>
 	                        </div>
-	                    {{/rollWasCrit() spellcheckcleric}}   
+	                    {{/rollWasCrit() spellcheckcleric}}
 
 						{{#rollWasFumble() spellcheckcleric}}
 	                        <div class="sheet-row">
@@ -10862,33 +10862,33 @@
 		                        </div>
 		                    {{/rollLess() spellcheckcleric 12}}
 	                    {{/^rollWasFumble() spellcheckcleric}}
-	                
+
 					{{/spellcheckcleric}}
 
 				<!--Mutations-->
 					{{#mutations}}
 						<div class="sheet-row">
-							
+
 	                    	{{#mutationshowinfoblock}}
 								<div class="sheet-row sheet-padb">
-									
+
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-right-dotted"><span class="sheet-RollTemp-key">Base Mutation</span><br /><span class="sheet-RollTemp-value">{{basemutation}}</span></div>
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-left-dotted"><span class="sheet-RollTemp-key">Mutation Type</span><br /><span class="sheet-RollTemp-value">{{typemutation}}</span></div>
-									
+
 									<div class="sheet-col-1 sheet-border-top-dotted"></div>
-									
+
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-right-dotted"><span class="sheet-RollTemp-key">Sub-Mutation</span><br /><span class="sheet-RollTemp-value">{{submutation}}</span></div>
 										<!--<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-left-dotted"><span class="sheet-RollTemp-key">Cast Time</span><br/><span class="sheet-RollTemp-value">{{spellcasttime}}</span></div>
 
 									<div class="sheet-col-1 sheet-border-top-dotted"></div>
-									
+
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-right-dotted"><span class="sheet-RollTemp-key">Save</span><br/><span class="sheet-RollTemp-value">{{spellsave}}</span></div>
 										<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-left-dotted"><span class="sheet-RollTemp-key">Concentration</span><br/><span class="sheet-RollTemp-value">{{spellconcentrate}}</span></div>-->
-									
+
 								</div>
 							{{/mutationshowinfoblock}}
-							
-							{{#mutationshowdesc}}	
+
+							{{#mutationshowdesc}}
 								<div class="sheet-row">
 									<div class="sheet-col-1 sheet-padl sheet-padr sheet-RollTemp-key">Description</div>
 									<div class="sheet-col-1 sheet-padl sheet-padr sheet-RollTemp-textbox">{{mutationshowdesc}}</div>
@@ -10896,10 +10896,10 @@
 							{{/mutationshowdesc}}
 							</div>
 
-						
+
 					{{/mutations}}
-					
-					
+
+
 
             </div>
 
@@ -10920,7 +10920,7 @@ on("change:str change:int change:agi change:per change:sta change:luck change:lu
   var attr = e.sourceAttribute;
   calculateMod([attr]);
 });
-  		  
+
 calculateMod = function(attributes) {
   attributes.map(function(attr) {
     getAttrs([attr], function(v) {
@@ -10934,7 +10934,7 @@ calculateMod = function(attributes) {
       } else if (v[attr] >= 20 && v[attr] <= 21) {
         updatedVal[attrModName] = 4;
       } else if (v[attr] >= 18 && v[attr] <= 19) {
-        updatedVal[attrModName] = 3;    
+        updatedVal[attrModName] = 3;
       } else if (v[attr] >= 16 && v[attr] <= 17) {
         updatedVal[attrModName] = 2;
       } else if (v[attr] >= 13 && v[attr] <= 15) {
@@ -10990,14 +10990,14 @@ on("change:repeating_armor:armorcheck change:repeating_armor:armoracbase change:
 	    console.log("Agi Bonus to AC="+ agiAc);
 	    console.log("Lucky Roll to AC="+ luckyAc);
 	    console.log("Base Starting AC="+ startAc);
-           
+
         setAttrs({
             acCalc: startAc,
             armorCheck: parseInt(0),
             armorSpeed: parseInt(0)
         });
     });
-    
+
     TAS.repeating("armor")
         .attrs("acCalc", "armorCheck", "armorSpeed", "agiMod", "armorClassLuckyRoll")
         .fields("armorAcBase","armorMagicBonus","armorCheck","armorSpeed","armorActive")
@@ -11038,7 +11038,7 @@ on("change:repeating_armor:armorcheck change:repeating_armor:armoracbase change:
             	console.log("4");
             	//updateStartingArmor(['acCalcZero', 'armorCheckZero', 'armorSpeedZero', 'agiMod', 'armorClassLuckyRoll', 'luckstartingMod']) ;
             }
-                
+
         })
         .execute();
 });
@@ -11065,7 +11065,7 @@ on("change:repeating_armor:armorcheck change:repeating_armor:armoracbase change:
             rangedThrownBonus = 0;
             console.log("**BONUS IS="+rangedThrownBonus);
         }
-           
+
         setAttrs({
             repeating_rangedweapon_thrownShortRangeBonus: rangedThrownBonus
         });
@@ -11091,7 +11091,7 @@ on("change:repeating_rangedweapon:attackrange remove:repeating_rangedweapon", fu
             rangedMedPenalty = 0;
             console.log("**MINUS IS="+rangedMedPenalty);
         }
-           
+
         setAttrs({
             repeating_rangedweapon_mediumRangePenalty: rangedMedPenalty
         });
