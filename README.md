@@ -17,6 +17,7 @@ After checking out the repo, run `bin/setup` to install dependencies.
 * A mechanism to quickly upload the build result to a game on roll20 (faster testing!)
 * An "emulator" so that you can run the character sheet locally while developing
 * A similar mechanism for compiling CSS files
+* Allow custom builds, so that it's easy for a Judge to mix their own customizations with the default template (thus easy to get upstream changes)
 
 ## Contributing
 
