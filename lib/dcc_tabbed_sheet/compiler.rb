@@ -1,5 +1,7 @@
 require 'erb'
 require 'action_view'
+require 'action_pack'
+require 'action_controller'
 
 module DccTabbedSheet
   class Compiler
