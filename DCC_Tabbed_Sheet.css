@@ -956,6 +956,10 @@ div[data-groupname^="repeating_mutations"] .repitem,
 	font-weight: bold;
 }
 
+.charsheet .sheet-new-feature {
+  font-size: 75%;
+}
+
 .charsheet .sheet-small-label {
 	font-size: 75%!important;
 	font-style: italic;
