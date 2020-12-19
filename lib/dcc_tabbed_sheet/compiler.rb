@@ -2,6 +2,7 @@ require 'erb'
 require 'action_view'
 require 'action_pack'
 require 'action_controller'
+require "dcc_tabbed_sheet/helpers"
 
 module DccTabbedSheet
   class Compiler
@@ -12,7 +13,9 @@ module DccTabbedSheet
         type: :erb,
         locals: {}
       }
-      klass = Class.new(ActionView::Base)
+      klass = Class.new(ActionView::Base) do
+        include Helpers
+      end
       view_paths = ["views"]
       details = {}
       prefixes = []

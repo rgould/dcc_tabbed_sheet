@@ -1,3 +1,4 @@
+var VERSION = '<%= version %>'
 var diceChain = [3, 4, 5, 6, 7, 8, 10, 12, 14, 16, 20, 24, 30]
 
 /**
@@ -62,9 +63,23 @@ var diceChainLower = diceChainModifier(3, -1);
  */
 var diceChainHigher = diceChainModifier(30, +1);
 
+/**
+ * Responsible for checking whether sheet values need to be recalculated
+ */
+var recalculateSheet = function() {
+  const defaultVersion = '1.5.0';
+  getAttrs(["_charsheetVersion"], function(values) {
+    var version = values._charsheetVersion || defaultVersion;
+    if (version != VERSION) {
+      recalculateAllRangedModifiers();
+    }
+    setAttrs({ _charsheetVersion: VERSION });
+  });
+};
 
 on("sheet:opened", function() {
   validateAttrMods();
+  recalculateSheet();
 });
 
 on("change:str change:int change:agi change:per change:sta change:luck change:luckstarting", function(e) {
@@ -187,7 +202,7 @@ on("change:repeating_armor:armorcheck change:repeating_armor:armoracbase change:
         .execute();
 });
 
-/*on("change:repeating_rangedweapon:rangedweapontype change:repeating_rangedweapon:attackrange remove:repeating_rangedweapon change:strmod", function() {
+/*on("change:repeating_rangedweapon:rangedweapontype change:repeating_rangedweapon:attackrange change:strmod", function() {
 
   getAttrs(["repeating_rangedweapon_rangedWeaponType", "repeating_rangedweapon_attackRange", "strMod"], function(values) {
 
@@ -217,9 +232,8 @@ on("change:repeating_armor:armorcheck change:repeating_armor:armoracbase change:
     });
 });*/
 
-var recalculateRangedModifiers = function(range, attackDie) {
+var calculateRangedModifiers = function(range, attackDie) {
   var attackPenalty = 0;
-  console.log("Ranging: ", range);
   switch(range) {
     case "Long":
       attackDie = diceChainLower(attackDie);
@@ -232,23 +246,33 @@ var recalculateRangedModifiers = function(range, attackDie) {
     default:
       throw `Invalid value for rangedweapon_attackRange: ${range}`;
   }
-
-  console.log(`Range: ${range}, attackPenalty: ${attackPenalty}, attackDie: ${attackDie}`);
-
   return {
     attackDie: attackDie,
     attackPenalty: attackPenalty
   };
 };
 
-on("change:repeating_rangedweapon:attackrange change:repeating_rangedweapon:rangedattackdice", function() {
+var recalculateAllRangedModifiers = function() {
+  TAS
+    .repeating("rangedweapon")
+    .fields(["attackRange", "rangedAttackDice", "mediumRangePenalty", "rangedAttackEffectiveDice"])
+    .each(function(row, attrSet, id, rowSet) {
+      var results = calculateRangedModifiers(row.attackRange, row.rangedAttackDice);
+      row.mediumRangePenalty = results.attackPenalty;
+      row.rangedAttackEffectiveDice = results.attackDie;
+    })
+    .execute();
+};
 
+var recalculateRangedModifiers = function() {
   getAttrs(["repeating_rangedweapon_attackRange", "repeating_rangedweapon_rangedAttackDice"], function(values) {
-    var results = recalculateRangedModifiers(values.repeating_rangedweapon_attackRange, values.repeating_rangedweapon_rangedAttackDice);
+    var results = calculateRangedModifiers(values.repeating_rangedweapon_attackRange, values.repeating_rangedweapon_rangedAttackDice);
 
     setAttrs({
       repeating_rangedweapon_mediumRangePenalty: results.attackPenalty,
       repeating_rangedweapon_rangedAttackEffectiveDice: results.attackDie
     });
   });
-});
+};
+
+on("change:repeating_rangedweapon:attackrange change:repeating_rangedweapon:rangedattackdice", recalculateRangedModifiers);
