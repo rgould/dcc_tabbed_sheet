@@ -1,3 +1,68 @@
+var diceChain = [3, 4, 5, 6, 7, 8, 10, 12, 14, 16, 20, 24, 30]
+
+/**
+ * Given a simple die expression, breaks it down to properties.
+ *
+ * example: 3d20 -> { quantity: 3, size: 20 }
+ */
+var parseDieExpression = function(expr) {
+  var regex = /^(\d*)d(\d+)$/i;
+  var match = regex.exec(expr)
+  if (match === null) {
+    throw `Invalid expression given: ${expr}, must be of form 'ndx', ie. 2d6`;
+  }
+  return {
+    quantity: match[1] !== "" ? match[1] : 1,
+    size: match[2]
+  };
+}
+
+/**
+ * Generates a function to modify the dice chain. See `diceChainLower` as
+ * an example of using it.
+ */
+var diceChainModifier = function(limit_number, direction_counter) {
+  return function(size) {
+    var isString = typeof size == 'string';
+    if (isString) {
+      size = parseInt(/^d(\d+)$/i.exec(size)[1], 10);
+    }
+    if (size == limit_number) {
+      return size;
+    }
+    index = diceChain.indexOf(size);
+    if (index < 0) {
+      throw `Invalid die size given: ${size}, must be one of ${diceChain}`;
+    }
+    var result = diceChain[index + direction_counter]
+    return isString ? `d${result}` : result ;
+  };
+};
+
+/**
+ * Takes a given die size (ie: 6 for d6) and returns the size of the die
+ * that is one step lower on the dice chain.
+ *
+ * size can optionally be prefixed with "d", in which case the return
+ * value is also "dX"
+ *
+ * example: diceChainLower(20) -> 16
+ * example: diceChainLower("d20") -> "d16"
+ */
+var diceChainLower = diceChainModifier(3, -1);
+
+/**
+ * Takes a given die size (ie: 6 for d6) and returns the size of the die
+ * that is one step higher on the dice chain.
+ *
+ * size can optionally be prefixed with "d"
+ *
+ * example: diceChainHigher(20) -> 24
+ * example: diceChainHigher("d20") -> "d24"
+ */
+var diceChainHigher = diceChainModifier(30, +1);
+
+
 on("sheet:opened", function() {
   validateAttrMods();
 });
@@ -150,30 +215,40 @@ on("change:repeating_armor:armorcheck change:repeating_armor:armoracbase change:
         });
         console.log("****FINAL STR BONUS ="+values.repeating_rangedweapon_thrownShortRangeBonus);
     });
-});
-
-on("change:repeating_rangedweapon:attackrange remove:repeating_rangedweapon", function() {
-
-  getAttrs(["repeating_rangedweapon_attackRange"], function(values) {
-
-        console.log("Attack Range value="+values.repeating_rangedweapon_attackRange);
-
-        var checkMedPenalty = (values.repeating_rangedweapon_attackRange == 'Medium') ? true : false;
-        var rangedMedPenalty = 0;
-
-        if (checkMedPenalty == true) {
-            console.log("**Range is MED**");
-            rangedMedPenalty = 2;
-            console.log("**MINUS IS="+rangedMedPenalty);
-        } else {
-            console.log("**Range is SHORT or LONG**");
-            rangedMedPenalty = 0;
-            console.log("**MINUS IS="+rangedMedPenalty);
-        }
-
-        setAttrs({
-            repeating_rangedweapon_mediumRangePenalty: rangedMedPenalty
-        });
-        console.log("**FINAL MED PENALTY ="+values.repeating_rangedweapon_mediumRangePenalty);
-    });
 });*/
+
+var recalculateRangedModifiers = function(range, attackDie) {
+  var attackPenalty = 0;
+  console.log("Ranging: ", range);
+  switch(range) {
+    case "Long":
+      attackDie = diceChainLower(attackDie);
+      break;
+    case "Medium":
+      attackPenalty = 2;
+      break;
+    case "Short":
+      break;
+    default:
+      throw `Invalid value for rangedweapon_attackRange: ${range}`;
+  }
+
+  console.log(`Range: ${range}, attackPenalty: ${attackPenalty}, attackDie: ${attackDie}`);
+
+  return {
+    attackDie: attackDie,
+    attackPenalty: attackPenalty
+  };
+};
+
+on("change:repeating_rangedweapon:attackrange change:repeating_rangedweapon:rangedattackdice", function() {
+
+  getAttrs(["repeating_rangedweapon_attackRange", "repeating_rangedweapon_rangedAttackDice"], function(values) {
+    var results = recalculateRangedModifiers(values.repeating_rangedweapon_attackRange, values.repeating_rangedweapon_rangedAttackDice);
+
+    setAttrs({
+      repeating_rangedweapon_mediumRangePenalty: results.attackPenalty,
+      repeating_rangedweapon_rangedAttackEffectiveDice: results.attackDie
+    });
+  });
+});
