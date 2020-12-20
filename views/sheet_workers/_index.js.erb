@@ -68,13 +68,68 @@ var diceChainHigher = diceChainModifier(30, +1);
  */
 var recalculateSheet = function() {
   const defaultVersion = '1.5.0';
-  getAttrs(["_charsheetVersion"], function(values) {
-    var version = values._charsheetVersion || defaultVersion;
+  getAttrs(["_charsheetVersion", "Level"], function(values) {
+   var version = values._charsheetVersion || defaultVersion;
     if (version != VERSION) {
       recalculateAllRangedModifiers();
+      if (values.Level === "0") {
+        // We assume that anyone leveled to 1 has copied their 0-level weapons already
+        migrateZeroLevelWeapons();
+      }
     }
     setAttrs({ _charsheetVersion: VERSION });
   });
+};
+
+/**
+ * Copies the old zero level weapon data to normal weapon data rows
+ */
+var migrateZeroLevelWeapons = function() {
+  var l0Tol1Map = {
+    "zeroWeaponLuckyRoll": "zeroWeaponLuckyRoll",
+    "meleeWeaponNameZero": "meleeWeaponName",
+    "meleeAttackDiceZero": "meleeAttackDice",
+    "meleeAttackWieldedZero": "meleeAttackWielded",
+    "meleeCritThreatZero": "meleeCritThreat",
+    "meleeMagicZero": "meleeMagic",
+    "meleeDmgZero": "meleeDmg",
+    "zeroRangedWeaponLuckyRollZero": "zeroRangedWeaponLuckyRoll",
+    "rangedAmmoZero": "rangedAmmo",
+    "rangedWeaponNameZero": "rangedWeaponName",
+    "rangedDistanceShortZero": "rangedDistanceShort",
+    "rangedDistanceMedZero": "rangedDistanceMed",
+    "rangedDistanceLongZero": "rangedDistanceLong",
+    "rangedWeaponTypeZero": "rangedWeaponType",
+    "rangedAttackDiceZero": "rangedAttackDice",
+    "rangedDmgZero": "rangedDmg",
+    "rangedCritThreatZero": "rangedCritThreat",
+    "rangedMagicZero": "rangedMagic",
+    "attackRangeZero": "attackRange"
+  };
+  var migrate = function(repeatingKey) {
+    TAS
+      .repeating(`${repeatingKey}zero`)
+      .fields(_.keys(l0Tol1Map))
+      .each(function(row, attrSet, id, rowSet) {
+        var newRecord = {};
+        var newId = generateRowID();
+        var prefix = `repeating_${repeatingKey}_${newId}_`;
+        _.each(l0Tol1Map, function(keyL1, keyL0) {
+          var value = row[keyL0];
+          if (value) {
+            // Hack necessary due to case sensitive difference in values (luckstartingMod vs luckStartingMod)
+            if (keyL0 === "zeroRangedWeaponLuckyRollZero" && value === "@{luckstartingMod}") {
+              value = "@{luckStartingMod}";
+            }
+            newRecord[`${prefix}${keyL1}`] = value;
+          }
+        });
+        setAttrs(newRecord);
+      })
+      .execute();
+  };
+  migrate("meleeweapon");
+  migrate("rangedweapon");
 };
 
 on("sheet:opened", function() {
