@@ -77,90 +77,6 @@ var recalculateSheet = function() {
   });
 };
 
-var runMigrations = function(version) {
-  console.log(`[DCC_Tabbed_Sheet-Migrations] Checking if new migrations need to be run. Char sheet current version: ${version}, new version: ${VERSION}`);
-  var foundNewMigration = false;
-  _.each(MIGRATIONS, function(migrationRow) {
-    var key = _.first(_.keys(migrationRow));
-    if (version === key) {
-      //Found new migration, need to run all migrations from this point on
-      foundNewMigration = true;
-      console.log("[DCC_Tabbed_Sheet-Migrations] New migrations found, running them now...");
-    }
-    if (foundNewMigration) {
-      _.each(migrationRow[key], function(migration) {
-        console.log(`[DCC_Tabbed_Sheet-Migrations] Running ${migration.name}...`);
-        migration();
-        console.log(`[DCC_Tabbed_Sheet-Migrations] ${migration.name} done.`);
-      });
-    }
-  });
-  if (foundNewMigration) {
-    console.log("[DCC_Tabbed_Sheet-Migrations] Finished. Char sheet is up to date.");
-  } else {
-    console.log("[DCC_Tabbed_Sheet-Migrations] Finished. No new migrations.");
-  }
-};
-
-/**
- * Copies the old zero level weapon data to normal weapon data rows
- */
-var migrateZeroLevelWeapons = function migrateZeroLevelWeapons() {
-  getAttrs(["Level"], function(values) {
-    if (values.Level !== "0") {
-      // We assume that anyone leveled to 1 has copied their 0-level weapons already
-      return;
-    }
-    var l0Tol1Map = {
-      "zeroWeaponLuckyRoll": "zeroWeaponLuckyRoll",
-      "meleeWeaponNameZero": "meleeWeaponName",
-      "meleeAttackDiceZero": "meleeAttackDice",
-      "meleeAttackWieldedZero": "meleeAttackWielded",
-      "meleeCritThreatZero": "meleeCritThreat",
-      "meleeMagicZero": "meleeMagic",
-      "meleeDmgZero": "meleeDmg",
-      "zeroRangedWeaponLuckyRollZero": "zeroRangedWeaponLuckyRoll",
-      "rangedAmmoZero": "rangedAmmo",
-      "rangedWeaponNameZero": "rangedWeaponName",
-      "rangedDistanceShortZero": "rangedDistanceShort",
-      "rangedDistanceMedZero": "rangedDistanceMed",
-      "rangedDistanceLongZero": "rangedDistanceLong",
-      "rangedWeaponTypeZero": "rangedWeaponType",
-      "rangedAttackDiceZero": "rangedAttackDice",
-      "rangedDmgZero": "rangedDmg",
-      "rangedCritThreatZero": "rangedCritThreat",
-      "rangedMagicZero": "rangedMagic",
-      "attackRangeZero": "attackRange"
-    };
-    var migrate = function(repeatingKey) {
-      TAS
-        .repeating(`${repeatingKey}zero`)
-        .fields(_.keys(l0Tol1Map))
-        .each(function(row, attrSet, id, rowSet) {
-          var newRecord = {};
-          var newId = generateRowID();
-          var prefix = `repeating_${repeatingKey}_${newId}_`;
-          _.each(l0Tol1Map, function(keyL1, keyL0) {
-            var value = row[keyL0];
-            if (value) {
-              // Hack necessary due to case sensitive difference in values (luckstartingMod vs luckStartingMod)
-              if (keyL0 === "zeroRangedWeaponLuckyRollZero" && value === "@{luckstartingMod}") {
-                value = "@{luckStartingMod}";
-              }
-              newRecord[`${prefix}${keyL1}`] = value;
-            }
-          });
-          setAttrs(newRecord, function() {
-            removeRepeatingRow(`repeating_${repeatingKey}zero_${id}`);
-          });
-        })
-        .execute();
-    };
-    migrate("meleeweapon");
-    migrate("rangedweapon");
-  });
-};
-
 on("sheet:opened", function() {
   validateAttrMods();
   recalculateSheet();
@@ -286,6 +202,20 @@ on("change:repeating_armor:armorcheck change:repeating_armor:armoracbase change:
         .execute();
 });
 
+/**
+ * Calculate any bonus/penalty for a thrown weapon at short range
+ */
+var calculateThrownModifiers = function calculateThrownModifiers(rangedWeaponType, attackRange, strMod) {
+  var rangedThrownMod = parseInt(strMod);
+  var rangedThrownBonus = 0;
+  if (rangedWeaponType === 'Thrown' && attackRange === 'Short') {
+    rangedThrownBonus = rangedThrownMod;
+  } else {
+    rangedThrownBonus = 0;
+  }
+  return { bonus: rangedThrownBonus };
+});
+
 var recalculateThrownModifiers = function recalculateThrownModifiers() {
   getAttrs(["repeating_rangedweapon_rangedWeaponType", "repeating_rangedweapon_attackRange", "strMod"], function(values) {
     var rangedThrownMod = parseInt(values.strMod);
@@ -301,19 +231,11 @@ var recalculateThrownModifiers = function recalculateThrownModifiers() {
   });
 };
 
-var calculateThrownModifiers = function calculateThrownModifiers(rangedWeaponType, attackRange, strMod) {
-  var rangedThrownMod = parseInt(strMod);
-  var rangedThrownBonus = 0;
-  if (rangedWeaponType === 'Thrown' && attackRange === 'Short') {
-    rangedThrownBonus = rangedThrownMod;
-  } else {
-    rangedThrownBonus = 0;
-  }
-  return { bonus: rangedThrownBonus };
-});
-
 on("change:repeating_rangedweapon:rangedweapontype change:repeating_rangedweapon:attackrange change:strmod", recalculateThrownModifiers);
 
+/**
+ * Calculate any medium/long range penalties given a range and attack die
+ */
 var calculateRangedModifiers = function(range, attackDie) {
   var attackPenalty = 0;
   switch(range) {
@@ -334,21 +256,6 @@ var calculateRangedModifiers = function(range, attackDie) {
   };
 };
 
-var recalculateAllRangedModifiers = function recalculateAllRangedModifiers() {
-  TAS
-    .repeating("rangedweapon")
-    .fields(["attackRange", "rangedAttackDice", "mediumRangePenalty", "rangedAttackEffectiveDice", "rangedWeaponType", "strMod", "thrownShortRangeBonus"])
-    .each(function(row, attrSet, id, rowSet) {
-      var missleResults = calculateRangedModifiers(row.attackRange, row.rangedAttackDice);
-      row.mediumRangePenalty = missleResults.attackPenalty;
-      row.rangedAttackEffectiveDice = missleResults.attackDie;
-
-      var thrownResults = calculateThrownModifiers(row.rangedWeaponType, row.attackRange, row.strMod);
-      row.thrownShortRangeBonus = thrownResults.bonus;
-    })
-    .execute();
-};
-
 var recalculateRangedModifiers = function() {
   getAttrs(["repeating_rangedweapon_attackRange", "repeating_rangedweapon_rangedAttackDice"], function(values) {
     var results = calculateRangedModifiers(values.repeating_rangedweapon_attackRange, values.repeating_rangedweapon_rangedAttackDice);
@@ -362,7 +269,4 @@ var recalculateRangedModifiers = function() {
 
 on("change:repeating_rangedweapon:attackrange change:repeating_rangedweapon:rangedattackdice", recalculateRangedModifiers);
 
-var MIGRATIONS = [
-  { "1.5.0": [] },
-  { "1.5.1": [recalculateAllRangedModifiers, migrateZeroLevelWeapons] }
-];
+<%= render "sheet_workers/migrations", formats: [:js] %>
