@@ -286,35 +286,33 @@ on("change:repeating_armor:armorcheck change:repeating_armor:armoracbase change:
         .execute();
 });
 
-/*on("change:repeating_rangedweapon:rangedweapontype change:repeating_rangedweapon:attackrange change:strmod", function() {
-
+var recalculateThrownModifiers = function recalculateThrownModifiers() {
   getAttrs(["repeating_rangedweapon_rangedWeaponType", "repeating_rangedweapon_attackRange", "strMod"], function(values) {
-
-        console.log("Ranged weapon type value="+values.repeating_rangedweapon_rangedWeaponType);
-        console.log("Attack Range value="+values.repeating_rangedweapon_attackRange);
-
-        var rangedThrownMod = parseInt(values.strMod);
-        var checkRangedWeaponType = (values.repeating_rangedweapon_rangedWeaponType == 'Thrown') ? true : false;
-        var checkAttackRange = (values.repeating_rangedweapon_attackRange == 'Short') ? true : false;
-        var rangedThrownBonus = 0;
-
-        if (checkRangedWeaponType == true && checkAttackRange == true) {
-            console.log("**Ranged Type is THROWN**");
-            console.log("**Attack Range is SHORT**");
-            rangedThrownBonus = rangedThrownMod;
-            console.log("**BONUS IS="+rangedThrownBonus);
-        } else {
-            console.log("**Ranged Type is MISSILE or Attack Range is MED/LONG**");
-            rangedThrownBonus = 0;
-            console.log("**BONUS IS="+rangedThrownBonus);
-        }
-
-        setAttrs({
-            repeating_rangedweapon_thrownShortRangeBonus: rangedThrownBonus
-        });
-        console.log("****FINAL STR BONUS ="+values.repeating_rangedweapon_thrownShortRangeBonus);
+    var rangedThrownMod = parseInt(values.strMod);
+    var rangedThrownBonus = 0;
+    if (values.repeating_rangedweapon_rangedWeaponType === 'Thrown' && values.repeating_rangedweapon_attackRange === 'Short') {
+      rangedThrownBonus = rangedThrownMod;
+    } else {
+      rangedThrownBonus = 0;
+    }
+    setAttrs({
+      repeating_rangedweapon_thrownShortRangeBonus: rangedThrownBonus
     });
-});*/
+  });
+};
+
+var calculateThrownModifiers = function calculateThrownModifiers(rangedWeaponType, attackRange, strMod) {
+  var rangedThrownMod = parseInt(strMod);
+  var rangedThrownBonus = 0;
+  if (rangedWeaponType === 'Thrown' && attackRange === 'Short') {
+    rangedThrownBonus = rangedThrownMod;
+  } else {
+    rangedThrownBonus = 0;
+  }
+  return { bonus: rangedThrownBonus };
+});
+
+on("change:repeating_rangedweapon:rangedweapontype change:repeating_rangedweapon:attackrange change:strmod", recalculateThrownModifiers);
 
 var calculateRangedModifiers = function(range, attackDie) {
   var attackPenalty = 0;
@@ -339,11 +337,14 @@ var calculateRangedModifiers = function(range, attackDie) {
 var recalculateAllRangedModifiers = function recalculateAllRangedModifiers() {
   TAS
     .repeating("rangedweapon")
-    .fields(["attackRange", "rangedAttackDice", "mediumRangePenalty", "rangedAttackEffectiveDice"])
+    .fields(["attackRange", "rangedAttackDice", "mediumRangePenalty", "rangedAttackEffectiveDice", "rangedWeaponType", "strMod", "thrownShortRangeBonus"])
     .each(function(row, attrSet, id, rowSet) {
-      var results = calculateRangedModifiers(row.attackRange, row.rangedAttackDice);
-      row.mediumRangePenalty = results.attackPenalty;
-      row.rangedAttackEffectiveDice = results.attackDie;
+      var missleResults = calculateRangedModifiers(row.attackRange, row.rangedAttackDice);
+      row.mediumRangePenalty = missleResults.attackPenalty;
+      row.rangedAttackEffectiveDice = missleResults.attackDie;
+
+      var thrownResults = calculateThrownModifiers(row.rangedWeaponType, row.attackRange, row.strMod);
+      row.thrownShortRangeBonus = thrownResults.bonus;
     })
     .execute();
 };
