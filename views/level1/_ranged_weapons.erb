@@ -60,7 +60,7 @@
       </select>
     </div>
     <div class="sheet-col-1-24"><input class="sheet-center" type="number" name="attr_rangedToHit" value="[[ [[@{agiMod}]] + @{allAtkLuckyRoll} + @{rangedAtkLuckyRoll} + @{rangedMagic} + @{rangedAtkLuckyWeapon} + @{ATK} + @{zeroRangedWeaponLuckyRoll}]]" disabled="disabled"></div>
-    <div class="sheet-col-1-20" title="Only enter the base damage roll here without any bonuses from stats or other sources"><input class="sheet-center" type="text" name="attr_rangedDmg" value="0"></div>
+    <div class="sheet-col-1-20" title="Only enter the base damage roll here without any bonuses from stats or other sources"><input class="sheet-center" type="text" name="attr_rangedDmg" value="1d4"></div>
     <div class="sheet-col-1-24"><input class="sheet-center" type="number" name="attr_rangedDmgBonus" value="[[@{rangedMagic} + @{rangedDmgLuckyRoll} + @{dmgLuckyRoll} + @{zeroRangedWeaponLuckyRoll}]]" disabled="disabled"></div>
     <div class="sheet-col-1-14" title="Short range: no penalty&#10;Medium range: -2 on attack roll&#10;Long ranged: -1d on attack roll">
       <select name="attr_attackRange">
