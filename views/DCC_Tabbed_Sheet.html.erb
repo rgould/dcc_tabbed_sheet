@@ -442,7 +442,7 @@
                 <div class="sheet-col-2-19"><input type="number" name="attr_fortitudeStatMod" value="[[@{staMod}]]" disabled="disabled"></div>
                 <div class="sheet-col-2-19"><input class="sheet-center" type="number" name="attr_fortCheck" value="[[@{FORT} + @{birthAugurFortMod} + @{otherBonusFortMod} + [[@{staMod}]]]]" disabled="disabled"></div>
                 <div class="sheet-col-3-19 sheet-center">
-                  <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=FORTITUDE Save}} {{hint=Saves against physical threats, such as poisons, gasses, acids, and stunning damage.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{fortCheck} + (?{Burn die - Any additional Bonus/Minus|0})]]}}" name='ST_Fortitude' title="Fortitude Save">FORT</button>
+                  <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=FORTITUDE Save}} {{hint=Saves against physical threats, such as poisons, gasses, acids, and stunning damage.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{fortCheck} + (?{Burn die - Any additional Bonus/Minus|0})]]}} {{abilityscore=[[@{sta}]]}} {{warning=Stamina is 5 or lower!&#10;Take double damage from poison or disease.}}" name='ST_Fortitude' title="Fortitude Save">FORT</button>
                 </div>
               </div>
 
@@ -8511,7 +8511,7 @@
                   <div class="sheet-col-2-19"><input type="number" name="attr_fortitudeStatMod" value="[[@{staMod}]]" disabled="disabled"></div>
                   <div class="sheet-col-2-19"><input class="sheet-center" type="number" name="attr_fortCheckZero" value="[[@{fortZero} + @{birthAugurFortMod} + @{otherBonusFortModZero} + [[@{staMod}]]]]" disabled="disabled"></div>
                   <div class="sheet-col-3-19 sheet-center">
-                    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=FORTITUDE Save}} {{hint=Saves against physical threats, such as poisons, gasses, acids, and stunning damage.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{fortCheckZero} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Fortitude' title="Fortitude Save">FORT</button>
+                    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=FORTITUDE Save}} {{hint=Saves against physical threats, such as poisons, gasses, acids, and stunning damage.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{fortCheckZero} + (?{Any additional Bonus/Minus|0})]]}} {{abilityscore=[[@{sta}]]}} {{warning=Stamina is 5 or lower!&#10;Take double damage from poison or disease.}}" name='ST_Fortitude' title="Fortitude Save">FORT</button>
                   </div>
                 </div>
 

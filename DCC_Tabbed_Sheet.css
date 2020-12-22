@@ -234,6 +234,12 @@
     font-weight: bold;
 }
 
+.sheet-rolltemplate-DccTabbed .sheet-RollTemp-warning {
+    font-size: 1.1em;
+    text-align: center;
+    color: red;
+}
+
 .sheet-rolltemplate-DccTabbed .sheet-RollTemp-infoNB {
     font-size: 1.1em; 
     text-align: center;
