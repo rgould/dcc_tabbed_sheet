@@ -214,7 +214,7 @@ var calculateThrownModifiers = function calculateThrownModifiers(rangedWeaponTyp
     rangedThrownBonus = 0;
   }
   return { bonus: rangedThrownBonus };
-});
+};
 
 var recalculateThrownModifiers = function recalculateThrownModifiers() {
   getAttrs(["repeating_rangedweapon_rangedWeaponType", "repeating_rangedweapon_attackRange", "strMod"], function(values) {
