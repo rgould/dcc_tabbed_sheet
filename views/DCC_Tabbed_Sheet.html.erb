@@ -430,7 +430,7 @@
                 <div class="sheet-col-2-19"><input type="number" name="attr_reflexStatMod" value="[[@{agiMod}]]" disabled="disabled"></div>
                 <div class="sheet-col-2-19"><input class="sheet-center" type="number" name="attr_refCheck" value="[[ [[@{REF}]] + [[@{birthAugurReflexMod}]] + [[@{otherBonusReflexMod}]] + [[@{agiMod}]] ]]" disabled="disabled"></div>
                 <div class="sheet-col-3-19 sheet-center">
-                  <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=REFLEX Save}} {{flavortext=Saves against reaction-based threats, such as ducking a swinging axe trap, leaping aside as a doorway collapses, and twisting away from a dragon’s flaming breath.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{refCheck} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Reflex' title="Reflex Save">REF</button>
+                  <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=REFLEX Save}} {{rolltype=Saving Throw : }} {{hint=Saves against reaction-based threats, such as ducking a swinging axe trap, leaping aside as a doorway collapses, and twisting away from a dragon’s flaming breath.}} {{savingthrow=[[1d20 + @{refCheck} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Reflex' title="Reflex Save">REF</button>
                 </div>
               </div>
 
@@ -442,7 +442,7 @@
                 <div class="sheet-col-2-19"><input type="number" name="attr_fortitudeStatMod" value="[[@{staMod}]]" disabled="disabled"></div>
                 <div class="sheet-col-2-19"><input class="sheet-center" type="number" name="attr_fortCheck" value="[[@{FORT} + @{birthAugurFortMod} + @{otherBonusFortMod} + [[@{staMod}]]]]" disabled="disabled"></div>
                 <div class="sheet-col-3-19 sheet-center">
-                  <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=FORTITUDE Save}} {{flavortext=Saves against physical threats, such as poisons, gasses, acids, and stunning damage.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{fortCheck} + (?{Burn die - Any additional Bonus/Minus|0})]]}}" name='ST_Fortitude' title="Fortitude Save">FORT</button>
+                  <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=FORTITUDE Save}} {{hint=Saves against physical threats, such as poisons, gasses, acids, and stunning damage.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{fortCheck} + (?{Burn die - Any additional Bonus/Minus|0})]]}}" name='ST_Fortitude' title="Fortitude Save">FORT</button>
                 </div>
               </div>
 
@@ -454,7 +454,7 @@
                 <div class="sheet-col-2-19"><input type="number" name="attr_willStatMod" value="[[@{perMod}]]" disabled="disabled"></div>
                 <div class="sheet-col-2-19"><input class="sheet-center" type="number" name="attr_willCheck" value="[[@{WILL} + @{birthAugurWillMod} + @{otherBonusWillMod} + [[@{perMod}]]]]" disabled="disabled"></div>
                 <div class="sheet-col-3-19 sheet-center">
-                  <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=WILL Save}} {{flavortext=Saves against mind-influencing threats, such as spells that charm or control, psychic effects that cause sleep or hypnosis, and mental domination.}} {{rolltype=Saving Throw : }}{{savingthrow=[[1d20 + @{willCheck} + (?{Burn die - Any additional Bonus/Minus|0})]]}}" name='ST_Will' title="Will Save">WILL</button>
+                  <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=WILL Save}} {{hint=Saves against mind-influencing threats, such as spells that charm or control, psychic effects that cause sleep or hypnosis, and mental domination.}} {{rolltype=Saving Throw : }}{{savingthrow=[[1d20 + @{willCheck} + (?{Burn die - Any additional Bonus/Minus|0})]]}}" name='ST_Will' title="Will Save">WILL</button>
                 </div>
               </div>
 
@@ -8499,7 +8499,7 @@
                   <div class="sheet-col-2-19"><input type="number" name="attr_reflexStatMod" value="[[@{agiMod}]]" disabled="disabled"></div>
                   <div class="sheet-col-2-19"><input class="sheet-center" type="number" name="attr_refCheckZero" value="[[@{refZero} + @{birthAugurReflexMod} + @{otherBonusReflexModZero} + [[@{agiMod}]]]]" disabled="disabled"></div>
                   <div class="sheet-col-3-19 sheet-center">
-                    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=REFLEX Save}} {{flavortext=Saves against reaction-based threats, such as ducking a swinging axe trap, leaping aside as a doorway collapses, and twisting away from a dragon’s flaming breath.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{refCheckZero} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Reflex' title="Reflex Save">REF</button>
+                    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=REFLEX Save}} {{hint=Saves against reaction-based threats, such as ducking a swinging axe trap, leaping aside as a doorway collapses, and twisting away from a dragon’s flaming breath.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{refCheckZero} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Reflex' title="Reflex Save">REF</button>
                   </div>
                 </div>
 
@@ -8511,7 +8511,7 @@
                   <div class="sheet-col-2-19"><input type="number" name="attr_fortitudeStatMod" value="[[@{staMod}]]" disabled="disabled"></div>
                   <div class="sheet-col-2-19"><input class="sheet-center" type="number" name="attr_fortCheckZero" value="[[@{fortZero} + @{birthAugurFortMod} + @{otherBonusFortModZero} + [[@{staMod}]]]]" disabled="disabled"></div>
                   <div class="sheet-col-3-19 sheet-center">
-                    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=FORTITUDE Save}} {{flavortext=Saves against physical threats, such as poisons, gasses, acids, and stunning damage.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{fortCheckZero} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Fortitude' title="Fortitude Save">FORT</button>
+                    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=FORTITUDE Save}} {{hint=Saves against physical threats, such as poisons, gasses, acids, and stunning damage.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{fortCheckZero} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Fortitude' title="Fortitude Save">FORT</button>
                   </div>
                 </div>
 
@@ -8523,7 +8523,7 @@
                   <div class="sheet-col-2-19"><input type="number" name="attr_willStatMod" value="[[@{perMod}]]" disabled="disabled"></div>
                   <div class="sheet-col-2-19"><input class="sheet-center" type="number" name="attr_willCheckZero" value="[[@{willZero} + @{birthAugurWillMod} + @{otherBonusWillModZero} + [[@{perMod}]]]]" disabled="disabled"></div>
                   <div class="sheet-col-3-19 sheet-center">
-                    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=WILL Save}} {{flavortext=Saves against mind-influencing threats, such as spells that charm or control, psychic effects that cause sleep or hypnosis, and mental domination.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{willCheckZero} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Will' title="Will Save">WILL</button>
+                    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=WILL Save}} {{hint=Saves against mind-influencing threats, such as spells that charm or control, psychic effects that cause sleep or hypnosis, and mental domination.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{willCheckZero} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Will' title="Will Save">WILL</button>
                   </div>
                 </div>
 
@@ -8982,7 +8982,7 @@
                   <div class="sheet-col-3-7 sheet-core-stat-label">Fortitude</div>
                   <div class="sheet-col-2-7 sheet-padl"><input type="number" name="attr_fortMonster" value="0" step="1"></div>
                   <div class="sheet-col-2-7 sheet-center sheet-padl">
-                    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=FORTITUDE Save}} {{flavortext=Saves against physical threats, such as poisons, gasses, acids, and stunning damage.}} {{rolltype=Saving Throw:}} {{savingthrow=[[1d20 + @{fortMonster} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Fortitude' title="Fortitude Save">FORTITUDE</button>
+                    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=FORTITUDE Save}} {{hint=Saves against physical threats, such as poisons, gasses, acids, and stunning damage.}} {{rolltype=Saving Throw:}} {{savingthrow=[[1d20 + @{fortMonster} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Fortitude' title="Fortitude Save">FORTITUDE</button>
                   </div>
                 </div>
 
@@ -8990,7 +8990,7 @@
                   <div class="sheet-col-3-7 sheet-core-stat-label">Reflex</div>
                   <div class="sheet-col-2-7 sheet-padl"><input type="number" name="attr_refMonster" value="0" step="1"></div>
                   <div class="sheet-col-2-7 sheet-center sheet-padl">
-                    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=REFLEX Save}} {{flavortext=Saves against reaction-based threats, such as ducking a swinging axe trap, leaping aside as a doorway collapses, and twisting away from a player's scorching ray.}} {{rolltype=Saving Throw:}} {{savingthrow=[[1d20 + @{refMonster} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Reflex' title="Reflex Save">REFLEX</button>
+                    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=REFLEX Save}} {{hint=Saves against reaction-based threats, such as ducking a swinging axe trap, leaping aside as a doorway collapses, and twisting away from a player's scorching ray.}} {{rolltype=Saving Throw:}} {{savingthrow=[[1d20 + @{refMonster} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Reflex' title="Reflex Save">REFLEX</button>
                   </div>
                 </div>
 
@@ -8998,7 +8998,7 @@
                   <div class="sheet-col-3-7 sheet-core-stat-label">Will</div>
                   <div class="sheet-col-2-7 sheet-padl"><input type="number" name="attr_willMonster" value="0" step="1"></div>
                   <div class="sheet-col-2-7 sheet-center sheet-padl">
-                    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=WILL Save}} {{flavortext=Saves against mind-influencing threats, such as spells that charm or control, psychic effects that cause sleep or hypnosis, and mental domination.}} {{rolltype=Saving Throw:}} {{savingthrow=[[1d20 + @{willMonster} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Will' title="Will Save">WILL</button>
+                    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=WILL Save}} {{hint=Saves against mind-influencing threats, such as spells that charm or control, psychic effects that cause sleep or hypnosis, and mental domination.}} {{rolltype=Saving Throw:}} {{savingthrow=[[1d20 + @{willMonster} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Will' title="Will Save">WILL</button>
                   </div>
                 </div>
               </div>
@@ -9417,6 +9417,10 @@
                 <div class="sheet-RollTemp-title">{{title}}</div>
                 <div class="sheet-RollTemp-name">{{name}} {{stuff}} {{stuff2}}</div>
                 <div class="sheet-RollTemp-line"></div>
+                {{#hint}}
+                  <img src="https://raw.githubusercontent.com/rgould/dcc_tabbed_sheet/master/assets/images/hint.png"
+                       height="30" width="30" class="sheet-RollTemp-hint-image" title="{{hint}}"></img>
+                {{/hint}}
             </div>
 
             <div class="sheet-main-content">
@@ -10233,10 +10237,12 @@
                 <!-- Saving Throws -->
                   {{#savingthrow}}
                       <div class="sheet-row">
-                        <div class="sheet-col-12-13 sheet-RollTemp-infoNB">{{flavortext}}</div>
-                        <div class="sheet-col-1-1">&nbsp;</div>
-                          <div class="sheet-col-8-13 sheet-padl sheet-padr sheet-RollTemp-rollname">{{rolltype}}</div>
-                          <div class="sheet-col-5-13 sheet-padr sheet-RollTemp-rollresult">{{savingthrow}}</div>
+                        {{#flavortext}}
+                          <div class="sheet-col-12-13 sheet-RollTemp-infoNB">{{flavortext}}</div>
+                          <div class="sheet-col-1-1">&nbsp;</div>
+                        {{/flavortext}}
+                        <div class="sheet-col-8-13 sheet-padl sheet-padr sheet-RollTemp-rollname">{{rolltype}}</div>
+                        <div class="sheet-col-5-13 sheet-padr sheet-RollTemp-rollresult">{{savingthrow}}</div>
                       </div>
                   {{/savingthrow}}
 
