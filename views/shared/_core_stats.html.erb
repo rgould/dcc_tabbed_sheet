@@ -1,0 +1,43 @@
+<div class="sheet-col-1-2 sheet-padr">
+
+  <h4 class="sheet-center">Core Stats</h4>
+
+  <div class="sheet-row sheet-sub-header">
+    <div class="sheet-col-3-8 sheet-center">&nbsp;</div>
+    <div class="sheet-col-1-8 sheet-center sheet-small-label">Current Score</div>
+    <div class="sheet-col-1-8 sheet-center sheet-vert-bottom sheet-small-label">Max Score</div>
+    <div class="sheet-col-1-8 sheet-center sheet-vert-bottom sheet-small-label">Mod</div>
+    <div class="sheet-col-1-9 sheet-center sheet-vert-bottom sheet-small-label">Trained</div>
+    <div class="sheet-col-1-8 sheet-center sheet-vert-bottom sheet-small-label">Untrained</div>
+  </div>
+
+  <%= render partial: "shared/core_stat_ability", indent: 2, locals: { full_name: "Strength", attr_name: "str" } %>
+  <%= render partial: "shared/core_stat_ability", indent: 2, locals: { full_name: "Agility", attr_name: "agi" } %>
+  <%= render partial: "shared/core_stat_ability", indent: 2, locals: { full_name: "Stamina", attr_name: "sta" } %>
+  <%= render partial: "shared/core_stat_ability", indent: 2, locals: { full_name: "Personality", attr_name: "per" } %>
+  <%= render partial: "shared/core_stat_ability", indent: 2, locals: { full_name: "Intelligence", attr_name: "int" } %>
+  <%= render partial: "shared/core_stat_ability", indent: 2, locals: { full_name: "Luck", attr_name: "luck" } %>
+
+  <div class="sheet-row">
+    <div class="sheet-col-1-10 sheet-center">&nbsp;</div>
+    <div class="sheet-col-3-11 sheet-hd-row">Fleeting Luck </div>
+    <div class="sheet-col-1-8 sheet-center" title="Enter your groups Fleeting Luck value here"><input class="sheet-underline sheet-center" type="number" name="attr_fleetingLuck" value="1" min="0" step="1"></div>
+  </div>
+
+  <div class="sheet-col-2-7 sheet-center">&nbsp;</div>
+
+  <div class="sheet-row">
+    <div class="sheet-col-1-10 sheet-center">&nbsp;</div>
+    <div class="sheet-col-3-11 sheet-hd-row">Personality Test </div>
+    <div class="sheet-col-1-6">
+      <button type='roll' value="&{template:DccTabbed} {{background=[[5]]}} {{stat=1}} {{name=@{character_name}}} {{title=PERSONALITY Test}} {{flavortext=Make Personality tests to attempt social interactions.  Roll must be equal to or under current Personality score.}} {{rolltype=Check : }} {{luckcheck=[[@{ActionDie}cs1]]}} {{chance=[[@{per}]]}}" name='PERSONALITY' title="PERSONALITY Test"></button>
+    </div>
+    <div class="sheet-col-1-5 sheet-hd-row">Luck Check </div>
+    <div class="sheet-col-1-8">
+      <button type='roll' value="&{template:DccTabbed} {{background=[[5]]}} {{stat=1}} {{name=@{character_name}}} {{title=LUCK Check}} {{flavortext=Make Luck checks to attempt feats that succeed based on Luck alone.  Roll must be equal to or under current Luck score.}} {{rolltype2=Current Luck : }} {{rolltype=Check : }} {{luckcheck=[[@{ActionDie}cs1]]}} {{chance=[[@{luck} [CURRENT LUCK] +@{fleetingLuck} [FLEETING LUCK]]]}}" name='LUCK' title="LUCK Check"></button>
+    </div>
+  </div>
+
+  <div class="sheet-col-2-7 sheet-center">&nbsp;</div>
+
+</div>
