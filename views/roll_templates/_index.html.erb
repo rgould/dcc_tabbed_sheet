@@ -839,6 +839,11 @@
                     <div class="sheet-col-12-13 sheet-RollTemp-infoNB">{{flavortext}}</div>
                     <div class="sheet-col-1-1">&nbsp;</div>
                   {{/flavortext}}
+                  {{#rollLess() abilityscore warningthreshold}}
+                    {{#warning}}
+                      <div class="sheet-col-12-13 sheet-padl sheet-padr sheet-RollTemp-warning">{{warning}}</div>
+                    {{/warning}}
+                  {{/rollLess() abilityscore warningthreshold}}
                   <div class="sheet-col-6-13 sheet-padl sheet-padr sheet-RollTemp-rollname">{{rolltype}}</div>
                   <div class="sheet-col-7-13 sheet-padr sheet-RollTemp-rollresult">{{ability}}</div>
                 </div>
@@ -851,11 +856,11 @@
                     <div class="sheet-col-12-13 sheet-RollTemp-infoNB">{{flavortext}}</div>
                     <div class="sheet-col-1-1">&nbsp;</div>
                   {{/flavortext}}
-                  {{#rollLess() abilityscore 6}}
+                  {{#rollLess() abilityscore warningthreshold}}
                     {{#warning}}
                       <div class="sheet-col-12-13 sheet-padl sheet-padr sheet-RollTemp-warning">{{warning}}</div>
                     {{/warning}}
-                  {{/rollLess() abilityscore 6}}
+                  {{/rollLess() abilityscore warningthreshold}}
                   <div class="sheet-col-8-13 sheet-padl sheet-padr sheet-RollTemp-rollname">{{rolltype}}</div>
                   <div class="sheet-col-5-13 sheet-padr sheet-RollTemp-rollresult">{{savingthrow}}</div>
                 </div>
