@@ -241,7 +241,7 @@
 .sheet-rolltemplate-DccTabbed .sheet-RollTemp-warning {
     font-size: 1.1em;
     text-align: center;
-    color: red;
+    color: #dc143c;
 }
 
 .sheet-rolltemplate-DccTabbed .sheet-RollTemp-infoNB {

@@ -13,7 +13,7 @@
 
   <%= render partial: "shared/core_stat_ability", indent: 2, locals: { full_name: "Strength", attr_name: "str" } %>
   <%= render partial: "shared/core_stat_ability", indent: 2, locals: { full_name: "Agility", attr_name: "agi" } %>
-  <%= render partial: "shared/core_stat_ability", indent: 2, locals: { full_name: "Stamina", attr_name: "sta", warning_threshold: 6, warning: "Stamina is 5 or lower!&#10;Take double damage from poison or disease." } %>
+  <%= render partial: "shared/core_stat_ability", indent: 2, locals: { full_name: "Stamina", attr_name: "sta", warning_threshold: 6, warning: "Stamina is 5 or lower!&#10;Take double damage from poison or disease.".html_safe } %>
   <%= render partial: "shared/core_stat_ability", indent: 2, locals: { full_name: "Personality", attr_name: "per" } %>
   <%= render partial: "shared/core_stat_ability", indent: 2, locals: { full_name: "Intelligence", attr_name: "int" } %>
   <%= render partial: "shared/core_stat_ability", indent: 2, locals: { full_name: "Luck", attr_name: "luck" } %>
