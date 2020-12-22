@@ -87,6 +87,21 @@ on("change:str change:int change:agi change:per change:sta change:luck change:lu
   calculateMod([attr]);
 });
 
+/**
+ * Sets ability max score if it hasn't been set yet
+ */
+on("change:str change:int change:agi change:per change:sta change:luck", function(e) {
+  var attr = e.sourceAttribute;
+  var max = `${attr}Max`;
+  getAttrs([max], function(values) {
+    if (!values[max]) {
+      var newMax = {};
+      newMax[max] = e.newValue;
+      setAttrs(newMax);
+    }
+  });
+});
+
 calculateMod = function(attributes) {
   attributes.map(function(attr) {
     getAttrs([attr], function(v) {
