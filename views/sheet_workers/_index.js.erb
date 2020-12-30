@@ -282,6 +282,6 @@ var recalculateRangedModifiers = function() {
   });
 };
 
-on("change:repeating_rangedweapon:attackrange change:repeating_rangedweapon:rangedattackdice", recalculateRangedModifiers);
+on("change:repeating_rangedweapon", recalculateRangedModifiers);
 
 <%= render "sheet_workers/migrations", formats: [:js] %>
