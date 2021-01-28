@@ -1,0 +1,136 @@
+<div class="sheet-col-1-2 sheet-padr">
+  <h4 class="sheet-center">Combat Basics </h4>
+
+    <div class="sheet-row">
+      <div class="sheet-col-2-7 sheet-right sheet-padr sheet-hd-row">Initiative<br></div>
+      <div class="sheet-col-1-7 sheet-small-label sheet-center" title="Only enter additional bonuses to initiative here. Your AGI, Lucky Roll and Class mods are already included in the macro button"><input class="sheet-underlined sheet-center" type="number" name="attr_INIT" value="0" step="1"><br>Bonus</div>
+      <div class="sheet-col-1-7 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_initOverall" value="([[[[@{agiMod}]] + @{warriorClassInit} + @{INIT} + @{initLuckyRoll}]])" disabled="disabled"><br>Total</div>
+      <div class="sheet-col-1-7 sheet-center"><button type='roll' class="sheet-initiative sheet-large-button" name="roll_INIT" value="&{template:DccTabbed} {{name=@{character_name}}} {{title=Initiative}} {{INIT=[[1d20 [Die Roll] + @{selected|initOverall} [Initiative Mod] &{tracker}]] }}" name='Initiative' title="Initiative">Initiative</button></div>
+      <div class="sheet-col-2-7 sheet-center"><button type='roll' class="sheet-initiative sheet-large-button" name="roll_INIT2Hand" value="&{template:DccTabbed} {{name=@{character_name}}} {{title=Initiative \n (Two-Handed Weapons)}} {{INIT=[[1d16 [Die Roll] + @{selected|initOverall} [Initiative Mod] &{tracker}]]}}" name='Initiative' title="Initiative">Initiative (2H)</button></div>
+    </div>
+
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+
+    <div class="sheet-row">
+      <div class="sheet-col-2-7 sheet-right sheet-padr sheet-hd-row">Action Dice<br></div>
+      <div class="sheet-col-1-7 sheet-center">
+        <select name="attr_ActionDie">
+          <option value="d3">d3</option>
+          <option value="d4">d4</option>
+          <option value="d5">d5</option>
+          <option value="d6">d6</option>
+          <option value="d7">d7</option>
+          <option value="d8">d8</option>
+          <option value="d10">d10</option>
+          <option value="d12">d12</option>
+          <option value="d14">d14</option>
+          <option value="d16">d16</option>
+          <option value="d20" selected="selected">d20</option>
+          <option value="d24">d24</option>
+          <option value="d30">d30</option>
+        </select>
+      </div>
+
+      <div class="sheet-col-1-7 sheet-center">
+        <select name="attr_actionDie2">
+          <option value="0" selected="selected">--</option>
+          <option value="d3">d3</option>
+          <option value="d4">d4</option>
+          <option value="d5">d5</option>
+          <option value="d6">d6</option>
+          <option value="d7">d7</option>
+          <option value="d8">d8</option>
+          <option value="d10">d10</option>
+          <option value="d12">d12</option>
+          <option value="d14">d14</option>
+          <option value="d16">d16</option>
+          <option value="d20">d20</option>
+          <option value="d24">d24</option>
+          <option value="d30">d30</option>
+        </select>
+      </div>
+
+      <div class="sheet-col-1-7 sheet-center">
+        <select name="attr_actionDie3">
+          <option value="0" selected="selected">--</option>
+          <option value="d3">d3</option>
+          <option value="d4">d4</option>
+          <option value="d5">d5</option>
+          <option value="d6">d6</option>
+          <option value="d7">d7</option>
+          <option value="d8">d8</option>
+          <option value="d10">d10</option>
+          <option value="d12">d12</option>
+          <option value="d14">d14</option>
+          <option value="d16">d16</option>
+          <option value="d20">d20</option>
+          <option value="d24">d24</option>
+          <option value="d30">d30</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+
+    <div class="sheet-row">
+      <div class="sheet-col-2-7 sheet-right sheet-padr sheet-hd-row">Attack Bonus<br></div>
+      <div class="sheet-col-1-7 sheet-center" title="Only enter Attack bonus listed on the Character level tables"><input class="sheet-center" type="number" name="attr_ATK" value="0" step="1"></div>
+    </div>
+
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+
+    <div class="sheet-row">
+
+      <div class="sheet-col-2-7 sheet-right sheet-padr sheet-hd-row">Crit Die<br></div>
+      <div class="sheet-col-1-6 sheet-center">
+        <select name="attr_CritDie">
+          <option value="d3">d3</option>
+          <option value="d4" selected="selected">d4</option>
+          <option value="d5">d5</option>
+          <option value="d6">d6</option>
+          <option value="d7">d7</option>
+          <option value="d8">d8</option>
+          <option value="d10">d10</option>
+          <option value="d12">d12</option>
+          <option value="d14">d14</option>
+          <option value="d16">d16</option>
+          <option value="d20">d20</option>
+          <option value="d24">d24</option>
+          <option value="d30">d30</option>
+          <option value="2d20">2d20</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="sheet-row">
+      <div class="sheet-col-2-7 sheet-right sheet-padr sheet-hd-row">Crit Table<br></div>
+      <div class="sheet-col-1-6 sheet-center">
+        <select name="attr_CritDie_max">
+          <option value="I" selected="selected">I</option>
+          <option value="II">II</option>
+          <option value="III">III</option>
+          <option value="IV">IV</option>
+          <option value="V">V</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+
+    <div class="sheet-row">
+      <div class="sheet-col-2-7 sheet-right sheet-padr sheet-hd-row">Fumble Die<br></div>
+      <div class="sheet-col-1-6 sheet-center" title="Enter your highest Fumble Die from your armor here.">
+        <select name="attr_armorFumbleDie">
+          <option value="d4" selected="selected">d4</option>
+          <option value="d8">d8</option>
+          <option value="d12">d12</option>
+          <option value="d16">d16</option>
+        </select>
+      </div>
+
+      <input type="hidden" name="attr_fumbleCheck" value="[[[[@{luckMod}]] * (-1)]]" disabled="true">
+    </div>
+
+</div>
