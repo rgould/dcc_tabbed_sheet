@@ -176,18 +176,24 @@ on("sheet:opened change:repeating_armor:armorcheck change:repeating_armor:armora
  * Calculate any bonus/penalty for a thrown weapon at short range
  */
 var calculateThrownModifiers = function calculateThrownModifiers(rangedWeaponType, attackRange, strMod) {
-  var rangedThrownMod = parseInt(strMod);
+  if (strMod !== 0 && !strMod) {
+    return { bonus: 0 };
+  }
   var rangedThrownBonus = 0;
   if (rangedWeaponType === 'Thrown' && attackRange === 'Short') {
-    rangedThrownBonus = rangedThrownMod;
+    rangedThrownBonus = strMod;
   } else {
     rangedThrownBonus = 0;
   }
   return { bonus: rangedThrownBonus };
 };
 
-var recalculateThrownModifiers = function recalculateThrownModifiers() {
-  getAttrs(["repeating_rangedweapon_rangedWeaponType", "repeating_rangedweapon_attackRange", "strMod"], function(values) {
+var recalculateThrownModifiers = function recalculateThrownModifiers(e) {
+  getAttrs(["repeating_rangedweapon_rangedWeaponName", "repeating_rangedweapon_rangedWeaponType", "repeating_rangedweapon_attackRange", "strMod"], function(values) {
+    if (values.strMod !== 0 && !values.strMod) {
+      //Sheet not set up yet
+      return;
+    }
     var rangedThrownMod = parseInt(values.strMod);
     var rangedThrownBonus = 0;
     if (values.repeating_rangedweapon_rangedWeaponType === 'Thrown' && values.repeating_rangedweapon_attackRange === 'Short') {
@@ -201,7 +207,26 @@ var recalculateThrownModifiers = function recalculateThrownModifiers() {
   });
 };
 
-on("change:repeating_rangedweapon:rangedweapontype change:repeating_rangedweapon:attackrange change:strmod", recalculateThrownModifiers);
+var recalculateAllRangedModifiers = function recalculateAllRangedModifiers() {
+  getAttrs(["strMod"], function(values) {
+    const strMod = values.strMod;
+    TAS
+      .repeating("rangedweapon")
+      .fields(["attackRange", "rangedAttackDice", "mediumRangePenalty", "rangedAttackEffectiveDice", "rangedWeaponType", "strMod", "thrownShortRangeBonus"])
+      .each(function(row, attrSet, id, rowSet) {
+        var missleResults = calculateRangedModifiers(row.attackRange, row.rangedAttackDice);
+        row.mediumRangePenalty = missleResults.attackPenalty;
+        row.rangedAttackEffectiveDice = missleResults.attackDie;
+
+        var thrownResults = calculateThrownModifiers(row.rangedWeaponType, row.attackRange, parseInt(strMod));
+        row.thrownShortRangeBonus = thrownResults.bonus;
+      })
+      .execute();
+  });
+};
+
+on("change:repeating_rangedweapon", recalculateThrownModifiers);
+on("change:strmod", recalculateAllRangedModifiers);
 
 /**
  * Calculate any medium/long range penalties given a range and attack die
@@ -226,7 +251,7 @@ var calculateRangedModifiers = function(range, attackDie) {
   };
 };
 
-var recalculateRangedModifiers = function() {
+var recalculateRangedModifiers = function(e) {
   getAttrs(["repeating_rangedweapon_attackRange", "repeating_rangedweapon_rangedAttackDice"], function(values) {
     var results = calculateRangedModifiers(values.repeating_rangedweapon_attackRange, values.repeating_rangedweapon_rangedAttackDice);
 

@@ -87,21 +87,6 @@ var migrateZeroLevelWeapons = function migrateZeroLevelWeapons() {
   });
 };
 
-var recalculateAllRangedModifiers = function recalculateAllRangedModifiers() {
-  TAS
-    .repeating("rangedweapon")
-    .fields(["attackRange", "rangedAttackDice", "mediumRangePenalty", "rangedAttackEffectiveDice", "rangedWeaponType", "strMod", "thrownShortRangeBonus"])
-    .each(function(row, attrSet, id, rowSet) {
-      var missleResults = calculateRangedModifiers(row.attackRange, row.rangedAttackDice);
-      row.mediumRangePenalty = missleResults.attackPenalty;
-      row.rangedAttackEffectiveDice = missleResults.attackDie;
-
-      var thrownResults = calculateThrownModifiers(row.rangedWeaponType, row.attackRange, row.strMod);
-      row.thrownShortRangeBonus = thrownResults.bonus;
-    })
-    .execute();
-};
-
 var MIGRATIONS = [
   { "1.5.0": [] },
   { "1.5.1": [recalculateAllRangedModifiers, migrateZeroLevelWeapons] }
