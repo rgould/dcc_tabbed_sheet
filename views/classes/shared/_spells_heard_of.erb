@@ -1,0 +1,25 @@
+<div class="sheet-col-1-1">
+  <div class="sheet-row sheet-sub-header">
+    <div class="sheet-col-1-5 sheet-center sheet-inspiration-label">Spells heard of</div>
+  </div>
+  <div class="sheet-row sheet-hd-row">
+    <div class="sheet-col-1-3" title="List spells your character knows the existance, yet has not learned how to cast.">
+      <textarea name="attr_spellsknown" placeholder="List spells your character knows the existance, yet has not learned how to cast.&#10;Example: knock (level 2)"></textarea>
+    </div>
+    <div class="sheet-col-2-3 sheet-padl">
+      <p>
+        When eligible to learn a new spell, wizards and elves know 1-3 that they can learn.
+      </p>
+      <button type="roll" class="sheet-roll" name="roll_spellsknown" title="roll_spellsknown"
+              value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Spells Known}} {{flavortext=Learns of the existance of new spells.}} {{rolltype=Known new spells: }} {{classability=[[1d3]] }}">New spells known</button>
+      <p class="sheet-padt">
+        To learn a new spell, it takes 1 week of uninterrupted study per
+        spell level, with a check made at the end. The DC of the check is
+        10 + spell level. The check is made with d20 + level (<span name="attr_level"></span>)
+        + intelligence modifier (<i><span name="attr_intmod"></span></i>).
+      </p>
+      <button type="roll" class="sheet-roll" name="roll_learnnewspell" title="roll_learnnewspell"
+        value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Learn New Spell}} {{flavortext=Studies intensely and attempts to learn ?{Spell name}.}} {{rolltype=Result: }} {{learnspellcheck=[[1d20 + @{level} [level] + @{intMod} [int mod]]] }} {{difficulty=[[10 + ?{Spell level|1}]]}}">Learn new spell</button>
+    </div>
+  </div>
+</div>

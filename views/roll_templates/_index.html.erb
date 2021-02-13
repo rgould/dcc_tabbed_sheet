@@ -900,6 +900,35 @@
                 {{/rollBetween() luckcheck 1 chance}}
             {{/luckcheck}}
 
+          <!-- Learn a new spell Check -->
+            {{#learnspellcheck}}
+                <div class="sheet-row">
+                  <div class="sheet-col-12-13 sheet-RollTemp-infoNB">{{flavortext}}</div>
+                  <div class="sheet-col-1-1">&nbsp;</div>
+                  <div class="sheet-col-8-13 sheet-padl sheet-padr sheet-RollTemp-rollname">DC:</div>
+                  <div class="sheet-col-5-13 sheet-padr sheet-RollTemp-rollresult">{{difficulty}}</div>
+                  <div class="sheet-col-5-13 sheet-padl sheet-padr sheet-RollTemp-rollname">{{rolltype}}</div>
+                  <div class="sheet-col-8-13 sheet-padr sheet-RollTemp-rollresult">{{learnspellcheck}}</div>
+                </div>
+                {{#rollGreater() learnspellcheck difficulty}}
+                  <div class="sheet-row">
+                    <div class="sheet-col-1-1">&nbsp;</div>
+                    <div class="sheet-col-11-12 sheet-padl sheet-padr sheet-RollTemp-success">SUCCESS !</div>
+                  </div>
+                {{/rollGreater() learnspellcheck difficulty}}
+                {{#rollLess() learnspellcheck difficulty}}
+                  <div class="sheet-row">
+                    <div class="sheet-col-1-1">&nbsp;</div>
+                    <div class="sheet-col-11-12 sheet-padl sheet-padr sheet-RollTemp-fail">FAILURE !</div>
+                  </div>
+                  <div class="sheet-row">
+                    <div class="sheet-col-12-13 sheet-RollTemp-infoNB">
+                      You may attempt to learn the spell again once you advance to the next level.
+                    </div>
+                  </div>
+                {{/rollLess() learnspellcheck difficulty}}
+            {{/learnspellcheck}}
+
         <!-- Self Repair -->
             {{#selfrepair}}
                 <div class="sheet-row">
