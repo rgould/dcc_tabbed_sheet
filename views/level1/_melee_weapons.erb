@@ -7,7 +7,10 @@
   <div class="sheet-col-1-20 sheet-center sheet-small-label sheet-vert-bottom">To Hit Bonus</div>
   <div class="sheet-col-1-11 sheet-center sheet-small-label sheet-vert-bottom">Damage Dice</div>
   <div class="sheet-col-1-20 sheet-center sheet-small-label sheet-vert-bottom">Dmg Bonus</div>
-  <div class="sheet-col-1-20 sheet-center sheet-small-label sheet-vert-bottom">Advanced</div>
+  <div class="sheet-col-1-20 sheet-center sheet-small-label sheet-vert-bottom">
+    Advanced
+    <span class="sheet-new-feature sheet-large-label" title="New! to-hit/damage bonuses available">❗</span>
+  </div>
 </div>
 
 <!-- BEGIN MELEE weapon repeating row -->
@@ -50,10 +53,10 @@
       </select>
     </div>
 
-    <div class="sheet-col-1-20"><input class=" sheet-center" type="number" name="attr_meleeToHit" value="[[[[@{strMod}]] + @{meleeMagic} + @{allAtkLuckyRoll} + @{meleeAtkLuckyRoll} + @{ATK} + @{meleeAtkLuckyWeapon} + @{zeroWeaponLuckyRoll}]]" disabled="disabled"></div>
+    <div class="sheet-col-1-20"><input class=" sheet-center" type="number" name="attr_meleeToHit" value="[[[[@{strMod}]] + @{meleeMagic} + @{meleeOtherToHitBonus} + @{allAtkLuckyRoll} + @{meleeAtkLuckyRoll} + @{ATK} + @{meleeAtkLuckyWeapon} + @{zeroWeaponLuckyRoll}]]" disabled="disabled"></div>
 
     <div class="sheet-col-1-11" title="Only enter the base damage roll here without any bonuses from stats or other sources"><input class="sheet-center" value="1d4" type="text" name="attr_meleeDmg"></div>
-    <div class="sheet-col-1-20"><input class="sheet-center" type="number" name="attr_meleeDmgBonus" value="[[[[@{strMod}]] + @{meleeMagic} + @{meleedmgLuckyRoll} + @{dmgLuckyRoll} + @{zeroWeaponLuckyRoll}]]" disabled="disabled"></div>
+    <div class="sheet-col-1-20"><input class="sheet-center" type="number" name="attr_meleeDmgBonus" value="[[[[@{strMod}]] + @{meleeMagic} + @{meleeOtherDamageBonus} + @{meleedmgLuckyRoll} + @{dmgLuckyRoll} + @{zeroWeaponLuckyRoll}]]" disabled="disabled"></div>
 
     <div class="sheet-col-1-20 sheet-checkbox-row" title="Check for advanced options">
       <input type="checkbox" value="@{meleeShowAdvanced}" name="attr_meleeShowAdvanced" class="sheet-melee-advanced">
@@ -75,9 +78,9 @@
     <div class="sheet-melee-advanced sheet-row">
       <div class="sheet-row">
         <div class="sheet-col-1-8 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Lucky Weapon:</div>
-        <div class="sheet-col-1-22 sheet-checkbox-row sheet-vert-middle" title="Check the box if this is your Lucky Weapon (Class ability)"><input type="checkbox" value="@{luckStartingMod}" name="attr_meleeAtkLuckyWeapon"></div>
-        <div class="sheet-col-1-9 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Wielded:</div>
-        <div class="sheet-col-1-7" title="How is the weapon being wielded">
+        <div class="sheet-col-1-24 sheet-checkbox-row sheet-vert-middle" title="Check the box if this is your Lucky Weapon (Class ability)"><input type="checkbox" value="@{luckStartingMod}" name="attr_meleeAtkLuckyWeapon"></div>
+        <div class="sheet-col-1-8 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Wielded:</div>
+        <div class="sheet-col-1-8" title="How is the weapon being wielded">
           <select name="attr_meleeAttackWielded">
             <option value="Primary Hand" selected="selected">Primary Hand</option>
             <option value="Two Handed">2 Handed</option>
@@ -88,9 +91,17 @@
       </div>
       <div class="sheet-row">
         <div class="sheet-col-1-8 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Pack Hunter:</div>
-        <div class="sheet-col-1-22 sheet-checkbox-row sheet-vert-middle" title="Check the box if you have the Lucky Roll for 0-level Starting weapon"><input type="checkbox" value="@{luckStartingMod}" name="attr_zeroWeaponLuckyRoll"></div>
-        <div class="sheet-col-1-9 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Magic Bonus:</div>
-        <div class="sheet-col-1-20" title="The magic bonus will be added as a bonus to BOTH the attack and damage rolls">
+        <div class="sheet-col-1-24 sheet-checkbox-row sheet-vert-middle" title="Check the box if you have the Lucky Roll for 0-level Starting weapon"><input type="checkbox" value="@{luckStartingMod}" name="attr_zeroWeaponLuckyRoll"></div>
+        <div class="sheet-col-1-8 sheet-right sheet-padr sheet-margin-top sheet-vert-middle"><span class="sheet-new-feature" title="New!">❗</span>To Hit bonus:</div>
+        <div class="sheet-col-1-24" title="Bonus added to ONLY hit rolls">
+          <input class=" sheet-center" type="number" name="attr_meleeOtherToHitBonus" value="0">
+        </div>
+        <div class="sheet-col-1-6 sheet-right sheet-padr sheet-margin-top sheet-vert-middle"><span class="sheet-new-feature" title="New!">❗</span>Damage bonus:</div>
+        <div class="sheet-col-1-24" title="Bonus added to ONLY to damage rolls">
+          <input class=" sheet-center" type="number" name="attr_meleeOtherDamageBonus" value="0">
+        </div>
+        <div class="sheet-col-1-8 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Magic bonus:</div>
+        <div class="sheet-col-1-24" title="The magic bonus will be added as a bonus to BOTH the attack and damage rolls">
           <input class=" sheet-center" type="number" name="attr_meleeMagic" value="0">
         </div>
       </div>

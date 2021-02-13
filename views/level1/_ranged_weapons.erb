@@ -12,7 +12,10 @@
   <div class="sheet-col-1-20 sheet-center sheet-small-label sheet-vert-bottom">Damage Dice</div>
   <div class="sheet-col-1-24 sheet-center sheet-small-label sheet-vert-bottom">Dmg Bonus</div>
   <div class="sheet-col-1-14 sheet-center sheet-small-label sheet-vert-bottom">Range to Attack</div>
-  <div class="sheet-col-1-20 sheet-center sheet-small-label sheet-vert-bottom">Advanced</div>
+  <div class="sheet-col-1-20 sheet-center sheet-small-label sheet-vert-bottom">
+    Advanced
+    <span class="sheet-new-feature sheet-large-label" title="New! to-hit/damage bonuses available">❗</span>
+  </div>
 </div>
 
 <!-- BEGIN RANGED weapon repeating row -->
@@ -59,9 +62,9 @@
         <option value="17">17-20</option>
       </select>
     </div>
-    <div class="sheet-col-1-24"><input class="sheet-center" type="number" name="attr_rangedToHit" value="[[ [[@{agiMod}]] + @{allAtkLuckyRoll} + @{rangedAtkLuckyRoll} + @{rangedMagic} + @{rangedAtkLuckyWeapon} + @{ATK} + @{zeroRangedWeaponLuckyRoll}]]" disabled="disabled"></div>
+    <div class="sheet-col-1-24"><input class="sheet-center" type="number" name="attr_rangedToHit" value="[[ [[@{agiMod}]] + @{allAtkLuckyRoll} + @{rangedAtkLuckyRoll} + @{rangedMagic} + @{rangedOtherToHitBonus} + @{rangedAtkLuckyWeapon} + @{ATK} + @{zeroRangedWeaponLuckyRoll}]]" disabled="disabled"></div>
     <div class="sheet-col-1-20" title="Only enter the base damage roll here without any bonuses from stats or other sources"><input class="sheet-center" type="text" name="attr_rangedDmg" value="1d4"></div>
-    <div class="sheet-col-1-24"><input class="sheet-center" type="number" name="attr_rangedDmgBonus" value="[[@{rangedMagic} + @{rangedDmgLuckyRoll} + @{dmgLuckyRoll} + @{zeroRangedWeaponLuckyRoll}]]" disabled="disabled"></div>
+    <div class="sheet-col-1-24"><input class="sheet-center" type="number" name="attr_rangedDmgBonus" value="[[@{rangedMagic} + @{rangedOtherDamageBonus} + @{rangedDmgLuckyRoll} + @{dmgLuckyRoll} + @{zeroRangedWeaponLuckyRoll}]]" disabled="disabled"></div>
     <div class="sheet-col-1-14" title="Short range: no penalty&#10;Medium range: -2 on attack roll&#10;Long ranged: -1d on attack roll">
       <select name="attr_attackRange">
         <option value="Short">Short</option>
@@ -95,9 +98,9 @@
     <div class="sheet-ranged-advanced sheet-row">
       <div class="sheet-row">
         <div class="sheet-col-1-8 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Lucky Weapon:</div>
-        <div class="sheet-col-1-22 sheet-checkbox-row sheet-vert-middle" title="Check the box if this is your Lucky Weapon (Class ability)"><input type="checkbox" value="@{luckStartingMod}" name="attr_rangedAtkLuckyWeapon"></div>
-        <div class="sheet-col-1-9 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Missle Type:</div>
-        <div class="sheet-col-2-23" title="Select Thrown or Missile weapon">
+        <div class="sheet-col-1-24 sheet-checkbox-row sheet-vert-middle" title="Check the box if this is your Lucky Weapon (Class ability)"><input type="checkbox" value="@{luckStartingMod}" name="attr_rangedAtkLuckyWeapon"></div>
+        <div class="sheet-col-1-8 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Missle Type:</div>
+        <div class="sheet-col-1-8" title="Select Thrown or Missile weapon">
           <select name="attr_rangedWeaponType">
             <option value="Thrown">Thrown</option>
             <option value="Missile" selected="selected">Missile</option>
@@ -106,9 +109,17 @@
       </div>
       <div class="sheet-row">
         <div class="sheet-col-1-8 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Pack Hunter:</div>
-        <div class="sheet-col-1-22 sheet-checkbox-row sheet-vert-middle" title="Check the box if you have the Lucky Roll for 0-level Starting weapon"><input type="checkbox" value="@{luckStartingMod}" name="attr_zeroRangedWeaponLuckyRoll"></div>
-        <div class="sheet-col-1-9 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Magic Bonus:</div>
-        <div class="sheet-col-1-20" title="The magic bonus will be added as a bonus to BOTH the attack and damage rolls">
+        <div class="sheet-col-1-24 sheet-checkbox-row sheet-vert-middle" title="Check the box if you have the Lucky Roll for 0-level Starting weapon"><input type="checkbox" value="@{luckStartingMod}" name="attr_zeroRangedWeaponLuckyRoll"></div>
+        <div class="sheet-col-1-8 sheet-right sheet-padr sheet-margin-top sheet-vert-middle"><span class="sheet-new-feature" title="New!">❗</span>To Hit bonus:</div>
+        <div class="sheet-col-1-24" title="Bonus added to ONLY hit rolls">
+          <input class=" sheet-center" type="number" name="attr_rangedOtherToHitBonus" value="0">
+        </div>
+        <div class="sheet-col-1-6 sheet-right sheet-padr sheet-margin-top sheet-vert-middle"><span class="sheet-new-feature" title="New!">❗</span>Damage bonus:</div>
+        <div class="sheet-col-1-24" title="Bonus added to ONLY to damage rolls">
+          <input class=" sheet-center" type="number" name="attr_rangedOtherDamageBonus" value="0">
+        </div>
+        <div class="sheet-col-1-8 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Magic Bonus:</div>
+        <div class="sheet-col-1-24" title="The magic bonus will be added as a bonus to BOTH the attack and damage rolls">
           <input class=" sheet-center" type="number" name="attr_rangedMagic" value="0">
         </div>
       </div>
