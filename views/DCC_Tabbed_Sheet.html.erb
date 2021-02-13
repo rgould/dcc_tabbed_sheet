@@ -157,53 +157,7 @@
           <!-- Saving Throws, Movement -->
             <div class="sheet-col-1-2 sheet-padr">
 
-              <h4 class="sheet-center">Saving Throws </h4>
-
-              <div class="sheet-row sheet-sub-header">
-                <div class="sheet-col-6-19 sheet-center">&nbsp;</div>
-                <div class="sheet-col-2-19 sheet-center sheet-vert-bottom sheet-small-label">Base</div>
-                <div class="sheet-col-2-19 sheet-center sheet-vert-bottom sheet-small-label">Save Bonus</div>
-                <div class="sheet-col-2-19 sheet-center sheet-small-label">Birth Augur</div>
-                <div class="sheet-col-2-19 sheet-center sheet-vert-bottom sheet-small-label">Mod</div>
-                <div class="sheet-col-2-19 sheet-center sheet-vert-bottom sheet-small-label">Total Bonus</div>
-                <div class="sheet-col-3-19 sheet-center sheet-small-label"></div>
-              </div>
-
-              <div class="sheet-row">
-                <div class="sheet-col-6-19 sheet-core-stat-label">Reflex</div>
-                <div class="sheet-col-2-19" title="Enter the base value listed in Class Advancement Table"><input type="number" name="attr_REF" value="0" min="0" step="1"></div>
-                <div class="sheet-col-2-19" title="Enter any additional bonus' ie. from spells or equipment"><input type="number" name="attr_otherBonusReflexMod" value="0"></div>
-                <div class="sheet-col-2-19"><input type="number" name="attr_birthAugurReflexMod" value="[[@{savingThrowsLuckyRoll} + @{reflexLuckyRoll}]]" disabled="disabled"></div>
-                <div class="sheet-col-2-19"><input type="number" name="attr_reflexStatMod" value="[[@{agiMod}]]" disabled="disabled"></div>
-                <div class="sheet-col-2-19"><input class="sheet-center" type="number" name="attr_refCheck" value="[[ [[@{REF}]] + [[@{birthAugurReflexMod}]] + [[@{otherBonusReflexMod}]] + [[@{agiMod}]] ]]" disabled="disabled"></div>
-                <div class="sheet-col-3-19 sheet-center">
-                  <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=REFLEX Save}} {{rolltype=Saving Throw : }} {{hint=Saves against reaction-based threats, such as ducking a swinging axe trap, leaping aside as a doorway collapses, and twisting away from a dragon’s flaming breath.}} {{savingthrow=[[1d20 + @{refCheck} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Reflex' title="Reflex Save">REF</button>
-                </div>
-              </div>
-
-              <div class="sheet-row">
-                <div class="sheet-col-6-19 sheet-core-stat-label">Fortitude</div>
-                <div class="sheet-col-2-19" title="Enter the base value listed in Class Advancement Table"><input type="number" name="attr_FORT" value="0" min="0" step="1"></div>
-                <div class="sheet-col-2-19" title="Enter any additional bonus' ie. from spells or equipment"><input type="number" name="attr_otherBonusFortMod" value="0"></div>
-                <div class="sheet-col-2-19"><input type="number" name="attr_birthAugurFortMod" value="[[@{savingThrowsLuckyRoll} + @{fortitudeLuckyRoll}]]" disabled="disabled"></div>
-                <div class="sheet-col-2-19"><input type="number" name="attr_fortitudeStatMod" value="[[@{staMod}]]" disabled="disabled"></div>
-                <div class="sheet-col-2-19"><input class="sheet-center" type="number" name="attr_fortCheck" value="[[@{FORT} + @{birthAugurFortMod} + @{otherBonusFortMod} + [[@{staMod}]]]]" disabled="disabled"></div>
-                <div class="sheet-col-3-19 sheet-center">
-                  <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=FORTITUDE Save}} {{hint=Saves against physical threats, such as poisons, gasses, acids, and stunning damage.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{fortCheck} + (?{Burn die - Any additional Bonus/Minus|0})]]}} {{abilityscore=[[@{sta}]]}} {{warningthreshold=[[6]]}} {{warning=Stamina is 5 or lower!&#10;Take double damage from poison or disease.}}" name='ST_Fortitude' title="Fortitude Save">FORT</button>
-                </div>
-              </div>
-
-              <div class="sheet-row">
-                <div class="sheet-col-6-19 sheet-core-stat-label">Will</div>
-                <div class="sheet-col-2-19" title="Enter the base value listed in Class Advancement Table"><input type="number" name="attr_WILL" value="0" min="0" step="1"></div>
-                <div class="sheet-col-2-19" title="Enter any additional bonus' ie. from spells or equipment"><input type="number" name="attr_otherBonusWillMod" value="0"></div>
-                <div class="sheet-col-2-19"><input type="number" name="attr_birthAugurWillMod" value="[[@{savingThrowsLuckyRoll} + @{willLuckyRoll}]]" disabled="disabled"></div>
-                <div class="sheet-col-2-19"><input type="number" name="attr_willStatMod" value="[[@{perMod}]]" disabled="disabled"></div>
-                <div class="sheet-col-2-19"><input class="sheet-center" type="number" name="attr_willCheck" value="[[@{WILL} + @{birthAugurWillMod} + @{otherBonusWillMod} + [[@{perMod}]]]]" disabled="disabled"></div>
-                <div class="sheet-col-3-19 sheet-center">
-                  <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=WILL Save}} {{hint=Saves against mind-influencing threats, such as spells that charm or control, psychic effects that cause sleep or hypnosis, and mental domination.}} {{rolltype=Saving Throw : }}{{savingthrow=[[1d20 + @{willCheck} + (?{Burn die - Any additional Bonus/Minus|0})]]}}" name='ST_Will' title="Will Save">WILL</button>
-                </div>
-              </div>
+              <%= render partial: "shared/saving_throws", indent: 7 %>
 
               <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
 
@@ -7120,53 +7074,7 @@
 
               <div class="sheet-col-1-2 sheet-padr">
 
-                <h4 class="sheet-center">Saving Throws </h4>
-
-                <div class="sheet-row sheet-sub-header">
-                  <div class="sheet-col-6-19 sheet-center">&nbsp;</div>
-                  <div class="sheet-col-2-19 sheet-center sheet-vert-bottom sheet-small-label">Base</div>
-                  <div class="sheet-col-2-19 sheet-center sheet-vert-bottom sheet-small-label">Save Bonus</div>
-                  <div class="sheet-col-2-19 sheet-center sheet-small-label">Birth Augur</div>
-                  <div class="sheet-col-2-19 sheet-center sheet-vert-bottom sheet-small-label">Stat Mod</div>
-                  <div class="sheet-col-2-19 sheet-center sheet-vert-bottom sheet-small-label">Total Bonus</div>
-                  <div class="sheet-col-3-19 sheet-center sheet-small-label"></div>
-                </div>
-
-                <div class="sheet-row">
-                  <div class="sheet-col-6-19 sheet-core-stat-label">Reflex</div>
-                  <div class="sheet-col-2-19"><input type="number" name="attr_refZero" value="0" disabled="true"></div>
-                  <div class="sheet-col-2-19" title="Enter any additional bonus' ie. from spells or equipment"><input type="number" name="attr_otherBonusReflexModZero" value="0"></div>
-                  <div class="sheet-col-2-19"><input type="number" name="attr_birthAugurReflexMod" value="[[@{savingThrowsLuckyRoll} + @{reflexLuckyRoll}]]" disabled="disabled"></div>
-                  <div class="sheet-col-2-19"><input type="number" name="attr_reflexStatMod" value="[[@{agiMod}]]" disabled="disabled"></div>
-                  <div class="sheet-col-2-19"><input class="sheet-center" type="number" name="attr_refCheckZero" value="[[@{refZero} + @{birthAugurReflexMod} + @{otherBonusReflexModZero} + [[@{agiMod}]]]]" disabled="disabled"></div>
-                  <div class="sheet-col-3-19 sheet-center">
-                    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=REFLEX Save}} {{hint=Saves against reaction-based threats, such as ducking a swinging axe trap, leaping aside as a doorway collapses, and twisting away from a dragon’s flaming breath.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{refCheckZero} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Reflex' title="Reflex Save">REF</button>
-                  </div>
-                </div>
-
-                <div class="sheet-row">
-                  <div class="sheet-col-6-19 sheet-core-stat-label">Fortitude</div>
-                  <div class="sheet-col-2-19"><input type="number" name="attr_fortZero" value="0" disabled="true"></div>
-                  <div class="sheet-col-2-19" title="Enter any additional bonus' ie. from spells or equipment"><input type="number" name="attr_otherBonusFortModZero" value="0"></div>
-                  <div class="sheet-col-2-19"><input type="number" name="attr_birthAugurFortMod" value="[[@{savingThrowsLuckyRoll} + @{fortitudeLuckyRoll}]]" disabled="disabled"></div>
-                  <div class="sheet-col-2-19"><input type="number" name="attr_fortitudeStatMod" value="[[@{staMod}]]" disabled="disabled"></div>
-                  <div class="sheet-col-2-19"><input class="sheet-center" type="number" name="attr_fortCheckZero" value="[[@{fortZero} + @{birthAugurFortMod} + @{otherBonusFortModZero} + [[@{staMod}]]]]" disabled="disabled"></div>
-                  <div class="sheet-col-3-19 sheet-center">
-                    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=FORTITUDE Save}} {{hint=Saves against physical threats, such as poisons, gasses, acids, and stunning damage.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{fortCheckZero} + (?{Any additional Bonus/Minus|0})]]}} {{abilityscore=[[@{sta}]]}} {{warning=Stamina is 5 or lower!&#10;Take double damage from poison or disease.}}" name='ST_Fortitude' title="Fortitude Save">FORT</button>
-                  </div>
-                </div>
-
-                <div class="sheet-row">
-                  <div class="sheet-col-6-19 sheet-core-stat-label">Will</div>
-                  <div class="sheet-col-2-19"><input type="number" name="attr_willZero" value="0" disabled="true"></div>
-                  <div class="sheet-col-2-19" title="Enter any additional bonus' ie. from spells or equipment"><input type="number" name="attr_otherBonusWillModZero" value="0"></div>
-                  <div class="sheet-col-2-19"><input type="number" name="attr_birthAugurWillMod" value="[[@{savingThrowsLuckyRoll} + @{willLuckyRoll}]]" disabled="disabled"></div>
-                  <div class="sheet-col-2-19"><input type="number" name="attr_willStatMod" value="[[@{perMod}]]" disabled="disabled"></div>
-                  <div class="sheet-col-2-19"><input class="sheet-center" type="number" name="attr_willCheckZero" value="[[@{willZero} + @{birthAugurWillMod} + @{otherBonusWillModZero} + [[@{perMod}]]]]" disabled="disabled"></div>
-                  <div class="sheet-col-3-19 sheet-center">
-                    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{character_name}}} {{title=WILL Save}} {{hint=Saves against mind-influencing threats, such as spells that charm or control, psychic effects that cause sleep or hypnosis, and mental domination.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{willCheckZero} + (?{Any additional Bonus/Minus|0})]]}}" name='ST_Will' title="Will Save">WILL</button>
-                  </div>
-                </div>
+                <%= render partial: "shared/saving_throws", indent: 8 %>
 
                 <div class="sheet-col-1-1 sheet-center sheet-small-label">&nbsp;</div>
 
