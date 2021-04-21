@@ -1,4 +1,5 @@
 require 'erb'
+require 'fileutils'
 require 'action_view'
 require 'action_pack'
 require 'action_controller'
@@ -23,6 +24,7 @@ module DccTabbedSheet
       assigns = {}
       controller = nil
       output = klass.new(lookup_context, assigns, controller).render(options)
+      FileUtils.mkdir_p 'build'
       File.write("build/DCC_Tabbed_Sheet.html", output)
     end
 
