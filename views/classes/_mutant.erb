@@ -1,0 +1,179 @@
+<div class="sheet-mutant">
+  <h3>Mutant Abilities</h3>
+
+    <div class="sheet-row">
+      <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Secret Doors<br></div>
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_secretDoorsCheckMisc" value="0"><br>Misc Bonus</div>
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Bonus is Intelligence Mod + Secret Doors Lucky Roll + Misc Bonus (if any)"><input class="sheet-underlined sheet-center" type="number" name="attr_secretDoorCheck" value="[[ ( [[@{intMod}]] + [[@{findSecretDoorsLuckyRoll}]] + [[@{secretDoorsCheckMisc}]]) ]]" disabled="disabled"><br>Total Bonus</div>
+      <div class="sheet-col-1-6 sheet-padl">
+        <button type="roll" class="sheet-roll" name="roll_findSecretDoor"
+        value="&{template:DccTabbed} {{class=1}} {{name=@{character_name}}} {{title=Find Secret Doors}} {{flavortext=Looks around for secret or hidden doors.}} {{rolltype=Search Check : }} {{classability=[[ @{ActionDie} [Action Die] + @{secretDoorCheck} [Bonus] ]]  }}">Find Secret Doors</button>
+      </div>
+    </div>
+
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+
+    <div class="sheet-row">
+      <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Survival<br></div>
+      <div class="sheet-col-1-10 sheet-right">
+        <select name="attr_survivalDeedDie">
+          <option value="d0" selected="selected">--</option>
+          <option value="d3">d3</option>
+          <option value="d4">d4</option>
+          <option value="d5">d5</option>
+          <option value="d6">d6</option>
+          <option value="d7">d7</option>
+          <option value="d8">d8</option>
+          <option value="d10">d10</option>
+          <option value="d10+1">d10+1</option>
+          <option value="d10+2">d10+2</option>
+          <option value="d10+3">d10+3</option>
+        </select>
+      </div>
+
+      <div class="sheet-col-1-8 sheet-padl">
+        <button type="roll" class="sheet-roll" name="roll_survivalDeedDie"
+        value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Survival Die}} {{flavortext=Add this bonus to non-combat survival checks and certain saving throws.}} {{rolltype=Survival Die : }} {{survivaldie=[[ @{survivalDeedDie} [Die Roll] ]] }} ">Survival Die</button>
+      </div>
+    </div>
+
+    <div class="sheet-col-1-1 sheet-small-label">Add your Survival Die to all non-combat tasks related to surviving in the wilds and wastes such as finding safe food, finding clean water, avoiding environmental hazards, identifying dangerous creatures, navigation through the wastes, etc.. In addition, the mutant can add their Survival Die to all Saves involving toxins, radiation, and environmental effects. <br></div>
+
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+
+    <div class="sheet-col-1-1">
+
+      <div class="sheet-row sheet-sub-header">
+        <div class="sheet-col-1-5 sheet-center sheet-inspiration-label">Other Notes</div>
+      </div>
+
+      <div class="sheet-row">
+        <div class="sheet-col-1-1" title="Enter other notes here"><textarea name="attr_mutantNotes" placeholder="Other notes of Mutant Importance!"></textarea></div>
+      </div>
+
+    </div>
+
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+
+    <ul>
+        <li><b>Hit Points: </b>2d4 per level<br> </li>
+        <li><b>Weapons: </b> Any<br></li>
+        <li><b>Armor: </b> Any, but must be customized for the Mutant<br></li>
+        <li><b>Alignment: </b> Law (uncommon), Neutral (common), Chaos (common)<br></li>
+    </ul>
+
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+
+    <!-- BEGIN Mutation page -->
+    <div class="sheet-col-1 sheet-vert-bottom sheet-center sheet-large-label">Character Mutations</div>
+    <!--<p class="sheet-small-note">All mutant characters have one or more mutations. Roll on table MU-2 (on Mutant Handout) to determine what type of mutation you have. Then roll to determine the sub-table under the type of mutation. Finally, roll on the sub-table to determine the mutation. Once you have determined what mutation you have, roll the percentage chance for each item listed. Yes, it is possible to receive no benefits or penalties for the mutation.</p>-->
+
+      <fieldset class="repeating_mutations">
+      <!-- BEGIN mutation row -->
+        <div class="sheet-margin-bottom sheet-padr sheet-padl">
+          <div class="sheet-row">
+            <div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Base Mutation</div>
+            <div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Mutation Type</div>
+            <div class="sheet-col-1-3 sheet-vert-bottom sheet-center sheet-small-label">Sub-Mutation</div>
+            <div class="sheet-col-1-3 sheet-vert-bottom sheet-center sheet-small-label">Sub-Mutation's Features</div>
+          </div>
+
+          <div class="sheet-row">
+            <div class="sheet-col-1-6 sheet-vert-middle" title="Select your Base Mutation">
+              <select name="attr_baseMutation">
+                <option value="Hybridization">Hybridization</option>
+                <option value="Physiology">Physiology</option>
+                <option value="None" selected="selected">--</option>
+              </select>
+            </div>
+            <div class="sheet-col-1-6 sheet-vert-middle"><input type="text" class="sheet-center" name="attr_typeMutation"></div>
+            <div class="sheet-col-1-3 sheet-vert-middle"><input type="text" class="sheet-center" name="attr_subMutation"></div>
+            <div class="sheet-col-1-3 sheet-vert-middle"><input type="text" class="sheet-center" name="attr_subMutationFeature"></div>
+          </div>
+
+          <span class="sheet-spacer"></span>
+          <span class="sheet-small-label">Show :</span>
+          <input type="checkbox" name="attr_subMutationAbility1" class="sheet-spelltypetab sheet-SubMutationAbility1" value="1"><span class="sheet-spelltypetab sheet-subMutationAbility1">Ability 1</span>
+          <input type="checkbox" name="attr_subMutationAbility2" class="sheet-spelltypetab sheet-SubMutationAbility2" value="1"><span class="sheet-spelltypetab sheet-subMutationAbility2">Ability 2</span> |
+          <input type="checkbox" name="attr_subMutationAbility3" class="sheet-spelltypetab sheet-SubMutationAbility3" value="1"><span class="sheet-spelltypetab sheet-subMutationAbility3">Ability 3</span> |
+          <input type="checkbox" name="attr_subMutationAbility4" class="sheet-spelltypetab sheet-SubMutationAbility4" value="1"><span class="sheet-spelltypetab sheet-subMutationAbility4">Ability 4</span>
+          <span class="sheet-spacer"></span>
+
+          <div class="sheet-spell-type-subMutationAbility1">
+            <div class="sheet-row">
+              <div class="sheet-col-1-3 sheet-vert-bottom sheet-center sheet-small-label">Ability/Disablity Name</div>
+              <div class="sheet-col-1-2 sheet-vert-bottom sheet-center sheet-small-label">Ability/Disability Description</div>
+              <div class="sheet-col-1-6 sheet-vert-bottom sheet-center">&nbsp;</div>
+            </div>
+
+            <div class="sheet-row">
+              <div class="sheet-col-4-13 sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_subMutationName"></div>
+              <div class="sheet-col-1-2 sheet-small-label sheet-center"><textarea name="attr_subMutationDescription" class="sheet-medium"></textarea></div>
+
+              <div class="sheet-col-4-23 sheet-vert-middle sheet-left">
+                <button type="roll" class="sheet-roll sheet-vert-middle" name="roll_mutationInfo"
+                  value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=@{subMutationName}}} {{mutations=1}} {{mutationshowinfoblock=1}} {{basemutation=@{baseMutation}}} {{typemutation=@{typeMutation}}} {{submutation=@{subMutation}}} {{mutationshowdesc=@{subMutationDescription}}} ">Mutation Info</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="sheet-spell-type-subMutationAbility2">
+            <div class="sheet-row">
+              <div class="sheet-col-1-3 sheet-vert-bottom sheet-center sheet-small-label">Ability/Disablity Name</div>
+              <div class="sheet-col-1-2 sheet-vert-bottom sheet-center sheet-small-label">Ability/Disability Description</div>
+              <div class="sheet-col-1-6 sheet-vert-bottom sheet-center">&nbsp;</div>
+            </div>
+
+            <div class="sheet-row">
+              <div class="sheet-col-4-13 sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_subMutation2Name"></textarea></div>
+              <div class="sheet-col-1-2 sheet-small-label sheet-center"><textarea name="attr_subMutation2Description" class="sheet-medium"></textarea></div>
+
+              <div class="sheet-col-4-23 sheet-vert-middle sheet-left">
+                <button type="roll" class="sheet-roll sheet-vert-middle" name="roll_mutation2Info"
+                  value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=@{subMutation2Name}}} {{mutations=1}} {{mutationshowinfoblock=1}} {{basemutation=@{baseMutation}}} {{typemutation=@{typeMutation}}} {{submutation=@{subMutation}}} {{mutationshowdesc=@{subMutation2Description}}} ">Mutation Info</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="sheet-spell-type-subMutationAbility3">
+            <div class="sheet-row">
+              <div class="sheet-col-1-3 sheet-vert-bottom sheet-center sheet-small-label">Ability/Disablity Name</div>
+              <div class="sheet-col-1-3 sheet-vert-bottom sheet-center sheet-small-label">Ability/Disability Description</div>
+              <div class="sheet-col-1-6 sheet-vert-bottom sheet-center">&nbsp;</div>
+            </div>
+
+            <div class="sheet-row">
+              <div class="sheet-col-4-13 sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_subMutation3Name"></textarea></div>
+              <div class="sheet-col-1-2 sheet-small-label sheet-center"><textarea name="attr_subMutation3Description" class="sheet-medium"></textarea></div>
+
+              <div class="sheet-col-4-23 sheet-vert-middle sheet-left">
+                <button type="roll" class="sheet-roll sheet-vert-middle" name="roll_mutation3Info"
+                  value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=@{subMutation3Name}}} {{mutations=1}} {{mutationshowinfoblock=1}} {{basemutation=@{baseMutation}}} {{typemutation=@{typeMutation}}} {{submutation=@{subMutation}}} {{mutationshowdesc=@{subMutation3Description}}} ">Mutation Info</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="sheet-spell-type-subMutationAbility4">
+            <div class="sheet-row">
+              <div class="sheet-col-1-3 sheet-vert-bottom sheet-center sheet-small-label">Ability/Disablity Name</div>
+              <div class="sheet-col-1-2 sheet-vert-bottom sheet-center sheet-small-label">Ability/Disability Description</div>
+              <div class="sheet-col-1-6 sheet-vert-bottom sheet-center">&nbsp;</div>
+            </div>
+
+            <div class="sheet-row">
+              <div class="sheet-col-4-13 sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_subMutation4Name"></textarea></div>
+              <div class="sheet-col-1-2 sheet-small-label sheet-center"><textarea name="attr_subMutation4Description" class="sheet-medium"></textarea></div>
+
+              <div class="sheet-col-4-23 sheet-vert-middle sheet-left">
+                <button type="roll" class="sheet-roll sheet-vert-middle" name="roll_mutation4Info"
+                  value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=@{subMutation4Name}}} {{mutations=1}} {{mutationshowinfoblock=1}} {{basemutation=@{baseMutation}}} {{typemutation=@{typeMutation}}} {{submutation=@{subMutation}}} {{mutationshowdesc=@{subMutation4Description}}} ">Mutation Info</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      <!-- END mutation row -->
+      </fieldset>
+</div>
