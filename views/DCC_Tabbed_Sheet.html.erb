@@ -2344,60 +2344,7 @@
 
       <!-- INVENTORY -->
 
-        <div class="sheet-section-inventory">
-
-              <div class="sheet-row">
-                <div class="sheet-col-1">
-                  <h4 class="sheet-center">Coin Carried </h4>
-                  <p class="sheet-small-note">Total = value of all coins converted to GP</p>
-                </div>
-              </div>
-
-              <div class="sheet-row">
-
-                <div class="sheet-col-1-1 sheet-padr">
-
-                  <div class="sheet-row sheet-sub-header">
-                    <div class="sheet-col-1-6 sheet-center sheet-small-label">CP</div>
-                    <div class="sheet-col-1-6 sheet-center sheet-small-label">SP</div>
-                    <div class="sheet-col-1-6 sheet-center sheet-small-label">GP</div>
-                    <div class="sheet-col-1-6 sheet-center sheet-small-label">EP</div>
-                    <div class="sheet-col-1-6 sheet-center sheet-small-label">PP</div>
-                    <div class="sheet-col-1-6 sheet-center sheet-small-label">Total</div>
-                  </div>
-
-                  <div class="sheet-row">
-                    <div class="sheet-col-1-6" title="Copper Pieces"><input type="number" name="attr_CP" value="0" min="0" step="1"></div>
-                    <div class="sheet-col-1-6" title="Silver Pieces"><input type="number" name="attr_SP" value="0" min="0" step="1"></div>
-                    <div class="sheet-col-1-6" title="Gold Pieces"><input type="number" name="attr_GP" value="0" min="0" step="1"></div>
-                    <div class="sheet-col-1-6" title="Electrum Pieces"><input type="number" name="attr_EP" value="0" min="0" step="1"></div>
-                    <div class="sheet-col-1-6" title="Platinum Pieces"><input type="number" name="attr_PP" value="0" min="0" step="1"></div>
-                    <div class="sheet-col-1-6" title="Total (in Gold Pieces)"><input class="sheet-center" type="number" name="attr_moneyTotalGp" value="(@{CP} / 100) + (@{SP} / 10) + @{GP} + (@{EP} * 10) + (@{PP} * 100) " disabled="disabled"></div>
-                  </div>
-
-                </div>
-
-              </div>
-
-              <h4 class="sheet-center">Inventory </h4>
-
-                <div class="sheet-col-1-1">
-
-                  <div class="sheet-row sheet-sub-header">
-                    <div class="sheet-col-1-2 sheet-center sheet-inspiration-label">Equipment</div>
-                    <div class="sheet-col-1-2 sheet-center sheet-inspiration-label">Treasure</div>
-                  </div>
-
-                  <div class="sheet-row">
-                    <div class="sheet-col-1-2"><textarea class="sheet-extralarge" name="attr_Equipment"></textarea></div>
-                    <div class="sheet-col-1-2"><textarea class="sheet-extralarge" name="attr_Treasure"></textarea></div>
-                  </div>
-
-                </div>
-
-            <hr>
-
-        </div>
+        <%= render partial: "sections/inventory", indent: 4 %>
 
     </div>
 
