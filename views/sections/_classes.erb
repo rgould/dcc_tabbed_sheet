@@ -1,0 +1,60 @@
+<div class="sheet-section-class">
+
+  <div class="sheet-col-1-1 sheet-left sheet-class-label">Core Classes</div>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <input type="radio" class="isCleric" value="3" name="attr_Class"><label class="sheet-subtab">Cleric</label>
+  <input type="radio" class="isDwarf" value="6" name="attr_Class"><label class="sheet-subtab">Dwarf</label>
+  <input type="radio" class="isElf" value="7" name="attr_Class"><label class="sheet-subtab">Elf</label>
+  <input type="radio" class="isHalfling" value="5" name="attr_Class"><label class="sheet-subtab">Halfling</label>
+  <input type="radio" class="isThief" value="4" name="attr_Class"><label class="sheet-subtab">Thief</label>
+  <input type="radio" class="isWarrior" value="1" name="attr_Class" checked><label class="sheet-subtab">Warrior</label>
+  <input type="radio" class="isWizard" value="2" name="attr_Class"><label class="sheet-subtab">Wizard</label>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+
+  <div class="sheet-col-1-1 sheet-left sheet-class-label">Supplement Classes</div>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <input type="radio" class="isKith" value="19" name="attr_Class"><label class="sheet-subtab">Kith</label>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+
+  <div class="sheet-col-1-1 sheet-left sheet-class-label">Crawl! Classes</div>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <input type="radio" class="isBard" value="8" name="attr_Class"><label class="sheet-subtab">Bard</label>
+  <input type="radio" class="isGnome" value="9" name="attr_Class"><label class="sheet-subtab">Gnome</label>
+  <input type="radio" class="isPaladin" value="10" name="attr_Class"><label class="sheet-subtab">Paladin</label>
+  <input type="radio" class="isRanger" value="11" name="attr_Class"><label class="sheet-subtab">Ranger</label>
+  <input type="radio" class="isDwarfPriest" value="12" name="attr_Class"><label class="sheet-subtab">Dwarf Priest</label>
+  <input type="radio" class="isElfRogue" value="13" name="attr_Class"><label class="sheet-subtab">Elf Rogue</label>
+  <input type="radio" class="isHalflingBurglar" value="19" name="attr_Class"><label class="sheet-subtab">Halfling Burglar</label>
+  <input type="radio" class="isHalflingChamp" value="14" name="attr_Class"><label class="sheet-subtab">Halfling Champion</label>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+
+  <div class="sheet-col-1-1 sheet-left sheet-class-label">Crawling Under a Broken Moon Classes</div>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <input type="radio" class="isCyborg" value="15" name="attr_Class"><label class="sheet-subtab">Cyborg</label>
+  <input type="radio" class="isMutant" value="16" name="attr_Class"><label class="sheet-subtab">Mutant</label>
+  <input type="radio" class="isPetrolHead" value="17" name="attr_Class"><label class="sheet-subtab">Petrol Head</label>
+  <input type="radio" class="isTechnologist" value="18" name="attr_Class"><label class="sheet-subtab">Technologist</label>
+
+  <hr>
+    <%= render partial: "classes/bard", indent: 2 %>
+    <%= render partial: "classes/cyborg", indent: 2 %>
+    <%= render partial: "classes/cleric", indent: 2 %>
+    <%= render partial: "classes/dwarf", indent: 2 %>
+    <%= render partial: "classes/dwarf_priest", indent: 2 %>
+    <%= render partial: "classes/elf", indent: 2 %>
+    <%= render partial: "classes/elven_rogue", indent: 2 %>
+    <%= render partial: "classes/gnome", indent: 2 %>
+    <%= render partial: "classes/halfling", indent: 2 %>
+    <%= render partial: "classes/halfling_burglar", indent: 2 %>
+    <%= render partial: "classes/halfling_champion", indent: 2 %>
+    <%= render partial: "classes/kith", indent: 2 %>
+    <%= render partial: "classes/mutant", indent: 2 %>
+    <%= render partial: "classes/paladin", indent: 2 %>
+    <%= render partial: "classes/petrolhead", indent: 2 %>
+    <%= render partial: "classes/ranger", indent: 2 %>
+    <%= render partial: "classes/technologist", indent: 2 %>
+    <%= render partial: "classes/thief", indent: 2 %>
+    <%= render partial: "classes/warrior", indent: 2 %>
+    <%= render partial: "classes/wizard", indent: 2 %>
+  <hr>
+</div>
