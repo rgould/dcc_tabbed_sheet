@@ -350,38 +350,7 @@
 
       <!-- WEAPONS -->
 
-        <div class="sheet-section-weapons">
-
-          <div class="sheet-col-1-6 sheet-center">&nbsp;</div>
-
-          <div class="sheet-col-1-6 sheet-center">
-            <button type="roll" class="sheet-roll" name="roll_DeedDie"
-            value="&{template:DccTabbed} {{background=[[0]]}} {{combat=1}} {{name=@{character_name}}} {{title=Mighty Deed of Arms}} {{flavortext=Add this bonus to Attack and Damage roll.}} {{rolltype=Deed Die : }} {{deeddie=[[ @{DeedDie}cs>3 [Die Roll] ]] }} {{successtext=You accomplish a Mighty Deed (if attack roll also hits)!}}">Deed Die</button>
-          </div>
-
-          <div class="sheet-col-1-14 sheet-center">&nbsp;</div>
-
-          <div class="sheet-col-1-6 sheet-center">
-            <button type="roll" class="sheet-roll" name="roll_DeedDie"
-            value="&{template:DccTabbed} {{background=[[0]]}} {{combat=1}} {{name=@{character_name}}} {{title=Mighty Deed of @{RangerPath}}} {{flavortext=Add this bonus to Attack and Damage roll.}} {{rolltype=Deed Die : }} {{deeddie=[[ @{DeedDie}cs>3 [Die Roll] ]] }} {{successtext=You accomplish a Mighty Deed (if attack roll also hits)!}}">Ranger Deed Die</button>
-          </div>
-
-          <div class="sheet-col-1-14 sheet-center">&nbsp;</div>
-
-          <div class="sheet-col-1-6 sheet-center">
-            <button type="roll" class="sheet-roll" name="roll_smiteDie"
-            value="&{template:DccTabbed} {{background=[[0]]}} {{combat=1}} {{name=@{character_name}}} {{title=Smite}} {{flavortext=Add this bonus to Attack and Damage rolls against those Unholy to }} {{rolltype=Smite : }} {{deity=@{ClericDeity} }} {{smite=[[ @{smiteDie} [Die Roll] ]]  }}">Smite</button>
-          </div>
-
-          <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
-
-          <!-- BEGIN AUTO GENERATED WEAPON SECTION -->
-
-          <%= render partial: "level1/melee_weapons", indent: 5 %>
-
-          <%= render partial: "level1/ranged_weapons", indent: 5 %>
-
-        </div>
+        <%= render partial: "sections/weapons", indent: 4 %>
 
       <!-- SPELLBOOK -->
 
