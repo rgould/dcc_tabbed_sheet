@@ -28,47 +28,9 @@
   <input type="radio" name="attr_maintab" class="sheet-maintab sheet-monster" value="4" title="NPC/Monster">
   <span class="sheet-maintab sheet-monster">NPC/Monster</span>
 
-  <!-- 1+ LEVEL CHARACTER SHEET -->
-    <div class="sheet-maintab-content sheet-player">
-
-      <h5 class="sheet-center">1+-level Character Sheet</h5>
-
-      <p class="sheet-small-note">The main player character sheet.</p>
-
-      <input type="radio" name="attr_tab" class="sheet-tab sheet-tab1" value="1" title="Core Stats" checked="checked">
-      <span class="sheet-tab sheet-tab1">Core Stats</span>
-      <input type="radio" name="attr_tab" class="sheet-tab sheet-tab2" value="2">
-      <span class="sheet-tab sheet-tab2">Background</span>
-      <input type="radio" name="attr_tab" class="sheet-tab sheet-tab3" value="3">
-      <span class="sheet-tab sheet-tab3">Class</span>
-      <input type="radio" name="attr_tab" class="sheet-tab sheet-tab4" value="4">
-      <span class="sheet-tab sheet-tab4">Weapons</span>
-      <input type="radio" name="attr_tab" class="sheet-tab sheet-tab5" value="5">
-      <span class="sheet-tab sheet-tab5">Spellbook</span>
-      <input type="radio" name="attr_tab" class="sheet-tab sheet-tab6" value="6">
-      <span class="sheet-tab sheet-tab6">Armor</span>
-      <input type="radio" name="attr_tab" class="sheet-tab sheet-tab7" value="7">
-      <span class="sheet-tab sheet-tab7">Inventory</span>
-      <input type="radio" name="attr_tab" class="sheet-tab sheet-tab99" value="99">
-      <span class="sheet-tab sheet-tab99">Show All</span>
-
-      <span class="sheet-spacer"></span>
-
-      <%= render partial: "sections/core_stats", indent: 4 %>
-      <%= render partial: "sections/background_information", indent: 4 %>
-      <%= render partial: "sections/classes", indent: 4 %>
-      <%= render partial: "sections/weapons", indent: 4 %>
-      <%= render partial: "sections/spellbook", indent: 4 %>
-      <%= render partial: "sections/armor", indent: 4 %>
-      <%= render partial: "sections/inventory", indent: 4 %>
-
-    </div>
-
-  <!-- 0-LEVEL CHARACTER SHEET -->
-    <%= render partial: "tabs/level0", indent: 2 %>
-
-  <!-- NPC/MONSTER CHARACTER SHEET -->
-    <%= render partial: "tabs/monster", indent: 2 %>
+  <%= render partial: "tabs/level1", indent: 2 %>
+  <%= render partial: "tabs/level0", indent: 2 %>
+  <%= render partial: "tabs/monster", indent: 2 %>
 
 </div>
 
