@@ -14,59 +14,15 @@
     <div class="sheet-row">
       <div class="sheet-col-2-7 sheet-right sheet-padr sheet-hd-row">Action Dice<br></div>
       <div class="sheet-col-1-7 sheet-center">
-        <select name="attr_ActionDie">
-          <option value="d3">d3</option>
-          <option value="d4">d4</option>
-          <option value="d5">d5</option>
-          <option value="d6">d6</option>
-          <option value="d7">d7</option>
-          <option value="d8">d8</option>
-          <option value="d10">d10</option>
-          <option value="d12">d12</option>
-          <option value="d14">d14</option>
-          <option value="d16">d16</option>
-          <option value="d20" selected="selected">d20</option>
-          <option value="d24">d24</option>
-          <option value="d30">d30</option>
-        </select>
+        <%= render partial: "shared/widgets/action_die_selector", indent: 4, locals: { attr_name: "attr_ActionDie", default: "d20" } %>
       </div>
 
       <div class="sheet-col-1-7 sheet-center">
-        <select name="attr_actionDie2">
-          <option value="0" selected="selected">--</option>
-          <option value="d3">d3</option>
-          <option value="d4">d4</option>
-          <option value="d5">d5</option>
-          <option value="d6">d6</option>
-          <option value="d7">d7</option>
-          <option value="d8">d8</option>
-          <option value="d10">d10</option>
-          <option value="d12">d12</option>
-          <option value="d14">d14</option>
-          <option value="d16">d16</option>
-          <option value="d20">d20</option>
-          <option value="d24">d24</option>
-          <option value="d30">d30</option>
-        </select>
+        <%= render partial: "shared/widgets/action_die_selector", indent: 4, locals: { attr_name: "attr_actionDie2", show_blank: true, default: 0 } %>
       </div>
 
       <div class="sheet-col-1-7 sheet-center">
-        <select name="attr_actionDie3">
-          <option value="0" selected="selected">--</option>
-          <option value="d3">d3</option>
-          <option value="d4">d4</option>
-          <option value="d5">d5</option>
-          <option value="d6">d6</option>
-          <option value="d7">d7</option>
-          <option value="d8">d8</option>
-          <option value="d10">d10</option>
-          <option value="d12">d12</option>
-          <option value="d14">d14</option>
-          <option value="d16">d16</option>
-          <option value="d20">d20</option>
-          <option value="d24">d24</option>
-          <option value="d30">d30</option>
-        </select>
+        <%= render partial: "shared/widgets/action_die_selector", indent: 4, locals: { attr_name: "attr_actionDie3", show_blank: true, default: 0 } %>
       </div>
 
     </div>

@@ -1,0 +1,8 @@
+<select name="<%= attr_name %>">
+  <% if local_assigns[:show_blank] %>
+  <option value="0"<%= default.to_s == "0" ? ' selected="selected"'.html_safe : ""%>>--</option>
+  <% end %>
+  <% DccData::DiceChain::DCC_DICE_CHAIN.each do |die_size| %>
+  <option value="d<%= die_size %>"<%= "d#{die_size}" == default ? ' selected="selected"'.html_safe : ""%>>d<%= die_size %></option>
+  <% end %>
+</select>
