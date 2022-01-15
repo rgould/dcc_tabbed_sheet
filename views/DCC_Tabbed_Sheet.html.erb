@@ -3,22 +3,11 @@
 
 <div class="sheet-overall-wrapper">
 
-    <div class="sheet-row">
-      <div class="sheet-col-1-1 sheet-margin-top sheet-center"><img src="http://i.imgur.com/HBgERqb.png" alt="Dungeon Crawl Classics Character Record Sheet"></div>
-    </div>
-
-  <div class="sheet-core-header sheet-padb">
-
-    <div class="sheet-row">
-      <div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" placeholder="Player Name" name="attr_playerName"><br>Player Name</div>
-      <div class="sheet-col-1-8 sheet-center">&nbsp;</div>
-      <div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" placeholder="Character Name" name="attr_character_name"><br>Character Name</div>
-      <div class="sheet-col-1-8 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" placeholder="Race" name="attr_race"><br>Race</div>
-      <div class="sheet-col-1-8 sheet-center">&nbsp;</div>
-      <div class="sheet-col-1-8 sheet-center sheet-margin-top"><p class="sheet-last-updated">Sheet last updated<br>10 September 2017</p></div>
-    </div>
-
+  <div class="sheet-row">
+    <div class="sheet-col-1-1 sheet-margin-top sheet-center"><img src="http://i.imgur.com/HBgERqb.png" alt="Dungeon Crawl Classics Character Record Sheet"></div>
   </div>
+
+  <%= render partial: "header", indent: 2 %>
 
   <!-- 3 way toggle - STYLE 2 -->
   <input type="radio" name="attr_maintab" class="sheet-maintab sheet-zero" value="1" title="0-level" checked="checked">
