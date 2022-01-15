@@ -3,7 +3,8 @@ require 'fileutils'
 require 'action_view'
 require 'action_pack'
 require 'action_controller'
-require "dcc_tabbed_sheet/helpers"
+
+Dir[File.join(__dir__, '..', '..', 'lib', '**', '*.rb')].each { |file| require file }
 
 module DccTabbedSheet
   class Compiler
