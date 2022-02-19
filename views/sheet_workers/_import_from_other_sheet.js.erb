@@ -1,0 +1,147 @@
+on("clicked:import_from_other_sheet", function(eventInfo) {
+  var attrMapOtherToThis = <%= map_other_sheet_to_this_sheet.to_json.html_safe %>
+
+  /*
+   * Handle non-repeating attributes
+   */
+  getAttrs(_.keys(attrMapOtherToThis), function(oldAttrs) {
+    var newAttrs = _.reduce(oldAttrs, function(memo, value, oldAttrName) {
+      var key = attrMapOtherToThis[oldAttrName];
+      memo[key] = value || "";
+      return memo;
+    }, {});
+    setAttrs(newAttrs);
+  });
+
+  /*
+   * Handle repeating attributes, namely weapons and spells
+   */
+  TAS.repeating("weapons")
+    .attrs(["WarriorThreat"])
+    .fields(["WeaponAtk", "WeaponDmg", "WeaponName", "WeaponRange", "WeaponSpecial"])
+    .each(function(row, attrSet, id, rowSet) {
+      var newId = generateRowID();
+      var weaponType = "melee";
+      if (row.WeaponRange) {
+        weaponType = "ranged";
+      }
+      var prefix = `repeating_${weaponType}weapon_${newId}`;
+      var newAttrs = _.reduce(_.omit(row, ["WeaponRange"]), function(memo, value, oldAttrName) {
+        var key = `${prefix}_${weaponType}${attrMapOtherToThis[oldAttrName]}`;
+        memo[key] = value || "";
+        return memo;
+      }, {});
+
+      if (weaponType === "ranged") {
+        // make a best-effort attempt to parse the range values. just look for three numbers
+        var rangeRegex = /(\d+)\D+(\d+)\D+(\d+)/;
+        const match = row.WeaponRange.match(rangeRegex);
+        if (match) {
+          var keyPrefix = `${prefix}_rangedDistance`;
+          newAttrs[`${keyPrefix}Short`] = match[1];
+          newAttrs[`${keyPrefix}Med`] = match[2];
+          newAttrs[`${keyPrefix}Long`] = match[3];
+        }
+      }
+      if (attrSet.WarriorThreat) {
+        newAttrs[`${prefix}_${weaponType}CritThreat`] = attrSet.WarriorThreat
+      }
+      setAttrs(newAttrs);
+    })
+    .execute();
+
+  var importSpells = function(className, spellsType) {
+    return function(row, attrSet, id, rowSet) {
+      var spellLevel = row[`${className}SpellLevel`] || "1";
+      var newId = generateRowID();
+      var spellbookTypePrefix = spellsType === "divine" ? "divine" : "";
+      var prefix = `repeating_${spellbookTypePrefix}spellbooklevel${spellLevel}_${newId}`;
+      var newAttrs = _.reduce(row, function(memo, value, oldAttrName) {
+        var key = `${prefix}_${attrMapOtherToThis[oldAttrName]}`;
+        memo[key] = value || "";
+        return memo;
+      }, {});
+      setAttrs(newAttrs);
+    };
+  };
+
+  TAS.repeating("bardspells")
+    .fields(["BardSpell", "BardSpellCheckMisc", "BardSpellLevel", "BardSpellMercurial"])
+    .each(importSpells("Bard", "arcane"))
+    .execute();
+
+  TAS.repeating("gnomespells")
+    .fields(["GnomeSpell", "GnomeSpellCheckMisc", "GnomeSpellLevel", "GnomeSpellMercurial"])
+    .each(importSpells("Gnome", "arcane"))
+    .execute();
+
+  TAS.repeating("wizardspells")
+    .fields(["WizardSpell", "WizardSpellCheckMisc", "WizardSpellLevel", "WizardSpellMercurial"])
+    .each(importSpells("Wizard", "arcane"))
+    .execute();
+
+  /*
+   * Elf's Invoke Patron and Patron Bond have to be done manually
+   */
+
+  const elfSpecialAttrs = [
+    "ElfInvokePatronMisc",
+    "ElfInvokePatronNotes",
+    "ElfPatronBondMisc"
+  ];
+
+  getAttrs(elfSpecialAttrs, function(attrs) {
+    if (attrs.ElfInvokePatronMisc || attrs.ElfInvokePatronNotes) {
+      var newId = generateRowID();
+      var prefix = `repeating_spellbooklevel1_${newId}`;
+      var newAttrs = {};
+      newAttrs[`${prefix}_spellName`] = "Invoke Patron";
+      newAttrs[`${prefix}_arcaneMod`] = attrs.ElfInvokePatronMisc || "";
+      newAttrs[`${prefix}_spellMercurialMagic`] = attrs.ElfInvokePatronNotes || "";
+      setAttrs(newAttrs);
+    }
+    if (attrs.ElfPatronBondMisc) {
+      var newId = generateRowID();
+      var prefix = `repeating_spellbooklevel1_${newId}`;
+      var newAttrs = {};
+      newAttrs[`${prefix}_spellName`] = "Patron Bond";
+      newAttrs[`${prefix}_arcaneMod`] = attrs.ElfPatronBondMisc || "";
+      setAttrs(newAttrs);
+    }
+  });
+
+  TAS.repeating("elfspells")
+    .fields(["ElfSpell", "ElfSpellCheckMisc", "ElfSpellLevel", "ElfSpellNotes"])
+    .each(importSpells("Elf", "arcane"))
+    .execute();
+
+  TAS.repeating("clericspells")
+    .fields(["ClericSpell", "ClericSpellCheckMisc", "ClericSpellLevel", "ClericSpellNotes"])
+    .each(importSpells("Cleric", "divine"))
+    .execute();
+
+  TAS.repeating("paladinspells")
+    .fields(["PaladinSpell", "PaladinSpellCheckMisc", "PaladinSpellLevel", "PaladinSpellNotes"])
+    .each(importSpells("Paladin", "divine"))
+    .execute();
+
+  TAS.repeating("armor")
+    .fields(["ArmorBonus"])
+    .each(function(row, attrSet, id, rowSet) {
+      var attrName = 'repeating_armor_'+id+'_armorAcBase';
+      var newAttrs = {};
+      newAttrs[attrName] = row.ArmorBonus;
+      setAttrs(newAttrs);
+    })
+    .execute();
+
+  setAttrs({
+    import_from_other_sheet_status: "Done! Any attributes from the other DCC sheet have been copied to this one."
+  });
+
+  setTimeout(function() {
+    // NOTE: This requires roll20Async sheet to work properly
+    setAttrs({ import_from_other_sheet_status: "" });
+  }, 5000);
+
+});
