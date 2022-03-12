@@ -30,26 +30,26 @@
     <div class="sheet-col-1">
 
       <div class="sheet-row sheet-sub-header">
-        <div class="sheet-col-2-23 sheet-center sheet-small-label sheet-vert-bottom">Worn?</div>
-        <div class="sheet-col-5-23 sheet-center sheet-small-label sheet-vert-bottom">Name</div>
-        <div class="sheet-col-2-23 sheet-center sheet-small-label sheet-vert-bottom">Base AC</div>
-        <div class="sheet-col-2-23 sheet-center sheet-small-label sheet-vert-bottom">Magic Bonus</div>
-        <div class="sheet-col-2-23 sheet-center sheet-small-label sheet-vert-bottom">Total AC</div>
-        <div class="sheet-col-4-23 sheet-center sheet-small-label sheet-vert-bottom">Fumble Die</div>
-        <div class="sheet-col-2-23 sheet-right sheet-small-label sheet-vert-bottom">Check Penalty</div>
-        <div class="sheet-col-3-23 sheet-right sheet-small-label sheet-vert-bottom">Speed Reduction</div>
+        <div class="sheet-col-1-24 sheet-center sheet-small-label sheet-vert-bottom">Worn?</div>
+        <div class="sheet-col-5-24 sheet-center sheet-small-label sheet-vert-bottom">Name</div>
+        <div class="sheet-col-1-24 sheet-center sheet-small-label sheet-vert-bottom">AC</div>
+        <div class="sheet-col-1-24 sheet-center sheet-small-label sheet-vert-bottom">Bonus</div>
+        <div class="sheet-col-1-24 sheet-center sheet-small-label sheet-vert-bottom">Total AC</div>
+        <div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Fumble Die</div>
+        <div class="sheet-col-1-8 sheet-center sheet-small-label sheet-vert-bottom">Check Penalty</div>
+        <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Speed Reduction</div>
+        <div class="sheet-col-1-4 sheet-center sheet-small-label sheet-vert-bottom">Notes</div>
       </div>
 
       <!-- BEGIN ARMOR repeating row -->
         <fieldset class="repeating_armor">
           <div class="sheet-row">
-            <div class="sheet-col-2-23 sheet-vert-middle sheet-checkbox-row"><input type="checkbox" name="attr_armorActive"></div>
-            <div class="sheet-col-5-23"><input type="text" name="attr_armorName"></div>
-            <div class="sheet-col-2-23"><input type="number" name="attr_armorAcBase" value="0" step="1"></div>
-            <div class="sheet-col-2-23"><input type="number" name="attr_armorMagicBonus" value="0" step="1"></div>
-            <div class="sheet-col-2-23"><input class="sheet-center" type="number" name="attr_armorTotalAc" value="@{armorAcBase} + @{armorMagicBonus}" disabled="disabled"></div>
-              <div class="sheet-col-1-23 sheet-center">&nbsp;</div>
-                        <div class="sheet-col-2-23">
+            <div class="sheet-col-1-24 sheet-vert-middle sheet-checkbox-row"><input type="checkbox" name="attr_armorActive"></div>
+            <div class="sheet-col-5-24"><input type="text" name="attr_armorName"></div>
+            <div class="sheet-col-1-24"><input type="number" name="attr_armorAcBase" value="0" step="1"></div>
+            <div class="sheet-col-1-24"><input type="number" name="attr_armorMagicBonus" value="0" step="1"></div>
+            <div class="sheet-col-1-24"><input class="sheet-center" type="number" name="attr_armorTotalAc" value="@{armorAcBase} + @{armorMagicBonus}" disabled="disabled"></div>
+            <div class="sheet-col-1-6">
               <select name="attr_armorFumbleDie">
                 <option value="0" selected="selected">--</option>
                 <option value="d4">d4</option>
@@ -58,8 +58,7 @@
                 <option value="d16">d16</option>
               </select>
             </div>
-                        <div class="sheet-col-1-23 sheet-center">&nbsp;</div>
-            <div class="sheet-col-2-23">
+            <div class="sheet-col-1-8">
               <select name="attr_armorCheck">
                 <option value="0" selected="selected">--</option>
                 <option value="-1">-1</option>
@@ -72,14 +71,15 @@
                 <option value="-8">-8</option>
               </select>
             </div>
-                        <div class="sheet-col-1-23 sheet-center">&nbsp;</div>
-            <div class="sheet-col-2-23">
+            <div class="sheet-col-1-12">
               <select name="attr_armorSpeed">
                 <option value="0" selected="selected">No</option>
                 <option value="-5">-5</option>
                 <option value="-10">-10</option>
               </select>
             </div>
+            <% # the attribute name `armorSpecial` is retained here for compatibility with the other DCC sheet %>
+            <div class="sheet-col-1-4"><input value="" type="text" name="attr_armorSpecial" placeholder="Ex: +1 AC vs Dragons"></div>
           </div>
         </fieldset>
 
