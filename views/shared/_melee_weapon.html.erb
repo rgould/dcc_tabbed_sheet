@@ -1,0 +1,90 @@
+<% present_attr_name(suffix: attr_suffix) do |attr| %>
+  <div class="sheet-row">
+    <div class="sheet-col-3-10">
+      <%= render partial: "shared/melee_weapons/name", locals: { attr: attr } %>
+    </div>
+
+    <div class="sheet-col-1-10">
+      <%= render partial: "shared/melee_weapons/attack_die_selector", locals: { attr: attr } %>
+    </div>
+
+    <div class="sheet-col-1-10">
+      <%= render partial: "shared/melee_weapons/crit_range_selector", locals: { attr: attr } %>
+    </div>
+
+    <div class="sheet-col-1-20">
+      <%= render partial: "shared/melee_weapons/to_hit_mod", locals: { attr: attr } %>
+    </div>
+
+    <div class="sheet-col-1-20">
+      <%= render partial: "shared/melee_weapons/damage_dice", locals: { attr: attr } %>
+    </div>
+
+    <div class="sheet-col-1-20">
+      <%= render partial: "shared/melee_weapons/damage_mod", locals: { attr: attr } %>
+    </div>
+
+    <div class="sheet-col-1-20 sheet-checkbox-row">
+      <%= render partial: "shared/melee_weapons/show_advanced", locals: { attr: attr } %>
+    </div>
+
+    <div class="sheet-col-1-14">
+      <%= render partial: "shared/melee_weapons/button_attack", locals: { attr: attr } %>
+    </div>
+
+    <% unless local_assigns[:level0_mode] %>
+      <div class="sheet-col-1-12">
+        <%= render partial: "shared/melee_weapons/button_attack_with_deed", locals: { attr: attr } %>
+      </div>
+
+      <div class="sheet-col-1-14">
+        <%= render partial: "shared/melee_weapons/button_backstab", locals: { attr: attr } %>
+      </div>
+    <% end %>
+
+    <%= render partial: "shared/widgets/advanced_checkbox", locals: { attr_name: attr.name("meleeShowAdvanced"), attr_roll: attr.roll("meleeShowAdvanced") } %>
+
+    <div class="sheet-melee-advanced sheet-row">
+      <div class="sheet-row sheet-vert-middle">
+        <div class="sheet-col-3-20 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Magic bonus:</div>
+        <div class="sheet-col-1-20">
+          <%= render partial: "shared/melee_weapons/magic_bonus", locals: { attr: attr } %>
+        </div>
+        <div class="sheet-col-3-20 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">To Hit bonus:</div>
+        <div class="sheet-col-1-20">
+          <%= render partial: "shared/melee_weapons/to_hit_bonus", locals: { attr: attr } %>
+        </div>
+        <div class="sheet-col-3-20 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Backstab damage:</div>
+        <div class="sheet-col-1-20">
+          <%= render partial: "shared/melee_weapons/backstab_damage", locals: { attr: attr } %>
+        </div>
+        <div class="sheet-col-1-4 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Lucky Weapon:</div>
+        <div class="sheet-col-1-20 sheet-left sheet-checkbox-row sheet-vert-middle">
+          <%= render partial: "shared/melee_weapons/lucky_weapon", locals: { attr: attr } %>
+        </div>
+      </div>
+      <div class="sheet-row">
+        <div class="sheet-col-7-20 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Damage bonus:</div>
+        <div class="sheet-col-1-20" title="Bonus added to ONLY to damage rolls">
+          <%= render partial: "shared/melee_weapons/damage_bonus", locals: { attr: attr } %>
+        </div>
+        <div class="sheet-col-3-20 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Wielded:</div>
+        <div class="sheet-col-3-20">
+          <%= render partial: "shared/melee_weapons/handedness", locals: { attr: attr } %>
+        </div>
+        <div class="sheet-col-3-20 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Pack Hunter:</div>
+        <div class="sheet-col-1-20 sheet-left sheet-checkbox-row sheet-vert-middle">
+          <%= render partial: "shared/melee_weapons/pack_hunter", locals: { attr: attr } %>
+        </div>
+      </div>
+      <div class="sheet-row">
+        <div class="sheet-col-3-20 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Notes:</div>
+        <div class="sheet-col-2-5">
+          <%= render partial: "shared/melee_weapons/notes", locals: { attr: attr } %>
+        </div>
+      </div>
+      <hr>
+    </div>
+
+  </div>
+<% end %>

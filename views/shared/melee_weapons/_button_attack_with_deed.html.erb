@@ -1,0 +1,9 @@
+<button
+  type='roll'
+  class="sheet-roll"
+  name="roll_meleeWeaponAttackWithDeed"
+  title="Melee Weapon Attack with Mighty Deed"
+  value="&{template:DccTabbed} [[ @{<%= attr.roll "meleeAttackDice" %>}cs>@{<%= attr.roll "meleeCritThreat" %>} [To Hit Roll] + [[@{DeedDie}cs>3]] [Deed Die] + @{<%= attr.roll "meleeToHit" %>} [To Hit Bonus] + (?{Any Attack Bonus|0}) [Attack Bonus]  ]] {{background=[[0]]}} {{combat=1}} {{name=@{character_name}}} {{title=@{<%= attr.roll "meleeWeaponName" %>}}} {{wielded=@{<%= attr.roll "meleeAttackWielded" %>} }} {{attackWithDeed=$[[1]] }} {{deedroll=$[[0]] }} {{damage=[[ ({(@{<%= attr.roll "meleeDmg" %>} [Base damage] + @{<%= attr.roll "meleeDmgBonus" %>} [Damage Bonus]),1d1}kh1) ]] + $[[0]] [Deed]}} {{crit=[[ @{CritDie} + [[@{luckMod}]] + @{critLuckyRoll} ]]}} {{crittable=@{CritDie|max}}} {{fumble=[[ @{armorFumbleDie} + [[@{fumbleCheck}]] + [[@{fumbleLuckyRoll}]] ]]}} {{notes=@{<%= attr.roll "meleeWeaponSpecial" %>}}}"
+  >
+  w/ Deed
+</button>

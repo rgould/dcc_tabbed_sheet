@@ -1,4 +1,4 @@
-<h4 class="sheet-center">Melee Weapons </h4>
+<h4 class="sheet-center">Melee Weapons</h4>
 
 <div class="sheet-row sheet-sub-header">
   <div class="sheet-col-3-10 sheet-center sheet-small-label sheet-vert-bottom">Weapon</div>
@@ -10,7 +10,6 @@
   <div class="sheet-col-1-20 sheet-center sheet-small-label sheet-vert-bottom">Advanced</div>
 </div>
 
-<!-- BEGIN MELEE weapon repeating row -->
-<fieldset class="repeating_meleeweapon">
-  <%= render partial: "shared/melee_weapon", indent: 0, locals: { attr_suffix: "" } %>
-</fieldset>
+<% level0multi_melee_weapon_count.times do |i| %>
+  <%= render partial: "shared/melee_weapon", indent: 0, locals: { attr_suffix: i+1, level0_mode: true } %>
+<% end %>

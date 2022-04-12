@@ -1,0 +1,137 @@
+/**
+ * Calculate any bonus/penalty for a thrown weapon at short range
+ */
+var calculateThrownModifiers = function calculateThrownModifiers(rangedWeaponType, attackRange, strMod) {
+  if (strMod !== 0 && !strMod) {
+    return { bonus: 0 };
+  }
+  var rangedThrownBonus = 0;
+  if (rangedWeaponType === 'Thrown' && attackRange === 'Short') {
+    rangedThrownBonus = strMod;
+  } else {
+    rangedThrownBonus = 0;
+  }
+  return { bonus: rangedThrownBonus };
+};
+
+var recalculateThrownModifiers = function recalculateThrownModifiers(e) {
+  getAttrs(["repeating_rangedweapon_rangedWeaponName", "repeating_rangedweapon_rangedWeaponType", "repeating_rangedweapon_attackRange", "strMod"], function(values) {
+    if (values.strMod !== 0 && !values.strMod) {
+      //Sheet not set up yet
+      return;
+    }
+    var rangedThrownMod = parseInt(values.strMod);
+    var rangedThrownBonus = 0;
+    if (values.repeating_rangedweapon_rangedWeaponType === 'Thrown' && values.repeating_rangedweapon_attackRange === 'Short') {
+      rangedThrownBonus = rangedThrownMod;
+    } else {
+      rangedThrownBonus = 0;
+    }
+    setAttrs({
+      repeating_rangedweapon_thrownShortRangeBonus: rangedThrownBonus
+    });
+  });
+};
+
+var recalculateAllRangedModifiers = function recalculateAllRangedModifiers() {
+  getAttrs(["strMod"], function(values) {
+    const strMod = values.strMod;
+    TAS
+      .repeating("rangedweapon")
+      .fields(["attackRange", "rangedAttackDice", "mediumRangePenalty", "rangedAttackEffectiveDice", "rangedWeaponType", "strMod", "thrownShortRangeBonus"])
+      .each(function(row, attrSet, id, rowSet) {
+        var missleResults = calculateRangedModifiers(row.attackRange, row.rangedAttackDice);
+        row.mediumRangePenalty = missleResults.attackPenalty;
+        row.rangedAttackEffectiveDice = missleResults.attackDie;
+
+        var thrownResults = calculateThrownModifiers(row.rangedWeaponType, row.attackRange, parseInt(strMod));
+        row.thrownShortRangeBonus = thrownResults.bonus;
+      })
+      .execute();
+  });
+};
+
+// Recalculate *all* records
+var recalculateAllRangedModifiersLevel0Multi = function recalculateAllRangedModifiersLevel0Multi(e) {
+  var sourceLevel0Prefix = e.sourceAttribute.replace('_strmod', '');
+  console.log("Event: ", e, "Source level0 attr: ", sourceLevel0Prefix);
+  var count = <%= level0multi_ranged_weapon_count %>;
+  _.times(count, function(i) {
+    recalculateRangedModifiersLevel0Multi(sourceLevel0Prefix, i+1);
+  });
+};
+
+// For a *single* record, index must be in 1..level0multi_ranged_weapon_count
+var recalculateRangedModifiersLevel0Multi = function recalculateRangedModifiersLevel0Multi(sourceLevel0Prefix, index) {
+  var attrNames = ["attackRange", "rangedAttackDice", "mediumRangePenalty", "rangedAttackEffectiveDice", "rangedWeaponType", "thrownShortRangeBonus"];
+  var key = function(attrName) { return `${sourceLevel0Prefix}_${attrName}${index}`; }
+  var strModKey = `${sourceLevel0Prefix}_strMod`;
+  var attrNamesWithPrefix = _.map(attrNames, function(attrName) { return key(attrName); });
+  attrNamesWithPrefix.push(strModKey);
+  getAttrs(attrNamesWithPrefix, function(values) {
+    console.log("values: ", values);
+    console.log("key for attackrange: ", key("attackRange"));
+    var missleResults = calculateRangedModifiers(values[key("attackRange")], values[key("rangedAttackDice")]);
+    var thrownResults = calculateThrownModifiers(values[key("rangedWeaponType")], values[key("attackRange")], values[strModKey]);
+    console.log("missleResults: ", missleResults, " thrownResults: ", thrownResults);
+    var newAttrs = {
+      [key("mediumRangePenalty")]: missleResults.attackPenalty,
+      [key("rangedAttackEffectiveDice")]: missleResults.attackDie,
+      [key("thrownShortRangeBonus")]: thrownResults.bonus
+    };
+    console.log("new attrs: ", newAttrs);
+    setAttrs(newAttrs);
+  });
+};
+
+on("change:repeating_rangedweapon", recalculateThrownModifiers);
+on("change:strmod", recalculateAllRangedModifiers);
+on("change:repeating_level0s:strmod", recalculateAllRangedModifiersLevel0Multi);
+
+<% %w(attackRange rangedAttackDice rangedWeaponType).each do |ranged_attr| %>
+  <% level0multi_ranged_weapon_count.times do |index| %>
+    on("change:repeating_level0s:<%= "#{ranged_attr}#{index+1}" %>", function(e) {
+      var sourceLevel0Prefix = e.sourceAttribute.replace('_<%= "#{ranged_attr.downcase}#{index+1}" %>', '');
+      console.log("Event: ", e, "Source level0 attr: ", sourceLevel0Prefix);
+      console.log("<%= "#{ranged_attr}#{index + 1}" %> changed");
+      recalculateRangedModifiersLevel0Multi(sourceLevel0Prefix, <%= index+1 %>);
+    });
+  <% end %>
+<% end %>
+
+/**
+ * Calculate any medium/long range penalties given a range and attack die
+ */
+var calculateRangedModifiers = function(range, attackDie) {
+  var attackPenalty = 0;
+  switch(range) {
+    case "Long":
+      attackDie = diceChainLower(attackDie);
+      break;
+    case "Medium":
+      attackPenalty = 2;
+      break;
+    case "Short":
+      break;
+    default:
+      throw `Invalid value for rangedweapon_attackRange: ${range}`;
+  }
+  return {
+    attackDie: attackDie,
+    attackPenalty: attackPenalty
+  };
+};
+
+var recalculateRangedModifiers = function(e) {
+  getAttrs(["repeating_rangedweapon_attackRange", "repeating_rangedweapon_rangedAttackDice"], function(values) {
+    var results = calculateRangedModifiers(values.repeating_rangedweapon_attackRange, values.repeating_rangedweapon_rangedAttackDice);
+
+    setAttrs({
+      repeating_rangedweapon_mediumRangePenalty: results.attackPenalty,
+      repeating_rangedweapon_rangedAttackEffectiveDice: results.attackDie
+    });
+  });
+};
+
+// TODO: do this for level0smulti
+on("change:repeating_rangedweapon", recalculateRangedModifiers);

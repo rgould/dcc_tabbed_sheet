@@ -12,6 +12,8 @@
   <!-- 3 way toggle - STYLE 2 -->
   <input type="radio" name="attr_maintab" class="sheet-maintab sheet-zero" value="1" title="0-level" checked="checked">
   <span class="sheet-maintab sheet-zero">0-level</span>
+  <input type="radio" name="attr_maintab" class="sheet-maintab sheet-multi" value="6" title="0-level (Multi)">
+  <span class="sheet-maintab sheet-multi">0-level (Multi)</span>
   <input type="radio" name="attr_maintab" class="sheet-maintab sheet-player" value="2" title="1+ level">
   <span class="sheet-maintab sheet-player">1+ level</span>
   <input type="radio" name="attr_maintab" class="sheet-maintab sheet-monster" value="4" title="NPC/Monster">
@@ -21,6 +23,7 @@
 
   <%= render partial: "tabs/level1", indent: 2 %>
   <%= render partial: "tabs/level0", indent: 2 %>
+  <%= render partial: "tabs/level0multi", indent: 2 %>
   <%= render partial: "tabs/monster", indent: 2 %>
   <%= render partial: "tabs/options", indent: 2 %>
 

@@ -382,6 +382,7 @@ div.sheet-maintab-content
 }
 
 input.sheet-zero:checked ~ div.sheet-zero,
+input.sheet-multi:checked ~ div.sheet-multi,
 input.sheet-player:checked ~ div.sheet-player,
 input.sheet-monster:checked ~ div.sheet-monster,
 input.sheet-options:checked ~ div.sheet-options
@@ -439,6 +440,7 @@ span.sheet-maintab {
 
 .charsheet input.sheet-maintab:checked + span.sheet-player,
 .charsheet input.sheet-maintab:checked + span.sheet-zero,
+.charsheet input.sheet-maintab:checked + span.sheet-multi,
 .charsheet input.sheet-maintab:checked + span.sheet-options,
 .charsheet input.sheet-maintab:checked + span.sheet-monster {
     background: #93537c;
@@ -1060,6 +1062,12 @@ div[data-groupname^="repeating_mutations"] .repitem,
 
 .charsheet .sheet-new-feature {
   font-size: 75%;
+}
+
+.charsheet .sheet-character-identifier {
+  font-size: x-large;
+  font-weight: bolder;
+  font-style: normal;
 }
 
 .charsheet .sheet-small-label {
@@ -2070,6 +2078,11 @@ div[data-groupname^="repeating_mutations"] .repitem,
 }
 
 /* Spellcasting Die switch */
+
+.charsheet input.sheet-toggle-show:not(:checked) ~ div.sheet-body,
+.charsheet input.sheet-toggle-hide:checked ~ div.sheet-body {
+    display: none;
+}
 
 .charsheet .sheet-hidden {
     display: none;

@@ -576,8 +576,6 @@ var TAS = TAS || (function(){
                         // finalize attrs
                         applyQueuedUpdates();
                         _.each(after,function(op){
-                          console.log("Processing after");
-                          console.log(op);
                             _.bind(op.callback,op.context)();
                         });
 					});

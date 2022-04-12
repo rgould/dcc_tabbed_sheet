@@ -5,6 +5,24 @@ module DccTabbedSheet
       DccTabbedSheet::SHEET_VERSION
     end
 
+    def present_attr_name(suffix: nil)
+      presenter = AttrNamePresenter.new(suffix: suffix, template: self)
+      yield presenter if block_given?
+      presenter
+    end
+
+    def level0multi_melee_weapon_count
+      3
+    end
+
+    def level0multi_ranged_weapon_count
+      3
+    end
+
+    def abilities_attribute_names
+      %w(str agi sta per int luck luckstarting)
+    end
+
     # only includes attributes that have differing names
     def map_other_sheet_to_this_sheet
       {
