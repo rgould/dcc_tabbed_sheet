@@ -1,15 +1,14 @@
 <h4 class="sheet-center">Melee Weapons</h4>
 
 <div class="sheet-row sheet-sub-header">
-  <div class="sheet-col-3-10 sheet-center sheet-small-label sheet-vert-bottom">Weapon</div>
-  <div class="sheet-col-1-10 sheet-center sheet-small-label sheet-vert-bottom">Attack Die</div>
-  <div class="sheet-col-1-10 sheet-center sheet-small-label sheet-vert-bottom">Crit Range</div>
-  <div class="sheet-col-1-20 sheet-center sheet-small-label sheet-vert-bottom">To Hit Mod</div>
-  <div class="sheet-col-1-20 sheet-center sheet-small-label sheet-vert-bottom">Damage Dice</div>
-  <div class="sheet-col-1-20 sheet-center sheet-small-label sheet-vert-bottom">Dmg Mod</div>
-  <div class="sheet-col-1-20 sheet-center sheet-small-label sheet-vert-bottom">Advanced</div>
+  <div class="sheet-width-35 sheet-center sheet-small-label sheet-vert-bottom">Weapon</div>
+  <div class="sheet-width-15 sheet-center sheet-small-label sheet-vert-bottom">Attack Die</div>
+  <div class="sheet-width-10 sheet-center sheet-small-label sheet-vert-bottom">To Hit Mod</div>
+  <div class="sheet-width-10 sheet-center sheet-small-label sheet-vert-bottom">Damage Dice</div>
+  <div class="sheet-width-10 sheet-center sheet-small-label sheet-vert-bottom">Dmg Mod</div>
+  <div class="sheet-width-5 sheet-center sheet-small-label sheet-vert-bottom">Adv.</div>
 </div>
 
 <% level0multi_melee_weapon_count.times do |i| %>
-  <%= render partial: "shared/melee_weapon", indent: 0, locals: { attr_suffix: i+1, level0_mode: true } %>
+  <%= render partial: "level0multi/melee_weapon", indent: 0, locals: { attr_suffix: i+1, level0_mode: true } %>
 <% end %>
