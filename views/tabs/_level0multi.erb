@@ -26,6 +26,18 @@
 
     <div class="sheet-col-1-1 sheet-center sheet-small-label">&nbsp;</div>
 
+    <div class="sheet-row">
+      <%= render partial: "shared/core_stats", indent: 3 %>
+      <div class="sheet-col-1-2 sheet-padr">
+        <%= render partial: "shared/saving_throws", indent: 4 %>
+        <div class="sheet-col-1-1 sheet-center sheet-small-label">&nbsp;</div>
+        <div class="sheet-row sheet-padb">
+          <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_speed" value="30">Speed</div>
+          <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_init" value="0">Init</div>
+        </div>
+      </div>
+    </div>
+
     <% # ATK is not used by level 0s but is required for the attack buttons %>
     <input type="hidden" name="attr_ATK" value="0">
 
@@ -39,17 +51,6 @@
       </div>
     </div>
 
-    <div class="sheet-row">
-      <%= render partial: "shared/core_stats", indent: 3 %>
-      <div class="sheet-col-1-2 sheet-padr">
-        <%= render partial: "shared/saving_throws", indent: 4 %>
-        <div class="sheet-col-1-1 sheet-center sheet-small-label">&nbsp;</div>
-        <div class="sheet-row sheet-padb">
-          <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_speed" value="30">Speed</div>
-          <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_init" value="0">Init</div>
-        </div>
-      </div>
-    </div>
     <div>
       <input type="checkbox" class="sheet-toggle-show"/>
       <span>Show languages, lucky rolls, and birth augur</span>
