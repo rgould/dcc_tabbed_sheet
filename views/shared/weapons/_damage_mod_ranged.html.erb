@@ -1,0 +1,7 @@
+<input
+  class="sheet-center"
+  type="number"
+  name="<%= attr.name "DmgBonus" %>"
+  value="[[@{<%= attr.roll "Magic" %>} + @{<%= attr.roll "OtherDamageBonus" %>} + @{DmgLuckyRoll} + @{dmgLuckyRoll} + @{<%= attr.roll "zeroRangedWeaponLuckyRoll", include_name_prefix: false %>}]]"
+  disabled="disabled"
+  />

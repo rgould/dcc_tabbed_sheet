@@ -1,68 +1,70 @@
-<% present_attr_name(suffix: attr_suffix) do |attr| %>
+<% present_attr_name(name_prefix: "melee", suffix: attr_suffix) do |attr| %>
   <div class="sheet-row">
+    <% # AtkLuckyWeapon isn't used at level 0, but the attack roll needs it to be set. TODO: Have multiple versions of the attack roll for different use cases %>
+    <input type="hidden" name="<%= attr.name "AtkLuckyWeapon" %>" value="0" readonly="readonly">
     <div class="sheet-width-35">
-      <%= render partial: "shared/melee_weapons/name", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/name", locals: { attr: attr } %>
     </div>
 
     <div class="sheet-width-15">
-      <%= render partial: "shared/melee_weapons/attack_die_selector", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/attack_die_selector", locals: { attr: attr } %>
     </div>
 
     <div class="sheet-width-10">
-      <%= render partial: "shared/melee_weapons/to_hit_mod", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/to_hit_mod_melee", locals: { attr: attr } %>
     </div>
 
     <div class="sheet-width-10">
-      <%= render partial: "shared/melee_weapons/damage_dice", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/damage_dice", locals: { attr: attr } %>
     </div>
 
     <div class="sheet-width-10">
-      <%= render partial: "shared/melee_weapons/damage_mod", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/damage_mod_melee", locals: { attr: attr } %>
     </div>
 
     <div class="sheet-width-5 sheet-checkbox-row">
-      <%= render partial: "shared/melee_weapons/show_advanced", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/show_advanced", locals: { namespace: "melee", attr: attr } %>
     </div>
 
     <div class="sheet-width-7_14286">
-      <%= render partial: "shared/melee_weapons/button_attack", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/button_attack_melee", locals: { attr: attr } %>
     </div>
 
-    <%= render partial: "shared/widgets/advanced_checkbox", locals: { attr_name: attr.name("meleeShowAdvanced"), attr_roll: attr.roll("meleeShowAdvanced") } %>
+    <%= render partial: "shared/widgets/advanced_checkbox", locals: { namespace: "melee", attr_name: attr.name("ShowAdvanced"), attr_roll: attr.roll("ShowAdvanced") } %>
 
     <div class="sheet-melee-advanced sheet-row sheet-small-label">
       <div class="sheet-row sheet-vert-middle">
         <div class="sheet-width-10 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Magic bonus:</div>
         <div class="sheet-width-10">
-          <%= render partial: "shared/melee_weapons/magic_bonus", locals: { attr: attr } %>
+          <%= render partial: "shared/weapons/magic_bonus", locals: { attr: attr } %>
         </div>
         <div class="sheet-width-13_33333 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">To Hit bonus:</div>
         <div class="sheet-width-10">
-          <%= render partial: "shared/melee_weapons/to_hit_bonus", locals: { attr: attr } %>
+          <%= render partial: "shared/weapons/to_hit_bonus", locals: { attr: attr } %>
         </div>
         <div class="sheet-width-15 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Crit Range:</div>
         <div class="sheet-width-20">
-          <%= render partial: "shared/melee_weapons/crit_range_selector", locals: { attr: attr } %>
+          <%= render partial: "shared/weapons/crit_range_selector", locals: { attr: attr } %>
         </div>
       </div>
       <div class="sheet-row">
         <div class="sheet-width-33_33333 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Damage bonus:</div>
-        <div class="sheet-width-10" title="Bonus added to ONLY to damage rolls">
-          <%= render partial: "shared/melee_weapons/damage_bonus", locals: { attr: attr } %>
+        <div class="sheet-width-10">
+          <%= render partial: "shared/weapons/damage_bonus", locals: { attr: attr } %>
         </div>
         <div class="sheet-width-15 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Wielded:</div>
         <div class="sheet-width-15">
-          <%= render partial: "shared/melee_weapons/handedness", locals: { attr: attr } %>
+          <%= render partial: "shared/weapons/handedness", locals: { attr: attr } %>
         </div>
         <div class="sheet-width-20 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Pack Hunter:</div>
         <div class="sheet-width-5 sheet-left sheet-checkbox-row sheet-vert-middle">
-          <%= render partial: "shared/melee_weapons/pack_hunter", locals: { attr: attr } %>
+          <%= render partial: "shared/weapons/pack_hunter_melee", locals: { attr: attr } %>
         </div>
       </div>
       <div class="sheet-row">
         <div class="sheet-width-10 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Notes:</div>
         <div class="sheet-width-90">
-          <%= render partial: "shared/melee_weapons/notes", locals: { attr: attr } %>
+          <%= render partial: "shared/weapons/notes", locals: { attr: attr } %>
         </div>
       </div>
     </div>

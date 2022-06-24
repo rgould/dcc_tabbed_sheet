@@ -37,25 +37,7 @@
       </div>
 
       <div class="sheet-col-1-2 sheet-padr">
-        <h4 class="sheet-center">Ranged Weapons</h4>
-
-        <div class="sheet-row sheet-sub-header">
-          <div class="sheet-col-1-24 sheet-center sheet-small-label sheet-vert-bottom">Ammo</div>
-          <div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Weapon</div>
-          <div class="sheet-col-1-24 sheet-center sheet-small-label sheet-vert-bottom">Short Range</div>
-          <div class="sheet-col-1-24 sheet-center sheet-small-label sheet-vert-bottom">Med Range</div>
-          <div class="sheet-col-1-24 sheet-center sheet-small-label sheet-vert-bottom">Long Range</div>
-          <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Attack Die</div>
-          <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Crit Range</div>
-          <div class="sheet-col-1-24 sheet-center sheet-small-label sheet-vert-bottom">To Hit Mod</div>
-          <div class="sheet-col-1-24 sheet-center sheet-small-label sheet-vert-bottom">Dmg Dice</div>
-          <div class="sheet-col-1-24 sheet-center sheet-small-label sheet-vert-bottom">Dmg Mod</div>
-          <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Range to Attack</div>
-          <div class="sheet-col-1-24 sheet-center sheet-small-label sheet-vert-bottom">Advanced</div>
-        </div>
-        <% level0multi_ranged_weapon_count.times do |i| %>
-          <%= render partial: "shared/ranged_weapon", indent: 0, locals: { attr_suffix: i+1 } %>
-        <% end %>
+        <%= render partial: "level0multi/ranged_weapons" %>
       </div>
     </div>
 

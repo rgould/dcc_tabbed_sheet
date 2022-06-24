@@ -1,0 +1,7 @@
+<input
+  class="sheet-center"
+  type="number"
+  name="<%= attr.name "ToHit" %>"
+  value="[[ [[@{agiMod}]] + @{allAtkLuckyRoll} + @{rangedAtkLuckyRoll} + @{<%= attr.roll "Magic" %>} + @{<%= attr.roll "OtherToHitBonus" %>} + @{<%= attr.roll "AtkLuckyWeapon" %>} + @{ATK} + @{<%= attr.roll "zeroRangedWeaponLuckyRoll", include_name_prefix: false %>}]]"
+  disabled="disabled"
+  />

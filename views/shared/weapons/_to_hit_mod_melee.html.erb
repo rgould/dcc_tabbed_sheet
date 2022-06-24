@@ -1,0 +1,6 @@
+<input class="sheet-center"
+       type="number"
+       name="<%= attr.name "ToHit" %>"
+       value="[[[[@{strMod}]] + @{<%= attr.roll "Magic" %>} + @{<%= attr.roll "OtherToHitBonus" %>} + @{allAtkLuckyRoll} + @{meleeAtkLuckyRoll} + @{ATK} + @{<%= attr.roll "AtkLuckyWeapon" %>} + @{<%= attr.roll "zeroWeaponLuckyRoll", include_name_prefix: false %>}]]"
+       disabled="disabled"
+>

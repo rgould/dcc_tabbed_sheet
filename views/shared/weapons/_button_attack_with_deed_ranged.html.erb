@@ -1,0 +1,8 @@
+<button
+  type='roll'
+  class="sheet-roll"
+  name="roll_rangedWeaponAttackWithDeed"
+  title="Ranged Weapon Attack with Mighty Deed"
+  value="&{template:DccTabbed} [[ @{<%= attr.roll "AttackEffectiveDice" %>}cs>@{<%= attr.roll "CritThreat" %>} [To Hit Roll] + [[@{DeedDie}cs>3]] [Deed Die] + @{<%= attr.roll "ToHit" %>} [To Hit Bonus] + (?{Any Attack Bonus|0}) [Attack Bonus] + @{<%= attr.roll "mediumRangePenalty", include_name_prefix: false %>} [Medium Range Penalty] ]] {{background=[[0]]}} {{combat=1}} {{name=@{character_name}}} {{title=@{<%= attr.roll "WeaponName" %>} \n @{<%= attr.roll "DistanceShort" %>} / @{<%= attr.roll "DistanceMed" %>} / @{<%= attr.roll "DistanceLong" %>}}} {{range=@{<%= attr.roll "attackRange", include_name_prefix: false %>} }} {{rangedtype=Ranged Type}} {{type=@{<%= attr.roll "WeaponType" %>} }} {{rangedAttackWithDeed=$[[1]] }} {{deedroll=$[[0]] }} {{damage=[[ ({(@{<%= attr.roll "Dmg" %>} [Base damage] + @{<%= attr.roll "DmgBonus" %>} [Damage Bonus] + @{<%= attr.roll "thrownShortRangeBonus", include_name_prefix: false %>} [Short Range Thrown Weapon STR Mod]),1d1}kh1) ]] + $[[0]] [Deed]}} {{crit=[[ @{CritDie} + [[@{luckMod}]] + @{critLuckyRoll} ]]}} {{crittable=@{CritDie|max}}} {{fumble=[[ @{armorFumbleDie} + [[@{fumbleCheck}]] + [[@{fumbleLuckyRoll}]] ]]}} {{notes=@{<%= attr.roll "WeaponSpecial" %>}}}">
+  w/ Deed
+</button>

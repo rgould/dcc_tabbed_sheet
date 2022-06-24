@@ -5,8 +5,8 @@ module DccTabbedSheet
       DccTabbedSheet::SHEET_VERSION
     end
 
-    def present_attr_name(suffix: nil)
-      presenter = AttrNamePresenter.new(suffix: suffix, template: self)
+    def present_attr_name(name_prefix: nil, suffix: nil)
+      presenter = AttrNamePresenter.new(name_prefix: name_prefix, suffix: suffix, template: self)
       yield presenter if block_given?
       presenter
     end
