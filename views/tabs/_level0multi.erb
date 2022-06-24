@@ -26,10 +26,8 @@
 
     <div class="sheet-col-1-1 sheet-center sheet-small-label">&nbsp;</div>
 
-    <div class="sheet-row">
-      <div class="sheet-col-2-7 sheet-right sheet-padr sheet-hd-row">Attack Bonus<br></div>
-      <div class="sheet-col-1-7 sheet-center" title="Only enter Attack bonus listed on the Character level tables"><input class="sheet-center" type="number" name="attr_ATK" value="0" step="1"></div>
-    </div>
+    <% # ATK is not used by level 0s but is required for the attack buttons %>
+    <input type="hidden" name="attr_ATK" value="0">
 
     <div class="sheet-row">
       <div class="sheet-col-1-2 sheet-padr">
