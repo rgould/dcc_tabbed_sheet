@@ -23,7 +23,10 @@
             <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_hp" value="1">HP</div>
             <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_hp_max" value="1">Max HP</div>
             <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_speed" value="30">Speed</div>
-            <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_init" value="0">Init</div>
+            <div class="sheet-col-1-9 sheet-small-label sheet-center">
+              <input class="sheet-underlined sheet-center" type="number" name="attr_initOverall" value="([[ [[@{agiMod}]] + @{initLuckyRoll} ]])" disabled="disabled">
+              Init
+            </div>
             <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_xp" value="0">XP</div>
             <div class="sheet-col-1-9 sheet-center">
               <select class="sheet-underlined" name="attr_armorFumbleDie" title="Enter your highest Fumble Die from your armor here.">
