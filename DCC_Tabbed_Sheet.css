@@ -1065,6 +1065,12 @@ div[data-groupname^="repeating_mutations"] .repitem,
 }
 
 .charsheet .sheet-character-identifier {
+  font-size: 600%;
+  font-weight: bolder;
+  font-style: normal;
+}
+
+.charsheet .sheet-character-minor-identifier {
   font-size: x-large;
   font-weight: bolder;
   font-style: normal;
@@ -1218,6 +1224,10 @@ div[data-groupname^="repeating_mutations"] .repitem,
 	box-shadow: 0px -2px 0px 0px #000000 inset;
 }
 
+.charsheet select.sheet-underlined {
+	box-shadow: 0px -2px 0px 0px #000000 inset;
+}
+
 .charsheet button.sheet-core-save {
   width: 100%;
 }
@@ -1238,6 +1248,10 @@ div[data-groupname^="repeating_mutations"] .repitem,
     background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,75.75), rgba(0,0,0,0));
     background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,75.75), rgba(0,0,0,0));
 	margin: 5px 0;
+}
+
+.charsheet hr.sheet-main_separator {
+  height: 8px;
 }
 
 .charsheet span.sheet-spacer {

@@ -10,19 +10,33 @@
     <h4 class="sheet-center">Characters</h4>
     <fieldset class="repeating_level0s">
       <div class="sheet-row">
-        <div class="sheet-col-4-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center sheet-character-identifier" type="text" name="attr_name"><br>Name</div>
-        <div class="sheet-col-1-3 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center sheet-character-identifier" type="text" name="attr_occupation"><br>Occupation</div>
-        <div class="sheet-col-2-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center sheet-character-identifier" type="text" name="attr_alignment"><br>Alignment</div>
-      </div>
-      <div class="sheet-row">
-        <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_xp" value="0">XP</div>
-        <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_ac" value="10">AC</div>
-        <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_hp" value="1">HP</div>
-        <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_hp_max" value="1">Max HP</div>
-        <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_equipment" value="0">Equipment</div>
-        <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_notes" value="0">Notes</div>
-
-        <% # Currency %>
+        <div class="sheet-col-4-9 sheet-small-label sheet-center">
+          <input class="sheet-underlined sheet-center sheet-character-identifier" type="text" name="attr_name"/><br>Name
+        </div>
+        <div class="sheet-col-5-9">
+          <div class="sheet-row">
+            <div class="sheet-col-2-3 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center sheet-character-minor-identifier" type="text" name="attr_occupation"><br>Occupation</div>
+            <div class="sheet-col-1-3 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center sheet-character-minor-identifier" type="text" name="attr_alignment"><br>Alignment</div>
+          </div>
+          <div class="sheet-row">
+            <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_ac" value="10">AC</div>
+            <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_hp" value="1">HP</div>
+            <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_hp_max" value="1">Max HP</div>
+            <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_speed" value="30">Speed</div>
+            <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_init" value="0">Init</div>
+            <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_xp" value="0">XP</div>
+            <div class="sheet-col-1-9 sheet-center">
+              <select class="sheet-underlined" name="attr_armorFumbleDie" title="Enter your highest Fumble Die from your armor here.">
+                <option value="d4" selected="selected">d4</option>
+                <option value="d8">d8</option>
+                <option value="d12">d12</option>
+                <option value="d16">d16</option>
+              </select>
+              <div class="sheet-small-label">Fumble Die</div>
+              <input type="hidden" name="attr_fumbleCheck" value="[[[[@{luckMod}]] * (-1)]]" disabled="true">
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="sheet-col-1-1 sheet-center sheet-small-label">&nbsp;</div>
@@ -33,8 +47,14 @@
           <%= render partial: "shared/saving_throws", locals: { context: context } %>
           <div class="sheet-col-1-1 sheet-center sheet-small-label">&nbsp;</div>
           <div class="sheet-row sheet-padb">
-            <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_speed" value="30">Speed</div>
-            <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_init" value="0">Init</div>
+            <div class="sheet-col-1-2 sheet-small-label sheet-center">
+              Equipment / Treasure
+              <textarea name="attr_equipment"></textarea>
+            </div>
+            <div class="sheet-col-1-2 sheet-small-label sheet-center">
+              Notes
+              <textarea name="attr_notes"></textarea>
+            </div>
           </div>
         </div>
       </div>
@@ -59,7 +79,7 @@
           <%= render partial: "shared/languages_lucky_rolls", indent: 4 %>
         </div>
       </div>
-      <hr/>
+      <hr class="main_separator"/>
     </fieldset>
   </div>
 <% end %>
