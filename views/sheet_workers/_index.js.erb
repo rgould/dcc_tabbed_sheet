@@ -139,6 +139,31 @@ validateAttrMods = function() {
   calculateMod(['str', 'int', 'agi', 'per', 'sta', 'luck', 'luckStarting']);
 }
 
+/**
+ * Set overall init mod for the multi-level0 init button
+ */
+on("change:repeating_level0s:agi change:repeating_level0s:initluckyroll change:repeating_levels0:luckstartingmod", function(e) {
+
+  TAS.repeating("level0s")
+    .attrs("level0MultiInit")
+    .fields("agiMod", "initLuckyRoll", "luckStartingMod")
+    .map(function(row, attrSet, id, rowSet) {
+      var initMod = row.I.agiMod;
+      /* when initLuckyRoll is set, we get back a formula, ie: '[[@{luckStartingMod}]]', when it's not set, we get back "0" */
+      if (isNaN(parseInt(row.initLuckyRoll))) {
+        // initLuckyRoll is set
+        initMod += row.I.luckStartingMod;
+      }
+      return initMod;
+    }, function(results, rowSet, attrSet) {
+      if (_.isEmpty(results)) {
+        attrSet.I.level0MultiInit = 0;
+      } else {
+        attrSet.I.level0MultiInit = _.max(results);
+      }
+    }).execute();
+});
+
 
 on("sheet:opened change:repeating_armor:armorcheck change:repeating_armor:armoracbase change:repeating_armor:armormagicbonus change:repeating_armor:armorspeed change:repeating_armor:armoractive remove:repeating_armor change:agimod change:armorclassluckyroll change:luckstartingmod", function(e) {
 

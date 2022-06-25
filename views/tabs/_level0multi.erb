@@ -3,11 +3,30 @@
 
     <h5 class="sheet-center">0-level Multi Character Sheet</h5>
 
-    <p class="sheet-left sheet-small-note">Multiple level zero characters! Caution: If you have two players with the same name, make sure they use different character names above (current value: "<span name="attr_character_name"></span>"). There is a known Roll20 bug where if two characters share the same name, attributes are not referenced properly during rolls.</p>
-
-    <% # TODO: Init button with highest modifier %>
+    <div class="sheet-row">
+      <div class="sheet-width-70 sheet-left sheet-padr">
+        <p class="sheet-small-header-note">Multiple level zero characters! Caution: If you have two players with the same name, make sure they use different character names above (current value: "<span name="attr_character_name"></span>"). There is a known Roll20 bug where if two characters share the same name, attributes are not referenced properly during rolls.</p>
+      </div>
+      <div class="sheet-width-30">
+        <div class="sheet-col-2-7 sheet-small-label sheet-center" title="The highest initiative modifier of all your level 0 characters">
+          <input class="sheet-underlined sheet-center" type="number" name="attr_level0MultiInit" readonly="readonly">
+          <br>Highest Init
+        </div>
+        <div class="sheet-col-2-7">
+          <button type='roll' class="sheet-initiative sheet-large-button" name="roll_INIT_level0multi" value="&{template:DccTabbed} {{name=@{character_name}}} {{title=Initiative}} {{INIT=[[1d20 [Die Roll] + @{selected|level0MultiInit} [Initiative Mod] &{tracker}]] }}" title="Initiative">
+            Initiative
+          </button>
+        </div>
+        <div class="sheet-col-2-7">
+          <button type='roll' class="sheet-initiative sheet-large-button" name="roll_INIT2Hand_level0multi" value="&{template:DccTabbed} {{name=@{character_name}}} {{title=Initiative \n (Two-Handed Weapons)}} {{INIT=[[1d16 [Die Roll] + @{selected|level0MultiInit} [Initiative Mod] &{tracker}]]}}" title="Initiative when wielding a two-handed weapon. A d16 is used instead.">
+            Initiative (2H)
+          </button>
+        </div>
+      </div>
+    </div>
 
     <h4 class="sheet-center">Characters</h4>
+
     <fieldset class="repeating_level0s">
       <div class="sheet-row">
         <div class="sheet-col-4-9 sheet-small-label sheet-center">

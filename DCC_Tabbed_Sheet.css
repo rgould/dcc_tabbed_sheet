@@ -1392,6 +1392,12 @@ div[data-groupname^="repeating_mutations"] .repitem,
 	font-size: 10px;
 }
 
+.charsheet .sheet-small-header-note {
+	text-align: left;
+	font-family: Arial;
+	font-size: 10px;
+}
+
 .charsheet .sheet-small-text {
 	font-family: Arial;
 	font-size: 10px;
