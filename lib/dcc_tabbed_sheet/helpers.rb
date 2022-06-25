@@ -11,6 +11,17 @@ module DccTabbedSheet
       presenter
     end
 
+    def with_context(character_name_attr: nil)
+      tab_context = TabContext.new(character_name_attr: character_name_attr, template: self)
+      yield tab_context if block_given?
+      tab_context
+    end
+
+    def default_context
+      @default_context ||= TabContext.new(template: nil)
+      @default_context
+    end
+
     def level0multi_melee_weapon_count
       3
     end

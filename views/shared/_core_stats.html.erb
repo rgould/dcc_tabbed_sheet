@@ -12,12 +12,12 @@
     <div class="sheet-col-1-8 sheet-center sheet-vert-bottom sheet-small-label">Untrained</div>
   </div>
 
-  <%= render partial: "shared/core_stat_ability", indent: 2, locals: { full_name: "Strength", attr_name: "str" } %>
-  <%= render partial: "shared/core_stat_ability", indent: 2, locals: { full_name: "Agility", attr_name: "agi" } %>
-  <%= render partial: "shared/core_stat_ability", indent: 2, locals: { full_name: "Stamina", attr_name: "sta", warning_threshold: 6, warning: "Stamina is 5 or lower!&#10;Take double damage from poison or disease.".html_safe } %>
-  <%= render partial: "shared/core_stat_ability", indent: 2, locals: { full_name: "Personality", attr_name: "per" } %>
-  <%= render partial: "shared/core_stat_ability", indent: 2, locals: { full_name: "Intelligence", attr_name: "int" } %>
-  <%= render partial: "shared/core_stat_ability", indent: 2, locals: { full_name: "Luck", attr_name: "luck" } %>
+  <%= render partial: "shared/core_stat_ability", indent: 2, locals: { context: context, full_name: "Strength", attr_name: "str" } %>
+  <%= render partial: "shared/core_stat_ability", indent: 2, locals: { context: context, full_name: "Agility", attr_name: "agi" } %>
+  <%= render partial: "shared/core_stat_ability", indent: 2, locals: { context: context, full_name: "Stamina", attr_name: "sta", warning_threshold: 6, warning: "Stamina is 5 or lower!&#10;Take double damage from poison or disease.".html_safe } %>
+  <%= render partial: "shared/core_stat_ability", indent: 2, locals: { context: context, full_name: "Personality", attr_name: "per" } %>
+  <%= render partial: "shared/core_stat_ability", indent: 2, locals: { context: context, full_name: "Intelligence", attr_name: "int" } %>
+  <%= render partial: "shared/core_stat_ability", indent: 2, locals: { context: context, full_name: "Luck", attr_name: "luck" } %>
 
   <div class="sheet-row">
     <div class="sheet-col-1-10 sheet-center">&nbsp;</div>
@@ -31,11 +31,11 @@
     <div class="sheet-col-1-10 sheet-center">&nbsp;</div>
     <div class="sheet-col-3-11 sheet-hd-row">Personality Test </div>
     <div class="sheet-col-1-6">
-      <button type='roll' value="&{template:DccTabbed} {{background=[[5]]}} {{stat=1}} {{name=@{character_name}}} {{title=PERSONALITY Test}} {{flavortext=Make Personality tests to attempt social interactions.  Roll must be equal to or under current Personality score.}} {{rolltype=Check : }} {{luckcheck=[[@{ActionDie}cs1]]}} {{chance=[[@{per}]]}}" name='PERSONALITY' title="PERSONALITY Test"></button>
+      <button type='roll' value="&{template:DccTabbed} {{background=[[5]]}} {{stat=1}} {{name=@{<%= context.character_name_attr %>}}} {{title=PERSONALITY Test}} {{flavortext=Make Personality tests to attempt social interactions.  Roll must be equal to or under current Personality score.}} {{rolltype=Check : }} {{luckcheck=[[@{ActionDie}cs1]]}} {{chance=[[@{per}]]}}" name='PERSONALITY' title="PERSONALITY Test"></button>
     </div>
     <div class="sheet-col-1-5 sheet-hd-row">Luck Check </div>
     <div class="sheet-col-1-8">
-      <button type='roll' value="&{template:DccTabbed} {{background=[[5]]}} {{stat=1}} {{name=@{character_name}}} {{title=LUCK Check}} {{flavortext=Make Luck checks to attempt feats that succeed based on Luck alone.  Roll must be equal to or under current Luck score.}} {{rolltype2=Current Luck : }} {{rolltype=Check : }} {{luckcheck=[[@{ActionDie}cs1]]}} {{chance=[[@{luck} [CURRENT LUCK] +@{fleetingLuck} [FLEETING LUCK]]]}}" name='LUCK' title="LUCK Check"></button>
+      <button type='roll' value="&{template:DccTabbed} {{background=[[5]]}} {{stat=1}} {{name=@{<%= context.character_name_attr %>}}} {{title=LUCK Check}} {{flavortext=Make Luck checks to attempt feats that succeed based on Luck alone.  Roll must be equal to or under current Luck score.}} {{rolltype2=Current Luck : }} {{rolltype=Check : }} {{luckcheck=[[@{ActionDie}cs1]]}} {{chance=[[@{luck} [CURRENT LUCK] +@{fleetingLuck} [FLEETING LUCK]]]}}" name='LUCK' title="LUCK Check"></button>
     </div>
   </div>
 

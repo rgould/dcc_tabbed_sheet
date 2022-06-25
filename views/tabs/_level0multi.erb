@@ -1,63 +1,65 @@
-<div class="sheet-maintab-content sheet-multi">
+<% with_context(character_name_attr: "name") do |context| %>
+  <div class="sheet-maintab-content sheet-multi">
 
-  <h5 class="sheet-center">0-level Multi Character Sheet</h5>
+    <h5 class="sheet-center">0-level Multi Character Sheet</h5>
 
-  <p class="sheet-left sheet-small-note">Multiple level zero characters! Caution: If you have two players with the same name, make sure they use different character names above (current value: "<span name="attr_character_name"></span>"). There is a known Roll20 bug where if two characters share the same name, attributes are not referenced properly during rolls.</p>
+    <p class="sheet-left sheet-small-note">Multiple level zero characters! Caution: If you have two players with the same name, make sure they use different character names above (current value: "<span name="attr_character_name"></span>"). There is a known Roll20 bug where if two characters share the same name, attributes are not referenced properly during rolls.</p>
 
-  <% # TODO: Init button with highest modifier %>
+    <% # TODO: Init button with highest modifier %>
 
-  <h4 class="sheet-center">Characters</h4>
-  <fieldset class="repeating_level0s">
-    <div class="sheet-row">
-      <div class="sheet-col-4-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center sheet-character-identifier" type="text" name="attr_name"><br>Name</div>
-      <div class="sheet-col-1-3 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center sheet-character-identifier" type="text" name="attr_occupation"><br>Occupation</div>
-      <div class="sheet-col-2-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center sheet-character-identifier" type="text" name="attr_alignment"><br>Alignment</div>
-    </div>
-    <div class="sheet-row">
-      <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_xp" value="0">XP</div>
-      <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_ac" value="10">AC</div>
-      <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_hp" value="1">HP</div>
-      <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_hp_max" value="1">Max HP</div>
-      <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_equipment" value="0">Equipment</div>
-      <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_notes" value="0">Notes</div>
+    <h4 class="sheet-center">Characters</h4>
+    <fieldset class="repeating_level0s">
+      <div class="sheet-row">
+        <div class="sheet-col-4-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center sheet-character-identifier" type="text" name="attr_name"><br>Name</div>
+        <div class="sheet-col-1-3 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center sheet-character-identifier" type="text" name="attr_occupation"><br>Occupation</div>
+        <div class="sheet-col-2-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center sheet-character-identifier" type="text" name="attr_alignment"><br>Alignment</div>
+      </div>
+      <div class="sheet-row">
+        <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_xp" value="0">XP</div>
+        <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_ac" value="10">AC</div>
+        <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_hp" value="1">HP</div>
+        <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_hp_max" value="1">Max HP</div>
+        <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_equipment" value="0">Equipment</div>
+        <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_notes" value="0">Notes</div>
 
-      <% # Currency %>
-    </div>
+        <% # Currency %>
+      </div>
 
-    <div class="sheet-col-1-1 sheet-center sheet-small-label">&nbsp;</div>
+      <div class="sheet-col-1-1 sheet-center sheet-small-label">&nbsp;</div>
 
-    <div class="sheet-row">
-      <%= render partial: "shared/core_stats", indent: 3 %>
-      <div class="sheet-col-1-2 sheet-padr">
-        <%= render partial: "shared/saving_throws", indent: 4 %>
-        <div class="sheet-col-1-1 sheet-center sheet-small-label">&nbsp;</div>
-        <div class="sheet-row sheet-padb">
-          <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_speed" value="30">Speed</div>
-          <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_init" value="0">Init</div>
+      <div class="sheet-row">
+        <%= render partial: "shared/core_stats", locals: { context: context } %>
+        <div class="sheet-col-1-2 sheet-padr">
+          <%= render partial: "shared/saving_throws", locals: { context: context } %>
+          <div class="sheet-col-1-1 sheet-center sheet-small-label">&nbsp;</div>
+          <div class="sheet-row sheet-padb">
+            <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_speed" value="30">Speed</div>
+            <div class="sheet-col-1-9 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_init" value="0">Init</div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <% # ATK is not used by level 0s but is required for the attack buttons %>
-    <input type="hidden" name="attr_ATK" value="0">
+      <% # ATK is not used by level 0s but is required for the attack buttons %>
+      <input type="hidden" name="attr_ATK" value="0">
 
-    <div class="sheet-row">
-      <div class="sheet-col-1-2 sheet-padr">
-        <%= render partial: "level0multi/melee_weapons" %>
+      <div class="sheet-row">
+        <div class="sheet-col-1-2 sheet-padr">
+          <%= render partial: "level0multi/melee_weapons", locals: { context: context } %>
+        </div>
+
+        <div class="sheet-col-1-2 sheet-padr">
+          <%= render partial: "level0multi/ranged_weapons", locals: { context: context } %>
+        </div>
       </div>
 
-      <div class="sheet-col-1-2 sheet-padr">
-        <%= render partial: "level0multi/ranged_weapons" %>
+      <div>
+        <input type="checkbox" class="sheet-toggle-show"/>
+        <span>Show languages, lucky rolls, and birth augur</span>
+        <div class="sheet-body">
+          <%= render partial: "shared/languages_lucky_rolls", indent: 4 %>
+        </div>
       </div>
-    </div>
-
-    <div>
-      <input type="checkbox" class="sheet-toggle-show"/>
-      <span>Show languages, lucky rolls, and birth augur</span>
-      <div class="sheet-body">
-        <%= render partial: "shared/languages_lucky_rolls", indent: 4 %>
-      </div>
-    </div>
-    <hr/>
-  </fieldset>
-</div>
+      <hr/>
+    </fieldset>
+  </div>
+<% end %>

@@ -27,7 +27,7 @@
     </div>
 
     <div class="sheet-width-7_14286">
-      <%= render partial: "shared/weapons/button_attack_melee", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/button_attack_melee", locals: { attr: attr, context: context } %>
     </div>
 
     <%= render partial: "shared/widgets/advanced_checkbox", locals: { namespace: "melee", attr_name: attr.name("ShowAdvanced"), attr_roll: attr.roll("ShowAdvanced") } %>

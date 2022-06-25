@@ -94,12 +94,12 @@
 
   <div class="sheet-row">
 
-  <%= render partial: "shared/core_stats", indent: 1 %>
+    <%= render partial: "shared/core_stats", locals: { context: default_context } %>
 
   <!-- Saving Throws, Movement -->
     <div class="sheet-col-1-2 sheet-padr">
 
-      <%= render partial: "shared/saving_throws", indent: 3 %>
+      <%= render partial: "shared/saving_throws", locals: { context: default_context } %>
 
       <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
 
