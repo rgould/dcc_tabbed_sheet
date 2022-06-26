@@ -1,5 +1,5 @@
 <input class="sheet-center"
        type="number"
        name="<%= attr.name "DmgBonus" %>"
-       value="[[[[@{strMod}]] + @{<%= attr.roll "Magic" %>} + @{<%= attr.roll "OtherDamageBonus" %>} + @{DmgLuckyRoll} + @{dmgLuckyRoll} + @{<%= attr.roll "zeroWeaponLuckyRoll", include_name_prefix: false %>}]]"
+       value="[[[[@{strMod}]] + @{<%= attr.roll "Magic" %>} + @{<%= attr.roll "OtherDamageBonus" %>} + @{meleeDmgLuckyRoll} + @{dmgLuckyRoll} + @{<%= attr.roll "zeroWeaponLuckyRoll", include_name_prefix: false %>}]]"
        disabled="disabled">
