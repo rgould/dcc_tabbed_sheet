@@ -47,7 +47,7 @@
     <input type="checkbox" value="@{fortitudeShowAdvanced}" name="attr_fortitudeShowAdvanced" class="sheet-fortitude-advanced">
   </div>
   <div class="sheet-col-2-19 sheet-left">
-    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{<%= context.character_name_attr %>}}} {{title=FORTITUDE Save}} {{hint=Saves against physical threats, such as poisons, gasses, acids, and stunning damage.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{fortCheck} + (?{Burn die - Any additional Bonus/Minus|0})]]}} {{abilityscore=[[@{sta}]]}} {{warningthreshold=[[6]]}} {{warning=Stamina is 5 or lower!&#10;Take double damage from poison or disease.}} {{reminders=@{fortitudeReminders}}}" name='ST_Fortitude' title="Fortitude Save">FORT</button>
+    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{<%= context.character_name_attr %>}}} {{title=FORTITUDE Save}} {{hint=Saves against physical threats, such as poisons, gasses, acids, and stunning damage.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{fortCheck} + (?{Any additional Bonus/Minus|0})]]}} {{abilityscore=[[@{sta}]]}} {{warningthreshold=[[6]]}} {{warning=Stamina is 5 or lower!&#10;Take double damage from poison or disease.}} {{reminders=@{fortitudeReminders}}}" name='ST_Fortitude' title="Fortitude Save">FORT</button>
   </div>
 </div>
 <input type="checkbox" value="@{fortitudeShowAdvanced}" name="attr_fortitudeShowAdvanced" class="sheet-fortitude-advanced2 sheet-hidden">
@@ -70,7 +70,7 @@
     <input type="checkbox" value="@{willShowAdvanced}" name="attr_willShowAdvanced" class="sheet-will-advanced">
   </div>
   <div class="sheet-col-2-19 sheet-left">
-    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{<%= context.character_name_attr %>}}} {{title=WILL Save}} {{hint=Saves against mind-influencing threats, such as spells that charm or control, psychic effects that cause sleep or hypnosis, and mental domination.}} {{rolltype=Saving Throw : }}{{savingthrow=[[1d20 + @{willCheck} + (?{Burn die - Any additional Bonus/Minus|0})]]}} {{reminders=@{willReminders}}}" name='ST_Will' title="Will Save">WILL</button>
+    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{<%= context.character_name_attr %>}}} {{title=WILL Save}} {{hint=Saves against mind-influencing threats, such as spells that charm or control, psychic effects that cause sleep or hypnosis, and mental domination.}} {{rolltype=Saving Throw : }}{{savingthrow=[[1d20 + @{willCheck} + (?{Any additional Bonus/Minus|0})]]}} {{reminders=@{willReminders}}}" name='ST_Will' title="Will Save">WILL</button>
   </div>
 </div>
 <input type="checkbox" value="@{willShowAdvanced}" name="attr_willShowAdvanced" class="sheet-will-advanced2 sheet-hidden">
