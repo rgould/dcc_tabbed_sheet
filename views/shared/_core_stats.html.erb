@@ -22,7 +22,7 @@
   <div class="sheet-row">
     <div class="sheet-col-1-10 sheet-center">&nbsp;</div>
     <div class="sheet-col-3-11 sheet-hd-row">Fleeting Luck </div>
-    <div class="sheet-col-1-8 sheet-center" title="Enter your groups Fleeting Luck value here"><input class="sheet-underline sheet-center" type="number" name="attr_fleetingLuck" value="0" min="0" step="1"></div>
+    <div class="sheet-col-1-8 sheet-center" title="Enter your groups Fleeting Luck value here"><input class="sheet-underline sheet-center" type="number" name="<%= context.attr 'fleetingLuck' %>" value="0" min="0" step="1"></div>
   </div>
 
   <div class="sheet-col-2-7 sheet-center">&nbsp;</div>
@@ -31,11 +31,11 @@
     <div class="sheet-col-1-10 sheet-center">&nbsp;</div>
     <div class="sheet-col-3-11 sheet-hd-row">Personality Test </div>
     <div class="sheet-col-1-6">
-      <button type='roll' value="&{template:DccTabbed} {{background=[[5]]}} {{stat=1}} {{name=@{<%= context.character_name_attr %>}}} {{title=PERSONALITY Test}} {{flavortext=Make Personality tests to attempt social interactions.  Roll must be equal to or under current Personality score.}} {{rolltype=Check : }} {{luckcheck=[[@{ActionDie}cs1]]}} {{chance=[[@{per}]]}}" name='PERSONALITY' title="PERSONALITY Test"></button>
+      <button type='roll' value="&{template:DccTabbed} {{background=[[5]]}} {{stat=1}} {{name=@{<%= context.character_name_attr %>}}} {{title=PERSONALITY Test}} {{flavortext=Make Personality tests to attempt social interactions.  Roll must be equal to or under current Personality score.}} {{rolltype=Check : }} {{luckcheck=[[@{ActionDie}cs1]]}} {{chance=[[@{<%= context.attr_ref 'per' %>}]]}}" name='PERSONALITY' title="PERSONALITY Test"></button>
     </div>
     <div class="sheet-col-1-5 sheet-hd-row">Luck Check </div>
     <div class="sheet-col-1-8">
-      <button type='roll' value="&{template:DccTabbed} {{background=[[5]]}} {{stat=1}} {{name=@{<%= context.character_name_attr %>}}} {{title=LUCK Check}} {{flavortext=Make Luck checks to attempt feats that succeed based on Luck alone.  Roll must be equal to or under current Luck score.}} {{rolltype2=Current Luck : }} {{rolltype=Check : }} {{luckcheck=[[@{ActionDie}cs1]]}} {{chance=[[@{luck} [CURRENT LUCK] +@{fleetingLuck} [FLEETING LUCK]]]}}" name='LUCK' title="LUCK Check"></button>
+      <button type='roll' value="&{template:DccTabbed} {{background=[[5]]}} {{stat=1}} {{name=@{<%= context.character_name_attr %>}}} {{title=LUCK Check}} {{flavortext=Make Luck checks to attempt feats that succeed based on Luck alone.  Roll must be equal to or under current Luck score.}} {{rolltype2=Current Luck : }} {{rolltype=Check : }} {{luckcheck=[[@{ActionDie}cs1]]}} {{chance=[[@{<%= context.attr_ref 'luck' %>} [CURRENT LUCK] +@{<%= context.attr_ref 'fleetingLuck' %>} [FLEETING LUCK]]]}}" name='LUCK' title="LUCK Check"></button>
     </div>
   </div>
 

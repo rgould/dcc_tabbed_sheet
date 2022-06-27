@@ -1,7 +1,7 @@
 <input
   class="sheet-center"
   type="number"
-  name="<%= attr.name "ToHit" %>"
-  value="[[ [[@{agiMod}]] + @{allAtkLuckyRoll} + @{rangedAtkLuckyRoll} + @{<%= attr.roll "Magic" %>} + @{<%= attr.roll "OtherToHitBonus" %>} + @{<%= attr.roll "AtkLuckyWeapon" %>} + @{ATK} + @{<%= attr.roll "zeroRangedWeaponLuckyRoll", include_name_prefix: false %>}]]"
+  name="<%= context.attr "ToHit" %>"
+  value="[[ [[@{<%= context.parent_attr_ref 'agiMod' %>}]] + @{<%= context.parent_attr_ref 'allAtkLuckyRoll' %>} + @{<%= context.parent_attr_ref 'rangedAtkLuckyRoll' %>} + @{<%= context.attr_ref "Magic" %>} + @{<%= context.attr_ref "OtherToHitBonus" %>} + @{<%= context.attr_ref "AtkLuckyWeapon" %>} + @{<%= context.parent_attr_ref 'ATK' %>} + @{<%= context.attr_ref "zeroRangedWeaponLuckyRoll", include_name_prefix: false %>}]]"
   disabled="disabled"
   />

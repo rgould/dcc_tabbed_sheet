@@ -1,6 +1,6 @@
 <input class="sheet-center"
        type="number"
-       name="<%= attr.name "ToHit" %>"
-       value="[[[[@{strMod}]] + @{<%= attr.roll "Magic" %>} + @{<%= attr.roll "OtherToHitBonus" %>} + @{allAtkLuckyRoll} + @{meleeAtkLuckyRoll} + @{ATK} + @{<%= attr.roll "AtkLuckyWeapon" %>} + @{<%= attr.roll "zeroWeaponLuckyRoll", include_name_prefix: false %>}]]"
+       name="<%= context.attr "ToHit" %>"
+       value="[[[[@{<%= context.parent_attr_ref 'strMod' %>}]] + @{<%= context.attr_ref "Magic" %>} + @{<%= context.attr_ref "OtherToHitBonus" %>} + @{<%= context.parent_attr_ref 'allAtkLuckyRoll' %>} + @{<%= context.parent_attr_ref 'meleeAtkLuckyRoll' %>} + @{<%= context.parent_attr_ref 'ATK' %>} + @{<%= context.attr_ref "AtkLuckyWeapon" %>} + @{<%= context.attr_ref "zeroWeaponLuckyRoll", include_name_prefix: false %>}]]"
        disabled="disabled"
 >

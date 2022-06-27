@@ -1,7 +1,7 @@
 <input
   class="sheet-center"
   type="number"
-  name="<%= attr.name "DmgBonus" %>"
-  value="[[@{<%= attr.roll "Magic" %>} + @{<%= attr.roll "OtherDamageBonus" %>} + @{rangedDmgLuckyRoll} + @{dmgLuckyRoll} + @{<%= attr.roll "zeroRangedWeaponLuckyRoll", include_name_prefix: false %>}]]"
+  name="<%= context.attr "DmgBonus" %>"
+  value="[[@{<%= context.attr_ref "Magic" %>} + @{<%= context.attr_ref "OtherDamageBonus" %>} + @{<%= context.parent_attr_ref 'rangedDmgLuckyRoll' %>} + @{<%= context.parent_attr_ref 'dmgLuckyRoll' %>} + @{<%= context.attr_ref "zeroRangedWeaponLuckyRoll", include_name_prefix: false %>}]]"
   disabled="disabled"
   />

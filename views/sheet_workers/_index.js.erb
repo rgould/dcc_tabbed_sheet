@@ -29,7 +29,7 @@ var diceChainModifier = function(limit_number, direction_counter) {
       size = parseInt(/^d(\d+)$/i.exec(size)[1], 10);
     }
     if (size == limit_number) {
-      return size;
+      return isString ? `d${size}` : size ;
     }
     index = diceChain.indexOf(size);
     if (index < 0) {
@@ -82,7 +82,7 @@ on("sheet:opened", function() {
   recalculateSheet();
 });
 
-on("<%= abilities_attribute_names.flat_map{|ability| ["change:#{ability}", "change:repeating_level0s:#{ability}"] }.join(" ")%>", function(e) {
+on("<%= abilities_attribute_names.flat_map{|ability| ["change:#{ability}", "change:repeating_level0s:#{level0multi_namespace}#{ability}"] }.join(" ")%>", function(e) {
   var attr = e.sourceAttribute;
   calculateMod([attr]);
 });
@@ -90,7 +90,7 @@ on("<%= abilities_attribute_names.flat_map{|ability| ["change:#{ability}", "chan
 /**
  * Sets ability max score if it hasn't been set yet
  */
-on("<%= abilities_attribute_names.flat_map{|ability| ["change:#{ability}", "change:repeating_level0s:#{ability}"] }.join(" ")%>", function(e) {
+on("<%= abilities_attribute_names.flat_map{|ability| ["change:#{ability}", "change:repeating_level0s:#{level0multi_namespace}#{ability}"] }.join(" ")%>", function(e) {
   var attr = e.sourceAttribute;
   var max = `${attr}Max`;
   getAttrs([max], function(values) {
@@ -142,17 +142,17 @@ validateAttrMods = function() {
 /**
  * Set overall init mod for the multi-level0 init button
  */
-on("change:repeating_level0s:agi change:repeating_level0s:initluckyroll change:repeating_levels0:luckstartingmod", function(e) {
+on("change:repeating_level0s:<%= level0multi_namespace %>agi change:repeating_level0s:<%= level0multi_namespace %>initluckyroll change:repeating_levels0:<%= level0multi_namespace %>luckstartingmod", function(e) {
 
   TAS.repeating("level0s")
     .attrs("level0MultiInit")
-    .fields("agiMod", "initLuckyRoll", "luckStartingMod")
+    .fields("<%= level0multi_namespace %>agiMod", "<%= level0multi_namespace %>initLuckyRoll", "<%= level0multi_namespace %>luckStartingMod")
     .map(function(row, attrSet, id, rowSet) {
-      var initMod = row.I.agiMod;
+      var initMod = row.I.<%= level0multi_namespace %>agiMod;
       /* when initLuckyRoll is set, we get back a formula, ie: '[[@{luckStartingMod}]]', when it's not set, we get back "0" */
-      if (isNaN(parseInt(row.initLuckyRoll))) {
+      if (isNaN(parseInt(row.<%= level0multi_namespace %>initLuckyRoll))) {
         // initLuckyRoll is set
-        initMod += row.I.luckStartingMod;
+        initMod += row.I.<%= level0multi_namespace %>luckStartingMod;
       }
       return initMod;
     }, function(results, rowSet, attrSet) {

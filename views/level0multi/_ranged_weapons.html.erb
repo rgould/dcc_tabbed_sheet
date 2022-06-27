@@ -13,5 +13,5 @@
 </div>
 
 <% level0multi_ranged_weapon_count.times do |i| %>
-  <%= render partial: "level0multi/ranged_weapon", indent: 0, locals: { attr_suffix: i+1 } %>
+  <%= render partial: "level0multi/ranged_weapon", indent: 0, locals: { attr_suffix: i+1, context: context } %>
 <% end %>

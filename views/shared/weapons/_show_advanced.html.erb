@@ -1,5 +1,5 @@
 <input type="checkbox"
-       value="@{<%= attr.roll "ShowAdvanced" %>}"
-       name="<%= attr.name "ShowAdvanced" %>"
+       value="@{<%= context.attr_ref "ShowAdvanced" %>}"
+       name="<%= context.attr "ShowAdvanced" %>"
        title="Check for advanced options"
        class="sheet-<%= namespace %>-advanced">

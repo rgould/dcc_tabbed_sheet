@@ -1,23 +1,23 @@
 <div class="sheet-row">
   <div class="sheet-col-5-16 sheet-core-stat-label"><%= full_name %></div>
-  <div class="sheet-col-1-8"><input type="number" name="attr_<%= attr_name %>" min="1" step="1" value="10"></div>
-  <div class="sheet-col-1-8"><input type="number" name="attr_<%= attr_name %>Max" min="1" step="1"></div>
-  <div class="sheet-col-1-8"><input class="sheet-center" type="number" name="attr_<%= attr_name %>Mod" readonly="readonly"></div>
+  <div class="sheet-col-1-8"><input type="number" name="<%= context.attr attr_name %>" min="1" step="1" value="10"></div>
+  <div class="sheet-col-1-8"><input type="number" name="<%= context.attr "#{attr_name}Max" %>" min="1" step="1"></div>
+  <div class="sheet-col-1-8"><input class="sheet-center" type="number" name="<%= context.attr "#{attr_name}Mod" %>" readonly="readonly"></div>
   <div class="sheet-col-1-16 sheet-checkbox-row" title="Check for more options">
-    <input type="checkbox" value="@{<%= attr_name %>ShowAdvanced}" name="attr_<%= attr_name %>ShowAdvanced" class="sheet-<%= attr_name %>-advanced">
+    <input type="checkbox" value="@{<%= context.attr_ref "#{attr_name}ShowAdvanced" %>}" name="<%= context.attr "#{attr_name}ShowAdvanced" %>" class="sheet-<%= attr_name %>-advanced">
   </div>
   <div class="sheet-col-1-8 sheet-center">
-    <button type='roll' class="sheet-core-check" value="&{template:DccTabbed} {{background=[[5]]}} {{stat=1}} {{name=@{<%= context.character_name_attr %>}}} {{title=<%= attr_name.upcase %> Check - 1d20}} {{hint=TRAINED:  0-level occupation determines the basic skills you can use or if the skill is something that any adult could have a reasonable chance of attempting.}} {{rolltype=Trained : }} {{ability=[[1d20 + [[@{<%= attr_name %>Mod}]] [Stat Mod] ]]}} {{abilityscore=[[@{<%= attr_name %>}]]}} {{warningthreshold=<%=  local_assigns[:warning_threshold] ? "[[#{local_assigns[:warning_threshold]}]]" : "" %>}} {{warning=<%= local_assigns.fetch(:warning, "") %>}} {{reminders=@{<%= attr_name %>Reminders}}}" name='<%= attr_name.upcase %>' title="Trained <%= attr_name.upcase %> Skill">T</button>
+    <button type='roll' class="sheet-core-check" value="&{template:DccTabbed} {{background=[[5]]}} {{stat=1}} {{name=@{<%= context.character_name_attr %>}}} {{title=<%= attr_name.upcase %> Check - 1d20}} {{hint=TRAINED:  0-level occupation determines the basic skills you can use or if the skill is something that any adult could have a reasonable chance of attempting.}} {{rolltype=Trained : }} {{ability=[[1d20 + [[@{<%= context.attr_ref "#{attr_name}Mod" %>}]] [Stat Mod] ]]}} {{abilityscore=[[@{<%= context.attr_ref attr_name %>}]]}} {{warningthreshold=<%=  local_assigns[:warning_threshold] ? "[[#{local_assigns[:warning_threshold]}]]" : "" %>}} {{warning=<%= local_assigns.fetch(:warning, "") %>}} {{reminders=@{<%= context.attr_ref "#{attr_name}Reminders" %>}}}" name='roll_<%= context.attr_ref attr_name.upcase %>_trained' title="Trained <%= attr_name.upcase %> Skill">T</button>
   </div>
   <div class="sheet-col-1-8 sheet-center">
-    <button type='roll' class="sheet-core-check" value="&{template:DccTabbed} {{background=[[6]]}} {{stat=1}} {{name=@{<%= context.character_name_attr %>}}} {{title=<%= attr_name.upcase %> Check - 1d10}} {{hint=UNTRAINED:  If your character’s background does not support a skill use, your character is not familiar with the activity.}} {{rolltype=Untrained : }} {{ability=[[1d10 + [[@{<%= attr_name %>Mod}]] [Stat Mod] ]]}} {{abilityscore=[[@{<%= attr_name %>}]]}} {{warningthreshold=<%=  local_assigns[:warning_threshold] ? "[[#{local_assigns[:warning_threshold]}]]" : "" %>}} {{warning=<%= local_assigns.fetch(:warning, "") %>}} {{reminders=@{<%= attr_name %>Reminders}}}" name='<%= attr_name.upcase %>' title="Untrained <%= attr_name.upcase %> Skill">U</button>
+    <button type='roll' class="sheet-core-check" value="&{template:DccTabbed} {{background=[[6]]}} {{stat=1}} {{name=@{<%= context.character_name_attr %>}}} {{title=<%= attr_name.upcase %> Check - 1d10}} {{hint=UNTRAINED:  If your character’s background does not support a skill use, your character is not familiar with the activity.}} {{rolltype=Untrained : }} {{ability=[[1d10 + [[@{<%= context.attr_ref "#{attr_name}Mod" %>}]] [Stat Mod] ]]}} {{abilityscore=[[@{<%= context.attr_ref attr_name %>}]]}} {{warningthreshold=<%=  local_assigns[:warning_threshold] ? "[[#{local_assigns[:warning_threshold]}]]" : "" %>}} {{warning=<%= local_assigns.fetch(:warning, "") %>}} {{reminders=@{<%= context.attr_ref "#{attr_name}Reminders" %>}}}" name='roll_<%= context.attr_ref attr_name.upcase %>_untrained' title="Untrained <%= attr_name.upcase %> Skill">U</button>
   </div>
 </div>
 
-<input type="checkbox" value="@{<%= attr_name %>ShowAdvanced}" name="attr_<%= attr_name %>ShowAdvanced" class="sheet-<%= attr_name %>-advanced2 sheet-hidden">
+<input type="checkbox" value="@{<%= context.attr_ref "#{attr_name}ShowAdvanced" %>}" name="<%= context.attr "#{attr_name}ShowAdvanced" %>" class="sheet-<%= attr_name %>-advanced2 sheet-hidden">
 <div class="sheet-advanced sheet-<%= attr_name %>-advanced sheet-row">
   <div class="sheet-col-1-5 sheet-right sheet-margin-top sheet-padr">Reminders:</div>
   <div class="sheet-col-4-5 sheet-margin-top">
-    <textarea name="attr_<%= attr_name %>Reminders" placeholder="Enter skill reminders here. ie: +2 while underground" class="sheet-small"></textarea>
+    <textarea name="<%= context.attr "#{attr_name}Reminders" %>" placeholder="Enter skill reminders here. ie: +2 while underground" class="sheet-small"></textarea>
   </div>
 </div>

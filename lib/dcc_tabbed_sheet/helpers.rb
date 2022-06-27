@@ -11,15 +11,30 @@ module DccTabbedSheet
       presenter
     end
 
-    def with_context(character_name_attr: nil)
-      tab_context = TabContext.new(character_name_attr: character_name_attr, template: self)
+    def with_context(character_name_attr: nil, namespace: "")
+      tab_context = TabContext.new(character_name_attr: character_name_attr, namespace: namespace, template: self)
       yield tab_context if block_given?
       tab_context
     end
 
+    def with_scoped_subcontext(parent_context:, name_prefix: nil, suffix: nil)
+      tab_context = SubContext.new(parent_context: parent_context,
+                                   name_prefix: name_prefix,
+                                   suffix: suffix,
+                                   template: self)
+      yield tab_context if block_given?
+      tab_context
+    end
+
+
     def default_context
       @default_context ||= TabContext.new(template: nil)
       @default_context
+    end
+
+    def level0multi_namespace
+      # All attribute names and references in the level0 repeating section will be prefixed with this value
+      "level0multi_"
     end
 
     def level0multi_melee_weapon_count

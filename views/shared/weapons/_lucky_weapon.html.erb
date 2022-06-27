@@ -1,5 +1,5 @@
 <input type="checkbox"
-       value="@{luckStartingMod}"
-       name="<%= attr.name "AtkLuckyWeapon" %>"
+       value="@{<%= context.parent_attr_ref 'luckStartingMod' %>}"
+       name="<%= context.attr "AtkLuckyWeapon" %>"
        title="Check the box if this is your Lucky Weapon (Class ability)"
        />

@@ -1,5 +1,5 @@
 <input class="sheet-center"
        type="number"
-       name="<%= attr.name "DmgBonus" %>"
-       value="[[[[@{strMod}]] + @{<%= attr.roll "Magic" %>} + @{<%= attr.roll "OtherDamageBonus" %>} + @{meleeDmgLuckyRoll} + @{dmgLuckyRoll} + @{<%= attr.roll "zeroWeaponLuckyRoll", include_name_prefix: false %>}]]"
+       name="<%= context.attr "DmgBonus" %>"
+       value="[[[[@{<%= context.parent_attr_ref 'strMod' %>}]] + @{<%= context.attr_ref "Magic" %>} + @{<%= context.attr_ref "OtherDamageBonus" %>} + @{<%= context.parent_attr_ref "meleeDmgLuckyRoll" %>} + @{<%= context.parent_attr_ref 'dmgLuckyRoll' %>} + @{<%= context.attr_ref "zeroWeaponLuckyRoll", include_name_prefix: false %>}]]"
        disabled="disabled">

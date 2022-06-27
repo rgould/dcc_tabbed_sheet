@@ -13,71 +13,71 @@
 
 <div class="sheet-row">
   <div class="sheet-col-5-19 sheet-core-stat-label">Reflex</div>
-  <div class="sheet-col-2-19" title="Enter the base value listed in Class Advancement Table"><input type="number" name="attr_REF" value="0" min="0" step="1"></div>
-  <div class="sheet-col-2-19" title="Enter any additional bonus' ie. from spells or equipment"><input type="number" name="attr_otherBonusReflexMod" value="0"></div>
-  <div class="sheet-col-2-19"><input type="number" name="attr_birthAugurReflexMod" value="[[@{savingThrowsLuckyRoll} + @{reflexLuckyRoll}]]" disabled="disabled"></div>
-  <div class="sheet-col-2-19"><input type="number" name="attr_reflexStatMod" value="[[@{agiMod}]]" disabled="disabled"></div>
-  <div class="sheet-col-2-19"><input class="sheet-center" type="number" name="attr_refCheck" value="[[ [[@{REF}]] + [[@{birthAugurReflexMod}]] + [[@{otherBonusReflexMod}]] + [[@{agiMod}]] ]]" disabled="disabled"></div>
+  <div class="sheet-col-2-19" title="Enter the base value listed in Class Advancement Table"><input type="number" name="<%= context.attr 'REF' %>" value="0" min="0" step="1"></div>
+  <div class="sheet-col-2-19" title="Enter any additional bonus' ie. from spells or equipment"><input type="number" name="<%= context.attr 'otherBonusReflexMod' %>" value="0"></div>
+  <div class="sheet-col-2-19"><input type="number" name="<%= context.attr 'birthAugurReflexMod' %>" value="[[@{<%= context.attr_ref 'savingThrowsLuckyRoll' %>} + @{<%= context.attr_ref 'reflexLuckyRoll' %>}]]" disabled="disabled"></div>
+  <div class="sheet-col-2-19"><input type="number" name="<%= context.attr 'reflexStatMod' %>" value="[[@{<%= context.attr_ref 'agiMod' %>}]]" disabled="disabled"></div>
+  <div class="sheet-col-2-19"><input class="sheet-center" type="number" name="<%= context.attr 'refCheck' %>" value="[[ [[@{<%= context.attr_ref 'REF' %>}]] + [[@{<%= context.attr_ref 'birthAugurReflexMod' %>}]] + [[@{<%= context.attr_ref 'otherBonusReflexMod' %>}]] + [[@{<%= context.attr_ref 'agiMod' %>}]] ]]" disabled="disabled"></div>
 
   <div class="sheet-col-1-19 sheet-checkbox-row" title="Check for more options">
-    <input type="checkbox" value="@{reflexShowAdvanced}" name="attr_reflexShowAdvanced" class="sheet-reflex-advanced">
+    <input type="checkbox" value="@{<%= context.attr_ref 'reflexShowAdvanced' %>}" name="<%= context.attr 'reflexShowAdvanced' %>" class="sheet-reflex-advanced">
   </div>
 
   <div class="sheet-col-2-19 sheet-left">
-    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{<%= context.character_name_attr %>}}} {{title=REFLEX Save}} {{rolltype=Saving Throw : }} {{hint=Saves against reaction-based threats, such as ducking a swinging axe trap, leaping aside as a doorway collapses, and twisting away from a dragon’s flaming breath.}} {{savingthrow=[[1d20 + @{refCheck} + (?{Any additional Bonus/Minus|0})]]}} {{reminders=@{reflexReminders}}}" name='ST_Reflex' title="Reflex Save">REF</button>
+    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{<%= context.character_name_attr %>}}} {{title=REFLEX Save}} {{rolltype=Saving Throw : }} {{hint=Saves against reaction-based threats, such as ducking a swinging axe trap, leaping aside as a doorway collapses, and twisting away from a dragon’s flaming breath.}} {{savingthrow=[[1d20 + @{<%= context.attr_ref 'refCheck' %>} + (?{Any additional Bonus/Minus|0})]]}} {{reminders=@{<%= context.attr_ref 'reflexReminders' %>}}}" name='ST_Reflex' title="Reflex Save">REF</button>
   </div>
 </div>
 
-<input type="checkbox" value="@{reflexShowAdvanced}" name="attr_reflexShowAdvanced" class="sheet-reflex-advanced2 sheet-hidden">
+<input type="checkbox" value="@{<%= context.attr_ref 'reflexShowAdvanced' %>}" name="<%= context.attr 'reflexShowAdvanced' %>" class="sheet-reflex-advanced2 sheet-hidden">
 <div class="sheet-advanced sheet-reflex-advanced sheet-row">
   <div class="sheet-col-1-5 sheet-right sheet-margin-top sheet-padr">Reminders:</div>
   <div class="sheet-col-4-5 sheet-margin-top">
-    <textarea name="attr_reflexReminders" placeholder="Enter reminders here: ie. +2 vs traps" class="sheet-small"></textarea>
+    <textarea name="<%= context.attr 'reflexReminders' %>" placeholder="Enter reminders here: ie. +2 vs traps" class="sheet-small"></textarea>
   </div>
 </div>
 
 <div class="sheet-row">
   <div class="sheet-col-5-19 sheet-core-stat-label">Fortitude</div>
-  <div class="sheet-col-2-19" title="Enter the base value listed in Class Advancement Table"><input type="number" name="attr_FORT" value="0" min="0" step="1"></div>
-  <div class="sheet-col-2-19" title="Enter any additional bonus' ie. from spells or equipment"><input type="number" name="attr_otherBonusFortMod" value="0"></div>
-  <div class="sheet-col-2-19"><input type="number" name="attr_birthAugurFortMod" value="[[@{savingThrowsLuckyRoll} + @{fortitudeLuckyRoll}]]" disabled="disabled"></div>
-  <div class="sheet-col-2-19"><input type="number" name="attr_fortitudeStatMod" value="[[@{staMod}]]" disabled="disabled"></div>
-  <div class="sheet-col-2-19"><input class="sheet-center" type="number" name="attr_fortCheck" value="[[@{FORT} + @{birthAugurFortMod} + @{otherBonusFortMod} + [[@{staMod}]]]]" disabled="disabled"></div>
+  <div class="sheet-col-2-19" title="Enter the base value listed in Class Advancement Table"><input type="number" name="<%= context.attr 'FORT' %>" value="0" min="0" step="1"></div>
+  <div class="sheet-col-2-19" title="Enter any additional bonus' ie. from spells or equipment"><input type="number" name="<%= context.attr 'otherBonusFortMod' %>" value="0"></div>
+  <div class="sheet-col-2-19"><input type="number" name="<%= context.attr 'birthAugurFortMod' %>" value="[[@{<%= context.attr_ref 'savingThrowsLuckyRoll' %>} + @{<%= context.attr_ref 'fortitudeLuckyRoll' %>}]]" disabled="disabled"></div>
+  <div class="sheet-col-2-19"><input type="number" name="<%= context.attr 'fortitudeStatMod' %>" value="[[@{<%= context.attr_ref 'staMod' %>}]]" disabled="disabled"></div>
+  <div class="sheet-col-2-19"><input class="sheet-center" type="number" name="<%= context.attr 'fortCheck' %>" value="[[@{<%= context.attr_ref 'FORT' %>} + @{<%= context.attr_ref 'birthAugurFortMod' %>} + @{<%= context.attr_ref 'otherBonusFortMod' %>} + [[@{<%= context.attr_ref 'staMod' %>}]]]]" disabled="disabled"></div>
   <div class="sheet-col-1-19 sheet-checkbox-row" title="Check for more options">
-    <input type="checkbox" value="@{fortitudeShowAdvanced}" name="attr_fortitudeShowAdvanced" class="sheet-fortitude-advanced">
+    <input type="checkbox" value="@{<%= context.attr_ref 'fortitudeShowAdvanced' %>}" name="<%= context.attr 'fortitudeShowAdvanced' %>" class="sheet-fortitude-advanced">
   </div>
   <div class="sheet-col-2-19 sheet-left">
-    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{<%= context.character_name_attr %>}}} {{title=FORTITUDE Save}} {{hint=Saves against physical threats, such as poisons, gasses, acids, and stunning damage.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{fortCheck} + (?{Any additional Bonus/Minus|0})]]}} {{abilityscore=[[@{sta}]]}} {{warningthreshold=[[6]]}} {{warning=Stamina is 5 or lower!&#10;Take double damage from poison or disease.}} {{reminders=@{fortitudeReminders}}}" name='ST_Fortitude' title="Fortitude Save">FORT</button>
+    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{<%= context.character_name_attr %>}}} {{title=FORTITUDE Save}} {{hint=Saves against physical threats, such as poisons, gasses, acids, and stunning damage.}} {{rolltype=Saving Throw : }} {{savingthrow=[[1d20 + @{<%= context.attr_ref 'fortCheck' %>} + (?{Any additional Bonus/Minus|0})]]}} {{abilityscore=[[@{<%= context.attr_ref 'sta' %>}]]}} {{warningthreshold=[[6]]}} {{warning=Stamina is 5 or lower!&#10;Take double damage from poison or disease.}} {{reminders=@{<%= context.attr_ref 'fortitudeReminders' %>}}}" name='ST_Fortitude' title="Fortitude Save">FORT</button>
   </div>
 </div>
-<input type="checkbox" value="@{fortitudeShowAdvanced}" name="attr_fortitudeShowAdvanced" class="sheet-fortitude-advanced2 sheet-hidden">
+<input type="checkbox" value="@{<%= context.attr_ref 'fortitudeShowAdvanced' %>}" name="<%= context.attr 'fortitudeShowAdvanced' %>" class="sheet-fortitude-advanced2 sheet-hidden">
 <div class="sheet-advanced sheet-fortitude-advanced sheet-row">
   <div class="sheet-col-1-5 sheet-right sheet-margin-top sheet-padr">Reminders:</div>
   <div class="sheet-col-4-5 sheet-margin-top">
-    <textarea name="attr_fortitudeReminders" placeholder="Enter reminders here: ie. +1 vs poison" class="sheet-small"></textarea>
+    <textarea name="<%= context.attr 'fortitudeReminders' %>" placeholder="Enter reminders here: ie. +1 vs poison" class="sheet-small"></textarea>
   </div>
 </div>
 
 
 <div class="sheet-row">
   <div class="sheet-col-5-19 sheet-core-stat-label">Will</div>
-  <div class="sheet-col-2-19" title="Enter the base value listed in Class Advancement Table"><input type="number" name="attr_WILL" value="0" min="0" step="1"></div>
-  <div class="sheet-col-2-19" title="Enter any additional bonus' ie. from spells or equipment"><input type="number" name="attr_otherBonusWillMod" value="0"></div>
-  <div class="sheet-col-2-19"><input type="number" name="attr_birthAugurWillMod" value="[[@{savingThrowsLuckyRoll} + @{willLuckyRoll}]]" disabled="disabled"></div>
-  <div class="sheet-col-2-19"><input type="number" name="attr_willStatMod" value="[[@{perMod}]]" disabled="disabled"></div>
-  <div class="sheet-col-2-19"><input class="sheet-center" type="number" name="attr_willCheck" value="[[@{WILL} + @{birthAugurWillMod} + @{otherBonusWillMod} + [[@{perMod}]]]]" disabled="disabled"></div>
+  <div class="sheet-col-2-19" title="Enter the base value listed in Class Advancement Table"><input type="number" name="<%= context.attr 'WILL' %>" value="0" min="0" step="1"></div>
+  <div class="sheet-col-2-19" title="Enter any additional bonus' ie. from spells or equipment"><input type="number" name="<%= context.attr 'otherBonusWillMod' %>" value="0"></div>
+  <div class="sheet-col-2-19"><input type="number" name="<%= context.attr 'birthAugurWillMod' %>" value="[[@{<%= context.attr_ref 'savingThrowsLuckyRoll' %>} + @{<%= context.attr_ref 'willLuckyRoll' %>}]]" disabled="disabled"></div>
+  <div class="sheet-col-2-19"><input type="number" name="<%= context.attr 'willStatMod' %>" value="[[@{<%= context.attr_ref 'perMod' %>}]]" disabled="disabled"></div>
+  <div class="sheet-col-2-19"><input class="sheet-center" type="number" name="<%= context.attr 'willCheck' %>" value="[[@{<%= context.attr_ref 'WILL' %>} + @{<%= context.attr_ref 'birthAugurWillMod' %>} + @{<%= context.attr_ref 'otherBonusWillMod' %>} + [[@{<%= context.attr_ref 'perMod' %>}]]]]" disabled="disabled"></div>
   <div class="sheet-col-1-19 sheet-checkbox-row" title="Check for more options">
-    <input type="checkbox" value="@{willShowAdvanced}" name="attr_willShowAdvanced" class="sheet-will-advanced">
+    <input type="checkbox" value="@{<%= context.attr_ref 'willShowAdvanced' %>}" name="<%= context.attr 'willShowAdvanced' %>" class="sheet-will-advanced">
   </div>
   <div class="sheet-col-2-19 sheet-left">
-    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{<%= context.character_name_attr %>}}} {{title=WILL Save}} {{hint=Saves against mind-influencing threats, such as spells that charm or control, psychic effects that cause sleep or hypnosis, and mental domination.}} {{rolltype=Saving Throw : }}{{savingthrow=[[1d20 + @{willCheck} + (?{Any additional Bonus/Minus|0})]]}} {{reminders=@{willReminders}}}" name='ST_Will' title="Will Save">WILL</button>
+    <button type='roll' class="sheet-core-save" value="&{template:DccTabbed} {{save=1}} {{name=@{<%= context.character_name_attr %>}}} {{title=WILL Save}} {{hint=Saves against mind-influencing threats, such as spells that charm or control, psychic effects that cause sleep or hypnosis, and mental domination.}} {{rolltype=Saving Throw : }}{{savingthrow=[[1d20 + @{<%= context.attr_ref 'willCheck' %>} + (?{Any additional Bonus/Minus|0})]]}} {{reminders=@{<%= context.attr_ref 'willReminders' %>}}}" name='ST_Will' title="Will Save">WILL</button>
   </div>
 </div>
-<input type="checkbox" value="@{willShowAdvanced}" name="attr_willShowAdvanced" class="sheet-will-advanced2 sheet-hidden">
+<input type="checkbox" value="@{<%= context.attr_ref 'willShowAdvanced' %>}" name="<%= context.attr 'willShowAdvanced' %>" class="sheet-will-advanced2 sheet-hidden">
 <div class="sheet-advanced sheet-will-advanced sheet-row">
   <div class="sheet-col-1-5 sheet-right sheet-margin-top sheet-padr">Reminders:</div>
   <div class="sheet-col-4-5 sheet-margin-top">
-    <textarea name="attr_willReminders" placeholder="Enter reminders here. ie.: immune to sleep and charm" class="sheet-small"></textarea>
+    <textarea name="<%= context.attr 'willReminders' %>" placeholder="Enter reminders here. ie.: immune to sleep and charm" class="sheet-small"></textarea>
   </div>
 </div>
 

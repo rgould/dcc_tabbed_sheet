@@ -1,111 +1,111 @@
-<% present_attr_name(name_prefix: "ranged", suffix: attr_suffix) do |attr| %>
+<% with_scoped_subcontext(parent_context: default_context, name_prefix: "ranged", suffix: attr_suffix) do |context| %>
   <div class="sheet-row">
-    <%= render partial: "shared/weapons/ranged_weapons_hidden_attrs", locals: { attr: attr } %>
+    <%= render partial: "shared/weapons/ranged_weapons_hidden_attrs", locals: { context: context } %>
 
     <div class="sheet-col-1-24">
-      <%= render partial: "shared/weapons/ammo", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/ammo", locals: { context: context } %>
     </div>
 
     <div class="sheet-col-1-6">
-      <%= render partial: "shared/weapons/name", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/name", locals: { context: context } %>
     </div>
 
     <div class="sheet-col-1-24">
-      <%= render partial: "shared/weapons/ranged_distance_short", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/ranged_distance_short", locals: { context: context } %>
     </div>
     <div class="sheet-col-1-24">
-      <%= render partial: "shared/weapons/ranged_distance_med", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/ranged_distance_med", locals: { context: context } %>
     </div>
     <div class="sheet-col-1-24">
-      <%= render partial: "shared/weapons/ranged_distance_long", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/ranged_distance_long", locals: { context: context } %>
     </div>
 
     <div class="sheet-col-1-12">
-      <%= render partial: "shared/weapons/attack_die_selector", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/attack_die_selector", locals: { context: context } %>
     </div>
 
     <div class="sheet-col-1-12">
-      <%= render partial: "shared/weapons/crit_range_selector", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/crit_range_selector", locals: { context: context } %>
     </div>
 
     <div class="sheet-col-1-24">
-      <%= render partial: "shared/weapons/to_hit_mod_ranged", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/to_hit_mod_ranged", locals: { context: context } %>
     </div>
 
     <div class="sheet-col-1-24">
-      <%= render partial: "shared/weapons/damage_dice", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/damage_dice", locals: { context: context } %>
     </div>
 
     <div class="sheet-col-1-24">
-      <%= render partial: "shared/weapons/damage_mod_ranged", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/damage_mod_ranged", locals: { context: context } %>
     </div>
 
     <div class="sheet-col-1-12">
-      <%= render partial: "shared/weapons/attack_range_selector", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/attack_range_selector", locals: { context: context } %>
     </div>
 
     <div class="sheet-col-1-24 sheet-checkbox-row">
-      <%= render partial: "shared/weapons/show_advanced", locals: { namespace: "ranged", attr: attr } %>
+      <%= render partial: "shared/weapons/show_advanced", locals: { namespace: "ranged", context: context } %>
     </div>
 
     <div class="sheet-col-1-21">
-      <%= render partial: "shared/weapons/button_attack_ranged", locals: { attr: attr, context: default_context } %>
+      <%= render partial: "shared/weapons/button_attack_ranged", locals: { context: context } %>
     </div>
 
     <div class="sheet-col-1-12">
-      <%= render partial: "shared/weapons/button_attack_with_deed_ranged", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/button_attack_with_deed_ranged", locals: { context: context } %>
     </div>
 
     <div class="sheet-col-1-11">
-      <%= render partial: "shared/weapons/button_backstab_ranged", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/button_backstab_ranged", locals: { context: context } %>
     </div>
 
-    <%= render partial: "shared/widgets/advanced_checkbox", locals: { namespace: "ranged", attr_name: attr.name("ShowAdvanced"), attr_roll: attr.roll("ShowAdvanced") } %>
+    <%= render partial: "shared/widgets/advanced_checkbox", locals: { namespace: "ranged", attr_name: context.attr("ShowAdvanced"), attr_roll: context.attr_ref("ShowAdvanced") } %>
 
     <div class="sheet-ranged-advanced sheet-row">
       <div class="sheet-row">
         <div class="sheet-col-1-6 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Magic Bonus:</div>
         <div class="sheet-col-1-24">
-          <%= render partial: "shared/weapons/magic_bonus", locals: { attr: attr } %>
+          <%= render partial: "shared/weapons/magic_bonus", locals: { context: context } %>
         </div>
 
         <div class="sheet-col-1-8 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">To Hit bonus:</div>
         <div class="sheet-col-1-24">
-          <%= render partial: "shared/weapons/to_hit_bonus", locals: { attr: attr } %>
+          <%= render partial: "shared/weapons/to_hit_bonus", locals: { context: context } %>
         </div>
 
         <div class="sheet-col-1-6 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Backstab damage:</div>
         <div class="sheet-col-1-12">
-          <%= render partial: "shared/weapons/backstab_damage", locals: { attr: attr } %>
+          <%= render partial: "shared/weapons/backstab_damage", locals: { context: context } %>
         </div>
 
         <div class="sheet-col-1-8 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Lucky Weapon:</div>
         <div class="sheet-col-1-24 sheet-checkbox-row sheet-vert-middle">
-          <%= render partial: "shared/weapons/lucky_weapon", locals: { attr: attr } %>
+          <%= render partial: "shared/weapons/lucky_weapon", locals: { context: context } %>
         </div>
       </div>
 
       <div class="sheet-row">
         <div class="sheet-col-1-3 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Damage bonus:</div>
         <div class="sheet-col-1-24">
-          <%= render partial: "shared/weapons/damage_bonus", locals: { attr: attr } %>
+          <%= render partial: "shared/weapons/damage_bonus", locals: { context: context } %>
         </div>
 
         <div class="sheet-col-1-8 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Missle Type:</div>
         <div class="sheet-col-1-8">
-          <%= render partial: "shared/weapons/ranged_weapon_type_selector", locals: { attr: attr } %>
+          <%= render partial: "shared/weapons/ranged_weapon_type_selector", locals: { context: context } %>
         </div>
 
         <div class="sheet-col-1-8 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Pack Hunter:</div>
         <div class="sheet-col-1-24 sheet-checkbox-row sheet-vert-middle">
-          <%= render partial: "shared/weapons/pack_hunter_ranged", locals: { attr: attr } %>
+          <%= render partial: "shared/weapons/pack_hunter_ranged", locals: { context: context } %>
         </div>
       </div>
 
       <div class="sheet-row">
         <div class="sheet-col-3-20 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Notes:</div>
         <div class="sheet-col-2-5">
-          <%= render partial: "shared/weapons/notes", locals: { attr: attr } %>
+          <%= render partial: "shared/weapons/notes", locals: { context: context } %>
         </div>
       </div>
       <hr>

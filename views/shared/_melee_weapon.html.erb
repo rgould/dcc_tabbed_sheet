@@ -1,84 +1,84 @@
-<% present_attr_name(name_prefix: "melee", suffix: attr_suffix) do |attr| %>
+<% with_scoped_subcontext(parent_context: default_context, name_prefix: "melee", suffix: attr_suffix) do |context| %>
   <div class="sheet-row">
     <div class="sheet-col-3-10">
-      <%= render partial: "shared/weapons/name", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/name", locals: { context: context } %>
     </div>
 
     <div class="sheet-col-1-10">
-      <%= render partial: "shared/weapons/attack_die_selector", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/attack_die_selector", locals: { context: context } %>
     </div>
 
     <div class="sheet-col-1-10">
-      <%= render partial: "shared/weapons/crit_range_selector", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/crit_range_selector", locals: { context: context } %>
     </div>
 
     <div class="sheet-col-1-20">
-      <%= render partial: "shared/weapons/to_hit_mod_melee", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/to_hit_mod_melee", locals: { context: context } %>
     </div>
 
     <div class="sheet-col-1-20">
-      <%= render partial: "shared/weapons/damage_dice", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/damage_dice", locals: { context: context } %>
     </div>
 
     <div class="sheet-col-1-20">
-      <%= render partial: "shared/weapons/damage_mod_melee", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/damage_mod_melee", locals: { context: context } %>
     </div>
 
     <div class="sheet-col-1-20 sheet-checkbox-row">
-      <%= render partial: "shared/weapons/show_advanced", locals: { namespace: "melee", attr: attr } %>
+      <%= render partial: "shared/weapons/show_advanced", locals: { namespace: "melee", context: context } %>
     </div>
 
     <div class="sheet-col-1-14">
-      <%= render partial: "shared/weapons/button_attack_melee", locals: { attr: attr, context: default_context } %>
+      <%= render partial: "shared/weapons/button_attack_melee", locals: { context: context } %>
     </div>
 
     <div class="sheet-col-1-12">
-      <%= render partial: "shared/weapons/button_attack_with_deed_melee", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/button_attack_with_deed_melee", locals: { context: context } %>
     </div>
 
     <div class="sheet-col-1-14">
-      <%= render partial: "shared/weapons/button_backstab_melee", locals: { attr: attr } %>
+      <%= render partial: "shared/weapons/button_backstab_melee", locals: { context: context } %>
     </div>
 
-    <%= render partial: "shared/widgets/advanced_checkbox", locals: { namespace: "melee", attr_name: attr.name("ShowAdvanced"), attr_roll: attr.roll("ShowAdvanced") } %>
+    <%= render partial: "shared/widgets/advanced_checkbox", locals: { namespace: "melee", attr_name: context.attr("ShowAdvanced"), attr_roll: context.attr_ref("ShowAdvanced") } %>
 
     <div class="sheet-melee-advanced sheet-row">
       <div class="sheet-row sheet-vert-middle">
         <div class="sheet-col-3-20 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Magic bonus:</div>
         <div class="sheet-col-1-20">
-          <%= render partial: "shared/weapons/magic_bonus", locals: { attr: attr } %>
+          <%= render partial: "shared/weapons/magic_bonus", locals: { context: context } %>
         </div>
         <div class="sheet-col-3-20 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">To Hit bonus:</div>
         <div class="sheet-col-1-20">
-          <%= render partial: "shared/weapons/to_hit_bonus", locals: { attr: attr } %>
+          <%= render partial: "shared/weapons/to_hit_bonus", locals: { context: context } %>
         </div>
         <div class="sheet-col-3-20 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Backstab damage:</div>
         <div class="sheet-col-1-20">
-          <%= render partial: "shared/weapons/backstab_damage", locals: { attr: attr } %>
+          <%= render partial: "shared/weapons/backstab_damage", locals: { context: context } %>
         </div>
         <div class="sheet-col-1-4 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Lucky Weapon:</div>
         <div class="sheet-col-1-20 sheet-left sheet-checkbox-row sheet-vert-middle">
-          <%= render partial: "shared/weapons/lucky_weapon", locals: { attr: attr } %>
+          <%= render partial: "shared/weapons/lucky_weapon", locals: { context: context } %>
         </div>
       </div>
       <div class="sheet-row">
         <div class="sheet-col-7-20 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Damage bonus:</div>
         <div class="sheet-col-1-20" title="Bonus added to ONLY to damage rolls">
-          <%= render partial: "shared/weapons/damage_bonus", locals: { attr: attr } %>
+          <%= render partial: "shared/weapons/damage_bonus", locals: { context: context } %>
         </div>
         <div class="sheet-col-3-20 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Wielded:</div>
         <div class="sheet-col-3-20">
-          <%= render partial: "shared/weapons/handedness", locals: { attr: attr } %>
+          <%= render partial: "shared/weapons/handedness", locals: { context: context } %>
         </div>
         <div class="sheet-col-3-20 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Pack Hunter:</div>
         <div class="sheet-col-1-20 sheet-left sheet-checkbox-row sheet-vert-middle">
-          <%= render partial: "shared/weapons/pack_hunter_melee", locals: { attr: attr } %>
+          <%= render partial: "shared/weapons/pack_hunter_melee", locals: { context: context } %>
         </div>
       </div>
       <div class="sheet-row">
         <div class="sheet-col-3-20 sheet-right sheet-padr sheet-margin-top sheet-vert-middle">Notes:</div>
         <div class="sheet-col-2-5">
-          <%= render partial: "shared/weapons/notes", locals: { attr: attr } %>
+          <%= render partial: "shared/weapons/notes", locals: { context: context } %>
         </div>
       </div>
       <hr>

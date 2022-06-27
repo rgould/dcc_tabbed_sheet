@@ -86,11 +86,11 @@ var recalculateRangedModifiersLevel0Multi = function recalculateRangedModifiersL
 
 on("change:repeating_rangedweapon", recalculateThrownModifiers);
 on("change:strmod", recalculateAllRangedModifiers);
-on("change:repeating_level0s:strmod", recalculateAllRangedModifiersLevel0Multi);
+on("change:repeating_level0s:<%= level0multi_namespace %>strmod", recalculateAllRangedModifiersLevel0Multi);
 
 <% %w(attackRange rangedAttackDice rangedWeaponType).each do |ranged_attr| %>
   <% level0multi_ranged_weapon_count.times do |index| %>
-    on("change:repeating_level0s:<%= "#{ranged_attr}#{index+1}" %>", function(e) {
+    on("change:repeating_level0s:<%= "#{level0multi_namespace}#{ranged_attr}#{index+1}" %>", function(e) {
       var sourceLevel0Prefix = e.sourceAttribute.replace('_<%= "#{ranged_attr.downcase}#{index+1}" %>', '');
       console.log("Event: ", e, "Source level0 attr: ", sourceLevel0Prefix);
       console.log("<%= "#{ranged_attr}#{index + 1}" %> changed");
