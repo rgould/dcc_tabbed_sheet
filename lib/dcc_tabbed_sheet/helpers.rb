@@ -26,6 +26,9 @@ module DccTabbedSheet
       tab_context
     end
 
+    def luck_score_data
+      DccData::LuckScore.new.entries
+    end
 
     def default_context
       @default_context ||= TabContext.new(template: nil)
