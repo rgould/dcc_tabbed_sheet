@@ -35,6 +35,10 @@ module DccTabbedSheet
       @default_context
     end
 
+    def new_tag(title)
+      tag.span "❗", class: "sheet-new-feature sheet-large-label", title: title
+    end
+
     def level0multi_namespace
       # All attribute names and references in the level0 repeating section will be prefixed with this value
       "level0multi_"
