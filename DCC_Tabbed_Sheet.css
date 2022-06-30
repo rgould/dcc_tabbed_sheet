@@ -791,6 +791,36 @@ div[data-groupname^="repeating_mutations"] .repitem,
   overflow: hidden;
 }
 
+.charsheet input.sheet-show_full_level0 {
+  display: none;
+}
+
+.charsheet label.sheet-chevron-toggle {
+  margin-bottom: 0px;
+}
+
+
+.charsheet input.sheet-show_full_level0 + span {
+  height: 40px;
+  width: 100%;
+  display: inline-block;
+  cursor: pointer;
+  /* TODO: adjust URL once merged into main */
+  background:url(https://i.stack.imgur.com/1WdEk.png) center right no-repeat; /* pointing down, to expand */
+}
+
+.charsheet input.sheet-show_full_level0:checked + span {
+  /* TODO: adjust URL once merged into main */
+  background:url(https://i.stack.imgur.com/r6OD6.png) center right no-repeat; /* pointing up, to collapse */
+}
+
+.charsheet div.sheet-content-hidable {
+  max-height: 999999px;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s linear 0s;
+}
+
 .charsheet input.sheet-str-advanced2:checked ~ div.sheet-str-advanced {
   max-height: 999999px;
   visibility: visible;
@@ -866,6 +896,13 @@ div[data-groupname^="repeating_mutations"] .repitem,
   visibility: visible;
   opacity: 1;
   transition: opacity 0.5s linear 0s;
+}
+
+.charsheet input.sheet-show_full_level0:checked ~ div.sheet-content-hidable {
+  visibility: hidden;
+  opacity: 0;
+  max-height:0;
+  overflow: hidden;
 }
 
 /* spell type tab Settings */

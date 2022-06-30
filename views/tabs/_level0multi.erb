@@ -57,52 +57,63 @@
               <div class="sheet-small-label">Fumble Die</div>
               <input type="hidden" name="<%= context.attr 'fumbleCheck' %>" value="[[[[@{<%= context.attr_ref 'luckMod' %>}]] * (-1)]]" disabled="true">
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="sheet-col-1-1 sheet-center sheet-small-label">&nbsp;</div>
-
-      <div class="sheet-row">
-        <%= render partial: "shared/core_stats", locals: { context: context } %>
-        <div class="sheet-col-1-2 sheet-padr">
-          <%= render partial: "shared/saving_throws", locals: { context: context } %>
-          <div class="sheet-col-1-1 sheet-center sheet-small-label">&nbsp;</div>
-          <div class="sheet-row sheet-padb">
-            <div class="sheet-col-1-2 sheet-small-label sheet-center">
-              Equipment / Treasure
-              <textarea name="<%= context.attr 'equipment' %>"></textarea>
-            </div>
-            <div class="sheet-col-1-2 sheet-small-label sheet-center">
-              Notes
-              <textarea name="<%= context.attr 'notes' %>"></textarea>
+            <div class="sheet-col-2-9 sheet-right">
+              <label class="sheet-chevron-toggle" title="Click to expand/collapse the character sheet">
+                <input type="checkbox" value="@{show_full_level0}" name="attr_show_full_level0" class="sheet-show_full_level0"/>
+                <span></span>
+              </label>
             </div>
           </div>
         </div>
       </div>
 
-      <% # These attributes are not used by level 0s but is required for other calculations %>
-      <input type="hidden" name="<%= context.attr 'ATK' %>" value="0">
-      <input type="hidden" name="<%= context.attr 'CritDie' %>" value="d4">
-      <input type="hidden" name="<%= context.attr 'CritDie_max' %>" value="I">
+      <input type="checkbox" value="@{show_full_level0}" name="attr_show_full_level0" class="sheet-show_full_level0 sheet-hidden"/>
 
-      <div class="sheet-row">
-        <div class="sheet-col-1-2 sheet-padr">
-          <%= render partial: "level0multi/melee_weapons", locals: { context: context } %>
+      <div class="sheet-content-hidable">
+        <div class="sheet-col-1-1 sheet-center sheet-small-label">&nbsp;</div>
+
+        <div class="sheet-row">
+          <%= render partial: "shared/core_stats", locals: { context: context } %>
+          <div class="sheet-col-1-2 sheet-padr">
+            <%= render partial: "shared/saving_throws", locals: { context: context } %>
+            <div class="sheet-col-1-1 sheet-center sheet-small-label">&nbsp;</div>
+            <div class="sheet-row sheet-padb">
+              <div class="sheet-col-1-2 sheet-small-label sheet-center">
+                Equipment / Treasure
+                <textarea name="<%= context.attr 'equipment' %>"></textarea>
+              </div>
+              <div class="sheet-col-1-2 sheet-small-label sheet-center">
+                Notes
+                <textarea name="<%= context.attr 'notes' %>"></textarea>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="sheet-col-1-2 sheet-padr">
-          <%= render partial: "level0multi/ranged_weapons", locals: { context: context } %>
+        <% # These attributes are not used by level 0s but is required for other calculations %>
+        <input type="hidden" name="<%= context.attr 'ATK' %>" value="0">
+        <input type="hidden" name="<%= context.attr 'CritDie' %>" value="d4">
+        <input type="hidden" name="<%= context.attr 'CritDie_max' %>" value="I">
+
+        <div class="sheet-row">
+          <div class="sheet-col-1-2 sheet-padr">
+            <%= render partial: "level0multi/melee_weapons", locals: { context: context } %>
+          </div>
+
+          <div class="sheet-col-1-2 sheet-padr">
+            <%= render partial: "level0multi/ranged_weapons", locals: { context: context } %>
+          </div>
+        </div>
+
+        <div>
+          <input type="checkbox" class="sheet-toggle-show"/>
+          <span>Show languages, lucky rolls, and birth augur</span>
+          <div class="sheet-body">
+            <%= render partial: "shared/languages_lucky_rolls", locals: { context: context } %>
+          </div>
         </div>
       </div>
 
-      <div>
-        <input type="checkbox" class="sheet-toggle-show"/>
-        <span>Show languages, lucky rolls, and birth augur</span>
-        <div class="sheet-body">
-          <%= render partial: "shared/languages_lucky_rolls", locals: { context: context } %>
-        </div>
-      </div>
       <hr class="main_separator"/>
     </fieldset>
   <% end %>
