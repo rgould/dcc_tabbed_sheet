@@ -114,11 +114,11 @@
 
 
               <div class="sheet-row">
-                <div class="sheet-col-1-6 sheet-padl sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_walk" value="@{Speed} + @{armorSpeed} + @{speedLuckyRoll}" disabled="disabled"><br>Walk</div>
-                <div class="sheet-col-1-6 sheet-padl sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_run" value="floor( (@{Speed} + @{armorSpeed} + @{speedLuckyRoll}) * 2)" disabled="disabled"><br>Run</div>
+                <div class="sheet-col-1-6 sheet-padl sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_walk" value="@{Speed} + @{armorSpeed} + (@{speedLuckyRoll} * 5)" disabled="disabled"><br>Walk</div>
+                <div class="sheet-col-1-6 sheet-padl sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_run" value="floor( @{Speed} + @{armorSpeed} + (@{speedLuckyRoll} * 5) * 2)" disabled="disabled"><br>Run</div>
                 <div class="sheet-col-1-6 sheet-padl sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_fly" value="0" step="5"><br>Fly</div>
-                <div class="sheet-col-1-6 sheet-padl sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_climb" value="floor( (@{Speed} + @{armorSpeed} + @{speedLuckyRoll}) / 2)" disabled="disabled"><br>Climb</div>
-                <div class="sheet-col-1-6 sheet-padl sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_swim" value="floor( (@{Speed} + @{armorSpeed} + @{speedLuckyRoll}) / 2)" disabled="disabled"><br>Swim</div>
+                <div class="sheet-col-1-6 sheet-padl sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_climb" value="floor( (@{Speed} + @{armorSpeed} + (@{speedLuckyRoll} * 5)) / 2)" disabled="disabled"><br>Climb</div>
+                <div class="sheet-col-1-6 sheet-padl sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_swim" value="floor( (@{Speed} + @{armorSpeed} + (@{speedLuckyRoll} * 5)) / 2)" disabled="disabled"><br>Swim</div>
                 <div class="sheet-col-1-6 sheet-padl sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_burrow" value="0" step="5"><br>Burrow</div>
               </div>
 

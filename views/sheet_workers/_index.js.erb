@@ -170,7 +170,7 @@ on("sheet:opened change:repeating_armor:armorcheck change:repeating_armor:armora
   getAttrs(["acCalc", "armorCheck", "armorSpeed", "agiMod", "armorClassLuckyRoll" , "luckStartingMod"], function(values) {
     const baseAc = 10;
     const agiAc = values.agiMod ? parseInt(values.agiMod) : 0;
-    const checkLuckyAc = values.armorClassLuckyRoll === 'on';
+    const checkLuckyAc = isNaN(parseInt(values.armorClassLuckyRoll)); // returns a formula if set, let's check for its presence
     const luckyAc = (values.luckStartingMod && checkLuckyAc) ? parseInt(values.luckStartingMod) : 0;
     const startAc = baseAc + agiAc + luckyAc;
     setAttrs({
