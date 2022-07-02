@@ -1102,13 +1102,12 @@ div[data-groupname^="repeating_mutations"] .repitem,
 }
 
 .charsheet .sheet-character-identifier {
-  font-size: 600%;
+  font-size: 300%;
   font-weight: bolder;
   font-style: normal;
 }
 
 .charsheet .sheet-character-minor-identifier {
-  font-size: x-large;
   font-weight: bolder;
   font-style: normal;
 }
