@@ -8,10 +8,10 @@ var runMigrations = function(version) {
   var foundNewMigration = false;
   _.each(MIGRATIONS, function(migrationRow) {
     var key = _.first(_.keys(migrationRow));
-    if (version === key) {
-      //Found new migration, need to run all migrations from this point on
+    if (compareVersionNumbers(version, key) < 0) {
+      //Found new migration, need to run all migrations on this row
       foundNewMigration = true;
-      console.log("[DCC_Tabbed_Sheet-Migrations] New migrations found, running them now...");
+      console.log(`[DCC_Tabbed_Sheet-Migrations] New migrations found for ${key}, running them now...`);
     }
     if (foundNewMigration) {
       _.each(migrationRow[key], function(migration) {
@@ -87,8 +87,30 @@ var migrateZeroLevelWeapons = function migrateZeroLevelWeapons() {
   });
 };
 
+var migrateLuckyRollValues = function migrateLuckyRollValues() {
+  var attrsWithValuesRemapped = [
+    "findSecretDoorsLuckyRoll",
+    "spellCastLuckyRoll",
+    "critLuckyRoll",
+    "corruptionLuckyRoll",
+    "fumbleLuckyRoll",
+    "speedLuckyRoll",
+    "armorClassLuckyRoll"
+  ];
+  getAttrs(attrsWithValuesRemapped, function(attrs) {
+    var newValues = _.reduce(attrsWithValuesRemapped, function(memo, attr_name) {
+      if (isNaN(parseInt(attrs[attr_name]))) {
+        memo[attr_name] = "[[@{luckStartingMod}]]";
+      }
+      return memo;
+    }, {});
+    setAttrs(newValues);
+  });
+};
+
 var MIGRATIONS = [
   { "1.5.0": [] },
   { "1.5.1": [recalculateAllRangedModifiers, migrateZeroLevelWeapons] },
-  { "1.5.2": [] }
+  { "1.5.2": [] },
+  { "1.6.0": [migrateLuckyRollValues] }
 ];
