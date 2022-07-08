@@ -36,7 +36,7 @@ module DccTabbedSheet
     end
 
     def new_tag(title)
-      tag.span "❗", class: "sheet-new-feature sheet-large-label", title: title
+      tag.span "❗", class: "sheet-new-feature sheet-new-tag", title: title
     end
 
     def level0multi_namespace

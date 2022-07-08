@@ -1,4 +1,4 @@
 module DccTabbedSheet
   VERSION = "0.1.0"
-  SHEET_VERSION = "1.5.7"
+  SHEET_VERSION = "1.6.0"
 end
