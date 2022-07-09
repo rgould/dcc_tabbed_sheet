@@ -5,3 +5,11 @@ require "json"
 require "dcc_tabbed_sheet"
 
 DccTabbedSheet::Compiler.perform
+
+begin
+  JSON.parse(File.read(File.join(__dir__, '..', 'build', 'sheet.json')))
+rescue JSON::ParserError => e
+  $stderr.puts "sheet.json compiled with error:"
+  $stderr.puts e.inspect
+  exit 1
+end
