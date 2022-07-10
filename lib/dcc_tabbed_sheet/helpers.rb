@@ -39,6 +39,10 @@ module DccTabbedSheet
       tag.span "❗", class: "sheet-new-feature sheet-new-tag", title: title
     end
 
+    def feature_lankhmar?
+      true
+    end
+
     def level0multi_namespace
       # All attribute names and references in the level0 repeating section will be prefixed with this value
       "level0multi_"
