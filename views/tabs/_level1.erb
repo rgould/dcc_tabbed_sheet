@@ -8,6 +8,10 @@
   <span class="sheet-subtab sheet-tab1">Core Stats</span>
   <input type="radio" name="attr_tab" class="sheet-subtab sheet-tab2" value="2">
   <span class="sheet-subtab sheet-tab2">Background</span>
+  <% if feature_lankhmar? %>
+    <input type="radio" name="attr_tab" class="sheet-subtab sheet-tab-lankhmar" value="lankhmar">
+    <span class="sheet-subtab sheet-tab-lankhmar">Lankhmar</span>
+  <% end %>
   <input type="radio" name="attr_tab" class="sheet-subtab sheet-tab3" value="3">
   <span class="sheet-subtab sheet-tab3">Class</span>
   <input type="radio" name="attr_tab" class="sheet-subtab sheet-tab4" value="4">
@@ -25,6 +29,9 @@
 
   <%= render partial: "sections/core_stats", indent: 2 %>
   <%= render partial: "sections/background_information", indent: 2 %>
+  <% if feature_lankhmar? %>
+    <%= render partial: "sections/lankhmar" %>
+  <% end %>
   <%= render partial: "sections/classes", indent: 2 %>
   <%= render partial: "sections/weapons", indent: 2 %>
   <%= render partial: "sections/spellbook", indent: 2 %>
