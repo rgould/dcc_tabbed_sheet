@@ -102,34 +102,40 @@ on("<%= abilities_attribute_names.flat_map{|ability| ["change:#{ability}", "chan
   });
 });
 
+calculateAbilityScore = function calculateAbilityScore(value) {
+  var mod;
+  if (value >= 24) {
+    mod = 6;
+  } else if (value >= 22 && value <= 23) {
+    mod = 5;
+  } else if (value >= 20 && value <= 21) {
+    mod = 4;
+  } else if (value >= 18 && value <= 19) {
+    mod = 3;
+  } else if (value >= 16 && value <= 17) {
+    mod = 2;
+  } else if (value >= 13 && value <= 15) {
+    mod = 1;
+  } else if (value >= 6 && value <= 8) {
+    mod = -1;
+  } else if (value >= 4 && value <= 5) {
+    mod = -2;
+  } else if (value <= 3) {
+    mod = -3;
+  } else {
+    mod = 0
+  }
+  return mod;
+};
+
 calculateMod = function(attributes) {
+  // TODO optimise this to make one call to getAttrs/setAttrs
   attributes.map(function(attr) {
     getAttrs([attr], function(v) {
       var attrModName = attr + 'Mod';
-      var updatedVal  = {};
-
-      if (v[attr] >= 24) {
-        updatedVal[attrModName] = 6;
-      } else if (v[attr] >= 22 && v[attr] <= 23) {
-        updatedVal[attrModName] = 5;
-      } else if (v[attr] >= 20 && v[attr] <= 21) {
-        updatedVal[attrModName] = 4;
-      } else if (v[attr] >= 18 && v[attr] <= 19) {
-        updatedVal[attrModName] = 3;
-      } else if (v[attr] >= 16 && v[attr] <= 17) {
-        updatedVal[attrModName] = 2;
-      } else if (v[attr] >= 13 && v[attr] <= 15) {
-        updatedVal[attrModName] = 1;
-      } else if (v[attr] >= 6 && v[attr] <= 8) {
-        updatedVal[attrModName] = -1;
-      } else if (v[attr] >= 4 && v[attr] <= 5) {
-        updatedVal[attrModName] = -2;
-      } else if (v[attr] <= 3) {
-        updatedVal[attrModName] = -3;
-      } else {
-        updatedVal[attrModName] = 0
-      }
-
+      var updatedVal  = {
+        [attrModName]: calculateAbilityScore(v[attr])
+      };
       setAttrs(updatedVal);
     });
   });

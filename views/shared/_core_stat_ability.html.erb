@@ -2,7 +2,7 @@
   <div class="sheet-col-5-16 sheet-core-stat-label"><%= full_name %></div>
   <div class="sheet-col-1-8"><input type="number" name="<%= context.attr attr_name %>" min="1" step="1" value="10"></div>
   <div class="sheet-col-1-8"><input type="number" name="<%= context.attr "#{attr_name}Max" %>" min="1" step="1"></div>
-  <div class="sheet-col-1-8"><input class="sheet-center" type="number" name="<%= context.attr "#{attr_name}Mod" %>" readonly="readonly"></div>
+  <div class="sheet-col-1-8"><input class="sheet-center" type="number" name="<%= context.attr "#{attr_name}Mod" %>" readonly="readonly" value="0"></div>
   <div class="sheet-col-1-16 sheet-checkbox-row" title="Check for more options">
     <input type="checkbox" value="@{<%= context.attr_ref "#{attr_name}ShowAdvanced" %>}" name="<%= context.attr "#{attr_name}ShowAdvanced" %>" class="sheet-<%= attr_name %>-advanced">
   </div>
