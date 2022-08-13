@@ -67,6 +67,7 @@ DEPENDENCIES
   actionview!
   dcc_tabbed_sheet!
   rake (~> 12.0)
+  zeitwerk
 
 BUNDLED WITH
    2.1.4

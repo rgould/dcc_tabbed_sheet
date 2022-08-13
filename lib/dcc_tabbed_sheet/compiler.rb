@@ -4,8 +4,6 @@ require 'action_view'
 require 'action_pack'
 require 'action_controller'
 
-Dir[File.join(__dir__, '..', '..', 'lib', '**', '*.rb')].each { |file| require file }
-
 SRC_DIR = "views"
 SRC_FILES = Dir[File.join(__dir__, '..', '..', SRC_DIR, '[^_]*.erb')]
 BUILD_DIR = "build"
