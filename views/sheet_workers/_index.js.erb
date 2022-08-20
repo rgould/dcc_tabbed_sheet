@@ -102,6 +102,14 @@ on("<%= abilities_attribute_names.flat_map{|ability| ["change:#{ability}", "chan
   });
 });
 
+/**
+ * Sets weapon backstab damage if it hasn't been set yet, after damage is changed
+ *
+ * Level0 weapons don't have backstab button so we don't need to worry about those
+ */
+<%= autoupdate_attribute(source: "meleedmg", dest: "meleebackstabdmg", repeating_section: "meleeweapon") %>
+<%= autoupdate_attribute(source: "rangeddmg", dest: "rangedbackstabdmg", repeating_section: "rangedweapon") %>
+
 calculateAbilityScore = function calculateAbilityScore(value) {
   var mod;
   if (value >= 24) {

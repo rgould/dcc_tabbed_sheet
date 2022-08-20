@@ -60,6 +60,27 @@ module DccTabbedSheet
       %w(str agi sta per int luck luckstarting)
     end
 
+    def autoupdate_attribute(source:, dest:, repeating_section: nil)
+      event_selector = if repeating_section.present?
+                         "change:repeating_#{repeating_section}:#{source}"
+                       else
+                         "change:#{source}"
+                       end
+      <<~JS.html_safe
+        on("#{event_selector}", function(e) {
+          var attr = e.sourceAttribute;
+          var targetAttr = attr.replace("#{source}", "#{dest}");
+          getAttrs([targetAttr], function(values) {
+            if (!values[targetAttr]) {
+              setAttrs({
+                [targetAttr]: e.newValue
+              });
+            }
+          });
+        });
+      JS
+    end
+
     # only includes attributes that have differing names
     def map_other_sheet_to_this_sheet
       {
