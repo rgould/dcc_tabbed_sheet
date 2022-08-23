@@ -40,7 +40,7 @@ module DccTabbedSheet
     end
 
     def feature_lankhmar?
-      true
+      false
     end
 
     def level0multi_namespace
