@@ -128,44 +128,34 @@
 
   <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
 
-  <div class="sheet-row">
-    <div class="sheet-col-1-2 sheet-padr">
-      <h4 class="sheet-center">Caster Type</h4>
-      <div class="sheet-col-1-2 sheet-centerselect" title="Pick the class that is using the spell for correct bonus">
-        <select name="attr_spellUserBonus">
-          <option value="0">Choose Spellcasting Class...</option>
-          <option value="(@{elfSpellBonus} + @{Level})">Elf Fighter/Mage</option>
-          <option value="(@{wizardSpellBonus} + @{Level})">Wizard</option>
-          <option value="(@{bardSpellBonus} + @{Level})">Bard</option>
-          <option value="(@{gnomeSpellBonus} + @{TrickDie})">Gnome</option>
-          <option value="(@{elfRogueSpellBonus} + @{Level})">Elf Rogue</option>
-          <option value="(@{clericSpellBonus} + @{Level})">Cleric</option>
-          <option value="(@{paladinSpellBonus} + @{Level})">Paladin</option>
-          <option value="(@{dwarfPriestSpellBonus} + @{Level})">Dwarf Priest</option>
-        </select>
-      </div>
-    </div>
+  <div class="sheet-spellbook-grid">
+    <h4 class="sheet-center sheet-spellbook-caster-type-header">Caster Type</h4>
+    <select name="attr_spellUserBonus" class="sheet-spellbook-caster-type" title="Pick the class that is using the spell for correct bonus">
+      <option value="0">Choose Spellcasting Class...</option>
+      <option value="(@{elfSpellBonus} + @{Level})">Elf Fighter/Mage</option>
+      <option value="(@{wizardSpellBonus} + @{Level})">Wizard</option>
+      <option value="(@{bardSpellBonus} + @{Level})">Bard</option>
+      <option value="(@{gnomeSpellBonus} + @{TrickDie})">Gnome</option>
+      <option value="(@{elfRogueSpellBonus} + @{Level})">Elf Rogue</option>
+      <option value="(@{clericSpellBonus} + @{Level})">Cleric</option>
+      <option value="(@{paladinSpellBonus} + @{Level})">Paladin</option>
+      <option value="(@{dwarfPriestSpellBonus} + @{Level})">Dwarf Priest</option>
+    </select>
 
-    <div class="sheet-col-1-2 sheet-padr">
-      <h4 class="sheet-center">Manifestation</h4>
-      <div class="sheet-row">
-        <div class="sheet-col-1-16 sheet-offset-1-10 sheet-center">&nbsp;</div>
-        <div class="sheet-col-1-6 sheet-large-label sheet-center" title="Pick the Manifestation Die listed in the Spell Information">
-          <select name="attr_manifestDie">
-            <option value="1d3">1d3</option>
-            <option value="1d4">1d4</option>
-            <option value="1d5">1d5</option>
-            <option value="1d6">1d6</option>
-            <option value="1d8">1d8</option>
-            <option value="1d10">1d10</option>
-          </select>
-        </div>
-        <div class="sheet-col-1-2 sheet-vert-middle sheet-center">
-          <button type="roll" class="sheet-roll" name="roll_Manifest"
-          value="&{template:DccTabbed} {{background=[[-1]]}} {{spell=1}} {{name=@{character_name}}} {{title=Spell Manifestation}} {{flavortext=Enter your manifestation text into the approrpiate box on your spellcard.}} {{rolltype=Manifests as : }} {{spellmanifest=[[ @{manifestDie} [Die Roll] ]]  }}">Roll for Manifestation</button>
-        </div>
-      </div>
-    </div>
+    <h4 class="sheet-center sheet-spellbook-manifestation-header">Manifestation</h4>
+    <select name="attr_manifestDie" class="sheet-spellbook-manifestation-die" title="Pick the Manifestation Die listed in the Spell Information">
+      <option value="1d3">1d3</option>
+      <option value="1d4">1d4</option>
+      <option value="1d5">1d5</option>
+      <option value="1d6">1d6</option>
+      <option value="1d8">1d8</option>
+      <option value="1d10">1d10</option>
+    </select>
+    <button type="roll"
+            class="sheet-roll sheet-spellbook-manifestation-roll sheet-vert-middle"
+            name="roll_Manifest"
+            value="&{template:DccTabbed} {{background=[[-1]]}} {{spell=1}} {{name=@{character_name}}} {{title=Spell Manifestation}} {{flavortext=Enter your manifestation text into the approrpiate box on your spellcard.}} {{rolltype=Manifests as : }} {{spellmanifest=[[ @{manifestDie} [Die Roll] ]]  }}">Roll for Manifestation
+    </button>
   </div>
 
   <h4 class="sheet-center">Spell Type</h4>

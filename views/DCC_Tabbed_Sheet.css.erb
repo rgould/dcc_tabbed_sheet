@@ -2178,6 +2178,37 @@ div[data-groupname^="repeating_mutations"] .repitem,
     line-height: 16px;
 }
 
+.sheet-spellbook-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "headerl headerl headerl headerl headerr headerr headerr headerr"
+    "....    ctype   ctype   ....    ....    mandie  manroll ....";
+}
+
+.sheet-spellbook-caster-type-header {
+  grid-area: headerl;
+}
+select.sheet-spellbook-caster-type {
+  grid-area: ctype;
+}
+
+.sheet-spellbook-manifestation-header {
+  grid-area: headerr;
+}
+select.sheet-spellbook-manifestation-die {
+  grid-area: mandie;
+}
+.sheet-spellbook-manifestation-roll {
+  grid-area: manroll;
+}
+
+.sheet-lankhmarpatrons {
+  display: grid;
+  grid-template-columns: 1fr 80px 188px 1fr;
+}
+
 /* Custom Pure Grid CSS (24 cols) DO NOT EDIT BELOW THIS LINE OR RISK BREAKING FORMATTING */
 .sheet-row,
 .sheet-rolltemplate-DccTabbed .sheet-row {
