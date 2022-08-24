@@ -142,6 +142,16 @@
       <option value="(@{dwarfPriestSpellBonus} + @{Level})">Dwarf Priest</option>
     </select>
 
+    <h4 class="sheet-center sheet-spellbook-spell-check-header">Spell Check</h4>
+    <%= die_selector(attr_name: "attr_generic_spell_check_die", classes: "sheet-spellbook-spell-check-die") %>
+    <button type="roll"
+            class="sheet-roll sheet-spellbook-spell-check-roll sheet-vert-middle"
+            name="roll_genericSpellCheck"
+            title="Make a spell check without casting a specific spell"
+            value="&{template:DccTabbed} {{background=[[1d3]]}} {{spell=1}} {{showfailure=[[1]]} {{name=@{character_name}}} {{title=Generic Spell Check}} {{rolltype=Spell Check : }} {{spellcheckwizard=[[@{generic_spell_check_die} + [[@{spellUserBonus}]] [Level/Stat Bonus] + [[@{spellCastLuckyRoll}]] [Casting Lucky Roll] + (?{Bonus / Spellburn|0}) [Bonus / Spellburn] + ([[@{armorCheck}]]) [Armor Check Penalty] ]] }} {{crit= Add an additional +@{Level} to your spell check roll!}}">
+            Spell Check
+    </button>
+
     <h4 class="sheet-center sheet-spellbook-manifestation-header">Manifestation</h4>
     <select name="attr_manifestDie" class="sheet-spellbook-manifestation-die" title="Pick the Manifestation Die listed in the Spell Information">
       <option value="1d3">1d3</option>

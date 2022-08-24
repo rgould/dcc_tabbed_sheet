@@ -1147,23 +1147,25 @@
                     </div>
                 {{/rollWasCrit() spellcheckwizard}}
 
-      {{#rollWasFumble() spellcheckwizard}}
-                    <div class="sheet-row">
-                        <div class="sheet-col-1-1">&nbsp;</div>
-                        <div class="sheet-col-23-24 sheet-padl sheet-padr sheet-RollTemp-fail">Lost, failure and worse!</div>
-                        <div class="sheet-col-1-1">&nbsp;</div>
-                        <div class="sheet-col-23-24 sheet-padl sheet-RollTemp-critfail">{{fumble}} for Misfire, Taint or Corruption</div>
-                    </div>
-                {{/rollWasFumble() spellcheckwizard}}
+      {{#^showfailure}}
+        {{#rollWasFumble() spellcheckwizard}}
+          <div class="sheet-row">
+            <div class="sheet-col-1-1">&nbsp;</div>
+            <div class="sheet-col-23-24 sheet-padl sheet-padr sheet-RollTemp-fail">Lost, failure and worse!</div>
+            <div class="sheet-col-1-1">&nbsp;</div>
+            <div class="sheet-col-23-24 sheet-padl sheet-RollTemp-critfail">{{fumble}} for Misfire, Taint or Corruption</div>
+          </div>
+        {{/rollWasFumble() spellcheckwizard}}
 
-                {{#^rollWasFumble() spellcheckwizard}}
-                  {{#rollLess() spellcheckwizard 12}}
-                      <div class="sheet-row">
-                          <div class="sheet-col-1-1">&nbsp;</div>
-                          <div class="sheet-col-23-24 sheet-padl sheet-padr sheet-RollTemp-fail">Lost.  Failure.</div>
-                      </div>
-                  {{/rollLess() spellcheckwizard 12}}
-                {{/^rollWasFumble() spellcheckwizard}}
+        {{#^rollWasFumble() spellcheckwizard}}
+          {{#rollLess() spellcheckwizard 12}}
+            <div class="sheet-row">
+              <div class="sheet-col-1-1">&nbsp;</div>
+              <div class="sheet-col-23-24 sheet-padl sheet-padr sheet-RollTemp-fail">Lost.  Failure.</div>
+            </div>
+          {{/rollLess() spellcheckwizard 12}}
+        {{/^rollWasFumble() spellcheckwizard}}
+      {{/^showfailure}}
     {{/spellcheckwizard}}
 
     {{#spellcheckwizardmulti}}

@@ -2180,28 +2180,38 @@ div[data-groupname^="repeating_mutations"] .repitem,
 
 .sheet-spellbook-grid {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(15, 1fr);
   grid-template-rows: auto auto;
   grid-template-areas:
-    "headerl headerl headerl headerl headerr headerr headerr headerr"
-    "....    ctype   ctype   ....    ....    mandie  manroll ....";
+    "hl hl hl hl hl hc hc hc hc hc hr hr hr hr hr"
+    ".. ct ct ct .. .. sd sc sc .. .. md mr mr mr";
 }
 
 .sheet-spellbook-caster-type-header {
-  grid-area: headerl;
+  grid-area: hl;
 }
 select.sheet-spellbook-caster-type {
-  grid-area: ctype;
+  grid-area: ct;
+}
+
+.sheet-spellbook-spell-check-header {
+  grid-area: hc;
+}
+.sheet-spellbook-spell-check-die {
+  grid-area: sd;
+}
+.sheet-spellbook-spell-check-roll {
+  grid-area: sc;
 }
 
 .sheet-spellbook-manifestation-header {
-  grid-area: headerr;
+  grid-area: hr;
 }
 select.sheet-spellbook-manifestation-die {
-  grid-area: mandie;
+  grid-area: md;
 }
 .sheet-spellbook-manifestation-roll {
-  grid-area: manroll;
+  grid-area: mr;
 }
 
 .sheet-lankhmarpatrons {
