@@ -39,6 +39,10 @@ module DccTabbedSheet
       tag.span "❗", class: "sheet-new-feature sheet-new-tag", title: title
     end
 
+    def die_selector(attr_name:, classes: "", default: 20, dice: DccData::DiceChain::DCC_DICE_CHAIN)
+      select_tag(attr_name, options_for_select(dice.map{|d| "d#{d}"}, "d#{default}"), id: nil, class: classes)
+    end
+
     def feature_lankhmar?
       false
     end
