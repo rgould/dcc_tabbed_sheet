@@ -1,0 +1,7 @@
+- [  lower,  upper,  check_result,  rejuvenation_result]
+- [  null,   1,      "+6",          Maximum hp gain +5; no Luck cost to regain health]
+- [  2,      3,      "+5",          Roll hit die twice; take best result and +5 hp]
+- [  4,      5,      "+4",          Roll hit die twice; take best result and +4 hp]
+- [  6,      7,      "+3",          +3 hp to HD result]
+- [  8,      9,      "+2",          +2 hp to HD result]
+- [  10,     null,   "+1",          +1 hp to HD result]

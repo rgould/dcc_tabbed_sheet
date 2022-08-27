@@ -85,6 +85,17 @@ module DccTabbedSheet
       JS
     end
 
+    def comparison_function(key, lower, upper)
+      raise "invalid" unless upper || lower
+      if upper && lower
+        "rollBetween() #{key} #{lower} #{upper}"
+      elsif upper
+        "rollLess() #{key} #{upper+1}"
+      else
+        "rollGreater() #{key} #{lower-1}"
+      end
+    end
+
     # only includes attributes that have differing names
     def map_other_sheet_to_this_sheet
       {

@@ -6,51 +6,69 @@
     </div>
   </div>
 
-  <div class="sheet-row">
-    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">
+  <div class="sheet-lankhmar-grid">
+    <div class="sheet-right sheet-padr sheet-hd-row">
       Place of Origin
     </div>
-    <div class="sheet-col-1-4 sheet-right">
+    <div class="sheet-right">
       <input class="sheet-center" type="text" name="attr_lankhmar_place_of_origin" placeholder="Place of Origin">
     </div>
-  </div>
-
-  <div class="sheet-row">
-    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">
+    <div class="sheet-right sheet-padr sheet-hd-row">
       Neighbourhood / Quarter
     </div>
-    <div class="sheet-col-1-4 sheet-right">
+    <div class="sheet-right">
       <input class="sheet-center" type="text" name="attr_neighbourhood" placeholder="Neighbourhood">
     </div>
-  </div>
-
-  <div class="sheet-row">
-    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">
+    <div class="sheet-right sheet-padr sheet-hd-row">
       Hangout
     </div>
-    <div class="sheet-col-1-4 sheet-right">
+    <div class="sheet-right">
       <input class="sheet-center" type="text" name="attr_hangout" placeholder="Hangout">
     </div>
-  </div>
-
-  <div class="sheet-row">
-    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">
+    <div class="sheet-right sheet-padr sheet-hd-row">
       Path
     </div>
-    <div class="sheet-col-1-4 sheet-right">
+    <div class="sheet-right">
       <input class="sheet-center" type="text" name="attr_path" placeholder="Thief/Spell Path">
     </div>
   </div>
 
   <div class="sheet-row">
-    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">
-      Patron Die
-    </div>
-    <div class="sheet-col-1-4 sheet-right">
-      <button class="sheet-center" type="action" name="act_lankhmar-patron-die">
-        Patron Die
-      </button>
+    <div class="sheet-col-1">
+      <h4 class="sheet-center">Patrons</h4>
     </div>
   </div>
 
+  <div class="sheet-sub-header sheet-lankhmarpatrons">
+    <div class="sheet-center"><span class="sheet-small-label">Name</span></div>
+    <div class="sheet-center"><span class="sheet-small-label">Patron Die</span></div>
+    <div>&nbsp;</div>
+    <div class="sheet-center"><span class="sheet-small-label">Influences / Notes</span></div>
+  </div>
+
+  <fieldset class="repeating_lankhmarpatrons">
+    <div class="sheet-lankhmarpatrons">
+      <input type="text" name="attr_patron_name">
+      <div class="sheet-patron_die">
+        <%= die_selector(attr_name: "attr_patron_die", default: 10) %>
+      </div>
+      <div>
+        <button class="sheet-center sheet-roll"
+                type="roll"
+                title="Use for attack rolls, skill checks, saving throws, or spell checks"
+                name="roll_lankhmar_patron_die"
+                value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Patron Die}} {{rolltype=Patron Die: }} {{patrondie=[[ @{patron_die}cs1 ]]}} {{flavortext=@{character_name} requests the aid of @{patron_name}!}} {{patrondie_action=true}}">
+          Check
+        </button>
+        <button class="sheet-center sheet-roll"
+                type="roll"
+                title="Use for healing or recuperation rolls"
+                name="roll_lankhmar_rejuvenation"
+                value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Patron Die}} {{rolltype=Patron Die: }} {{patrondie=[[ @{patron_die}cs1 ]]}} {{flavortext=@{character_name} requests the aid of @{patron_name}!}} {{patrondie_rejuvenation=true}} {{patron_comparison_die=[[d20cs0cf0]]}} {{patron_name=@{patron_name}}}">
+          Rejuvenation
+        </button>
+      </div>
+      <input type="text" name="attr_patron_influences">
+    </div>
+  </fieldset>
 </div>

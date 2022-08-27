@@ -1032,6 +1032,67 @@
                 </div>
             {{/luckdie}}
 
+        <% if feature_lankhmar? %>
+          <!-- Patron Die -->
+          {{#patrondie}}
+            <div class="sheet-row">
+              <div class="sheet-col-23-24 sheet-padl sheet-padr sheet-RollTemp-info">{{flavortext}}</div>
+              <div class="sheet-col-1-1">&nbsp;</div>
+              <div class="sheet-col-6-13 sheet-padl sheet-padr sheet-RollTemp-rollname">{{rolltype}}</div>
+              <div class="sheet-col-7-13 sheet-padr sheet-RollTemp-rollresult">{{patrondie}}</div>
+              {{#patron_comparison_die}}
+                <div class="sheet-col-6-13 sheet-padl sheet-padr sheet-RollTemp-rollname">compare to:</div>
+                <div class="sheet-col-7-13 sheet-padr sheet-RollTemp-rollresult">{{patron_comparison_die}}</div>
+                <div class="sheet-col-1-1">&nbsp;</div>
+                {{#rollGreater() patrondie patron_comparison_die}}
+                  <div class="sheet-row sheet-RollTemp-fail">
+                    <div class="sheet-col-1">
+                      {{patron_name}} refuses to assist!
+                    </div>
+                  </div>
+                {{/rollGreater() patrondie patron_comparison_die}}
+                {{#^rollGreater() patrondie patron_comparison_die}}
+                  <div class="sheet-row sheet-RollTemp-success">
+                    <div class="sheet-col-1">
+                      {{patron_name}} assists!
+                    </div>
+                  </div>
+                  <div class="sheet-row sheet-RollTemp-fail">
+                    <div class="sheet-col-1">
+                      Increase all patron dice by +1d
+                    </div>
+                  </div>
+                {{/^rollGreater() patrondie patron_comparison_die}}
+              {{/patron_comparison_die}}
+              <div class="sheet-col-1-1">&nbsp;</div>
+              <% DccData::Lankhmar::PatronDie.new.entries.each do |entry| %>
+                {{#<%= comparison_function(:patrondie, entry.lower, entry.upper) %>}}
+                  {{#patrondie_action}}
+                    <div class="sheet-row sheet-RollTemp-textresult" title="Applies to an attack, spell check, saving throw, or skill/ability check">
+                      <div class="sheet-col-6-13 sheet-padl sheet-padr">Action die: </div>
+                      <div class="sheet-col-7-13 sheet-padr"><%= entry.check_result %></div>
+                    </div>
+                  {{/patrondie_action}}
+                  {{#patrondie_rejuvenation}}
+                    {{#^rollGreater() patrondie patron_comparison_die}}
+                      <div class="sheet-row sheet-RollTemp-success" title="Applies to healing and recuperation">
+                        <div class="sheet-col-1"><%= entry.rejuvenation_result %></div>
+                      </div>
+                    {{/^rollGreater() patrondie patron_comparison_die}}
+                  {{/patrondie_rejuvenation}}
+                {{/<%= comparison_function(:patrondie, entry.lower, entry.upper) %>}}
+              <% end %>
+              {{#patrondie_action}}
+                <div class="sheet-col-1-1">&nbsp;</div>
+                <div class="sheet-col-1 sheet-RollTemp-info">
+                  Now make the check (attack roll, spell check, skill check, saving throw, etc.).<br/>
+                  If the patron die is greater than the unmodified check roll, the patron refuses to assist. If aid is received, all patron dice increase by +1d.
+                </div>
+              {{/patrondie_action}}
+            </div>
+          {{/patrondie}}
+        <% end %>
+
         <!-- Survival Die -->
             {{#survivaldie}}
                 <div class="sheet-row">
