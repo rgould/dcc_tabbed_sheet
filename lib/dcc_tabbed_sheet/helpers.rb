@@ -43,6 +43,41 @@ module DccTabbedSheet
       select_tag(attr_name, options_for_select(dice.map{|d| "d#{d}"}, "d#{default}"), id: nil, class: classes)
     end
 
+    def option_toggle(option_name, title: "")
+      unless DccTabbedSheet::SheetOptions::OPTIONS.include?(option_name.to_sym)
+        raise "Option #{option_name} missing from DccTabbedSheet::SheetOptions::OPTIONS"
+      end
+      check_box_tag("attr_options_#{option_name}", "1", false, { title: title })
+    end
+
+    def hidden_option(option_name, classes:"", &block)
+      unless DccTabbedSheet::SheetOptions::OPTIONS.include?(option_name.to_sym)
+        raise "Option #{option_name} missing from DccTabbedSheet::SheetOptions::OPTIONS"
+      end
+      if block_given?
+        subcontent = capture(&block).html_safe
+        [
+          hidden_field_tag("attr_options_#{option_name}"),
+          tag.div(subcontent, class: [classes, option_class_name(option_name)].join(" "))
+        ].join("\n")
+      else
+        hidden_field_tag("attr_options_#{option_name}")
+      end.html_safe
+    end
+
+    def option_class_name(option_name, inline: false)
+      unless DccTabbedSheet::SheetOptions::OPTIONS.include?(option_name.to_sym)
+        raise "Option #{option_name} missing from DccTabbedSheet::SheetOptions::OPTIONS"
+      end
+      _class = "sheet-option-#{option_name}"
+      if inline
+        suffix = inline ? "-inline" : ""
+        "#{_class} #{_class}#{suffix}"
+      else
+        _class
+      end
+    end
+
     def feature_lankhmar?
       false
     end

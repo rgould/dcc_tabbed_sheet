@@ -2178,6 +2178,29 @@ div[data-groupname^="repeating_mutations"] .repitem,
     line-height: 16px;
 }
 
+<% DccTabbedSheet::SheetOptions::OPTIONS.each do |option| %>
+  .sheet-option-<%= option %> {
+    display: none;
+  }
+
+  input[name="attr_options_<%= option %>"][type="hidden"][value="1"] ~ .sheet-option-<%= option %> {
+    display: block;
+  }
+  input[name="attr_options_<%= option %>"][type="hidden"][value="1"] ~ .sheet-option-<%= option %>-inline {
+    display: inline-block;
+  }
+<% end %>
+
+.sheet-options-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto;
+}
+
+.sheet-options-grid > :is(h5, .sheet-sub-header) {
+  grid-column: 1 / -1;
+}
+
 .sheet-cleric-grid {
   display: grid;
   column-gap: 10px;
