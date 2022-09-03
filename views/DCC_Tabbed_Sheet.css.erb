@@ -511,16 +511,16 @@ label div
 	overflow: hidden;
 }
 
-.charsheet input.sheet-tab1:checked ~ div.sheet-section-core,
-.charsheet input.sheet-tab2:checked ~ div.sheet-section-background,
+.charsheet input[name="attr_tab"][value="1"] ~ div.sheet-section-core,
+.charsheet input[name="attr_tab"][value="2"] ~ div.sheet-section-background,
 <% if feature_lankhmar? %>
-  .charsheet input.sheet-tab-lankhmar:checked ~ div.sheet-section-lankhmar,
+  .charsheet input[name="attr_tab"][value="lankhmar"]~ div.sheet-section-lankhmar,
 <% end %>
-.charsheet input.sheet-tab3:checked ~ div.sheet-section-class,
-.charsheet input.sheet-tab4:checked ~ div.sheet-section-weapons,
-.charsheet input.sheet-tab5:checked ~ div.sheet-section-spellbook,
-.charsheet input.sheet-tab6:checked ~ div.sheet-section-armor,
-.charsheet input.sheet-tab7:checked ~ div.sheet-section-inventory {
+.charsheet input[name="attr_tab"][value="3"] ~ div.sheet-section-class,
+.charsheet input[name="attr_tab"][value="4"] ~ div.sheet-section-weapons,
+.charsheet input[name="attr_tab"][value="5"] ~ div.sheet-section-spellbook,
+.charsheet input[name="attr_tab"][value="6"] ~ div.sheet-section-armor,
+.charsheet input[name="attr_tab"][value="7"] ~ div.sheet-section-inventory {
 	max-height: 999999px;
 	visibility: visible;
 	opacity: 1;
@@ -528,11 +528,38 @@ label div
 	overflow: auto;
 }
 
-.charsheet input.sheet-tab99:checked ~ div[class^="sheet-section"] {
+.charsheet input[name="attr_tab"][value="99"] ~ div[class^="sheet-section"] {
 	max-height: 999999px;
 	visibility: visible;
 	opacity: 1;
 	transition: opacity 0.5s linear 0s;
+}
+
+.sheet-subtab-bar > button {
+  width: 87px;
+  height: 20px;
+	font-size: 13px;
+	background: #4a6486;
+	color: white;
+	font-weight: bold;
+	border-radius: 4px;
+  border-width: 0px;
+  border-style: none;
+  padding: 0px;
+}
+
+.sheet-subtab-bar > input[name="attr_tab"][value="1"] ~ button[name="act_tab1"],
+.sheet-subtab-bar > input[name="attr_tab"][value="2"] ~ button[name="act_tab2"],
+.sheet-subtab-bar > input[name="attr_tab"][value="3"] ~ button[name="act_tab3"],
+.sheet-subtab-bar > input[name="attr_tab"][value="4"] ~ button[name="act_tab4"],
+.sheet-subtab-bar > input[name="attr_tab"][value="5"] ~ button[name="act_tab5"],
+.sheet-subtab-bar > input[name="attr_tab"][value="6"] ~ button[name="act_tab6"],
+.sheet-subtab-bar > input[name="attr_tab"][value="7"] ~ button[name="act_tab7"],
+.sheet-subtab-bar > input[name="attr_tab"][value="99"] ~ button[name="act_tab99"],
+.sheet-subtab-bar > input[name="attr_tab"][value="lankhmar"] ~ button[name="act_tablankhmar"]
+{
+  background: #ab8b57;
+  color: white;
 }
 
 .charsheet input.sheet-subtab {

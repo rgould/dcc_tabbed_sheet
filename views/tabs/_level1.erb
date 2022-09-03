@@ -4,26 +4,23 @@
 
   <p class="sheet-small-note">The main player character sheet.</p>
 
-  <input type="radio" name="attr_tab" class="sheet-subtab sheet-tab1" value="1" title="Core Stats" checked="checked">
-  <span class="sheet-subtab sheet-tab1">Core Stats</span>
-  <input type="radio" name="attr_tab" class="sheet-subtab sheet-tab2" value="2">
-  <span class="sheet-subtab sheet-tab2">Background</span>
-  <% if feature_lankhmar? %>
-    <input type="radio" name="attr_tab" class="sheet-subtab sheet-tab-lankhmar" value="lankhmar">
-    <span class="sheet-subtab sheet-tab-lankhmar">Lankhmar</span>
-  <% end %>
-  <input type="radio" name="attr_tab" class="sheet-subtab sheet-tab3" value="3">
-  <span class="sheet-subtab sheet-tab3">Class</span>
-  <input type="radio" name="attr_tab" class="sheet-subtab sheet-tab4" value="4">
-  <span class="sheet-subtab sheet-tab4">Weapons</span>
-  <input type="radio" name="attr_tab" class="sheet-subtab sheet-tab5" value="5">
-  <span class="sheet-subtab sheet-tab5">Spellbook</span>
-  <input type="radio" name="attr_tab" class="sheet-subtab sheet-tab6" value="6">
-  <span class="sheet-subtab sheet-tab6">Armor</span>
-  <input type="radio" name="attr_tab" class="sheet-subtab sheet-tab7" value="7">
-  <span class="sheet-subtab sheet-tab7">Inventory</span>
-  <input type="radio" name="attr_tab" class="sheet-subtab sheet-tab99" value="99">
-  <span class="sheet-subtab sheet-tab99">Show All</span>
+  <input type="hidden" name="attr_tab" class="sheet-subtab" value="1"/>
+  <div class="sheet-subtab-bar">
+    <input type="hidden" name="attr_tab" class="sheet-subtab" value="1"/>
+    <button type="action" name="act_tab1">Core Stats</button>
+    <button type="action" name="act_tab2">Background</button>
+    <% if feature_lankhmar? %>
+      <% # TODO once lankhmar feature flag is on, DIY up the subtab logic (here, workers, CSS) %>
+      <%= hidden_option("lankhmar") %>
+      <button type="action" name="act_tablankhmar" class="<%= option_class_name "lankhmar", inline: true %>">Lankhmar</button>
+    <% end %>
+    <button type="action" name="act_tab3">Class</button>
+    <button type="action" name="act_tab4">Weapons</button>
+    <button type="action" name="act_tab5">Spellbook</button>
+    <button type="action" name="act_tab6">Armor</button>
+    <button type="action" name="act_tab7">Inventory</button>
+    <button type="action" name="act_tab99">Show All</button>
+  </div>
 
   <span class="sheet-spacer"></span>
 

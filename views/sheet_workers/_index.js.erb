@@ -211,6 +211,14 @@ on("sheet:opened change:repeating_armor:armorcheck change:repeating_armor:armora
     .execute();
 });
 
+<% %w[1 2 3 4 5 6 7 99 lankhmar].each do |index| %>
+  on("clicked:tab<%= index %>", function() {
+    setAttrs({
+      tab: "<%= index %>"
+    });
+  });
+<% end %>
+
 <%= render "sheet_workers/ranged_weapon_modifiers", formats: [:js] %>
 <%= render "sheet_workers/import_from_other_sheet", formats: [:js] %>
 <%= render "sheet_workers/semver_compare", formats: [:js] %>
