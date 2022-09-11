@@ -2213,6 +2213,9 @@ div[data-groupname^="repeating_mutations"] .repitem,
   input[name="attr_options_<%= option %>"][type="hidden"][value="1"] ~ .sheet-option-<%= option %> {
     display: block;
   }
+  input[name="attr_options_<%= option %>"][type="hidden"][value="1"] ~ .sheet-option-<%= option %>-hide {
+    display: none;
+  }
   input[name="attr_options_<%= option %>"][type="hidden"][value="1"] ~ .sheet-option-<%= option %>-inline {
     display: inline-block;
   }

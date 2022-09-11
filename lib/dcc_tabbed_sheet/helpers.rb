@@ -44,16 +44,18 @@ module DccTabbedSheet
     end
 
     def option_toggle(option_name, title: "")
-      unless DccTabbedSheet::SheetOptions::OPTIONS.include?(option_name.to_sym)
-        raise "Option #{option_name} missing from DccTabbedSheet::SheetOptions::OPTIONS"
-      end
+      validate_option_name(option_name)
       check_box_tag("attr_options_#{option_name}", "1", false, { title: title })
     end
 
-    def hidden_option(option_name, classes:"", &block)
+    def validate_option_name(option_name)
       unless DccTabbedSheet::SheetOptions::OPTIONS.include?(option_name.to_sym)
         raise "Option #{option_name} missing from DccTabbedSheet::SheetOptions::OPTIONS"
       end
+    end
+
+    def shown_when_option_set(option_name, classes:"", &block)
+      validate_option_name(option_name)
       if block_given?
         subcontent = capture(&block).html_safe
         [
@@ -65,10 +67,17 @@ module DccTabbedSheet
       end.html_safe
     end
 
+    def hidden_when_option_set(option_name, &block)
+      validate_option_name(option_name)
+      subcontent = capture(&block).html_safe
+      [
+        hidden_field_tag("attr_options_#{option_name}"),
+        tag.div(subcontent, class: "#{option_class_name(option_name)}-hide")
+      ].join("\n").html_safe
+    end
+
     def option_class_name(option_name, inline: false)
-      unless DccTabbedSheet::SheetOptions::OPTIONS.include?(option_name.to_sym)
-        raise "Option #{option_name} missing from DccTabbedSheet::SheetOptions::OPTIONS"
-      end
+      validate_option_name(option_name)
       _class = "sheet-option-#{option_name}"
       if inline
         suffix = inline ? "-inline" : ""

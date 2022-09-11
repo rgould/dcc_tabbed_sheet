@@ -11,7 +11,7 @@
     <button type="action" name="act_tab2">Background</button>
     <% if feature_lankhmar? %>
       <% # TODO once lankhmar feature flag is on, DIY up the subtab logic (here, workers, CSS) %>
-      <%= hidden_option("lankhmar") %>
+      <%= shown_when_option_set("lankhmar") %>
       <button type="action" name="act_tablankhmar" class="<%= option_class_name "lankhmar", inline: true %>">Lankhmar</button>
     <% end %>
     <button type="action" name="act_tab3">Class</button>
