@@ -10,8 +10,12 @@
 
     <input class="sheet-underlined sheet-center sheet-title" type="text" placeholder="Title" name="attr_Title">
     <div class="sheet-small-label sheet-title-label">Title</div>
-    <input class="sheet-underlined sheet-center sheet-alignment" type="text" Placeholder="Alignment" name="attr_Alignment">
-    <div class="sheet-small-label sheet-alignment-label">Alignment</div>
+    <%= hidden_when_option_set(:hide_alignment, classes: "sheet-alignment") do %>
+      <input class="sheet-underlined sheet-center" type="text" Placeholder="Alignment" name="attr_Alignment">
+    <% end %>
+    <%= hidden_when_option_set(:hide_alignment, classes: "sheet-alignment-label") do %>
+      <div class="sheet-small-label">Alignment</div>
+    <% end %>
     <input class="sheet-underlined sheet-center sheet-level" type="text" name="attr_Level" value="0">
     <div class="sheet-small-label sheet-level-label">Level</div>
     <input class="sheet-underlined sheet-center sheet-xp" type="text" name="attr_XP" value="0">

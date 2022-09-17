@@ -67,12 +67,12 @@ module DccTabbedSheet
       end.html_safe
     end
 
-    def hidden_when_option_set(option_name, &block)
+    def hidden_when_option_set(option_name, classes:"", &block)
       validate_option_name(option_name)
       subcontent = capture(&block).html_safe
       [
         hidden_field_tag("attr_options_#{option_name}"),
-        tag.div(subcontent, class: "#{option_class_name(option_name)}-hide")
+        tag.div(subcontent, class: [classes, "#{option_class_name(option_name)}-hide"].join(" "))
       ].join("\n").html_safe
     end
 
