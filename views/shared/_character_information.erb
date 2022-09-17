@@ -1,0 +1,52 @@
+<div class="sheet-col-1-2 sheet-padr">
+  <div class="sheet-character-information-grid">
+
+    <h4 class="sheet-center">Character Information</h4>
+
+    <input class="sheet-underlined sheet-center sheet-classname" type="text" placeholder="Class" name="attr_className">
+    <div class="sheet-small-label sheet-classname-label">Class</div>
+    <input class="sheet-underlined sheet-center sheet-class-occupation" type="text" placeholder="Occupation" name="attr_Occupation">
+    <div class="sheet-small-label sheet-class-occupation-label">Occupation</div>
+
+    <input class="sheet-underlined sheet-center sheet-title" type="text" placeholder="Title" name="attr_Title">
+    <div class="sheet-small-label sheet-title-label">Title</div>
+    <input class="sheet-underlined sheet-center sheet-alignment" type="text" Placeholder="Alignment" name="attr_Alignment">
+    <div class="sheet-small-label sheet-alignment-label">Alignment</div>
+    <input class="sheet-underlined sheet-center sheet-level" type="text" name="attr_Level" value="0">
+    <div class="sheet-small-label sheet-level-label">Level</div>
+    <input class="sheet-underlined sheet-center sheet-xp" type="text" name="attr_XP" value="0">
+    <div class="sheet-small-label sheet-xp-label">XP</div>
+
+    <div class="sheet-ACBG">
+      <input class="sheet-AC sheet-center" type="number" name="attr_AC" value="@{acCalc}" disabled="disabled">
+    </div>
+    <div class="sheet-left sheet-small-label sheet-ac-label">Armor Class</div>
+
+    <div class="sheet-HPBG">
+      <input class="sheet-HP" type="text" name="attr_HP" value="0">
+    </div>
+    <div class="sheet-left sheet-small-label sheet-hp-label">Hit Points</div>
+
+    <input class="sheet-underlined sheet-center sheet-hp-max" type="number" name="attr_HP_max" value="0">
+    <div class="sheet-small-label sheet-hp-max-label">Max HP</div>
+
+    <select name="attr_HPDie" title="Choose your class Hit Dice" class="sheet-hitdie">
+      <option value="d4">d4</option>
+      <option value="d5">d5</option>
+      <option value="d6" selected="selected">d6</option>
+      <option value="d8">d8</option>
+      <option value="d10">d10</option>
+      <option value="d12">d12</option>
+    </select>
+    <div class="sheet-left sheet-small-label sheet-hitdie-label">Hit Point Die</div>
+
+    <button type='roll' class="sheet-initiative sheet-level-hp" title="Use this button to roll for your Hit Points when your character levels." value="&{template:DccTabbed} {{name=@{character_name}}} {{title=Hit Die}} {{flavortext=@{ClassName} gains @{HPDie} hit points at each level.}} {{rolltype=HP Gained : }} {{HD=[[ (?{Amount of Hit Dice for your class|1})@{HPDie} [Die Roll] + [[@{staMod}]] [STA Mod] + [[@{HPLuckyRoll}]] [Lucky Roll] ]]}}" name='HP' title="Roll for new Hit Dice">
+      Leveling Hit Points
+    </button>
+
+    <button type='roll' class="sheet-initiative sheet-heal-hp" title="Use this button to roll for your Hit Points when you are healed." value="&{template:DccTabbed} {{name=@{character_name}}} {{title=Heal Die}} {{flavortext=Heal X@{HPDie} worth of hit points.}} {{rolltype=HP Healed : }} {{HD=[[ (?{Amount of Dice Healed|1})@{HPDie}]]}}" name='HP' title="Roll for health">
+      Healing Hit Points
+    </button>
+
+  </div>
+</div>

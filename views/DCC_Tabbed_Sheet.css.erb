@@ -2273,6 +2273,118 @@ div[data-groupname^="repeating_mutations"] .repitem,
   grid-template-columns: repeat(7, 1fr);
 }
 
+.sheet-character-information-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto repeat(4, auto 20px);
+  row-gap: 1px;
+  grid-template-areas:
+    "header  header  header     header     header"
+    "class   class   occupation occupation occupation"
+    "cllabel cllabel occlabel   occlabel   occlabel"
+    "title   title   alignment  level      xp"
+    "tilabel tilabel allabel    lvllabel   xplabel"
+    "ac      ac      hp         hp         hpmax"
+    "aclabel aclabel hplabel    hplabel    hpmaxlabel"
+    "hitdie  levelhp levelhp    healhp     healhp"
+    "hdlabel levelhp levelhp    healhp     healhp"
+}
+
+.sheet-character-information-grid > h4 {
+  grid-area: header;
+}
+.sheet-character-information-grid .sheet-small-label {
+  text-align: center;
+}
+
+.sheet-character-information-grid > .sheet-classname {
+  grid-area: class;
+}
+.sheet-character-information-grid > .sheet-classname-label {
+  grid-area: cllabel;
+}
+
+.sheet-character-information-grid > .sheet-class-occupation {
+  grid-area: occupation;
+}
+.sheet-character-information-grid > .sheet-class-occupation-label {
+  grid-area: occlabel;
+}
+
+.sheet-character-information-grid > .sheet-title {
+  grid-area: title;
+}
+.sheet-character-information-grid > .sheet-title-label {
+  grid-area: tilabel;
+}
+.sheet-character-information-grid > .sheet-alignment {
+  grid-area: alignment;
+}
+.sheet-character-information-grid > .sheet-alignment-label {
+  grid-area: allabel;
+}
+.sheet-character-information-grid > .sheet-level {
+  grid-area: level;
+}
+.sheet-character-information-grid > .sheet-level-label {
+  grid-area: lvllabel;
+}
+.sheet-character-information-grid > .sheet-xp {
+  grid-area: xp;
+}
+.sheet-character-information-grid > .sheet-xp-label {
+  grid-area: xplabel;
+}
+.sheet-character-information-grid > .sheet-ACBG {
+  grid-area: ac;
+  min-width: 80px;
+  min-height: 80px;
+	background: url('http://i.imgur.com/6lUoOzW.png') no-repeat 50% 50% / contain;
+  display: grid;
+  grid-template-columns: auto 40px auto;
+}
+.sheet-character-information-grid > .sheet-ACBG > input {
+  grid-column: 2 / 3;
+}
+.sheet-character-information-grid > .sheet-ac-label {
+  grid-area: aclabel;
+}
+.sheet-character-information-grid > .sheet-HPBG {
+  grid-area: hp;
+  min-width: 80px;
+  min-height: 80px;
+	background: url('http://i.imgur.com/37exssR.png') no-repeat 50% 50% / contain;
+  display: grid;
+  grid-template-columns: auto 40px auto;
+}
+.sheet-character-information-grid > .sheet-HPBG > input {
+  grid-column: 2 / 3;
+}
+.sheet-character-information-grid > .sheet-hp-label {
+  grid-area: hplabel;
+}
+.sheet-character-information-grid > .sheet-hp-max {
+  grid-area: hpmax;
+  align-self: end;
+  justify-self: center;
+  width: 3.5em !important;
+}
+.sheet-character-information-grid > .sheet-hp-max-label {
+  grid-area: hpmaxlabel;
+}
+.sheet-character-information-grid > .sheet-hitdie {
+  grid-area: hitdie;
+}
+.sheet-character-information-grid > .sheet-hitdie-label {
+  grid-area: hdlabel;
+}
+.sheet-character-information-grid > .sheet-level-hp {
+  grid-area: levelhp;
+}
+.sheet-character-information-grid > .sheet-heal-hp {
+  grid-area: healhp;
+}
+
 .sheet-cleric-grid {
   display: grid;
   column-gap: 10px;
