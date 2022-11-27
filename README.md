@@ -23,6 +23,28 @@ After checking out the repo, run `bin/setup` to install dependencies.
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/rgould/dcc_tabbed_sheet. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/rgould/dcc_tabbed_sheet/blob/master/CODE_OF_CONDUCT.md).
 
+### Cookbook
+
+#### Hiding/showing elements
+
+Two steps:
+
+1. Add checkbox that toggles hidden status:
+
+```erb
+<%= option_toggle("can_backstab") %>
+```
+
+2. Add helpers around item to be hidden:
+
+```erb
+<%= shown_when_option_set("can_backstab") do %>
+  <%= render "classes/shared/backstab" %>
+<% end %>
+```
+
+To hide an element when an option is set, use `hidden_when_option_set`
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

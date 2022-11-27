@@ -43,19 +43,16 @@ module DccTabbedSheet
       select_tag(attr_name, options_for_select(dice.map{|d| "d#{d}"}, "d#{default}"), id: nil, class: classes)
     end
 
+    def sheet_options
+      @sheet_options = DccTabbedSheet::SheetOptions.instance
+    end
+
     def option_toggle(option_name, title: "")
-      validate_option_name(option_name)
+      sheet_options.register(option_name)
       check_box_tag("attr_options_#{option_name}", "1", false, { title: title })
     end
 
-    def validate_option_name(option_name)
-      unless DccTabbedSheet::SheetOptions::OPTIONS.include?(option_name.to_sym)
-        raise "Option #{option_name} missing from DccTabbedSheet::SheetOptions::OPTIONS"
-      end
-    end
-
     def shown_when_option_set(option_name, classes:"", &block)
-      validate_option_name(option_name)
       if block_given?
         subcontent = capture(&block).html_safe
         [
@@ -68,7 +65,6 @@ module DccTabbedSheet
     end
 
     def hidden_when_option_set(option_name, classes:"", &block)
-      validate_option_name(option_name)
       subcontent = capture(&block).html_safe
       [
         hidden_field_tag("attr_options_#{option_name}"),
@@ -77,7 +73,6 @@ module DccTabbedSheet
     end
 
     def option_class_name(option_name, inline: false)
-      validate_option_name(option_name)
       _class = "sheet-option-#{option_name}"
       if inline
         suffix = inline ? "-inline" : ""

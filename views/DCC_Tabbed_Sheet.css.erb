@@ -2228,7 +2228,7 @@ div[data-groupname^="repeating_mutations"] .repitem,
     line-height: 16px;
 }
 
-<% DccTabbedSheet::SheetOptions::OPTIONS.each do |option| %>
+<% DccTabbedSheet::SheetOptions.instance.registered_options.each do |option| %>
   .sheet-option-<%= option %> {
     display: none;
   }

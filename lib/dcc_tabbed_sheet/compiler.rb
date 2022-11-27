@@ -14,7 +14,9 @@ module DccTabbedSheet
   class Compiler
 
     def self.perform
-      SRC_FILES.each do |source_file|
+      # We sort to ensure CSS files are processed last, as processing the
+      # other ERB files may generate data needed during CSS processing
+      SRC_FILES.sort {|a,b| a =~ /css.erb\z/ ? 1 : a <=> b}.each do |source_file|
         options = {
           inline: File.read(source_file),
           type: :erb,
