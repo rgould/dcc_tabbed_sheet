@@ -1,0 +1,30 @@
+<div class="sheet-row">
+  <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Hide in Shadows : <br></div>
+  <div class="sheet-col-1-13 sheet-right">
+    <select name="attr_ThiefHide">
+      <option value="0" selected="selected">+0</option>
+      <option value="1">+1</option>
+      <option value="2">+2</option>
+      <option value="3">+3</option>
+      <option value="4">+4</option>
+      <option value="5">+5</option>
+      <option value="6">+6</option>
+      <option value="7">+7</option>
+      <option value="8">+8</option>
+      <option value="9">+9</option>
+      <option value="10">+10</option>
+      <option value="11">+11</option>
+      <option value="12">+12</option>
+      <option value="13">+13</option>
+      <option value="14">+14</option>
+      <option value="15">+15</option>
+    </select>
+  </div>
+  <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_thiefHideCheckMisc" value="0"><br>Misc Bonus</div>
+  <div class="sheet-col-1-14 sheet-small-label sheet-center" title="Adds AGI mod + Lucky Roll + Bonus"><input class="sheet-underlined sheet-center" type="number" name="attr_thiefHideCheck" value="[[[[@{agiMod}]] + @{ThiefHide} + @{skillChecksLuckyRoll} + @{thiefHideCheckMisc}]]" disabled="disabled">Total Bonus</div>
+  <div class="sheet-col-1-6 sheet-padl">
+    <button type="roll" class="sheet-roll" name="roll_thiefHide"
+    value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Hide in Shadows}} {{flavortext=Try to vanish}} {{rolltype=Skill Check : DC}} {{classability=[[ @{ActionDie} [Action Die] + @{thiefHideCheck} [Bonus] ]]  }}">Hide</button>
+  </div>
+</div>
+

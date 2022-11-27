@@ -1,0 +1,19 @@
+<div class="sheet-row">
+  <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Cast Spell from Scroll : <br></div>
+  <div class="sheet-col-1-13 sheet-right">
+    <select name="attr_ThiefCastScroll">
+      <option value="d0" selected="selected">--</option>
+      <option value="d10">d10</option>
+      <option value="d12">d12</option>
+      <option value="d14">d14</option>
+      <option value="d16">d16</option>
+      <option value="d20">d20</option>
+    </select>
+  </div>
+  <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_thiefCastScrollMisc" value="0"><br>Misc Bonus</div>
+  <div class="sheet-col-1-14 sheet-small-label sheet-center" title="Adds INT mod, Lucky Roll"><input class="sheet-underlined sheet-center" input type="number" name="attr_thiefCastScrollCheck" value="[[[[@{intMod}]] + @{skillChecksLuckyRoll} + @{thiefCastScrollMisc}]]" disabled="disabled">Total Bonus</div>
+  <div class="sheet-col-1-6 sheet-padl">
+    <button type="roll" class="sheet-roll" name="roll_ThiefCastScroll"
+    value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Cast Spell from Scroll}} {{flavortext=Tries to read the arcane writings and cast the spell}} {{rolltype=Skill Check : DC}} {{classability=[[ @{ThiefCastScroll} [Cast Die] + @{thiefCastScrollCheck} [Bonus] ]]  }}">Use Scroll</button>
+  </div>
+</div>
