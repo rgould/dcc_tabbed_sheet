@@ -1,0 +1,14 @@
+<%= shown_when_any_option_set(:can_cast_divine_spells, :can_cast_divine_aid, :can_cast_turn_unholy, :can_cast_lay_on_hands) do %>
+  <%= render "classes/shared/cleric_common" %>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+<% end %>
+
+<%= shown_when_option_set(:can_cast_turn_unholy) do %>
+  <%= render "classes/shared/turn_unholy" %>
+<% end %>
+<%= shown_when_option_set(:can_cast_divine_aid) do %>
+  <%= render "classes/shared/divine_aid" %>
+<% end %>
+<%= shown_when_option_set(:can_cast_lay_on_hands) do %>
+  <%= render "classes/shared/lay_on_hands" %>
+<% end %>

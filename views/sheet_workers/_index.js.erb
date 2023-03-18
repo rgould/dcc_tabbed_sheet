@@ -73,7 +73,7 @@ var recalculateSheet = function() {
     if (version != VERSION) {
       runMigrations(version);
     }
-    setAttrs({ _charsheetVersion: VERSION });
+//    setAttrs({ _charsheetVersion: VERSION });
   });
 };
 
@@ -216,6 +216,33 @@ on("sheet:opened change:repeating_armor:armorcheck change:repeating_armor:armora
     setAttrs({
       tab: "<%= index %>"
     });
+  });
+<% end %>
+
+// globalToggles is required so that we can call these functions from other
+// events (namely: migrations)
+var globalToggles = {}
+<% DccData::Classes::ALL.each do |class_name| %>
+  var toggle_<%= class_name %> = function(newValue) {
+    if (newValue == "1") {
+      setAttrs({
+        <%= DccTabbedSheet::AbilityToggles::send(class_name).map{|option, desc| "options_#{option}: 1"}.join(", ") %>
+      });
+    } else {
+      setAttrs({
+        <%= DccTabbedSheet::AbilityToggles::send(class_name).map{|option, desc| "options_#{option}: 0"}.join(", ") %>
+      });
+    }
+  };
+  globalToggles["<%= class_name %>"] = toggle_<%= class_name %>;
+  on("change:options_is_<%= class_name %>", (event) => {
+    toggle_<%= class_name %>(event.newValue);
+  });
+
+  $20(".sheet-abilities-toggle-<%= class_name %>").on("click", (event) => {
+    $20(".sheet-abilities-<%= class_name %>").toggleClass("sheet-hidden");
+    $20(".sheet-abilities-toggle-<%= class_name %>").toggleClass("sheet-abilities-toggle-closed");
+    $20(".sheet-abilities-toggle-<%= class_name %>").toggleClass("sheet-abilities-toggle-open");
   });
 <% end %>
 

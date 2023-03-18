@@ -1,0 +1,124 @@
+<%= shown_when_any_option_set(:can_cast_wizard_spells, :can_cast_divine_spells, :can_cast_bard_spells, :can_cast_gnome_spells) do %>
+  <div class="sheet-row">
+    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Momentum<br></div>
+    <div class="sheet-col-1-10 sheet-right">
+      <select name="attr_Momentum" value="10">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10" selected="selected">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+      </select>
+    </div>
+  </div>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+<% end %>
+
+<%= shown_when_option_set(:can_have_a_familiar) do %>
+  <div class="sheet-row sheet-sub-header">
+    <div class="sheet-col-1-5 sheet-center sheet-inspiration-label">Familiar</div>
+  </div>
+
+  <div class="sheet-row">
+    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Spell Check<br></div>
+    <div class="sheet-col-1-16 sheet-right" title="Enter your Find Familiar Spell Check Roll"><input class="sheet-underline sheet-center" type="text" placeholder="0" name="attr_wizardFamiliarCheck"></div>
+  </div>
+
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+
+  <div class="sheet-row">
+    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Name<br></div>
+    <div class="sheet-col-1-4 sheet-right" title="Enter your Familiar's Name"><input class="sheet-underline sheet-center" type="text" placeholder="Familiar Name" name="attr_wizardFamiliarName"></div>
+  </div>
+
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+
+  <div class="sheet-row">
+    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Type<br></div>
+    <div class="sheet-col-1-4 sheet-right" title="Enter your Familiar Type"><input class="sheet-underline sheet-center" type="text" placeholder="Type of Familiar" name="attr_WizardFamiliar"></div>
+  </div>
+
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+
+  <div class="sheet-row">
+    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Physical Look<br></div>
+    <div class="sheet-col-1-4 sheet-right" title="Enter your Familiar's Physical Look"><input class="sheet-underline sheet-center" type="text" placeholder="Physical Look" name="attr_wizardFamiliarLook"></div>
+  </div>
+
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+
+  <div class="sheet-row">
+    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Personality<br></div>
+    <div class="sheet-col-1-4 sheet-right" title="Enter your Familiar's Personality"><input class="sheet-underline sheet-center" type="text" placeholder="Personality" name="attr_wizardFamiliarPersonality"></div>
+  </div>
+
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+
+  <div class="sheet-col-1-1">
+    <div class="sheet-row">
+      <div class="sheet-col-1-6 sheet-hd-row">Benefit(s)<br></div>
+      <div class="sheet-col-1-1" title="Enter your Familiar's Benefits"><textarea name="attr_wizardFamiliarBenefit" placeholder="Enter your familiar's benefit(s) to you here"></textarea></div>
+    </div>
+  </div>
+
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+<% end %>
+
+<%= shown_when_option_set(:can_have_a_patron) do %>
+  <div class="sheet-row sheet-sub-header">
+    <div class="sheet-col-1-5 sheet-center sheet-inspiration-label">Patron(s)</div>
+  </div>
+
+  <div class="sheet-row">
+    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Name(s)<br></div>
+    <div class="sheet-col-1-2 sheet-right" title="Enter your Supernatural Patron"><input class="sheet-underline sheet-center" type="text" placeholder="Patron's Name" name="attr_WizardPatron"></div>
+  </div>
+
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+
+  <div class="sheet-col-1-1">
+    <div class="sheet-row">
+      <div class="sheet-col-1-6 sheet-hd-row">Taint<br></div>
+      <div class="sheet-col-1-1" title="Enter Patron Taints here"><textarea name="attr_wizardPatronTaint" placeholder="Enter your Patron Taint(s) here"></textarea></div>
+    </div>
+  </div>
+
+  <div class="sheet-col-1-1">
+    <div class="sheet-row">
+      <div class="sheet-col-1-6 sheet-hd-row">Notes<br></div>
+      <div class="sheet-col-1-1" title="Enter Patron Bond notes here"><textarea name="attr_wizardPatronBondNotes" placeholder="Enter your Patron Bond notes here including your spell check roll for each bond"></textarea></div>
+    </div>
+  </div>
+
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+<% end %>
+
+<%= shown_when_any_option_set(:can_cast_wizard_spells, :can_cast_divine_spells, :can_cast_bard_spells, :can_cast_gnome_spells) do %>
+  <div class="sheet-col-1-1">
+    <div class="sheet-row sheet-sub-header">
+      <div class="sheet-col-1-5 sheet-center sheet-inspiration-label">Spell Corruption</div>
+    </div>
+    <div class="sheet-row">
+      <div class="sheet-col-1-1" title="Enter Spell Corruptions Here"><textarea name="attr_WizardCorruption" placeholder="Enter your Spell Corruption(s) here"></textarea></div>
+    </div>
+  </div>
+
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+
+  <%= render "classes/shared/spells_heard_of" %>
+<% end %>

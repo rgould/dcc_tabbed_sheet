@@ -1,0 +1,73 @@
+<div class="sheet-cleric-ability-grid">
+  <div class="sheet-cleric-ability-name sheet-hd-row">Lay On Hands</div>
+  <input type="hidden" name="attr_layOnHandsLevel" value="(@{Level})">
+  <input class="sheet-underlined" type="number" name="attr_LayOnHandsCheckMisc" value="0" title="Add Misc bonus here">
+  <div class="sheet-cleric-misc-bonus-label sheet-small-label">Misc Bonus</div>
+  <input class="sheet-underlined" type="number" name="attr_layOnHandsCheck" value="[[([[@{perMod}]] + @{layOnHandsLevel}) + @{LayOnHandsCheckMisc} + @{layOnHandsLuckyRoll}]]" disabled="disabled" title="Bonus is Personality Mod + Caster Level + Lay On Hands Lucky Roll">
+  <div class="sheet-cleric-total-bonus-label sheet-small-label">Total Bonus</div>
+  <button type="roll" class="sheet-roll" name="roll_LayOnHands"
+          value="&{template:DccTabbed} {{background=[[4]]}} {{class=1}} {{name=@{character_name}}} {{title=Lay on Hands}} {{flavortext=Healing in the name of}} {{rolltype=Heal Check : }} {{deity=@{ClericDeity} }}  {{layonhands=[[ @{ActionDie}cf<@{disapproval} [Dice Roll] + @{layOnHandsCheck} [Bonus] ]]  }} {{condition=?{If healing a condition, enter condition name|None} }} {{reminders=@{LayOnHandsNotes}}}">
+    Lay On Hands
+  </button>
+  <div class="sheet-cleric-notes sheet-textarea-wrapper">
+    <textarea class="sheet-underline" type="text" placeholder="Notes" name="attr_LayOnHandsNotes" title="Misc Notes"></textarea>
+  </div>
+</div>
+
+<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+
+<div class="sheet-hd-row">Lay on Hands Results Table
+  <table>
+    <tr>
+      <th> Spell Check </th>
+      <th> Same Alignment</th>
+      <th> Adjacent Alignment</th>
+      <th> Opposed Alignment</th>
+    </tr>
+    <tr>
+      <td> 1-11 </td>
+      <td> Failure </td>
+      <td> Failure </td>
+      <td> Failure </td>
+    </tr>
+    <tr>
+      <td> 12-13 </td>
+      <td> 2 dice </td>
+      <td> 1 die </td>
+      <td> 1 die </td>
+    </tr>
+    <tr>
+      <td> 14-19 </td>
+      <td> 3 dice </td>
+      <td> 2 dice </td>
+      <td> 1 die </td>
+    </tr>
+    <tr>
+      <td> 20-21 </td>
+      <td> 4 dice </td>
+      <td> 3 dice </td>
+      <td> 2 dice </td>
+    </tr>
+    <tr>
+      <td> 22+ </td>
+      <td> 5 dice </td>
+      <td> 4 dice </td>
+      <td> 3 dice </td>
+    </tr>
+  </table>
+</div>
+
+<div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+
+<div class="sheet-col-1-1">
+  <div class="sheet-row sheet-sub-header">
+    <div class="sheet-col-1-3 sheet-center sheet-inspiration-label">PCs of Same Alignment</div>
+    <div class="sheet-col-1-3 sheet-center sheet-inspiration-label">PCs of Adjacent Alignment</div>
+    <div class="sheet-col-1-3 sheet-center sheet-inspiration-label">PCs of Opposed Alignment</div>
+  </div>
+  <div class="sheet-row">
+    <div class="sheet-col-1-3"><textarea name="attr_clericAlignSame"></textarea></div>
+    <div class="sheet-col-1-3"><textarea name="attr_clericAlignAdjacent"></textarea></div>
+    <div class="sheet-col-1-3"><textarea name="attr_clericAlignOpposed"></textarea></div>
+  </div>
+</div>

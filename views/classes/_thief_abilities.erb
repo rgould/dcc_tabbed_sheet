@@ -1,0 +1,458 @@
+<%= shown_when_option_set(:is_thief) do %>
+  <input type="hidden" name="attr_betaThiefSkillDie" value="d100">
+
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+
+  <div class="sheet-row">
+    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Path :<br></div>
+    <div class="sheet-col-1-4 sheet-right" title="Enter the path chosen when you became a thief"><input class="sheet-underline sheet-center" type="text" placeholder="ie. Path of the Swindler" name="attr_thief_path"></div>
+  </div>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+<% end %>
+
+<%= shown_when_option_set(:can_use_luck_die) do %>
+  <%= render "classes/shared/luck_die" %>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+<% end %>
+
+<%= shown_when_option_set(:can_backstab) do %>
+  <%= render "classes/shared/backstab" %>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+<% end %>
+
+<%= shown_when_option_set(:can_cast_spell_from_scroll) do %>
+  <%= render "classes/shared/cast_spell_from_scroll" %>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+<% end %>
+
+<%= shown_when_any_option_set(*DccTabbedSheet::AbilityToggles::BETA_THIEF_SKILLS) do %>
+  <input type="radio" class="CoreThief" value="1" name="attr_classThief" checked><label class="sheet-subtabThief">Core Thief Skills (d20 based)</label>
+  <input type="radio" class="BetaThief" value="2" name="attr_classThief"><label class="sheet-subtabThief">Beta Thief Skills (%d based)</label>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+<% end %>
+
+<!-- Core Thief Skills -->
+<input type="hidden" class="CoreThief" name="attr_classThief" value="1">
+<div class="sheet-CoreThief">
+  <%= shown_when_option_set(:can_sneak_silently) do %>
+    <%= render "classes/shared/sneak_silently" %>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <% end %>
+
+  <%= shown_when_option_set(:can_hide_in_shadows) do %>
+    <%= render "classes/shared/hide_in_shadows" %>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <% end %>
+
+  <%= shown_when_option_set(:can_pick_pockets) do %>
+    <%= render "classes/shared/pick_pockets" %>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <% end %>
+
+  <%= shown_when_option_set(:can_climb) do %>
+    <%= render "classes/shared/climb" %>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <% end %>
+
+  <%= shown_when_option_set(:can_pick_lock) do %>
+    <%= render "classes/shared/pick_lock" %>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <% end %>
+
+  <%= shown_when_option_set(:can_find_trap) do %>
+    <%= render "classes/shared/find_trap" %>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <% end %>
+
+  <%= shown_when_option_set(:can_disable_trap) do %>
+    <%= render "classes/shared/disable_trap" %>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <% end %>
+
+  <%= shown_when_option_set(:can_forge_document) do %>
+    <%= render "classes/shared/forge_document" %>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <% end %>
+
+  <%= shown_when_option_set(:can_disguise_self) do %>
+    <%= render "classes/shared/disguise_self" %>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <% end %>
+
+  <%= shown_when_option_set(:can_read_languages) do %>
+    <%= render "classes/shared/read_languages" %>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <% end %>
+
+  <%= shown_when_option_set(:can_handle_poison) do %>
+    <%= render "classes/shared/handle_poison" %>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <% end %>
+
+</div>
+
+<!-- Beta Thief Skills -->
+<input type="hidden" class="BetaThief" name="attr_classThief" value="1">
+<div class="sheet-BetaThief">
+
+  <input type="hidden" name="attr_betaThiefArmorCheck" value="[[([[@{armorCheck}]] * 5)]]">
+
+  <%= shown_when_option_set(:can_sneak_silently) do %>
+    <div class="sheet-row">
+      <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Sneak silently : <br></div>
+      <div class="sheet-col-1-13 sheet-right">
+        <select name="attr_betaThiefSneak">
+          <option value="0" selected="selected">0%</option>
+          <option value="20">20%</option>
+          <option value="25">25%</option>
+          <option value="30">30%</option>
+          <option value="35">35%</option>
+          <option value="40">40%</option>
+          <option value="45">45%</option>
+          <option value="50">50%</option>
+          <option value="55">55%</option>
+          <option value="60">60%</option>
+          <option value="65">65%</option>
+          <option value="70">70%</option>
+        </select>
+      </div>
+      <input type="hidden" name="attr_betaThiefSneakBonus" value="[[(([[@{agiMod}]] + @{skillChecksLuckyRoll}) * 5)]]">
+      <input type="hidden" name="attr_betaThiefSneakMiscBonus" value="[[((@{betaThiefSneakCheckMisc}) * 5)]]">
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_betaThiefSneakCheckMisc" value="0"><br>Misc Bonus</div>
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" title="Adds AGI mod, Lucky Roll as % mods"><input class="sheet-underlined sheet-center" input type="number" name="attr_betaThiefSneakCheck" value="[[@{betaThiefSneakBonus} + @{betaThiefSneak} + @{betaThiefSneakMiscBonus}]]" disabled="disabled">Success %</div>
+      <div class="sheet-col-1-6 sheet-padl">
+        <button type="roll" class="sheet-roll" name="roll_betaThiefSneak"
+        value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Sneak Silently}} {{flavortext=Attempts to move without making a sound.}} {{neededroll=Success Chance : }} {{rolltype=Roll : }} {{percentability=[[1d100]]}} {{chance=[[@{betaThiefSneakCheck} + @{betaThiefArmorCheck} [Armor Check Penalty] ]]}} {{successtext=You think you have succeeded.}} {{failtext=You have most likely failed.}}">Sneak</button>
+      </div>
+    </div>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <% end %>
+
+  <%= shown_when_option_set(:can_hide_in_shadows) do %>
+    <div class="sheet-row">
+      <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Hide in Shadows : <br></div>
+      <div class="sheet-col-1-13 sheet-right">
+        <select name="attr_betaThiefHide">
+          <option value="0" selected="selected">0%</option>
+          <option value="20">20%</option>
+          <option value="25">25%</option>
+          <option value="30">30%</option>
+          <option value="35">35%</option>
+          <option value="40">40%</option>
+          <option value="45">45%</option>
+          <option value="50">50%</option>
+          <option value="55">55%</option>
+          <option value="60">60%</option>
+          <option value="65">65%</option>
+          <option value="70">70%</option>
+        </select>
+      </div>
+
+      <input type="hidden" name="attr_betaThiefHideBonus" value="[[(([[@{agiMod}]] + @{skillChecksLuckyRoll}) * 5)]]">
+      <input type="hidden" name="attr_betaThiefHideMiscBonus" value="[[((@{betaThiefHideCheckMisc}) * 5)]]">
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_betaThiefHideCheckMisc" value="0"><br>Misc Bonus</div>
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" title="Adds AGI mod, Lucky Roll as % mods"><input class="sheet-underlined sheet-center" input type="number" name="attr_betaThiefHideCheck" value="[[@{betaThiefHideBonus} + @{betaThiefHide} + @{betaThiefHideMiscBonus}]]" disabled="disabled">Success %</div>
+      <div class="sheet-col-1-6 sheet-padl">
+        <button type="roll" class="sheet-roll" name="roll_betaThiefHide"
+        value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Hide in Shadows}} {{flavortext=Attempts to Hide in Shadows.}} {{neededroll=Success Chance : }} {{rolltype=Roll : }} {{percentability=[[1d100]]}} {{chance=@{betaThiefHideCheck} }} {{successtext=You think you have succeeded.}} {{failtext=You have most likely failed.}}">Hide</button>
+      </div>
+    </div>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <% end %>
+
+  <%= shown_when_option_set(:can_pick_pockets) do %>
+    <div class="sheet-row">
+      <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Pick Pockets : <br></div>
+      <div class="sheet-col-1-13 sheet-right">
+        <select name="attr_betaThiefPickPockets">
+          <option value="0" selected="selected">0%</option>
+          <option value="15">15%</option>
+          <option value="20">20%</option>
+          <option value="25">25%</option>
+          <option value="30">30%</option>
+          <option value="35">35%</option>
+          <option value="40">40%</option>
+          <option value="45">45%</option>
+          <option value="50">50%</option>
+          <option value="55">55%</option>
+          <option value="60">60%</option>
+          <option value="65">65%</option>
+          <option value="70">70%</option>
+        </select>
+      </div>
+
+      <input type="hidden" name="attr_betaThiefPickPocketsBonus" value="[[(([[@{agiMod}]] + @{skillChecksLuckyRoll}) * 5)]]">
+      <input type="hidden" name="attr_betaThiefPickPocketsMiscBonus" value="[[((@{betaThiefPickPocketsCheckMisc}) * 5)]]">
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_betaThiefPickPocketsCheckMisc" value="0"><br>Misc Bonus</div>
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" title="Adds AGI mod, Lucky Roll as % mods"><input class="sheet-underlined sheet-center" input type="number" name="attr_betaThiefPickPocketsCheck" value="[[@{betaThiefPickPocketsBonus} + @{betaThiefPickPockets} + @{betaThiefPickPocketsMiscBonus}]]" disabled="disabled">Success %</div>
+      <div class="sheet-col-1-6 sheet-padl">
+        <button type="roll" class="sheet-roll" name="roll_betaThiefPickPockets"
+        value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Pick Pockets}} {{flavortext=Attempts to Pick Pockets.}} {{neededroll=Success Chance : }} {{rolltype=Roll : }} {{percentability=[[1d100]]}} {{chance=[[@{betaThiefPickPocketsCheck} + ([[@{betaThiefArmorCheck})]]) [Armor Check Penalty] ]]}} {{successtext=You think you have succeeded.}} {{failtext=You have most likely failed.}}">Pick Pockets</button>
+      </div>
+    </div>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <% end %>
+
+  <%= shown_when_option_set(:can_climb) do %>
+    <div class="sheet-row">
+      <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Climb Sheer Surfaces : <br></div>
+      <div class="sheet-col-1-13 sheet-right">
+        <select name="attr_betaThiefClimb">
+          <option value="0" selected="selected">0%</option>
+          <option value="85">85%</option>
+          <option value="86">86%</option>
+          <option value="87">87%</option>
+          <option value="88">88%</option>
+          <option value="89">89%</option>
+          <option value="90">90%</option>
+          <option value="91">91%</option>
+          <option value="92">92%</option>
+          <option value="93">93%</option>
+          <option value="94">94%</option>
+          <option value="95">95%</option>
+          <option value="96">96%</option>
+          <option value="97">97%</option>
+          <option value="98">98%</option>
+          <option value="99">99%</option>
+        </select>
+      </div>
+
+      <input type="hidden" name="attr_betaThiefClimbBonus" value="[[(([[@{agiMod}]] + @{skillChecksLuckyRoll}) * 1)]]">
+      <input type="hidden" name="attr_betaThiefClimbMiscBonus" value="[[((@{betaThiefClimbCheckMisc}) * 1)]]">
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_betaThiefClimbCheckMisc" value="0"><br>Misc Bonus</div>
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" title="Adds AGI mod, Lucky Roll as % mods"><input class="sheet-underlined sheet-center" input type="number" name="attr_betaThiefClimbCheck" value="[[@{betaThiefClimbBonus} + @{betaThiefClimb} + @{betaThiefClimbMiscBonus}]]" disabled="disabled">Success %</div>
+      <div class="sheet-col-1-6 sheet-padl">
+        <button type="roll" class="sheet-roll" name="roll_betaThiefClimb"
+        value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Climb Sheer Surfaces}} {{flavortext=Attempts to Climb a Sheer Surface.}} {{neededroll=Success Chance : }} {{rolltype=Roll : }} {{percentability=[[1d100]]}} {{chance=[[@{betaThiefClimbCheck} + ([[@{betaThiefArmorCheck}]]) [Armor Check Penalty] ]]}} {{successtext=You climb successfully.}} {{failtext=You fall.}}">Climb</button>
+      </div>
+    </div>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <% end %>
+
+  <%= shown_when_option_set(:can_pick_lock) do %>
+    <div class="sheet-row">
+      <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Pick Lock : <br></div>
+      <div class="sheet-col-1-13 sheet-right">
+        <select name="attr_betaThiefPickLocks">
+          <option value="0" selected="selected">0%</option>
+          <option value="40">40%</option>
+          <option value="45">45%</option>
+          <option value="50">50%</option>
+          <option value="55">55%</option>
+          <option value="60">60%</option>
+          <option value="65">65%</option>
+          <option value="70">70%</option>
+          <option value="75">75%</option>
+          <option value="80">80%</option>
+          <option value="85">85%</option>
+          <option value="90">90%</option>
+        </select>
+      </div>
+
+      <input type="hidden" name="attr_betaThiefPickLocksBonus" value="[[(([[@{agiMod}]] + @{skillChecksLuckyRoll}) * 5)]]">
+      <input type="hidden" name="attr_betaThiefPickLocksMiscBonus" value="[[((@{betaThiefPickLocksCheckMisc}) * 5)]]">
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_betaThiefPickLocksCheckMisc" value="0"><br>Misc Bonus</div>
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" title="Adds AGI mod, Lucky Roll as % mods"><input class="sheet-underlined sheet-center" input type="number" name="attr_betaThiefPickLocksCheck" value="[[@{betaThiefPickLocksBonus} + @{betaThiefPickLocks} + @{betaThiefPickLocksMiscBonus}]]" disabled="disabled">Success %</div>
+      <div class="sheet-col-1-6 sheet-padl">
+        <button type="roll" class="sheet-roll" name="roll_betaThiefPickLocks"
+        value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Pick Locks}} {{flavortext=Attempts to Pick a Lock.}} {{neededroll=Success Chance : }} {{rolltype=Roll : }} {{percentability=[[1d100]]}} {{chance=[[@{betaThiefPickLocksCheck} + ([[@{betaThiefArmorCheck}]]) [Armor Check Penalty] ]]}} {{successtext=The lock opens.}} {{failtext=You have been confounded by the complexity of this lock.}}">Pick Lock</button>
+      </div>
+    </div>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <% end %>
+
+  <%= shown_when_option_set(:can_find_trap) do %>
+    <div class="sheet-row">
+      <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Find Trap : <br></div>
+      <div class="sheet-col-1-13 sheet-right">
+        <select name="attr_betaThiefFindTraps">
+          <option value="0" selected="selected">0%</option>
+          <option value="20">20%</option>
+          <option value="25">25%</option>
+          <option value="30">30%</option>
+          <option value="35">35%</option>
+          <option value="40">40%</option>
+          <option value="45">45%</option>
+          <option value="50">50%</option>
+          <option value="55">55%</option>
+          <option value="60">60%</option>
+          <option value="65">65%</option>
+          <option value="70">70%</option>
+        </select>
+      </div>
+
+      <input type="hidden" name="attr_betaThiefFindTrapsBonus" value="[[(([[@{intMod}]] + @{skillChecksLuckyRoll} + @{findDisableTrapsLuckyRoll}) * 5)]]">
+      <input type="hidden" name="attr_betaThiefFindTrapsMiscBonus" value="[[((@{betaThiefFindTrapsCheckMisc}) * 5)]]">
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_betaThiefFindTrapsCheckMisc" value="0"><br>Misc Bonus</div>
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" title="Adds INT mod, Lucky Roll as % mods"><input class="sheet-underlined sheet-center" input type="number" name="attr_betaThiefFindTrapsCheck" value="[[@{betaThiefFindTrapsBonus} + @{betaThiefFindTraps} + @{betaThiefFindTrapsMiscBonus}]]" disabled="disabled">Success %</div>
+      <div class="sheet-col-1-6 sheet-padl">
+        <button type="roll" class="sheet-roll" name="roll_betaThiefFindTraps"
+        value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Find Traps}} {{flavortext=Looks around for traps.}} {{neededroll=Success Chance : }} {{rolltype=Roll : }} {{percentability=[[1d100]]}} {{chance=@{betaThiefFindTrapsCheck} }} {{successtext=You think you could possibly have found a trap.}} {{failtext=No Traps Here!.}}">Find Trap</button>
+      </div>
+    </div>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <% end %>
+
+  <%= shown_when_option_set(:can_disable_trap) do %>
+    <div class="sheet-row">
+      <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Disable Trap : <br></div>
+      <div class="sheet-col-1-13 sheet-right">
+        <select name="attr_betaThiefDisableTraps">
+          <option value="0" selected="selected">0%</option>
+          <option value="15">15%</option>
+          <option value="20">20%</option>
+          <option value="25">25%</option>
+          <option value="30">30%</option>
+          <option value="35">35%</option>
+          <option value="40">40%</option>
+          <option value="45">45%</option>
+          <option value="50">50%</option>
+          <option value="55">55%</option>
+          <option value="60">60%</option>
+          <option value="65">65%</option>
+          <option value="70">70%</option>
+        </select>
+      </div>
+
+      <input type="hidden" name="attr_betaThiefDisableTrapsBonus" value="[[(([[@{agiMod}]] + @{skillChecksLuckyRoll} + @{findDisableTrapsLuckyRoll}) * 5)]]">
+      <input type="hidden" name="attr_betaThiefDisableTrapsMiscBonus" value="[[((@{betaThiefDisableTrapsCheckMisc}) * 5)]]">
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_betaThiefDisableTrapsCheckMisc" value="0"><br>Misc Bonus</div>
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" title="Adds AGI mod, Lucky Roll as % mods"><input class="sheet-underlined sheet-center" input type="number" name="attr_betaThiefDisableTrapsCheck" value="[[@{betaThiefDisableTrapsBonus} + @{betaThiefDisableTraps} + @{betaThiefDisableTrapsMiscBonus}]]" disabled="disabled">Success %</div>
+      <div class="sheet-col-1-6 sheet-padl">
+        <button type="roll" class="sheet-roll" name="roll_betaThiefDisableTraps"
+        value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Disable Traps}} {{flavortext=Attempts to Disable the Trap.}} {{neededroll=Success Chance : }} {{rolltype=Roll : }} {{percentability=[[1d100]]}} {{chance=[[@{betaThiefDisableTrapsCheck} + ([[@{betaThiefArmorCheck}]]) [Armor Check Penalty] ]]}} {{successtext=You think you have disabled the trap.}} {{failtext=Trap is not disabled and you might have set it off.}}">Disable Trap</button>
+      </div>
+    </div>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <% end %>
+
+  <%= shown_when_option_set(:can_forge_document) do %>
+    <div class="sheet-row">
+      <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Forge Document : <br></div>
+      <div class="sheet-col-1-13 sheet-right">
+        <select name="attr_betaThiefForgeDocuments">
+          <option value="0" selected="selected">0%</option>
+          <option value="15">15%</option>
+          <option value="20">20%</option>
+          <option value="25">25%</option>
+          <option value="30">30%</option>
+          <option value="35">35%</option>
+          <option value="40">40%</option>
+          <option value="45">45%</option>
+          <option value="50">50%</option>
+          <option value="55">55%</option>
+          <option value="60">60%</option>
+          <option value="65">65%</option>
+          <option value="70">70%</option>
+        </select>
+      </div>
+
+      <input type="hidden" name="attr_betaThiefForgeDocumentsBonus" value="[[(([[@{agiMod}]] + @{skillChecksLuckyRoll}) * 5)]]">
+      <input type="hidden" name="attr_betaThiefForgeDocumentsMiscBonus" value="[[((@{betaThiefForgeDocumentsCheckMisc}) * 5)]]">
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_betaThiefForgeDocumentsCheckMisc" value="0"><br>Misc Bonus</div>
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" title="Adds AGI mod, Lucky Roll as % mods"><input class="sheet-underlined sheet-center" input type="number" name="attr_betaThiefForgeDocumentsCheck" value="[[@{betaThiefForgeDocumentsBonus} + @{betaThiefForgeDocuments} + @{betaThiefForgeDocumentsMiscBonus}]]" disabled="disabled">Success %</div>
+      <div class="sheet-col-1-6 sheet-padl">
+        <button type="roll" class="sheet-roll" name="roll_betaThiefForgeDocuments"
+        value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Forge Documents}} {{flavortext=Attempts to Forge a Document.}} {{neededroll=Success Chance : }} {{rolltype=Roll : }} {{percentability=[[1d100]]}} {{chance=@{betaThiefForgeDocumentsCheck} }} {{successtext=You think you have copied the documents perfectly.}} {{failtext=You hope that no one will notice all the errors.}}">Forge Document</button>
+      </div>
+    </div>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <% end %>
+
+  <%= shown_when_option_set(:can_disguise_self) do %>
+    <div class="sheet-row">
+      <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Disguise Self : <br></div>
+      <div class="sheet-col-1-13 sheet-right">
+        <select name="attr_betaThiefDisguise">
+          <option value="0" selected="selected">0%</option>
+          <option value="15">15%</option>
+          <option value="20">20%</option>
+          <option value="25">25%</option>
+          <option value="30">30%</option>
+          <option value="35">35%</option>
+          <option value="40">40%</option>
+          <option value="45">45%</option>
+          <option value="50">50%</option>
+          <option value="55">55%</option>
+          <option value="60">60%</option>
+          <option value="65">65%</option>
+          <option value="70">70%</option>
+        </select>
+      </div>
+
+      <input type="hidden" name="attr_betaThiefDisguiseBonus" value="[[(([[@{perMod}]] + @{skillChecksLuckyRoll}) * 5)]]">
+      <input type="hidden" name="attr_betaThiefDisguiseMiscBonus" value="[[((@{betaThiefDisguiseCheckMisc}) * 5)]]">
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_betaThiefDisguiseCheckMisc" value="0"><br>Misc Bonus</div>
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" title="Adds PER mod, Lucky Roll as % mods"><input class="sheet-underlined sheet-center" input type="number" name="attr_betaThiefDisguiseCheck" value="[[@{betaThiefDisguiseBonus} + @{betaThiefDisguise} + @{betaThiefDisguiseMiscBonus}]]" disabled="disabled">Success %</div>
+      <div class="sheet-col-1-6 sheet-padl">
+        <button type="roll" class="sheet-roll" name="roll_betaThiefDisguise"
+        value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Disguise Self}} {{flavortext=Attempts to Disguise themselves.}} {{neededroll=Success Chance : }} {{rolltype=Roll : }} {{percentability=[[1d100]]}} {{chance=@{betaThiefDisguiseCheck} }} {{successtext=No one should notice it's you.}} {{failtext=Did your mustache just fall off?.}}">Disguise Self</button>
+      </div>
+    </div>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <% end %>
+
+  <%= shown_when_option_set(:can_read_languages) do %>
+    <div class="sheet-row">
+      <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Read Languages : <br></div>
+      <div class="sheet-col-1-13 sheet-right">
+        <select name="attr_betaThiefRead">
+          <option value="0" selected="selected">0%</option>
+          <option value="5">5%</option>
+          <option value="10">10%</option>
+          <option value="15">15%</option>
+          <option value="20">20%</option>
+          <option value="25">25%</option>
+          <option value="30">30%</option>
+          <option value="35">35%</option>
+          <option value="40">40%</option>
+          <option value="45">45%</option>
+          <option value="50">50%</option>
+        </select>
+      </div>
+
+      <input type="hidden" name="attr_betaThiefReadBonus" value="[[(([[@{perMod}]] + @{skillChecksLuckyRoll}) * 5)]]">
+      <input type="hidden" name="attr_betaThiefReadMiscBonus" value="[[((@{betaThiefReadCheckMisc}) * 5)]]">
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_betaThiefReadCheckMisc" value="0"><br>Misc Bonus</div>
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" title="Adds PER mod, Lucky Roll as % mods"><input class="sheet-underlined sheet-center" input type="number" name="attr_betaThiefReadCheck" value="[[@{betaThiefReadBonus} + @{betaThiefRead} + @{betaThiefReadMiscBonus}]]" disabled="disabled">Success %</div>
+      <div class="sheet-col-1-6 sheet-padl">
+        <button type="roll" class="sheet-roll" name="roll_betaThiefRead"
+        value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Read Languages}} {{flavortext=Sounds out the language.}} {{neededroll=Success Chance : }} {{rolltype=Roll : }} {{percentability=[[1d100]]}} {{chance=@{betaThiefReadCheck} }} {{successtext=You can understand this.}} {{failtext=You have no idea what this language says.}}">Read Language</button>
+      </div>
+    </div>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <% end %>
+
+  <%= shown_when_option_set(:can_handle_poison) do %>
+    <div class="sheet-row">
+      <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Handle Poison : <br></div>
+      <div class="sheet-col-1-13 sheet-right">
+        <select name="attr_betaThiefPoison">
+          <option value="0" selected="selected">0%</option>
+          <option value="15">15%</option>
+          <option value="20">20%</option>
+          <option value="25">25%</option>
+          <option value="30">30%</option>
+          <option value="35">35%</option>
+          <option value="40">40%</option>
+          <option value="45">45%</option>
+          <option value="50">50%</option>
+          <option value="55">55%</option>
+          <option value="60">60%</option>
+          <option value="65">65%</option>
+          <option value="70">70%</option>
+        </select>
+      </div>
+
+      <input type="hidden" name="attr_betaThiefPoisonBonus" value="[[((@{skillChecksLuckyRoll}) * 5)]]">
+      <input type="hidden" name="attr_betaThiefPoisonMiscBonus" value="[[((@{betaThiefPoisonCheckMisc}) * 5)]]">
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_betaThiefPoisonCheckMisc" value="0"><br>Misc Bonus</div>
+      <div class="sheet-col-1-14 sheet-small-label sheet-center" title="Adds bonus, Lucky Roll as % mods"><input class="sheet-underlined sheet-center" input type="number" name="attr_betaThiefPoisonCheck" value="[[@{betaThiefPoisonBonus} + @{betaThiefPoison} + @{betaThiefPoisonMiscBonus}]]" disabled="disabled">Success %</div>
+      <div class="sheet-col-1-6 sheet-padl">
+        <button type="roll" class="sheet-roll" name="roll_betaThiefPoison"
+        value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Handle Poison}} {{flavortext=Tries to apply a poison to an object.}} {{neededroll=Success Chance : }} {{rolltype=Roll : }} {{percentability=[[1d100]]}} {{chance=@{betaThiefPoisonCheck} }} {{successtext=You have successfully coated the blade.}} {{failtext=You have failed to coat the blade properly and maybe even poisoned yourself.}}">Handle Poison</button>
+      </div>
+    </div>
+    <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+  <% end %>
+</div>

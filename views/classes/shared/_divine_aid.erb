@@ -1,0 +1,15 @@
+<div class="sheet-cleric-ability-grid">
+  <div class="sheet-cleric-ability-name sheet-hd-row">Divine Aid</div>
+  <input type="hidden" name="attr_divineAidLevel" value="(@{Level})">
+  <input class="sheet-underlined" type="number" name="attr_DivineAidCheckMisc" value="0" title="Add Misc bonus here">
+  <div class="sheet-cleric-misc-bonus-label sheet-small-label">Misc Bonus</div>
+  <input class="sheet-underlined" type="number" name="attr_divineAidCheck" value="[[([[@{perMod}]] + @{divineAidLevel}) + @{DivineAidCheckMisc}]]" disabled="disabled" title="Bonus is Personality Mod + Caster Level">
+  <div class="sheet-cleric-total-bonus-label sheet-small-label">Total Bonus</div>
+  <button type="roll" class="sheet-roll" name="roll_DivineAid"
+          value="&{template:DccTabbed} {{background=[[4]]}} {{class=1}} {{name=@{character_name}}} {{title=Divine Aid}} {{flavortext=I beseech your aid, Oh Glorious}} {{rolltype=Spell Check : }} {{deity=@{ClericDeity} }} {{divineaid=[[ @{ActionDie} [Dice Roll] + @{divineAidCheck} [Bonus] ]]  }} {{reminders=@{DivineAidNotes}}}">
+    Divine Aid
+  </button>
+  <div class="sheet-cleric-notes sheet-textarea-wrapper">
+    <textarea class="sheet-underline" placeholder="Notes" name="attr_DivineAidNotes" title="Misc Notes"></textarea>
+  </div>
+</div>

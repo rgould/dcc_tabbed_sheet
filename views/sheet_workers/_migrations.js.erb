@@ -108,9 +108,158 @@ var migrateLuckyRollValues = function migrateLuckyRollValues() {
   });
 };
 
+// keys = src, values = dest
+var mergeAttrs = function mergeAttrs(attrsMap, callback) {
+  getAttrs(_.keys(attrsMap).concat(_.values(attrsMap)), function(attrs) {
+    var mergedAttrs = _.reduce(attrsMap, function(memo, wizardAttr, elfAttr) {
+      if (attrs[elfAttr]) {
+        memo[wizardAttr] = attrs[wizardAttr] ? `${attrs[wizardAttr]} ${attrs[elfAttr]}`.trim() : attrs[elfAttr];
+      }
+      return memo;
+    }, {});
+    setAttrs(mergedAttrs, callback);
+  });
+};
+
+var migrateDeduplicatedAttributes = function migrateDeduplicatedAttributes() {
+  /* Merge "Elf" attributes into Wizard first, then we'll merge "ElfRogue" attributes.
+     Doing them simultaneously is kinda ugly */
+  var attrNamesToMerge = {
+    "elfFamiliarCheck": "wizardFamiliarCheck",
+    "elfFamiliarName": "wizardFamiliarName",
+    "ElfFamiliar": "WizardFamiliar",
+    "elfFamiliarLook": "wizardFamiliarLook",
+    "elfFamiliarPersonality": "wizardFamiliarPersonality",
+    "elfFamiliarBenefit": "wizardFamiliarBenefit",
+    "ElfPatron": "WizardPatron",
+    "elfPatronTaint": "wizardPatronTaint",
+    "ElfPatronBondNotes": "wizardPatronBondNotes",
+    "ElfCorruption": "WizardCorruption",
+    "dwarfPriestAlignSame": "clericAlignSame",
+    "dwarfPriestAlignAdjacent": "clericAlignAdjacent",
+    "dwarfPriestAlignOpposed": "clericAlignOpposed",
+  };
+  mergeAttrs(attrNamesToMerge, function() {
+    // Merge ElfRogue attributes similarly to above
+    var elfRogueAttrNames = {
+      "elfRogueFamiliarCheck": "wizardFamiliarCheck",
+      "elfRogueFamiliarName": "wizardFamiliarName",
+      "elfRogueFamiliar": "WizardFamiliar",
+      "elfRogueFamiliarLook": "wizardFamiliarLook",
+      "elfRogueFamiliarPersonality": "wizardFamiliarPersonality",
+      "elfRogueFamiliarBenefit": "wizardFamiliarBenefit",
+      "elfRoguePatron": "WizardPatron",
+      "elfRoguePatronTaint": "wizardPatronTaint",
+      "elfRoguePatronBondNotes": "wizardPatronBondNotes",
+      "elfRogueCorruption": "WizardCorruption"
+    };
+    mergeAttrs(elfRogueAttrNames);
+  });
+
+  var skills = ["Sneak"];
+  var attrNamesToOverwrite = {
+    "halflingChampStealthCheckMisc": "halflingStealthCheckMisc",
+    "halflingChampHideCheckMisc": "halflingHideCheckMisc",
+    "dwarfPriestTurnUnholyCheckMisc": "TurnUnholyCheckMisc",
+    "dwarfPriestTurnUnholyNotes": "TurnUnholyNotes",
+    "dwarfPriestDivineAidCheckMisc": "DivineAidCheckMisc",
+    "dwarfPriestDivineAidNotes": "DivineAidNotes",
+    "dwarfPriestLayOnHandsCheckMisc": "LayOnHandsCheckMisc",
+    "dwarfPriestLayOnHandsNotes": "LayOnHandsNotes",
+    <%= %w(Sneak Hide PickPockets Climb PickLocks FindTraps DisableTraps ForgeDocuments Disguise Read Poison).map{|a| "\"elfRogue#{a}\": \"Thief#{a}\"," }.join("\n").html_safe %>
+    <%= %w(Sneak Hide PickPockets Climb PickLocks FindTraps DisableTraps ForgeDocuments Disguise Read Poison).map{|a| "\"elfRogue#{a}CheckMisc\": \"thief#{a}CheckMisc\"," }.join("\n").html_safe %>
+  };
+  getAttrs(_.keys(attrNamesToOverwrite).concat(_.values(attrNamesToOverwrite)), function(attrs) {
+    var newAttrs = _.reduce(attrNamesToOverwrite, function(memo, destAttr, srcAttr) {
+      if (attrs[srcAttr] && attrs[srcAttr] !== '0') {
+        memo[destAttr] = attrs[srcAttr];
+      }
+      return memo;
+    }, {});
+    setAttrs(newAttrs);
+  });
+
+  // Copy all old class "notes" to one attribute
+  var notesAttrs = [
+    "ElfNotes",
+    "WizardNotes",
+    "bardNotes",
+    "clericNotes",
+    "cyborgNotes",
+    "dwarfNotes",
+    "dwarfPriestNotes",
+    "elfRogueNotes",
+    "gnomeNotes",
+    "halflingChampionNotes",
+    "halflingNotes",
+    "kithNotes",
+    "mutantNotes",
+    "paladinNotes",
+    "petrolHeadNotes",
+    "rangerNotes",
+    "technologistNotes",
+    "thiefNotes",
+    "warriorNotes"
+  ];
+  getAttrs(notesAttrs, function(attrs) {
+    var newNotes = notesAttrs.map(attr => attrs[attr]).filter(n => n).join("\n");
+    setAttrs({classNotes: newNotes});
+  });
+
+  // Copy all old corruptions to one attribute
+  var corruptionAttrs = [
+    "WizardCorruption",
+    "gnomeCorruption",
+    "bardCorruption"
+  ];
+  getAttrs(corruptionAttrs, function(attrs) {
+    var newCorruptions = corruptionAttrs.map(attr => attrs[attr]).filter(n => n).join("\n");
+    setAttrs({WizardCorruption: newCorruptions});
+  });
+
+};
+
+var migrateClassSelector = function migrateClassSelector() {
+  var classKeyToNameMap = {
+    "1": "warrior",
+    "2": "wizard",
+    "3": "cleric",
+    "4": "thief",
+    "5": "halfling",
+    "6": "dwarf",
+    "7": "elf",
+    "8": "bard",
+    "9": "gnome",
+    "10": "paladin",
+    "11": "ranger",
+    "12": "dwarf_priest",
+    "13": "elf_rogue",
+    "14": "halfling_champion",
+    "15": "cyborg",
+    "16": "mutant",
+    "17": "petrol_head",
+    "18": "technologist",
+    "19": "halfling_burglar"
+  };
+  getAttrs(["Class"], function(attrs) {
+    var klass = attrs["Class"];
+    if (!klass) {
+      klass = "1"; // class was never explicitly chosen, meaning it defaulted to a warrior
+    }
+    var className = classKeyToNameMap[klass];
+    var newAttrs = {
+      [`options_is_${className}`]: "1"
+    };
+    setAttrs(newAttrs, function() {
+      globalToggles[className]("1");
+    });
+  });
+};
+
 var MIGRATIONS = [
   { "1.5.0": [] },
   { "1.5.1": [recalculateAllRangedModifiers, migrateZeroLevelWeapons] },
   { "1.5.2": [] },
-  { "1.6.0": [migrateLuckyRollValues] }
+  { "1.6.0": [migrateLuckyRollValues] },
+  { "1.7.0": [migrateDeduplicatedAttributes, migrateClassSelector] },
 ];

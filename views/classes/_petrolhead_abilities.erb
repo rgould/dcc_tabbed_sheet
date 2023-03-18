@@ -1,0 +1,50 @@
+<%= shown_when_option_set(:has_ace_die) do %>
+  <div class="sheet-row">
+    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Ace Die<br></div>
+    <div class="sheet-col-1-13 sheet-right">
+      <select name="attr_aceDie">
+        <option value="d0" selected="selected">--</option>
+        <option value="d3">d3</option>
+        <option value="d4">d4</option>
+        <option value="d5">d5</option>
+        <option value="d6">d6</option>
+        <option value="d7">d7</option>
+        <option value="d8">d8</option>
+        <option value="d10">d10</option>
+        <option value="d12">d12</option>
+        <option value="d14">d14</option>
+        <option value="d16">d16</option>
+      </select>
+    </div>
+
+    <div class="sheet-col-1-6 sheet-padl">
+      <button type="roll" class="sheet-roll" name="roll_aceDie"
+      value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Ace Die}} {{flavortext=Add this bonus to vehicle-related checks.}} {{rolltype=Ace Die : }} {{luckdie=[[@{aceDie} [Die Roll] ]] }}">Ace Die</button>
+    </div>
+  </div>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+<% end %>
+
+<%= shown_when_option_set(:has_mojo_die) do %>
+  <div class="sheet-row">
+    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Mojo Die<br></div>
+    <div class="sheet-col-1-13 sheet-right">
+      <select name="attr_mojoDie">
+        <option value="d0" selected="selected">--</option>
+        <option value="d2">d2</option>
+        <option value="d3">d3</option>
+        <option value="d4">d4</option>
+        <option value="d5">d5</option>
+        <option value="d6">d6</option>
+        <option value="d7">d7</option>
+        <option value="d8">d8</option>
+      </select>
+    </div>
+
+    <div class="sheet-col-1-6 sheet-padl">
+      <button type="roll" class="sheet-roll" name="roll_mojoDie"
+      value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Mojo Die}} {{flavortext=Add this Mojo bonus to any roll.}} {{rolltype=Mojo Die : }} {{luckdie=[[ ?{How many points of luck spent|1}@{mojoDie} [Die Roll] ]] }}">Mojo Die</button>
+    </div>
+  </div>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+<% end %>

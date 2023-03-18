@@ -1,0 +1,78 @@
+<%= shown_when_option_set(:has_bardic_luck) do %>
+  <div class="sheet-row">
+    <div class="sheet-col-1-5 sheet-right sheet-hd-row sheet-vert-middle">Starting Luck Bonus : </div>
+    <div class="sheet-col-2-11 sheet-checkbox-row sheet-vert-middle" title="Check the box if you want the Bonus to Bardic Talent Checks"><input type="checkbox" value="[[@{luckStartingMod}]]" name="attr_bardLuckTalent"><b> Bardic Talent Checks</b></div>
+    <div class="sheet-col-1-24 sheet-center sheet-vert-middle">OR</div>
+    <div class="sheet-col-2-15 sheet-checkbox-row sheet-vert-middle" title="Check the box if you want the Bonus to Lore Rolls"><input type="checkbox" value="[[@{luckStartingMod}]]" name="attr_bardLuckLore"><b> Lore Checks</b></div>
+  </div>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+<% end %>
+
+<%= shown_when_any_option_set(:can_use_call_to_arms, :can_use_challenge, :can_use_calm, :can_use_lore) do %>
+  <div class="sheet-row">
+    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Talent Die<br></div>
+    <div class="sheet-col-1-10 sheet-right">
+      <select name="attr_TalentDie">
+        <option value="d0" selected="selected">--</option>
+        <option value="d14">d14</option>
+        <option value="d16">d16</option>
+        <option value="d20">d20</option>
+        <option value="d24">d24</option>
+        <option value="d30">d30</option>
+        <option value="d30+1">d30+1</option>
+        <option value="d30+2">d30+2</option>
+        <option value="d30+3">d30+3</option>
+      </select>
+    </div>
+  </div>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+<% end %>
+
+<%= shown_when_option_set(:can_use_call_to_arms) do %>
+  <div class="sheet-row">
+    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Call to Arms<br></div>
+    <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_callToArmsCheckMisc" value="0"><br>Misc Bonus</div>
+    <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Bonus is Luck Talent (if chosen) + Personality Mod + Skill Checks Lucky Roll + Misc Bonus (if any)"><input class="sheet-underlined sheet-center" type="number" name="attr_bardCallToArmsCheck" value="[[ ( [[@{bardLuckTalent}]] + [[@{perMod}]] + [[@{skillChecksLuckyRoll}]] + [[@{calltoArmsCheckMisc}]]) ]]" disabled="disabled"><br>Total Bonus</div>
+    <div class="sheet-col-1-8 sheet-padl">
+      <button type="roll" class="sheet-roll" name="roll_BardCalltoArms"
+      value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Call to Arms}} {{flavortext=Through oration or song, you can inspire your audience to greater deeds and supplant fears.}} {{rolltype=Talent Check : }} {{classability=[[ @{TalentDie} [Dice Roll] + @{bardCalltoArmsCheck} [Bonus] ]]  }}">Call to Arms</button>
+    </div>
+  </div>
+<% end %>
+
+<%= shown_when_option_set(:can_use_challenge) do %>
+  <div class="sheet-row">
+    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Challenge<br></div>
+    <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_challengeCheckMisc" value="0"><br>Misc Bonus</div>
+    <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Bonus is Luck Talent (if chosen) + Personality Mod + Skill Checks Lucky Roll + Misc Bonus (if any)"><input class="sheet-underlined sheet-center" type="number" name="attr_bardChallengeCheck" value="[[([[@{bardLuckTalent}]] + [[@{perMod}]] + [[@{skillChecksLuckyRoll}]] + [[@{challengeCheckMisc}]] )]]" disabled="disabled"><br>Total Bonus</div>
+    <div class="sheet-col-1-8 sheet-padl">
+      <button type="roll" class="sheet-roll" name="roll_BardChallenge"
+      value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Challenge}} {{flavortext=Through act, song, oration, or instrument, you are able to lead or control your target’s rage and attacks.}} {{rolltype=Talent Check : }} {{classability=[[ @{TalentDie} [Dice Roll] + @{bardChallengeCheck} [Bonus] ]]  }}">Challenge</button>
+    </div>
+  </div>
+<% end %>
+
+<%= shown_when_option_set(:can_use_calm) do %>
+  <div class="sheet-row">
+    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Calm<br></div>
+    <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_calmCheckMisc" value="0"><br>Misc Bonus</div>
+    <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Bonus is Luck Talent (if chosen) + Personality Mod + Skill Checks Lucky Roll + Misc Bonus (if any)"><input class="sheet-underlined sheet-center" type="number" name="attr_bardCalmCheck" value="[[([[@{bardLuckTalent}]] + [[@{perMod}]] + [[@{skillChecksLuckyRoll}]] + [[@{calmCheckMisc}]]) ]]" disabled="disabled"><br>Total Bonus</div>
+    <div class="sheet-col-1-8 sheet-padl">
+      <button type="roll" class="sheet-roll" name="roll_BardCalm"
+      value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Calm}} {{flavortext=Whether performed by act, song, oration, or instrument, you can change the emotions of your targets.}} {{rolltype=Talent Check : }} {{classability=[[ @{TalentDie} [Dice Roll] + @{bardCalmCheck} [Bonus] ]]  }}">Calm</button>
+    </div>
+  </div>
+<% end %>
+
+<%= shown_when_option_set(:can_use_lore) do %>
+  <div class="sheet-row">
+    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Lore<br></div>
+    <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_loreCheckMisc" value="0"><br>Misc Bonus</div>
+    <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Bonus is Luck Lore (if chosen) + Intelligence Mod + Skill Checks Lucky Roll + Misc Bonus (if any)"><input class="sheet-underlined sheet-center" type="number" name="attr_bardLoreCheck" value="[[([[@{bardLuckLore}]] + [[@{intMod}]] + [[@{skillChecksLuckyRoll}]] + [[@{loreCheckMisc}]] )]]" disabled="disabled"><br>Total Bonus</div>
+    <div class="sheet-col-1-8 sheet-padl">
+      <button type="roll" class="sheet-roll" name="roll_BardLore"
+      value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Lore}} {{flavortext=Do you know?}} {{rolltype=Lore Check : }} {{classability=[[ @{TalentDie} [Dice Roll] + @{bardLoreCheck} [Bonus] ]]  }}">Lore</button>
+    </div>
+  </div>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+<% end %>

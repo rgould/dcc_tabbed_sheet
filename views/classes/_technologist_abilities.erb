@@ -1,0 +1,193 @@
+<input type="hidden" name="attr_juryRigFailureDie" value="d16">
+
+<%= shown_when_option_set(:can_tinker_with_weapons) do %>
+  <div class="sheet-row">
+    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Weapon Tinkering<br></div>
+    <div class="sheet-col-1-13 sheet-right">
+      <select name="attr_weaponTinkerBonus">
+        <option value="0" selected="selected">+0</option>
+        <option value="1">+1</option>
+        <option value="2">+2</option>
+        <option value="3">+3</option>
+        <option value="4">+4</option>
+        <option value="5">+5</option>
+        <option value="6">+6</option>
+        <option value="7">+7</option>
+        <option value="8">+8</option>
+        <option value="9">+9</option>
+        <option value="10">+10</option>
+        <option value="11">+11</option>
+        <option value="12">+12</option>
+        <option value="13">+13</option>
+        <option value="14">+14</option>
+        <option value="15">+15</option>
+      </select>
+    </div>
+
+    <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_weaponTinkerCheckMisc" value="0"><br>Misc Bonus</div>
+    <div class="sheet-col-1-14 sheet-small-label sheet-center" title="Adds Lucky Roll + Bonus"><input class="sheet-underlined sheet-center" type="number" name="attr_weaponTinkerCheck" value="[[ @{weaponTinkerBonus} + @{skillChecksLuckyRoll} + @{weaponTinkerCheckMisc}]]" disabled="disabled">Total Bonus</div>
+    <div class="sheet-col-1-6 sheet-padl">
+      <button type="roll" class="sheet-roll" name="roll_weaponTinker"
+      value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Weapon Tinkering}} {{flavortext=Attempts to repair (or build) a weapon}} {{rolltype=Skill Check : DC}} {{juryrig=[[ @{ActionDie} [Action Die] + @{weaponTinkerCheck} [Bonus] ]]  }} {{rolltype2=If DC not made, Failure :}} {{juryrigfailure=[[ @{juryRigFailureDie} + [[@{luckMod}]] [Luck mod] ]]  }}">Weapon Tinkering</button>
+    </div>
+  </div>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+<% end %>
+
+<%= shown_when_option_set(:can_repair_bots) do %>
+  <div class="sheet-row">
+    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Bot Repair<br></div>
+    <div class="sheet-col-1-13 sheet-right">
+      <select name="attr_botRepairBonus">
+        <option value="0" selected="selected">+0</option>
+        <option value="1">+1</option>
+        <option value="2">+2</option>
+        <option value="3">+3</option>
+        <option value="4">+4</option>
+        <option value="5">+5</option>
+        <option value="6">+6</option>
+        <option value="7">+7</option>
+        <option value="8">+8</option>
+        <option value="9">+9</option>
+        <option value="10">+10</option>
+        <option value="11">+11</option>
+        <option value="12">+12</option>
+        <option value="13">+13</option>
+      </select>
+    </div>
+
+    <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_botRepairCheckMisc" value="0"><br>Misc Bonus</div>
+    <div class="sheet-col-1-14 sheet-small-label sheet-center" title="Adds Lucky Roll + Bonus"><input class="sheet-underlined sheet-center" type="number" name="attr_botRepairCheck" value="[[ @{botRepairBonus} + @{skillChecksLuckyRoll} + @{botRepairCheckMisc}]]" disabled="disabled">Total Bonus</div>
+    <div class="sheet-col-1-6 sheet-padl">
+      <button type="roll" class="sheet-roll" name="roll_botRepair"
+      value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Bot Repair}} {{flavortext=Attempts to fix (or reprogram) a robot}} {{rolltype=Skill Check : DC}} {{juryrig=[[ @{ActionDie} [Action Die] + @{botRepairCheck} [Bonus] ]]  }} {{rolltype2=If DC not made, Failure :}} {{juryrigfailure=[[ @{juryRigFailureDie} + [[@{luckMod}]] [Luck mod] ]]  }}">Bot Repair</button>
+    </div>
+  </div>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+<% end %>
+
+<%= shown_when_option_set(:can_use_computers) do %>
+  <div class="sheet-row">
+    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Computer Use<br></div>
+    <div class="sheet-col-1-13 sheet-right">
+      <select name="attr_computerUseBonus">
+        <option value="0" selected="selected">+0</option>
+        <option value="1">+1</option>
+        <option value="2">+2</option>
+        <option value="3">+3</option>
+        <option value="4">+4</option>
+        <option value="5">+5</option>
+        <option value="6">+6</option>
+        <option value="7">+7</option>
+        <option value="8">+8</option>
+        <option value="9">+9</option>
+        <option value="10">+10</option>
+        <option value="11">+11</option>
+        <option value="12">+12</option>
+        <option value="13">+13</option>
+      </select>
+    </div>
+
+    <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_computerUseCheckMisc" value="0"><br>Misc Bonus</div>
+    <div class="sheet-col-1-14 sheet-small-label sheet-center" title="Adds Lucky Roll + Bonus"><input class="sheet-underlined sheet-center" type="number" name="attr_computerUseCheck" value="[[ @{computerUseBonus} + @{skillChecksLuckyRoll} + @{computerUseCheckMisc}]]" disabled="disabled">Total Bonus</div>
+    <div class="sheet-col-1-6 sheet-padl">
+      <button type="roll" class="sheet-roll" name="roll_computerUse"
+      value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Computer Use}} {{flavortext=Tries to interact with a computer}} {{rolltype=Skill Check : DC}} {{juryrig=[[ @{ActionDie} [Action Die] + @{computerUseCheck} [Bonus] ]]  }} {{rolltype2=If DC not made, Failure :}} {{juryrigfailure=[[ @{juryRigFailureDie} + [[@{luckMod}]] [Luck mod] ]]  }}">Computer Use</button>
+    </div>
+  </div>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+<% end %>
+
+<%= shown_when_option_set(:can_repair_vehicles) do %>
+  <div class="sheet-row">
+    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Vehicle Repair<br></div>
+    <div class="sheet-col-1-13 sheet-right">
+      <select name="attr_vehicleRepairBonus">
+        <option value="0" selected="selected">+0</option>
+        <option value="1">+1</option>
+        <option value="2">+2</option>
+        <option value="3">+3</option>
+        <option value="4">+4</option>
+        <option value="5">+5</option>
+        <option value="6">+6</option>
+        <option value="7">+7</option>
+        <option value="8">+8</option>
+        <option value="9">+9</option>
+        <option value="10">+10</option>
+        <option value="11">+11</option>
+        <option value="12">+12</option>
+        <option value="13">+13</option>
+        <option value="14">+14</option>
+        <option value="15">+15</option>
+      </select>
+    </div>
+
+    <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_vehicleRepairCheckMisc" value="0"><br>Misc Bonus</div>
+    <div class="sheet-col-1-14 sheet-small-label sheet-center" title="Adds Lucky Roll + Bonus"><input class="sheet-underlined sheet-center" type="number" name="attr_vehicleRepairCheck" value="[[ @{vehicleRepairBonus} + @{skillChecksLuckyRoll} + @{vehicleRepairCheckMisc}]]" disabled="disabled">Total Bonus</div>
+    <div class="sheet-col-1-6 sheet-padl">
+      <button type="roll" class="sheet-roll" name="roll_vehicleRepair"
+      value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Vehicle Repair}} {{flavortext=Goes under the hood of the vehicle}} {{rolltype=Skill Check : DC}} {{juryrig=[[ @{ActionDie} [Action Die] + @{vehicleRepairCheck} [Bonus] ]]  }} {{rolltype2=If DC not made, Failure :}} {{juryrigfailure=[[ @{juryRigFailureDie} + [[@{luckMod}]] [Luck mod] ]]  }}">Vehicle Repair</button>
+    </div>
+  </div>
+
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+<% end %>
+
+<%= shown_when_option_set(:can_use_general_tech) do %>
+  <div class="sheet-row">
+    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">General Tech<br></div>
+    <div class="sheet-col-1-13 sheet-right">
+      <select name="attr_generalTechBonus">
+        <option value="0" selected="selected">+0</option>
+        <option value="1">+1</option>
+        <option value="2">+2</option>
+        <option value="3">+3</option>
+        <option value="4">+4</option>
+        <option value="5">+5</option>
+        <option value="6">+6</option>
+        <option value="7">+7</option>
+        <option value="8">+8</option>
+        <option value="9">+9</option>
+        <option value="10">+10</option>
+        <option value="11">+11</option>
+        <option value="12">+12</option>
+        <option value="13">+13</option>
+        <option value="14">+14</option>
+        <option value="15">+15</option>
+      </select>
+    </div>
+
+    <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_generalTechCheckMisc" value="0"><br>Misc Bonus</div>
+    <div class="sheet-col-1-14 sheet-small-label sheet-center" title="Adds Lucky Roll + Bonus"><input class="sheet-underlined sheet-center" type="number" name="attr_generalTechCheck" value="[[ @{generalTechBonus} + @{skillChecksLuckyRoll} + @{generalTechCheckMisc}]]" disabled="disabled">Total Bonus</div>
+    <div class="sheet-col-1-6 sheet-padl">
+      <button type="roll" class="sheet-roll" name="roll_generalTech"
+      value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=General Tech}} {{flavortext=Tries working with the thingamabob or doohickey}} {{rolltype=Skill Check : DC}} {{juryrig=[[ @{ActionDie} [Action Die] + @{generalTechCheck} [Bonus] ]]  }} {{rolltype2=If DC not made, Failure :}} {{juryrigfailure=[[ @{juryRigFailureDie} + [[@{luckMod}]] [Luck mod] ]]  }}">General Tech</button>
+    </div>
+  </div>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+<% end %>
+
+<%= shown_when_option_set(:can_use_alien_tech) do %>
+  <div class="sheet-row">
+    <div class="sheet-col-1-5 sheet-right sheet-padr sheet-hd-row">Use Alien Tech<br></div>
+    <div class="sheet-col-1-13 sheet-right">
+      <select name="attr_alienTechDie">
+        <option value="d0" selected="selected">--</option>
+        <option value="d10">d10</option>
+        <option value="d12">d12</option>
+        <option value="d14">d14</option>
+        <option value="d16">d16</option>
+        <option value="d20">d20</option>
+        <option value="d24">d24</option>
+      </select>
+    </div>
+
+    <div class="sheet-col-1-14 sheet-small-label sheet-center" Title="Add Misc bonus here"><input class="sheet-underlined" type="number" name="attr_alienTechCheckMisc" value="0"><br>Misc Bonus</div>
+    <div class="sheet-col-1-14 sheet-small-label sheet-center" title="Adds INT mod, Lucky Roll"><input class="sheet-underlined sheet-center" input type="number" name="attr_alienTechCheck" value="[[[[@{Level}]] + @{skillChecksLuckyRoll} + @{alienTechCheckMisc}]]" disabled="disabled">Total Bonus</div>
+    <div class="sheet-col-1-6 sheet-padl">
+      <button type="roll" class="sheet-roll" name="roll_alienTechDie"
+      value="&{template:DccTabbed} {{background=[[5]]}} {{class=1}} {{name=@{character_name}}} {{title=Use Alien Tech}} {{flavortext=Tries to figure out how this Alien Technology works}} {{rolltype=Skill Check : DC}} {{classability=[[ @{slienTechDie} [Tech Die] + @{slienTechCheck} [Bonus] + [[@{luckMod}]] [Luck mod] ]]  }}">Use Alien Tech</button>
+    </div>
+  </div>
+  <div class="sheet-col-1-1 sheet-center">&nbsp;</div>
+<% end %>

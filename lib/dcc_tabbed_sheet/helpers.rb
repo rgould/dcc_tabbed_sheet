@@ -64,6 +64,20 @@ module DccTabbedSheet
       end.html_safe
     end
 
+    def shown_when_any_option_set(*option_names, classes:"", &block)
+      if block_given?
+        subcontent = capture(&block).html_safe
+        hidden_tags = option_names.map{|option_name| hidden_field_tag("attr_options_#{option_name}")}
+        subcontent = tag.div(
+          subcontent,
+          class: [option_names.map{|option_name| option_class_name(option_name)}, classes].join(" ")
+        )
+        [hidden_tags, subcontent].join("\n")
+      else
+        raise "UNSUPPORTED, BLOCK REQUIRED"
+      end.html_safe
+    end
+
     def hidden_when_option_set(option_name, classes:"", &block)
       subcontent = capture(&block).html_safe
       [
