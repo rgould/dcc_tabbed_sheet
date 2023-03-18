@@ -1,6 +1,6 @@
 <div class="sheet-section-class">
   <div class="sheet-col-1-1 sheet-left sheet-class-label">Ability Selection</div>
-  <p class="sheet-col-1-1">You may pick and choose abilities from the various classes below. Selecting the class itself enables all abilities associated with that class. This is a new experimental feature, and not all combinations of abilities may work. Please reach out if you find an issue or have feedback!</p>
+  <p class="sheet-col-1-1"><%= new_tag "You can now pick and choose abilities from across classes!" %>You may pick and choose abilities from the various classes below. Selecting the class itself enables all abilities associated with that class. This is a new experimental feature, and not all combinations of abilities may work. Please reach out if you find an issue or have feedback!</p>
   <div class="sheet-ability-selection">
     <% { core: DccData::Classes::CORE_CLASSES, supplemental: DccData::Classes::SUPPLEMENTAL_CLASSES, crawl: DccData::Classes::CRAWL_CLASSES, umerica: DccData::Classes::CUABM_CLASSES }.each do |class_source, classes| %>
       <div class="sheet-ability-selection-category-<%= class_source %>">
