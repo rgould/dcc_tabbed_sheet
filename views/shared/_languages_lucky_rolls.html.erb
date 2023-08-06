@@ -41,9 +41,6 @@
         col1, col2 = luck_score_data.each_slice(15).to_a
         col1.zip(col2).flatten.each do |entry|
       %>
-        <div class="sheet-width-45 sheet-left sheet-vert-middle">
-          <b><%= "#{"%02d" % entry.number} #{entry.birth_augur} (#{entry.lucky_roll})" %></b>
-        </div>
         <div class="sheet-width-5 sheet-left sheet-padr sheet-checkbox-row sheet-vert-middle" title="Check the box if you have the Lucky Roll for <%= entry.lucky_roll %>">
           <% if entry.attr %>
             <input type="checkbox" value="[[@{<%= context.attr_ref 'luckStartingMod' %>}]]" name="<%= context.attr entry.attr %>">
@@ -53,6 +50,9 @@
           <% elsif entry.note %>
             <span class="sheet-new-feature" title="<%= entry.note %>">ℹ️</span>
           <% end %>
+        </div>
+        <div class="sheet-width-45 sheet-left sheet-vert-middle">
+          <b><%= "#{"%02d" % entry.number} #{entry.birth_augur} (#{entry.lucky_roll})" %></b>
         </div>
       <% end %>
 
