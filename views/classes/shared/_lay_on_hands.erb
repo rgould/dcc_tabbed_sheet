@@ -6,7 +6,7 @@
   <input class="sheet-underlined" type="number" name="attr_layOnHandsCheck" value="[[([[@{perMod}]] + @{layOnHandsLevel}) + @{LayOnHandsCheckMisc} + @{layOnHandsLuckyRoll}]]" disabled="disabled" title="Bonus is Personality Mod + Caster Level + Lay On Hands Lucky Roll">
   <div class="sheet-cleric-total-bonus-label sheet-small-label">Total Bonus</div>
   <button type="roll" class="sheet-roll" name="roll_LayOnHands"
-          value="&{template:DccTabbed} {{background=[[4]]}} {{class=1}} {{name=@{character_name}}} {{title=Lay on Hands}} {{flavortext=Healing in the name of}} {{rolltype=Heal Check : }} {{deity=@{ClericDeity} }}  {{layonhands=[[ @{ActionDie}cf<@{disapproval} [Dice Roll] + @{layOnHandsCheck} [Bonus] ]]  }} {{condition=?{If healing a condition, enter condition name|None} }} {{reminders=@{LayOnHandsNotes}}}">
+          value="&{template:DccTabbed} {{background=[[4]]}} {{class=1}} {{name=@{character_name}}} {{title=Lay on Hands}} {{flavortext=Healing in the name of}} {{rolltype=Heal Check : }} {{deity=@{ClericDeity} }}  {{layonhands=[[ @{ActionDie}cf<@{disapproval} [Dice Roll] + @{layOnHandsCheck} [Bonus] ]]  }} {{condition=?{If healing a condition, enter condition name|None} }} {{reminders=@{LayOnHandsNotes}}} {{layOnHandsLuckyRoll=@{layOnHandsLuckyRoll}}}">
     Lay On Hands
   </button>
   <div class="sheet-cleric-notes sheet-textarea-wrapper">

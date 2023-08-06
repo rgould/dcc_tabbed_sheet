@@ -600,6 +600,13 @@
                           <div class="sheet-col-23-24 sheet-padl sheet-padr sheet-RollTemp-success">Heal Opposite Alignment: 3 dice</div>
                       </div>
                   {{/rollGreater() layonhands 21}}
+                  {{#rollGreater() layonhands 11}}
+                    {{#^rollTotal() layOnHandsLuckyRoll 0}}
+                      <div class="sheet-col-23-24 sheet-padl sheet-padr sheet-RollTemp-info">
+                        Survived the plague! Modify healing results by {{layOnHandsLuckyRoll}}
+                      </div>
+                    {{/^rollTotal() layOnHandsLuckyRoll 0}}
+                  {{/rollGreater() layonhands 11}}
                 {{/^rollWasFumble() layonhands}}
             {{/layonhands}}
 
@@ -674,6 +681,13 @@
                           <div class="sheet-col-23-24 sheet-padl sheet-padr sheet-RollTemp-success">Heal Opposite Alignment: 2 dice</div>
                       </div>
                   {{/rollGreater() layonhandspaly 24}}
+                  {{#rollGreater() layonhandspaly 11}}
+                    {{#^rollTotal() layOnHandsLuckyRoll 0}}
+                      <div class="sheet-col-23-24 sheet-padl sheet-padr sheet-RollTemp-info">
+                        Survived the plague! Modify healing results by {{layOnHandsLuckyRoll}}
+                      </div>
+                    {{/^rollTotal() layOnHandsLuckyRoll 0}}
+                  {{/rollGreater() layonhandspaly 11}}
                 {{/^rollWasFumble() layonhandspaly}}
             {{/layonhandspaly}}
 
@@ -1394,6 +1408,13 @@
 
     {{/mutations}}
 
+        {{#^rollTotal() magicalhealingreminder 0}}
+          <div class="sheet-row">
+            <div class="sheet-col-12-13 sheet-RollTemp-infoNB">
+              If the above healing was magical, modify by {{magicalhealingreminder}}
+            </div>
+          </div>
+        {{/^rollTotal() magicalhealingreminder 0}}
 
         {{#reminders}}
           <div class="sheet-row">
