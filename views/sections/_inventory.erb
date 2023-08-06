@@ -21,24 +21,26 @@
       </div>
     <% end %>
 
-    <%= shown_when_option_set("lankhmar_currency") do %>
-      <div class="sheet-currency-lankhmar-subgrid">
-        <div class="sheet-small-label sheet-sub-header-left">Iron Tik (i.t.)</div>
-        <div class="sheet-small-label sheet-sub-header-middle">Bronze Agol (b.a.)</div>
-        <div class="sheet-small-label sheet-sub-header-middle">Copper Penny (c.p.)</div>
-        <div class="sheet-small-label sheet-sub-header-middle">Silver Smerduk (s.s.)</div>
-        <div class="sheet-small-label sheet-sub-header-middle">Gold Rilk (g.r.)</div>
-        <div class="sheet-small-label sheet-sub-header-middle">Diamond-In-Amber-Glulditch (d.g.)</div>
-        <div class="sheet-small-label sheet-sub-header-right">Total (g.r.)</div>
+    <% if feature_lankhmar? %>
+      <%= shown_when_option_set("lankhmar_currency") do %>
+        <div class="sheet-currency-lankhmar-subgrid">
+          <div class="sheet-small-label sheet-sub-header-left">Iron Tik (i.t.)</div>
+          <div class="sheet-small-label sheet-sub-header-middle">Bronze Agol (b.a.)</div>
+          <div class="sheet-small-label sheet-sub-header-middle">Copper Penny (c.p.)</div>
+          <div class="sheet-small-label sheet-sub-header-middle">Silver Smerduk (s.s.)</div>
+          <div class="sheet-small-label sheet-sub-header-middle">Gold Rilk (g.r.)</div>
+          <div class="sheet-small-label sheet-sub-header-middle">Diamond-In-Amber-Glulditch (d.g.)</div>
+          <div class="sheet-small-label sheet-sub-header-right">Total (g.r.)</div>
 
-        <input type="number" name="attr_currency_lankhmar_it" value="0" min="0" step="1" title="Iron Tik (i.t.) 1000 = 1 g.r.">
-        <input type="number" name="attr_currency_lankhmar_ba" value="0" min="0" step="1" title="Bronze Agol (b.a.) 500 = 1 g.r.">
-        <input type="number" name="attr_CP" value="0" min="0" step="1" title="Copper Penny (c.p.) 100 = 1 g.r.">
-        <input type="number" name="attr_SP" value="0" min="0" step="1" title="Silver Smerduk (s.s.) 10 = 1 g.r.">
-        <input type="number" name="attr_GP" value="0" min="0" step="1" title="Gold Rilk (g.r.)">
-        <input type="number" name="attr_PP" value="0" min="0" step="1" title="Diamond-In-Amber Glulditch (d.g.) 1/100 = 1 g.r.">
-        <input class="sheet-center" type="number" name="attr_moneyTotalGp" value="(@{currency_lankhmar_it} / 1000) + (@{currency_lankhmar_ba} / 500) + (@{CP} / 100) + (@{SP} / 10) + @{GP} + (@{EP} * 10) + (@{PP} * 100) " disabled="disabled" title="Total (in Gold Rilks)">
-      </div>
+          <input type="number" name="attr_currency_lankhmar_it" value="0" min="0" step="1" title="Iron Tik (i.t.) 1000 = 1 g.r.">
+          <input type="number" name="attr_currency_lankhmar_ba" value="0" min="0" step="1" title="Bronze Agol (b.a.) 500 = 1 g.r.">
+          <input type="number" name="attr_CP" value="0" min="0" step="1" title="Copper Penny (c.p.) 100 = 1 g.r.">
+          <input type="number" name="attr_SP" value="0" min="0" step="1" title="Silver Smerduk (s.s.) 10 = 1 g.r.">
+          <input type="number" name="attr_GP" value="0" min="0" step="1" title="Gold Rilk (g.r.)">
+          <input type="number" name="attr_PP" value="0" min="0" step="1" title="Diamond-In-Amber Glulditch (d.g.) 1/100 = 1 g.r.">
+          <input class="sheet-center" type="number" name="attr_moneyTotalGp" value="(@{currency_lankhmar_it} / 1000) + (@{currency_lankhmar_ba} / 500) + (@{CP} / 100) + (@{SP} / 10) + @{GP} + (@{EP} * 10) + (@{PP} * 100) " disabled="disabled" title="Total (in Gold Rilks)">
+        </div>
+      <% end %>
     <% end %>
 
   </div>
