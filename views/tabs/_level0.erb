@@ -72,7 +72,7 @@
 
                 <div class="sheet-col-1-19 sheet-center">&nbsp;</div>
 
-                <div class="sheet-col-6-19 sheet-center"><button type='roll' class="sheet-initiative" value="&{template:DccTabbed} {{name=@{character_name}}} {{title=Hit Die}} {{flavortext=0-Level character gains 1@{hpDieZero} to start.}} {{rolltype=Starting HP : }} {{HD=[[ @{hpDieZero} [Die Roll] + [[@{staMod}]] [STA Mod] + [[@{hpLuckyRoll}]] [Lucky Roll] ]]}}" name="roll_hpZeroStart" title="Roll for starting Hitpoints.  Make sure you already have your ability scores rolled and entered.">Starting Hit Points</button></div>
+                <div class="sheet-col-6-19 sheet-center"><button type='roll' class="sheet-initiative" value="&{template:DccTabbed} {{name=@{character_name}}} {{title=Hit Die}} {{flavortext=0-Level character gains 1@{hpDieZero} to start.}} {{rolltype=Starting HP : }} {{HD=[[ {@{hpDieZero} [Die Roll] + [[@{staMod}]] [STA Mod] + [[@{hpLuckyRoll}]] [Lucky Roll],0d1+1}kh1 [min 1hp] ]]}}" name="roll_hpZeroStart" title="Roll for starting Hitpoints.  Make sure you already have your ability scores rolled and entered.">Starting Hit Points</button></div>
 
                                 <div class="sheet-col-1-19 sheet-center">&nbsp;</div>
 

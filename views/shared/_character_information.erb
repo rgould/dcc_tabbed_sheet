@@ -44,7 +44,7 @@
     </select>
     <div class="sheet-left sheet-small-label sheet-hitdie-label">Hit Point Die</div>
 
-    <button type='roll' class="sheet-initiative sheet-level-hp" title="Use this button to roll for your Hit Points when your character levels." value="&{template:DccTabbed} {{name=@{character_name}}} {{title=Hit Die}} {{flavortext=@{ClassName} gains @{HPDie} hit points at each level.}} {{rolltype=HP Gained : }} {{HD=[[ (?{Amount of Hit Dice for your class|1})@{HPDie} [Die Roll] + [[@{staMod}]] [STA Mod] + [[@{HPLuckyRoll}]] [Lucky Roll] ]]}}" name='HP' title="Roll for new Hit Dice">
+    <button type='roll' class="sheet-initiative sheet-level-hp" title="Use this button to roll for your Hit Points when your character levels." value="&{template:DccTabbed} {{name=@{character_name}}} {{title=Hit Die}} {{flavortext=@{ClassName} gains @{HPDie} hit points at each level.}} {{rolltype=HP Gained : }} {{HD=[[ {1@{HPDie} [Die Roll] + [[@{staMod}]] [STA Mod] + [[@{HPLuckyRoll}]] [Lucky Roll],0d1+1 [min 1hp]}kh1 ]]}}" name='HP' title="Roll for new Hit Dice">
       Leveling Hit Points
     </button>
 
